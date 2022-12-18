@@ -20,7 +20,9 @@ use DB;
 
 class PostController extends Controller
 {
+
     public function index($sec){
+
         $section = Section::where('id', $sec)->with('translations')->first();
 
         if (isset($section->type) && $section->type['type'] === 1) {
@@ -64,6 +66,7 @@ class PostController extends Controller
 
     public function edit($id){
         // dd('sd');
+
         $post = Post::where('id', $id)->with(['translations', 'files'])->first();
         $sections = PostSections::where('post_id', $post->id)->get()->pluck('section_id')->toArray();
         $section = Section::where('id', $post->section_id)->with('translations')->first();
