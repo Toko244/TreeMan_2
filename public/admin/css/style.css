@@ -1,0 +1,41 @@
+.hidden-video-card{
+	display: none;
+}
+.video-card{
+	display: flex;
+    margin-bottom: 20px;
+}
+.emailers-form input{
+    width: 100%;
+    display: block;
+    height: 40px;
+    border: none;
+    box-shadow: 1px 1px 5px -1px #6c757d;
+    margin-bottom: 14px;
+	padding-left: 20px;
+}
+.emailers-form input:focus-visible{
+	outline: none;
+}
+.emailers-form textarea:focus-visible{
+	outline: none;
+
+}
+.emailers-form button{
+	float: right;
+	border: none;
+}
+.emailers-form textarea{
+    width: 100%;
+	padding-top: 15px;
+	padding-left: 20px;
+	min-height: 200px;
+    display: block;
+    border: none;
+    box-shadow: 1px 1px 5px -1px #6c757d;
+    margin-bottom: 14px;
+}
+.card-box .header-title{
+    height: 37px;
+    overflow: hidden;
+}
