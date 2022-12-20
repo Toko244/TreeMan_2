@@ -31,4 +31,3 @@ jobs:
           status: ${{job.status}}
           steps: ${{toJson(steps)}}
           channel: '#tree-man'
-        if: allways()
