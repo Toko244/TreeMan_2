@@ -27,7 +27,7 @@ use \UniSharp\LaravelFilemanager\Lfm;
 |--------------------------------------------------------------------------
 | Auth Routes
 |--------------------------------------------------------------------------
-*/ 
+*/
 Route::get('/register', function() {
 	return redirect('/login');
 });
@@ -73,10 +73,6 @@ Route::middleware(['auth.check'])->group(function () {
         Route::get('/admin/banners/{banner}/edit', [BannerController::class, 'edit'] )->name('banner.edit');
         Route::post('/admin/banners/{banner}/edit', [BannerController::class, 'update'] )->name('banner.update');
         Route::get('/admin/banners/{banner}/delete', [BannerController::class, 'destroy'] )->name('banner.destroy');
-
-
-
-
 
 
         // Admin\UploadFilesController
@@ -154,7 +150,7 @@ Route::middleware(['auth.check'])->group(function () {
 
         Route::get('/admin/submissions', [SubmissionController::class, 'index'] );
         Route::get('/admin/submission/{submission}', [SubmissionController::class, 'show'] );
-        Route::get('/admin/submission/destroy/{submission}', [SubmissionController::class, 'destroy'] ); 
+        Route::get('/admin/submission/destroy/{submission}', [SubmissionController::class, 'destroy'] );
 
         Route::get('/admin/subscribers', [EmailerController::class, 'subscribers']);
         Route::get('/admin/subscribers/delete/{id}', [EmailerController::class, 'deletesubsctiber']);
@@ -169,9 +165,16 @@ Route::middleware(['auth.check'])->group(function () {
     });
 
 
-}); 
+});
 
-Route::post('/submission', [PagesController::class, 'submission'])->name('submission'); 
+Route::post('/submission', [PagesController::class, 'submission'])->name('submission');
 Route::post('/search', [PagesController::class, 'search'])->name('search');
 Route::any('/', [PagesController::class, 'homePage']);
-Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*'); 
+
+
+Route::get('/home-page', function(){
+    return view('website.home');
+});
+
+
+Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');
