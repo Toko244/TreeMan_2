@@ -30,4 +30,4 @@ jobs:
         with:
           status: ${{job.status}}
           steps: ${{toJson(steps)}}
-          channel: '#tree-man'
+          channel: '#tree-man-development'
