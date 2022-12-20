@@ -111,11 +111,11 @@ class BannerController extends Controller
 
         $values['additional'] = getAdditional($values, array_diff(array_keys($type['fields']['nonTrans']), $bannerFillable) );
 
-        
 
-        foreach(locales() as $locale){ 
 
-            
+        foreach(locales() as $locale){
+
+
             if (isset($values[$locale]['files']) && $values[$locale]['files'] !== null) {
                 foreach ($values[$locale]['files'] as $key => $files) {
                     if (array_key_exists('same',$values[$locale]['files'][$key])) {
@@ -140,8 +140,8 @@ class BannerController extends Controller
                                 'name' => $files['desc'][$k]
                             ];
                         }
-    
-    
+
+
                 }
             }
 
