@@ -15,8 +15,7 @@ jobs:
           script: |
             cd www/TreeMan
             php artisan down
-            git checkout .
-            git pull origin main
+            git pull
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan optimize:clear
             php artisan migrate
