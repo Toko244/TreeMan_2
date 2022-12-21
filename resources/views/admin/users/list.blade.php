@@ -46,13 +46,8 @@
                             {{-- <td><a href="/{{ app()->getLocale() }}/admin/users/logs/{{ $user->id }}" type="button" class="btn btn-info waves-effect width-md waves-light">{{ trans('admin.show_logs') }}</a></td> --}}
                             <td><a href="/{{ app()->getLocale() }}/admin/users/edit/{{ $user->id }}" type="button" class="btn btn-info waves-effect width-md waves-light">{{ trans('admin.edit') }}</a></td>
                             <td>
-
                                 @if($user->id !=1)
-                                <form action="/ka/destroy/{{ $user->id }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" value="4" name="type_id">
-                                    <button type="submit"  onclick="return confirm(trans('admin.sure_to_delete_user'));" style="@if($user->id == auth()->user()->id) display:none @endif"  class=" btn btn-danger waves-effect width-md waves-light" id="buttondelete">{{ trans('admin.delete') }}</button>
-                                </form>
+                                <a href="/{{ app()->getLocale() }}/admin/users/destroy/{{ $user->id }}" onclick="return confirm(trans('admin.sure_to_delete_user'));" style="@if($user->id == auth()->user()->id) display:none @endif"  class=" btn btn-danger waves-effect width-md waves-light" id="buttondelete">{{ trans('admin.delete') }}</a>
                                 @endif
                             </tr>
                     @endforeach
