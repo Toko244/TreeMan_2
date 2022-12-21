@@ -13,15 +13,6 @@ return [
             'translateble' => true,
 
         ],
-        'slug' => [
-            'type' => 'text',
-            'reqired' => 'required',
-            'max' => '50',
-            'min' => '3',
-            'name' => 'slug',
-            'translateble' => true,
-
-        ],
         'parent' => [
             'type' => 'select',
             'reqired' => 'required',

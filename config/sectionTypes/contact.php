@@ -22,19 +22,16 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'active' => [
-                'type' => 'checkbox',
-            ],
             'text' => [
                 'type' => 'textarea',
+            ],
+            'active' => [
+                'type' => 'checkbox',
             ],
         ],
         'nonTrans' => [
             'email' => [
                 'type' => 'text',
-            ],
-            'date' => [
-                'type' => 'date',
             ],
         ],
     ]

@@ -1,1 +1,1 @@
-{{$searchText}}
+{{dd($posts)}}

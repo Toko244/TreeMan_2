@@ -59,5 +59,13 @@ class PostTranslation extends Model
         ];
     }
 
-
+    public function scopeFilter($query, $request)
+    {
+        return  $query = PostTranslation::query()
+        ->where('title', 'LIKE', "%{$request['search']}%")
+        ->orWhere('desc', 'LIKE', "%{$request['search']}%")
+        ->orWhere('text', 'LIKE', "%{$request['search']}%")
+        ->orWhere('keywords', 'LIKE', "%{$request['search']}%")
+        ->orWhere('locale_additional', 'LIKE', "%{$request['search']}%");
+    }
 }
