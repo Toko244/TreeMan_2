@@ -8,7 +8,6 @@ use App\Models\Section;
 use App\Models\MenuSection;
 use App\Models\Post;
 use App\Models\PostFile;
-use App\Models\PostSections;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PostTranslation;
 use App\Models\Slug;
@@ -68,12 +67,8 @@ class PostController extends Controller
         // dd('sd');
 
         $post = Post::where('id', $id)->with(['translations', 'files'])->first();
-        $sections = PostSections::where('post_id', $post->id)->get()->pluck('section_id')->toArray();
         $section = Section::where('id', $post->section_id)->with('translations')->first();
-
-        $related_posts = PostSections::where('section_id', $section->id)->whereHas('post')->get();
-        // dd($related_posts);
-        return view('admin.posts.edit', compact('section', 'post','related_posts', 'sections'));
+        return view('admin.posts.edit', compact('section', 'post'));
     }
 
 
@@ -256,7 +251,6 @@ class PostController extends Controller
                     );
                 }
             }else{
-                $values['sections'] = '';
                 $post = Post::create($values);
                 foreach(config('app.locales') as $locale){
                     $post->slugs()->create([
@@ -265,26 +259,6 @@ class PostController extends Controller
                     ]);
                 }
             }
-            if (isset(request()->all()['sections'])) {
-                // dd(request()->all()['sections']);
-                    PostSections::where('post_id', $post->id)->delete();
-                foreach (request()->all()['sections'] as $key => $secti) {
-                    // dd($values['sections']);
-                    // dd($old_data);
-                    $data['section_id'] = $secti;
-                    $data['post_id'] = $post->id;
-                    // dd($data);
-                    $oldrecord = PostSections::where('post_id', '=', $data['post_id'])->where('section_id', '=', $data['section_id'])->first();
-                    if(isset($oldrecord) && $oldrecord != null){
-                    }else{
-                    PostSections::create($data);
-                    }
-                }
-            }else{
-                // dd($post->id);
-                PostSections::where('post_id', $post->id)->delete();
-            }
-
             if (isset($values['files']) && count($values['files']) > 0) {
 
                 foreach($values['files'] as $key => $files){

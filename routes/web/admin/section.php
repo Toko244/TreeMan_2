@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SectionController;
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin']], function () {
-    Route::get('sections', [SectionController::class, 'index']);
+    Route::get('sections', [SectionController::class, 'index'])->name('section.list');
     Route::get('sections/create', [SectionController::class, 'create'] );
     Route::post('sections/create', [SectionController::class, 'store'] );
     Route::get('sections/edit/{id}', [SectionController::class, 'edit'] );
