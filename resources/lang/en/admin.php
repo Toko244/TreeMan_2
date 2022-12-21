@@ -115,9 +115,4 @@ return [
     'new_contact_form' => 'New Submission From Contact Page',
     'administrator_login' => 'Administrator Login',
     'login' => 'Login',
-
-
-    'facebook' => 'Facebook',
-    'linkedin' => 'Linkedin',
-    'youtube' => 'Youtube',
 ];

@@ -1,6 +1,6 @@
 <?php
 return [
-    'locale_en' => 'English',
+    'locale_en' => 'English', 
     'contact_us' => 'Contact Us',
     'about_us' => 'About Us',
     'dashboard' => 'Dashboard.',
@@ -121,11 +121,4 @@ return [
     'submission_sent' => 'შეტყობინება გაიგზავნა',
     'administrator_login' => 'ადმინისტრატორის ავტორიზაცია',
     'login' => 'შესვლა',
-
-
-
-
-    'facebook' => 'Facebook',
-    'linkedin' => 'Linkedin',
-    'youtube' => 'Youtube',
 ];
