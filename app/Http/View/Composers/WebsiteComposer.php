@@ -28,11 +28,18 @@ class WebsiteComposer
 				->where('parent_id', null)
         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
         ->get();
+        $this->contact_section = Section::where('id', settings('contact_page'))
+        ->with('translations', function ($q){
+            $q->where('active', true);
+        })
+        ->first();
     }
     public function compose(View $view)
     {
         $view->with([
+            // 'footer_sections' => $this->footer_sections,
 			'sections' => $this->sections,
+            'contact_section' => $this->contact_section,
 		]);
     }
 }
