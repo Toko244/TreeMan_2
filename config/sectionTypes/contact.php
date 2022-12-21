@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 1,
-    'type' => 3,
-    'folder' => 'constructor',
+    'id' => 5,
+    'type' => 1,
+    'folder' => 'contact',
     'fields' => [
         'trans' => [
             'title' => [
@@ -30,6 +30,9 @@ return [
             ],
         ],
         'nonTrans' => [
+            'email' => [
+                'type' => 'text',
+            ],
             'date' => [
                 'type' => 'date',
             ],

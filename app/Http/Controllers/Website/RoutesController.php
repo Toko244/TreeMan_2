@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 
 use App\Http\Controllers\Website\PagesController;
+use App\Http\Controllers\Website\ContactPageController;
 use Illuminate\Http\Request;
 use App\Models\Slug;
 
@@ -26,6 +27,9 @@ class RoutesController extends Controller
 						}
 					}
 				}
+            if ($model->type_id == 5) {
+                return ContactPageController::index($model, $locales);
+            }
 			if ($slug->slugable_type === "App\Models\Section") {
 				return PagesController::index($model, $locales);
 			}
