@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 
 class HomePageController extends Controller
 {
@@ -12,7 +13,13 @@ class HomePageController extends Controller
                     $locales[$locale] = '/'.$locale;
             }
         }
+        $main_banner_slider = Banner::where('type_id', bannerTypes()['main_banner_slider']['id'])
+        ->whereHas('translations', function($que){
+            $que->where('locale', app()->getlocale())
+            ->where('active', true);
+        })->orderBy('date', 'desc')->get();
+
         $model = '';
-        return view('website.home', compact('model','locales'));
+        return view('website.home', compact('model','locales','main_banner_slider'));
 	}
 }
