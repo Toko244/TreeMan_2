@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box">
-            
+
 
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_profile') }}</h4>
 
@@ -30,7 +30,7 @@
                     <input type="email" value="{{ $user->email }}" name="email" parsley-trigger="change" required
                            placeholder="Enter email" class="@error('email') danger @enderror form-control" id="emailAddress">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="pass1">{{ trans('admin.password') }}</label>
                     @error('password')
@@ -43,10 +43,10 @@
                     @error('re_password')
                         <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.re_password_must_be_same_as_password') }}</small>
                     @enderror
-                    <input data-parsley-equalto="#pass1" type="password" 
+                    <input data-parsley-equalto="#pass1" type="password"
                            placeholder="Password" name="re_password" class="form-control @error('re_password') danger @enderror" id="passWord2">
                 </div>
-                
+
 
                 <div class="form-group text-right mb-0">
                     <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
@@ -61,7 +61,7 @@
 @endsection
 
 @push('styles')
-    <link href="{{ asset('/admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />    
+    <link href="{{ asset('/admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
         .danger{
@@ -71,7 +71,7 @@
 @endpush
 
 @push('scripts')
-    !-- Validation js (Parsleyjs) -->
+
     <script src="{{ asset('assets/libs/parsleyjs/parsley.min.js') }}"></script>
 
     <!-- validation init -->
