@@ -10,6 +10,7 @@ use App\Models\Section;
 
 class AdminController extends Controller
 {
+
     public function index(){
         $submissions = Submission::orderBy('created_at')->limit(10)->get();
         
