@@ -10,4 +10,8 @@
 <body>
     @yield('master')
 </body>
+
+<footer>
+    @include('components.footer')
+</footer>
 </html>
