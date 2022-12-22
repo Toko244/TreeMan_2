@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'card_banner' => "Card Banners", 
+    'main_banner_slider' => "Main Banner Slider",
 ];
