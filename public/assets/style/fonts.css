@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'LibreFranklin-SemiBold';
+    src: url('../fonts/LibreFranklin-SemiBold.woff2') format('woff2'),
+        url('../fonts/LibreFranklin-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LibreFranklin-Thin';
+    src: url('../fonts/LibreFranklin-Thin.woff2') format('woff2'),
+        url('../fonts/LibreFranklin-Thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LibreFranklin-Medium';
+    src: url('../fonts/LibreFranklin-Medium.woff2') format('woff2'),
+        url('../fonts/LibreFranklin-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LibreFranklin-Bold';
+    src: url('../fonts/LibreFranklin-Bold.woff2') format('woff2'),
+        url('../fonts/LibreFranklin-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LEMONMILK-Medium';
+    src: url('../fonts/LEMONMILK-Medium.woff2') format('woff2'),
+        url('../fonts/LEMONMILK-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LEMONMILK-Regular';
+    src: url('../fonts/LEMONMILK-Regular.woff2') format('woff2'),
+        url('../fonts/LEMONMILK-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.lemon-regular{
+    font-family: 'LEMONMILK-Regular';
+}
+.lemon-medium{
+    font-family: 'LEMONMILK-Medium';
+}
+.thin{
+    font-family: 'LibreFranklin-Thin';
+}
+.bold{
+    font-family: 'LibreFranklin-Bold';
+}
+.semibold{
+    font-family: 'LibreFranklin-SemiBold';
+}
+.medium{
+    font-family: 'LibreFranklin-Medium';
+}
