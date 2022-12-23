@@ -3,9 +3,7 @@
     @include('components.head')
 </head>
 
-<header>
-    @include('components.header')
-</header>
+<x-header></x-header>
 
 <body>
     @yield('master')
