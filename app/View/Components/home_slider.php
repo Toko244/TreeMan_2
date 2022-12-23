@@ -4,19 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class header extends Component
+class home_slider extends Component
 {
-    public $languages;
-    public $sections;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($sections)
+    public function __construct()
     {
-        $this->languages = config('app.locales');
-        $this->sections = $sections;
+        //
     }
 
     /**
@@ -26,6 +23,6 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.home_slider');
     }
 }

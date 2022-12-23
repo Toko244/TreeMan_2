@@ -4,7 +4,7 @@
 </head>
 
 <header>
-    @include('components.header')
+    <x-header :sections="$sections" />
 </header>
 
 <body>

@@ -63,10 +63,10 @@
                         </svg>
 
                         <div class="other-langs flex items-center column pl-1 pr-1">
-                            @foreach (config('app.locales') as $k => $value)
-                            <a href="" class="medium green text-lg">
-                                KA
-                            </a>
+                            @foreach ($languages as $k => $value)
+                                <a href="" class="medium green text-lg">
+                                    KA
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -88,11 +88,11 @@
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
                         @foreach ($sections as $sec)
-                        <div class="menu-item h-full flex items-center mr-4 relative">
-                            <a href="" class="medium green text-lg menu-point relative">
-                                {{$sec->title}}
-                            </a>
-                        </div>
+                            <div class="menu-item h-full flex items-center mr-4 relative">
+                                <a href="" class="medium green text-lg menu-point relative">
+                                    {{$sec->title}}
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
