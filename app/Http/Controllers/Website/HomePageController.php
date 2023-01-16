@@ -14,11 +14,10 @@ class HomePageController extends Controller
             }
         }
         $main_banner_slider = Banner::where('type_id', bannerTypes()['main_banner_slider']['id'])
-        ->whereHas('translations', function($que){
+        ->with('translation', function($que){
             $que->where('locale', app()->getlocale())
             ->where('active', true);
         })->orderBy('date', 'desc')->get();
-
         $model = '';
         return view('website.home', compact('model','locales','main_banner_slider'));
 	}

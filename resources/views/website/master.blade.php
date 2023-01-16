@@ -3,14 +3,12 @@
     @include('components.head')
 </head>
 
-<header>
-    <x-header :sections="$sections" />
-</header>
+<x-header></x-header>
 
 <body>
     @yield('master')
 </body>
-
+    @include('components.script')
 <footer>
     @include('components.footer')
 </footer>
