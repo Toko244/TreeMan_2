@@ -49,8 +49,10 @@
                             </button>
 
                             <div class="pl-1 pr-1" style="border-right: 1.5px solid #E6EEED">
-                                <input type="text" name="search" placeholder="Search" class="medium green text-lg ">
+                                <input type="text" placeholder="Search" class="medium green text-lg ">
                             </div>
+
+                            
                         </div>
                     </form>
 
@@ -77,9 +79,9 @@
     <div class="menu-header" style="padding: 27px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo flex items-center justify-center" style="max-width: 105px;">
-                        <a href="/" class="w-full h-full block">
+                        <a href="" class="w-full h-full block">
                             <img src="assets/img/header-logo.png" alt="" class="w-full h-full cover">
                         </a>
                     </div>
@@ -97,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="flex items-center justify-end h-full">
                         <a href="" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
                             Get a Quote

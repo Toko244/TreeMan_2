@@ -1,0 +1,94 @@
+@media (max-width: 1620px) {
+   
+}
+
+/*----------------------------- 1400px-----------------------------------*/
+
+@media (max-width: 1400px) {
+  
+}
+
+/*----------------------------- 1200px-----------------------------------*/
+
+@media (max-width: 1200px) {
+    .menu-item.h-full.flex.items-center.mr-4.relative{
+        margin-right: 24px;
+    }
+    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
+        padding: 10px 20px;
+    }
+    .menu-header .col-lg-8,
+    .header.upper-header.w-full.pt-1.pb-1,
+    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
+        display: none;
+    }
+    .home-banner .title{
+        line-height: 40px;
+        font-size: 24px;
+    }
+    .home-banner .text{
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .home-banner {
+        height: 450px;
+    }
+    .section-pad{
+        padding: 60px 0;
+    }
+    .green-section .video{
+        margin-top: 60px;
+    }
+}
+
+/*------------------------------- 992px ---------------------------------*/
+
+@media (max-width: 992px) {
+    .text_section .text{
+        margin-bottom: 40px;
+    }
+    .reverce .text, .reverce .title{
+        padding: 0;
+    }
+    .count.flex.column.w-full{
+        margin-bottom: 40px;
+    }
+    .count-section{
+        margin: 20px 0;
+    }
+    .green-section .text-block.flex.items-center.justify-start{
+        margin-bottom: 50px;
+    }
+}
+
+/*--------------------------------- 768px -------------------------------*/
+
+@media (max-width: 768px) {
+    .section-pad{
+        padding: 40px 0;
+    }
+    .green-section {
+        padding: 40px 0px;
+    }
+}
+
+/*--------------------------------- 576px -------------------------------*/
+
+@media (max-width: 576px) {
+    .text_section .image{
+        height: 230px;
+    }
+    .count.flex.column.w-full{
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .count-section {
+        margin: 0;
+    }
+}
+
+/*--------------------------------- 440px -------------------------------*/
+@media (max-width: 440px) {
+  
+}
