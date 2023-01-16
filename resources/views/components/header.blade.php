@@ -5,7 +5,7 @@
                 <div class="flex items-center justify-start">
                     <div class="follow-block flex items-center justify-start mr-1">
                         <div class="follow green medium text-lg">
-                            Follow Us
+                            {{trans('website.follow_us')}}
                         </div>
                     </div>
     
@@ -102,7 +102,7 @@
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="flex items-center justify-end h-full">
                         <a href="" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
-                            Get a Quote
+                            {{trans('website.get_a_quote')}}
                         </a>
                     </div>
                 </div>
