@@ -5,7 +5,7 @@
                 <div class="flex items-center justify-start">
                     <div class="follow-block flex items-center justify-start mr-1">
                         <div class="follow green medium text-lg">
-                            Follow Us
+                            {{trans('website.follow_us')}}
                         </div>
                     </div>
     
@@ -49,8 +49,10 @@
                             </button>
 
                             <div class="pl-1 pr-1" style="border-right: 1.5px solid #E6EEED">
-                                <input type="text" name="search" placeholder="Search" class="medium green text-lg ">
+                                <input type="text" placeholder="Search" class="medium green text-lg ">
                             </div>
+
+                            
                         </div>
                     </form>
 
@@ -63,10 +65,10 @@
                         </svg>
 
                         <div class="other-langs flex items-center column pl-1 pr-1">
-                            @foreach (config('app.locales') as $k => $value)
-                            <a href="" class="medium green text-lg">
-                                KA
-                            </a>
+                            @foreach ($languages as $k => $value)
+                                <a href="" class="medium green text-lg">
+                                    KA
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -77,9 +79,9 @@
     <div class="menu-header" style="padding: 27px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo flex items-center justify-center" style="max-width: 105px;">
-                        <a href="/" class="w-full h-full block">
+                        <a href="" class="w-full h-full block">
                             <img src="assets/img/header-logo.png" alt="" class="w-full h-full cover">
                         </a>
                     </div>
@@ -88,19 +90,19 @@
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
                         @foreach ($sections as $sec)
-                        <div class="menu-item h-full flex items-center mr-4 relative">
-                            <a href="" class="medium green text-lg menu-point relative">
-                                {{$sec->title}}
-                            </a>
-                        </div>
+                            <div class="menu-item h-full flex items-center mr-4 relative">
+                                <a href="" class="medium green text-lg menu-point relative">
+                                    {{$sec->title}}
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="flex items-center justify-end h-full">
                         <a href="" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
-                            Get a Quote
+                            {{trans('website.get_a_quote')}}
                         </a>
                     </div>
                 </div>

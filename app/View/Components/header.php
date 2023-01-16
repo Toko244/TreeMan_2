@@ -7,14 +7,15 @@ use Illuminate\View\Component;
 
 class header extends Component
 {
+    public $languages;
+    public $sections;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($sections)
     {
-        $this->model = 0;
         $this->sections = Section::whereHas('translations', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
         })
