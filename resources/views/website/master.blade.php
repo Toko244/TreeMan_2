@@ -10,7 +10,7 @@
 <body>
     @yield('master')
 </body>
-
+    @include('components.script')
 <footer>
     @include('components.footer')
 </footer>
