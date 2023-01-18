@@ -2,5 +2,5 @@
 
 return [
     0 => 'mainMenu',
-    // 1 => 'footerMenu',,/
+    1 => 'footerMenu'
 ];
