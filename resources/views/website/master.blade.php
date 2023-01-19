@@ -9,7 +9,5 @@
     @yield('master')
 </body>
     @include('components.script')
-<footer>
-    @include('components.footer')
-</footer>
+    <x-footer></x-footer>
 </html>

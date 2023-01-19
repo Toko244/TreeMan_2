@@ -42,7 +42,7 @@
                         @endif
 
                         @if(settings('mail') != null)
-                            <div class="flex items-center">      
+                            <div class="flex items-center">
                                 <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M30 23.6208C29.9975 23.9856 29.8542 24.3347 29.6011 24.5928C29.348 24.8508 29.0054 24.9971 28.6473 25H4.08C3.72111 24.9996 3.37704 24.8542 3.12339 24.5956C2.86975 24.337 2.72727 23.9864 2.72727 23.6208V22.2222H27.2727V5.97222L16.3636 15.9722L2.72727 3.47222V1.38889C2.72727 1.02053 2.87094 0.667263 3.12667 0.406796C3.3824 0.146329 3.72925 0 4.09091 0H28.6364C28.998 0 29.3449 0.146329 29.6006 0.406796C29.8563 0.667263 30 1.02053 30 1.38889V23.6208ZM6.04636 2.77778L16.3636 12.2361L26.6809 2.77778H6.04636ZM0 16.6667H10.9091V19.4444H0V16.6667ZM0 9.72222H6.81818V12.5H0V9.72222Z" fill="white"/>
                                 </svg>
@@ -79,6 +79,9 @@
                             Copyright all right is reserved
                         </div>
 
+                        @foreach ($footer_sections as $footer_section)
+
+                        @endforeach
                         <div class="">
                             <a href="" class="row-item thin text-lg white pr-1 mr-1">
                                 Privacy Policy
