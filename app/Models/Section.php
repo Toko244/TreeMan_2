@@ -29,6 +29,7 @@ class Section extends Model
         'cover',
         'additional',
         'parent_id',
+        'component',
         'type_id'
     ];
 

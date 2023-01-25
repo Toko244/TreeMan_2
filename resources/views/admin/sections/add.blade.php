@@ -148,7 +148,17 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
 
+                {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
+                <br>
+                {{ Form::hidden('component', '0') }}
+                {{ Form::checkbox('component', 1,  null, [
+                    'data-plugin' => 'switchery',
+                    'data-color'=>'#3bafda',
+                ]) }}
+            
+            </div>
             @foreach ( menuTypes() as $key => $menuType )
 
             <div class="checkbox checkbox-primary">

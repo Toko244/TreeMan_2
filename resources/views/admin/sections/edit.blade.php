@@ -108,40 +108,6 @@
                                 @endforeach
                             </select>
                         </div>
-                        {{-- <div class="form-group form-for-color ">
-                            <label for="color">{{trans('admin.section_color')}}</label>
-                            <br>
-                            @if(isset($section->additional['color']))
-                            <input id="color"  value="{{$section->additional['color']}}" type="color" name="color">
-                            @else
-                            <input id="color"   value="#EBEDF3" type="color" name="color">
-                            @endif
-                        </div> --}}
-                        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-                        <script>
-                            $('#typeselect').change(function(){
-                                if($(this).val() != '9'){
-                                    $( ".form-for-color" ).removeClass( "open" );
-                                }
-                                else{
-                                    $( ".form-for-color" ).addClass( "open" );
-                                }
-                            }). trigger("change");
-                        </script>
-
-        <style>
-            .form-for-color{
-                height: 0;
-                overflow: hidden;
-                transition-duration: 1s
-            }
-            .open{
-                height: 60px;
-            }
-
-
-            </style>
-
 
 
 
@@ -154,6 +120,19 @@
                                     <option value="{{ $sec->id }}" {{ $sec->id == $section->parent_id ? "selected" : '' }}>{{ $sec->title }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        
+
+                        <div class="form-group">
+
+                            {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
+                            <br>
+                            {{ Form::hidden('component', '0') }}
+                            {{ Form::checkbox('component', 1,  $section->component, [
+                                'data-plugin' => 'switchery',
+                                'data-color'=>'#3bafda',
+                            ]) }}
+                        
                         </div>
                         @foreach ( menuTypes() as $key => $menuType )
 
