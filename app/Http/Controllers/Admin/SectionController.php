@@ -22,7 +22,7 @@ class SectionController extends Controller
      * @return void
      */
     public function index(){
-        $sections = Section::where('parent_id', null)->orderBy('order', 'asc')->with('children')->get();
+        $sections = Section::where('parent_id', null)->where('component', false)->orderBy('order', 'asc')->with('children')->get();
         return view('admin.sections.list', compact('sections'));
     }
     public function create(){
@@ -39,7 +39,8 @@ class SectionController extends Controller
         // dd($request->icon->getClientOriginalName());
         $values = $request->all();
         Validator::validate($values, [
-            'type_id' => 'required'
+            'type_id' => 'required',
+            'component' => 'required'
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();
@@ -61,7 +62,6 @@ class SectionController extends Controller
             Validator::validate($values[$locale], [
                 'slug' => 'unique:section_translations,slug,',
             ]);
-            // dd($values['en']['slug'] );
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
         }
 
@@ -97,7 +97,8 @@ class SectionController extends Controller
         $values = $request->all();
         $section = Section::where('id', $id)->first();
         Validator::validate($values, [
-            'type_id' => 'required'
+            'type_id' => 'required',
+            'component' => 'required',
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();

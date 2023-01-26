@@ -1,3 +1,9 @@
+.change-icons a{
+    color: #fff;
+}
+.sections-list-li:hover a{
+    color: #71b6f9;
+}
 .hidden-video-card{
 	display: none;
 }

@@ -1,10 +1,11 @@
 <ol class="dd-list">
   @foreach ($sections as $section)
-    <li class="dd-item" data-id="{{ $section->id }}">
+    <li class="dd-item sections-list-li" data-id="{{ $section->id }}">
       <div class="dd-handle" style="">
         {{ $section->title }}
       </div>
       <div class="change-icons">
+        <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/components/"  class="mdi mdi-settings"></a>
         @if ($section->type['type'] !== 0)
           {{-- @if ($section->post() !== null && count($section->post()->submissions) > 0)
           <a href="/{{ app()->getLocale() }}/admin/submissions?post_id={{ $section->post()->id }}"  class="far fa-envelope"></a>
@@ -20,7 +21,7 @@
         @endif
       </div>
       @if (count($section->children) > 0 )
-        @include('admin.sections.list-helper', ['sections' => $section->children])
+        {{-- @include('admin.sections.list-helper', ['sections' => $section->children]) --}}
       @endif
     </li>
   @endforeach
