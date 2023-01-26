@@ -8,7 +8,7 @@
                             {{trans('website.follow_us')}}
                         </div>
                     </div>
-    
+
                     <div class="social flex items-center">
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{settings('facebook')}}" target="_blank" class="flex items-center justify-center rounded transition-duration shadow" style="width: 40px; height: 40px;">
@@ -17,7 +17,7 @@
                                 </svg>
                             </a>
                         </div>
-    
+
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{settings('linkedin')}}" target="_blank" class="flex items-center justify-center rounded transition-duration shadow" style="width: 40px; height: 40px;">
                                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
                                 </svg>
                             </a>
                         </div>
-    
+
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{settings('youtube')}}" target="_blank" class="flex items-center justify-center rounded transition-duration shadow" style="width: 40px; height: 40px;">
                                 <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
                                 <input type="text" placeholder="Search" class="medium green text-lg ">
                             </div>
 
-                            
+
                         </div>
                     </form>
 
@@ -65,11 +65,9 @@
                         </svg>
 
                         <div class="other-langs flex items-center column pl-1 pr-1">
-                            @foreach ($languages as $k => $value)
                                 <a href="" class="medium green text-lg">
                                     KA
                                 </a>
-                            @endforeach
                         </div>
                     </div>
                 </div>
