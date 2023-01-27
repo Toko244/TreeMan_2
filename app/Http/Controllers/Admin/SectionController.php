@@ -36,11 +36,9 @@ class SectionController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->icon->getClientOriginalName());
         $values = $request->all();
         Validator::validate($values, [
             'type_id' => 'required',
-            'component' => 'required'
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();
@@ -98,7 +96,6 @@ class SectionController extends Controller
         $section = Section::where('id', $id)->first();
         Validator::validate($values, [
             'type_id' => 'required',
-            'component' => 'required',
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();

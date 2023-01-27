@@ -65,14 +65,12 @@
         </div>
         <div style="padding-top:20px">
             <div class="form-group">
-                <label for="type">{{ trans('admin.type') }}</label>
+                <label for="type">{{ trans('admin.parent') }}</label>
                 @error('active')
                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                 @enderror
-                <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect">
-                    @foreach ($sectionTypes as $key => $type)
-                    <option value="{{ $type['id'] }}" id="typeoption">{{ trans('sectionTypes.'.$key) }}</option>
-                    @endforeach
+                <select disabled class="form-control  @error('parent_id') danger @enderror " name="parent_id" id="typeselect">
+                    <option value="{{$section->id}}"  selected>{{$section->title}}</option>
                 </select>
             </div>
             <div class="form-group">
@@ -80,13 +78,14 @@
                 @error('active')
                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.component_is_required') }}</small>
                 @enderror
-                <select class="form-control  @error('type') danger @enderror " name="component" id="componentselect">
+                <select class="form-control  @error('type') danger @enderror " name="type_id" id="componentselect">
                     @foreach ($componentTypes as $key => $type)
                     <option value="{{ $type['id'] }}" id="componentoption">{{ trans('componentTypes.'.$key) }}</option>
                     @endforeach
                 </select>
             </div>
             <input type="hidden" name="parent_id" value="{{$section->id}}">
+            <input type="hidden" name="component" value="1">
         </div>
         <div class="form-group text-right mb-0">
             <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
