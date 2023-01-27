@@ -10,10 +10,9 @@
         @else
         <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/"  class="far fa-eye"></a>
         @endif
-        @if (auth()->user()->isType('admin') && $section->type['type'] !== 4)
           <a href="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}"  class="fas fa-pencil-alt"></a>
           <a href="/{{ app()->getLocale() }}/admin/sections/destroy/{{ $section->id }}" data-action="" onclick="return confirm_alert(this);" class="fas fa-trash-alt"></a>
-        @endif
+
       </div>
       @if (count($section->children) > 0 )
         {{-- @include('admin.sections.list-helper', ['sections' => $section->children]) --}}

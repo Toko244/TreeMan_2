@@ -26,6 +26,7 @@ class SectionController extends Controller
         return view('admin.sections.list', compact('sections'));
     }
     public function create(){
+
         $sectionTypes = sectionTypes();
         $sections = Section::with('translations')->get();
         $menuTypes = menuTypes();
@@ -35,7 +36,6 @@ class SectionController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request);
         $values = $request->all();
         Validator::validate($values, [
             'type_id' => 'required',
