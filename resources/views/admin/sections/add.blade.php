@@ -5,6 +5,9 @@
 @endpush
 
 @section('content')
+
+{{dd($section)}}
+
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box">
@@ -152,12 +155,12 @@
 
                 {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
                 <br>
-                {{ Form::hidden('component', '0') }}
-                {{ Form::checkbox('component', 1,  null, [
+                {{ Form::hidden('componentt', '0') }}
+                {{ Form::checkbox('componentt', 1,  null, [
                     'data-plugin' => 'switchery',
                     'data-color'=>'#3bafda',
                 ]) }}
-            
+
             </div>
             @foreach ( menuTypes() as $key => $menuType )
 
@@ -202,6 +205,8 @@
     </div>
 </div>
 </div>
+
+
 @endsection
 
 @push('styles')

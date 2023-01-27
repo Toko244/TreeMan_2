@@ -59,7 +59,7 @@
         </div>
     </div>
 </div>
-@endsection 
+@endsection
 
 @push('styles')
     <!-- third party css -->

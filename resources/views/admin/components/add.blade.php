@@ -85,7 +85,7 @@
                 </select>
             </div>
             <input type="hidden" name="parent_id" value="{{$section->id}}">
-            <input type="hidden" name="component" value="1">
+            <input type="hidden" name="componentt" value="1">
         </div>
         <div class="form-group text-right mb-0">
             <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">

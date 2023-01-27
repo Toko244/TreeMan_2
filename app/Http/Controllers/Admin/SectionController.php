@@ -22,11 +22,10 @@ class SectionController extends Controller
      * @return void
      */
     public function index(){
-        $sections = Section::where('parent_id', null)->where('component', false)->orderBy('order', 'asc')->with('children')->get();
+        $sections = Section::where('parent_id', null)->orderBy('order', 'asc')->with('children')->get();
         return view('admin.sections.list', compact('sections'));
     }
     public function create(){
-
         $sectionTypes = sectionTypes();
         $sections = Section::with('translations')->get();
         $menuTypes = menuTypes();
@@ -36,6 +35,7 @@ class SectionController extends Controller
     }
 
     public function store(Request $request){
+        // dd($request);
         $values = $request->all();
         Validator::validate($values, [
             'type_id' => 'required',

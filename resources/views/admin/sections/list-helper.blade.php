@@ -5,15 +5,10 @@
         {{ $section->title }}
       </div>
       <div class="change-icons">
+        @if ($section->componentt)
         <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/components/"  class="mdi mdi-settings"></a>
-        @if ($section->type['type'] !== 0)
-          {{-- @if ($section->post() !== null && count($section->post()->submissions) > 0)
-          <a href="/{{ app()->getLocale() }}/admin/submissions?post_id={{ $section->post()->id }}"  class="far fa-envelope"></a>
-          @endif --}}
-
-        @if ($section->type['type'] !== 4 && $section->type['type'] !== 8 && $section->type['type'] !== 9)
-          <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/"  class="far fa-eye"></a>
-        @endif
+        @else
+        <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/"  class="far fa-eye"></a>
         @endif
         @if (auth()->user()->isType('admin') && $section->type['type'] !== 4)
           <a href="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}"  class="fas fa-pencil-alt"></a>

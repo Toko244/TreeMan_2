@@ -49,7 +49,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a style="color: #fff"  href="{{ route('post.edit', [app()->getLocale(), $post->id]) }}" class="btn btn-primary">{{ trans('admin.edit') }}</a>
+                                <a style="color: #fff"  href="{{ route('componentpost.edit', [app()->getLocale(), $post->id]) }}" class="btn btn-primary">{{ trans('admin.edit') }}</a>
                                 <a style="color: #fff" href="{{ route('post.destroy', [app()->getLocale(), $post->id]) }}" onclick="return confirm_alert(this);" class="btn btn-warning">{{ trans('admin.delete') }}</a>
                             </td>
                         </tr>

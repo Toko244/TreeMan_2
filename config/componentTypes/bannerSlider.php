@@ -22,16 +22,22 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'text' => [
-                'type' => 'textarea',
+            'redirect_link' => [
+                'type' => 'text',
             ],
             'active' => [
                 'type' => 'checkbox',
             ],
         ],
         'nonTrans' => [
-            'email' => [
-                'type' => 'text',
+            'images' => [
+                'type' => 'images',
+            ],
+            'target' => [
+                'type' => 'toggle',
+            ],
+            'date' => [
+                'type' => 'date',
             ],
         ],
     ]

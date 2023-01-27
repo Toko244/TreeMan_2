@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @push('name')
-   {{ $component->title }}
+   {{ $section->title }}
 @endpush
 
 @section('content')
@@ -14,7 +14,7 @@
 
 
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_post') }}</h4>
-            {!! Form::open(['route' => ['post.store', app()->getLocale(), $component->id], "enctype" => "multipart/form-data"]) !!}
+            {!! Form::open(['route' => ['post.store', app()->getLocale(), $section->id], "enctype" => "multipart/form-data"]) !!}
                 @include('admin.componentposts.form')
             {!! Form::close() !!}
 

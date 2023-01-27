@@ -1,25 +1,15 @@
 @extends('admin.layouts.app')
-
 @push('name')
     {{ trans('admin.sections') }}
 @endpush
-
 @section('content')
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box">
-
-
-
-
-
-
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_section') }}</h4>
-
             <form action="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}" method="post" enctype="multipart/form-data"  novalidate>
                 @csrf
                     <ul class="nav nav-tabs">
-
                         @foreach (config('app.locales') as $locale)
                         <li class="nav-item ">
                             <a href="#locale-{{ $locale }}" data-toggle="tab" aria-expanded="false" class="nav-link @if($locale == app()->getLocale()) active @endif">
@@ -27,7 +17,6 @@
                             </a>
                         </li>
                         @endforeach
-
                     </ul>
                     <div class="tab-content">
                         @foreach (config('app.locales') as $locale)
@@ -50,15 +39,6 @@
                                     <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
                                         class="@error('slug') danger @enderror form-control" value="{{$section->translate($locale)->slug}}" id="{{ $locale }}-slug" Required>
                                 </div>
-
-                                {{-- <div class="form-group">
-                                    <label for="{{ $locale }}-keywords">{{ trans('admin.keywords') }}</label>
-
-                                    <div class="tags-default">
-                                        <input id="{{ $locale }}-keywords" name="{{ $locale }}[keywords]" type="text" data-role="tagsinput" value="{{ $section->translate($locale)->keywords ?? '' }}" />
-                                    </div>
-                                </div> --}}
-
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor">{{ $section->translate($locale)->desc ?? '' }}</textarea>
@@ -87,20 +67,11 @@
                         @endforeach
                     </div>
                     <div style="padding-top:20px">
-                        {{-- <div class="form-group">
-                            <label for="cover">{{trans('admin.cover')}}</label>
-                            <br>
-                            <input  type="file" name="cover">
-                            @if(isset($section))
-                            <img src="{{ image($section->cover) }}" alt="" style="width: 8%">
-                            @endif
-                        </div> --}}
                         <div class="form-group">
                             <label for="type">{{ trans('admin.type') }}</label>
                             @error('active')
                                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                             @enderror
-
                             <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect">
 
                                 @foreach ($sectionTypes as $key => $type)
@@ -121,19 +92,19 @@
                                 @endforeach
                             </select>
                         </div>
-                        
 
-                        <div class="form-group">
+@if ($section->componentt)
+    <div class="form-group">
+        {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
+        <br>
+        {{ Form::hidden('componentt', '0') }}
+        {{ Form::checkbox('componentt', 1,  $section->componentt, [
+            'data-plugin' => 'switchery',
+            'data-color'=>'#3bafda',
+        ]) }}
+    </div>
+@endif
 
-                            {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
-                            <br>
-                            {{ Form::hidden('component', '0') }}
-                            {{ Form::checkbox('component', 1,  $section->component, [
-                                'data-plugin' => 'switchery',
-                                'data-color'=>'#3bafda',
-                            ]) }}
-                        
-                        </div>
                         @foreach ( menuTypes() as $key => $menuType )
 
                         <div class="checkbox checkbox-primary">

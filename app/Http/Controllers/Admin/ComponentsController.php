@@ -16,7 +16,7 @@ class ComponentsController extends Controller
      */
     public function index($id){
         $section = Section::where('id', $id)->first();
-        $components = Section::where('component', '!=', 0)->where('parent_id', $id)->orderBy('order', 'asc')->with('children')->get();
+        $components = Section::where('componentt', '!=', 0)->where('parent_id', $id)->orderBy('order', 'asc')->with('children')->get();
         return view('admin.components.list', compact('components', 'id', 'section'));
     }
     public function create($id){
@@ -34,7 +34,6 @@ class ComponentsController extends Controller
         return view('admin.components.edit', compact(['sections', 'section', 'sectionTypes','componentTypes']));
     }
     public function post($id){
-        dd('sd');
         $section = Section::where('id', $id)->first();
         $components = Section::where('component', '!=', 0)->where('parent_id', $id)->orderBy('order', 'asc')->with('children')->get();
         return view('admin.components.list', compact('components', 'id', 'section'));
