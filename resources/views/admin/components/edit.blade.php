@@ -51,13 +51,6 @@
                                         class="@error('slug') danger @enderror form-control" value="{{$section->translate($locale)->slug}}" id="{{ $locale }}-slug" Required>
                                 </div>
 
-                                {{-- <div class="form-group">
-                                    <label for="{{ $locale }}-keywords">{{ trans('admin.keywords') }}</label>
-
-                                    <div class="tags-default">
-                                        <input id="{{ $locale }}-keywords" name="{{ $locale }}[keywords]" type="text" data-role="tagsinput" value="{{ $section->translate($locale)->keywords ?? '' }}" />
-                                    </div>
-                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
@@ -86,8 +79,8 @@
                             @enderror
                             <select class="form-control   @error('type') danger @enderror " name="type_id" id="typeselect" disabled>
 
-                                @foreach ($componentTypes as $key => $type)
-                                    <option value="{{ $type['id'] }}"  {{ $type['id'] == $section->type_id ? "selected" : '' }}>{{ trans('sectionTypes.'.$key) }}</option>
+                                @foreach (componentTypes() as $key => $type)
+                                    <option value="{{ $type['id'] }}"  {{ $type['id'] == $section->type_id ? "selected" : '' }}>{{ trans('componentTypes.'.$key) }}</option>
                                 @endforeach
                             </select>
                             <input type="hidden" name="type_id" value="{{$section->type_id}}">

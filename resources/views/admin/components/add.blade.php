@@ -79,7 +79,7 @@
                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.component_is_required') }}</small>
                 @enderror
                 <select class="form-control  @error('type') danger @enderror " name="type_id" id="componentselect">
-                    @foreach ($componentTypes as $key => $type)
+                    @foreach (componentTypes() as $key => $type)
                     <option value="{{ $type['id'] }}" id="componentoption">{{ trans('componentTypes.'.$key) }}</option>
                     @endforeach
                 </select>

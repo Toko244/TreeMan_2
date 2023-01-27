@@ -14,11 +14,6 @@ return [
                 'translateble' => true,
 
             ],
-            'slug' => [
-                'type' => 'text',
-                'error_msg' => 'slug_is_required',
-                'required' => 'required',
-            ],
             'desc' => [
                 'type' => 'textarea',
             ],
