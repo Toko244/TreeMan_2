@@ -105,7 +105,7 @@ class PostController extends Controller
             $values['author_id'] = auth()->user()->id;
             $postFillable = (new Post)->getFillable();
             $postTransFillable = (new PostTranslation)->getFillable();
-            if ($section->componentt == false) {
+            if ($section->iscomponent == false) {
                 $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
             }else{
                 $values['additional'] = getAdditional($values, array_diff(array_keys($section->getComponentAttribute()['nonTrans']), $postFillable) );
@@ -217,7 +217,7 @@ class PostController extends Controller
 
             foreach (config('app.locales') as $locale) {
                 if (isset($values[$locale])) {
-                    if ($section->componentt == false) {
+                    if ($section->iscomponent == false) {
                         $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) );
                     }else{
                         $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->getComponentAttribute()['trans']), $postTransFillable) );

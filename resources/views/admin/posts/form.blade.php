@@ -1,4 +1,4 @@
-@if($section->componentt == false)
+@if($section->iscomponent == false)
     @if (isset($section->fields['trans']) && count($section->fields['trans']) > 0)
         <ul class="nav nav-tabs">
 

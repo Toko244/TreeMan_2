@@ -5,7 +5,7 @@
         {{ $section->title }}
       </div>
       <div class="change-icons">
-        @if ($section->componentt)
+        @if ($section->iscomponent)
         <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/components/"  class="mdi mdi-settings"></a>
         @else
         <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/"  class="far fa-eye"></a>
