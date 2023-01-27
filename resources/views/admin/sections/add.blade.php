@@ -153,8 +153,8 @@
 
                 {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
                 <br>
-                {{ Form::hidden('iscomponent', '0') }}
-                {{ Form::checkbox('iscomponent', 1,  null, [
+                {{ Form::hidden('is_component', '0') }}
+                {{ Form::checkbox('is_component', 1,  null, [
                     'data-plugin' => 'switchery',
                     'data-color'=>'#3bafda',
                 ]) }}

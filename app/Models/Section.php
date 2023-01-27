@@ -16,7 +16,8 @@ class Section extends Model
     use Translatable;
 
     protected $casts = [
-        'additional' => 'collection'
+        'additional' => 'collection',
+        'is_component' => 'boolean'
     ];
 
     /**
@@ -29,7 +30,7 @@ class Section extends Model
         'cover',
         'additional',
         'parent_id',
-        'iscomponent',
+        'is_component',
         'type_id'
     ];
 
@@ -71,9 +72,7 @@ class Section extends Model
         return collect(Config::get('sectionTypes'))->where('id', $this->type_id)->first()['fields'];
     }
 
-    public function getComponentAttribute() {
-        return collect(Config::get('componentTypes'))->where('id', $this->type_id)->first()['fields'];
-    }
+
 
     public function getFullSlug() {
         $slug = Slug::where('slugable_type', 'App\Models\Section')->where('slugable_id', $this->id)->where('locale', app()->getlocale())->first();

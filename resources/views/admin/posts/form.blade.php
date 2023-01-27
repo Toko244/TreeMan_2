@@ -1,4 +1,5 @@
-@if($section->iscomponent == false)
+
+@if(!$section->is_component)
     @if (isset($section->fields['trans']) && count($section->fields['trans']) > 0)
         <ul class="nav nav-tabs">
 
@@ -30,7 +31,7 @@
     @endif
 
 @else
-    @if (isset($section->getComponentAttribute()['trans']) && count($section->getComponentAttribute()['trans']) > 0)
+    @if (isset(getComponentAttribute($section->type_id)['trans']) && count(getComponentAttribute($section->type_id)['trans']) > 0)
     <ul class="nav nav-tabs">
 
         @foreach (config('app.locales') as $locale)
@@ -45,7 +46,7 @@
     <div class="tab-content">
         @foreach (config('app.locales') as $locale)
         <div role="tabpanel" class="tab-pane fade @if($locale == app()->getLocale()) active show @endif " id="locale-{{ $locale }}">
-            @foreach ($section->getComponentAttribute()['trans'] as $key => $field)
+            @foreach (getComponentAttribute($section->type_id)['trans'] as $key => $field)
                 @include('admin.form-controllers.trans.'.$field['type'])
             @endforeach
         </div>
@@ -54,8 +55,8 @@
 
 
     @endif
-    @if (isset($section->getComponentAttribute()['nonTrans']) && count($section->getComponentAttribute()['nonTrans']) > 0)
-    @foreach ($section->getComponentAttribute()['nonTrans'] as $key => $field)
+    @if (isset(getComponentAttribute($section->type_id)['nonTrans']) && count(getComponentAttribute($section->type_id)['nonTrans']) > 0)
+    @foreach (getComponentAttribute($section->type_id)['nonTrans'] as $key => $field)
         @include('admin.form-controllers.nonTrans.'.$field['type'])
     @endforeach
     @endif

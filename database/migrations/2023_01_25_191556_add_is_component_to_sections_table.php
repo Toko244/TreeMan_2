@@ -14,7 +14,7 @@ class AddIscomponentToSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->boolean('iscomponent')->default(0);
+            $table->boolean('is_component')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ class AddIscomponentToSectionsTable extends Migration
     public function down()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->dropColumn('iscomponent');
+            $table->dropColumn('is_component');
         });
     }
 }

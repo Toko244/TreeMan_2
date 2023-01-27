@@ -93,12 +93,12 @@
                             </select>
                         </div>
 
-@if ($section->iscomponent)
+@if ($section->is_component)
     <div class="form-group">
         {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
         <br>
-        {{ Form::hidden('iscomponent', '0') }}
-        {{ Form::checkbox('iscomponent', 1,  $section->iscomponent, [
+        {{ Form::hidden('is_component', '0') }}
+        {{ Form::checkbox('is_component', 1,  $section->is_component, [
             'data-plugin' => 'switchery',
             'data-color'=>'#3bafda',
         ]) }}

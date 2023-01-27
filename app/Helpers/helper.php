@@ -67,8 +67,11 @@ function sectionTypes(){
   });
 }
 
-function componentTypes(){
+ function getComponentAttribute($id) {
+    return collect(Config::get('componentTypes'))->where('id', $id)->first()['fields'];
+}
 
+function componentTypes(){
     return  collect(Config::get('componentTypes'))->sortBy(function($value, $key) {
       return $value['id'];
     });

@@ -105,10 +105,10 @@ class PostController extends Controller
             $values['author_id'] = auth()->user()->id;
             $postFillable = (new Post)->getFillable();
             $postTransFillable = (new PostTranslation)->getFillable();
-            if ($section->iscomponent == false) {
+            if (!$section->is_component) {
                 $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
             }else{
-                $values['additional'] = getAdditional($values, array_diff(array_keys($section->getComponentAttribute()['nonTrans']), $postFillable) );
+                $values['additional'] = getAdditional($values, array_diff(array_keys(getComponentAttribute($section->type_id)['nonTrans']), $postFillable) );
             }
 
             foreach(config('app.locales') as $locale){
@@ -217,10 +217,10 @@ class PostController extends Controller
 
             foreach (config('app.locales') as $locale) {
                 if (isset($values[$locale])) {
-                    if ($section->iscomponent == false) {
+                    if (!$section->is_component) {
                         $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) );
                     }else{
-                        $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->getComponentAttribute()['trans']), $postTransFillable) );
+                        $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys(getComponentAttribute($section->type_id)['trans']), $postTransFillable) );
                     }
                 }
             }
