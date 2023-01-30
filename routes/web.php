@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\RoutesController;
+use App\Http\Controllers\Website\PagesController;
 
 Route::get('/register', function() {
 	return redirect('/login');
