@@ -16,7 +16,8 @@ class Section extends Model
     use Translatable;
 
     protected $casts = [
-        'additional' => 'collection'
+        'additional' => 'collection',
+        'is_component' => 'boolean'
     ];
 
     /**
@@ -29,38 +30,40 @@ class Section extends Model
         'cover',
         'additional',
         'parent_id',
-        'component',
+        'is_component',
         'type_id'
     ];
 
     protected $hidden = [
         '_token',
     ];
-    
+
     public $translatedAttributes = [
-        'title', 
+        'title',
         'keywords',
-        'slug', 
+        'slug',
         'desc',
         'icon',
         'locale_additional',
         'active'
     ];
 
-    
+
     /**
-     * tgis function gets Type of the section 
+     * tgis function gets Type of the section
      * you can use it with just "->type"
      *
      * @return void
      */
     public function getTypeAttribute() {
-        
-        
+
+
         return collect(Config::get('sectionTypes'))->where('id', $this->type_id)->first();
     }
+
+
     /**
-     * tgis function gets Type of the section 
+     * tgis function gets Type of the section
      * you can use it with just "->fields"
      *
      * @return void
@@ -68,6 +71,7 @@ class Section extends Model
     public function getFieldsAttribute() {
         return collect(Config::get('sectionTypes'))->where('id', $this->type_id)->first()['fields'];
     }
+
 
 
     public function getFullSlug() {
@@ -79,9 +83,9 @@ class Section extends Model
         return null;
     }
 
-   
 
-    
+
+
     /**
      * isMenuType can section o
      *
@@ -89,9 +93,9 @@ class Section extends Model
      * @return void
      */
     public function scopeMenuType($query, $type){
-        
+
         $sections_id = MenuSection::where('menu_type_id', array_search($type, menuTypes()))->pluck('section_id')->toArray();
-        
+
         return $query->where('id', $sections_id) ;
     }
 
@@ -106,10 +110,10 @@ class Section extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    
-    
-    
-    
+
+
+
+
     public function posts()
     {
         return $this->hasMany(Post::class, 'section_id', 'id')->with(['translations' => function($query){
@@ -128,8 +132,8 @@ class Section extends Model
         }])->with('parent')->with('children')->orderBy('order', 'asc');
     }
 
-    
-    
+
+
     public function parent() {
         return $this->belongsTo('App\Models\Section', 'parent_id')->with('parent.translations');
     }
@@ -140,15 +144,15 @@ class Section extends Model
         return $this->morphMany(Slug::class, 'slugable');
     }
 
-    
+
     public static function rearrange($array) {
         self::_rearrange($array, 0);
-    
+
         \App\Models\Section::all()->each(function($item) {
             $item->save();
         });
       }
-    
+
 	private static function _rearrange($array,$count, $parent = null) {
 	foreach($array as $a) {
 		$count++;
@@ -161,7 +165,7 @@ class Section extends Model
 
 	return $count;
 	}
-    
+
 
 
 
@@ -169,24 +173,24 @@ class Section extends Model
 
         if(!count($slugs)) {
           $translations = $this->translations;
-    
+
           foreach ($translations as $key => $value) {
             $slugs[$value->locale] = $value->slug;
           }
-    
+
           $parent = $this->parent;
         }
-    
+
         else {
           $translations = $parent->translations;
-    
+
           foreach ($translations as $key => $value) {
             $slugs[$value->locale] = $value->slug . '/' . $slugs[$value->locale];
           }
-    
+
           $parent = $parent->parent;
         }
-    
+
         if($parent == null) {
           foreach ($slugs as $key => $value) {
             if(count($_GET))
@@ -197,8 +201,8 @@ class Section extends Model
           }
           return $slugs;
         }
-    
+
         return $this->getTranslatedFullSlugs($slugs, $parent);
       }
-    
+
 }
