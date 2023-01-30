@@ -51,7 +51,7 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     height: 4px;
     background: var(--bs-green);
     position: absolute;
-    top: -58px;
+    top: -60px;
     border-radius: 5px;
     width: 0%;
     transition-duration: 0.3s;
@@ -82,6 +82,16 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     background-color: var(--bs-green);
     color: var(--bs-white);
 }
+.book-button-2{
+    padding: 14px 24px;
+    border: 1px solid var(--bs-green);
+    border-radius: 5px;
+}
+.book-button-2:hover{
+    border-color: var(--bs-white);
+    background-color: var(--bs-green);
+    color: var(--bs-white);
+}
 .row-item{
     border-right: 1px solid #237E54;
 }
@@ -105,6 +115,241 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .made{
     margin-left: 30px;
 }
-.lang div{
+.row_post{
+    width: 18%;
+    padding: 0 3%;
+    height: 325px;
+    border-radius: 8px;
+}
+.row_post .post-cover{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+.post_arrow{
+    bottom: 20px;
+    z-index: 3;
+    left: 25px;
+}
+.book-section{
+    height: 300px;
+}
+.book-info .title{
+    font-size: 28px;
+    line-height: 34px;
     text-transform: uppercase;
+}
+.book-info .desc{
+    font-size: 20px;
+    line-height: 36px;
+}
+.book-button-black{
+    border-color: transparent;
+    top: 16px;
+    left: 60px;
+}
+.book-button-black:hover{
+    background-color: var(--bs-black);
+    color: var(--bs-white);
+}
+.home-banner .title{
+    line-height: 52px;
+    margin-bottom: 14px;
+}
+.home-banner .text{
+    line-height: 36px;
+    margin-bottom: 35px;
+}
+.home-banner{
+    height: 530px;
+}
+.green-side-width{
+    width: 55%;
+}
+.image-side-width{
+    width: 45%;
+}
+.image-slider *{
+    height: 100%;
+}
+.text_section .title{
+    width: fit-content;
+    margin-bottom: 42px;
+}
+.text_section .title::after{
+    content: '';
+    width: 60%;
+    height: 3px;
+    background-color: var(--bs-green);
+    position: relative;
+    bottom: -10px;
+    display: block;
+}
+.text_section .text{
+    padding-right: 7%;
+}
+.section-pad{
+    padding: 80px 0;
+}
+.text_section .line{
+    top: 10px;
+    z-index: -1;
+}
+.text_section .image{
+    height: 476px;
+    border-radius: 10px;
+}
+.reverce .row{
+    flex-direction: row-reverse;
+}
+.reverce .line{
+    top: 46%;
+}
+.reverce .text,
+.reverce .title{
+    padding-left: 7%;
+}
+.front-card-banner .card{
+    height: 190px;
+    border-radius: 8px;
+}
+.green-section{
+    padding: 56px 80px;
+}
+.green-section .video{
+    border-radius: 12px;
+}
+.count-section{
+    margin: 50px 0;
+}
+.count-section .dot{
+    width: 10px;
+    height: 10px;
+    background-color: var(--bs-green);
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+.slider-posts .prev{
+    margin-right: 20px;
+    cursor: pointer;
+}
+.slider-posts .next{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.slider-posts .see-all{
+    margin-left: 34px;
+}
+.slider-posts .see-all a{
+    text-decoration: underline;
+}
+.slider-posts .see-all a:hover{
+    color: var(--bs-green);
+}
+.photo-gallery .text{
+    margin-bottom: 100px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+
+  
+  /* Create an active/current tablink class */
+  .content .tab button.active {
+    color: #006838;
+    text-decoration: underline;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+  }
+.photo-gallery .photo{
+    height: 322px;
+    margin-bottom: 40px;
+}
+.content .tab button{
+    color: #7A7979;
+    margin: 0 30px;
+    margin-bottom: 20px;
+}
+.content .tab{
+    margin-bottom: 46px;
+}
+.contact-cover{
+    height: 530px;
+}
+.contact-page .info{
+    padding-top: 75px;
+    padding-right: 40%;
+}
+.contact-info{
+    padding-top: 55px;
+}
+.contact-info svg{
+    margin-right: 28px;
+}
+.contact-info div{
+    margin-bottom: 60px;
+}
+.contact-info .phone{
+    padding-left: 10px;
+}
+.contact-info a:hover{
+    padding-left: 20px;
+    color: var(--bs-white);
+}
+.contact-form .form{
+    margin-top: 44px;
+}
+.contact-form .form input{
+    border: 1px solid transparent;
+    transition-duration: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 34px;
+    font-family: 'LibreFranklin-Medium';
+}
+.contact-form .form input:focus{
+    border-color: var(--bs-green);
+}
+.required::after{
+    content: '*';
+    color: #7A7979;
+}
+.textarea textarea{
+    height: 177px;
+    border: 1px solid transparent;
+    font-family: 'LibreFranklin-Medium';
+    transition-duration: 0.3s;
+    border-radius: 5px;
+}
+.textarea textarea:focus{
+    border-color: var(--bs-green);
+}
+.contact-map{
+    height: 328px;
+}
+.submit-button{
+    padding: 10px 50px;
+    background: var(--bs-green);
+    border: 2px solid var(--bs-green);
+    border-radius: 5px;
+}
+.submit-button:hover{
+    border-color: var(--bs-green);
+    background: var(--bs-white);
+    color: var(--bs-green);
 }

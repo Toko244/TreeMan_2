@@ -12,5 +12,6 @@
                <img src="{{image($file->file)}}" alt="">
            @endforeach
        @endforeach
+       
 
 @endsection

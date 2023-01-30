@@ -32,4 +32,8 @@ class PagesController extends Controller
             'locales' => $locales
             ])->render();
 	}
+
+    public function front(){
+        return view('website.front');
+    }
 }
