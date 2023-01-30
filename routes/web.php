@@ -31,6 +31,7 @@ Route::middleware(['auth.check'])->group(function () {
         require __DIR__ . '/web/admin/filemanager.php';
         require __DIR__ . '/web/admin/submissions.php';
         require __DIR__ . '/web/admin/general.php';
+        require __DIR__ . '/web/admin/components.php';
 
 });
 

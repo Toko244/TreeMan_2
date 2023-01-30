@@ -1,26 +1,18 @@
 @extends('admin.layouts.app')
 
 @push('name')
-{{ trans('admin.sections') }}
+{{ trans('admin.components') }}
 @endpush
 
 @section('content')
-
 <div class="row">
+
     <div class="col-xl-12">
         <div class="card-box">
-
-
-
-
-
-            <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_section') }}</h4>
-
-            <form action="/{{ app()->getLocale() }}/admin/sections/create" method="post" enctype="multipart/form-data"
-                data-parsley-validate novalidate>
+            <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_component') }}</h4>
+            <form action="/{{ app()->getLocale() }}/admin/sections/create" method="post" enctype="multipart/form-data" data-parsley-validate novalidate>
                 @csrf
                 <ul class="nav nav-tabs">
-
                     @foreach (config('app.locales') as $locale)
                     <li class="nav-item ">
                         <a href="#locale-{{ $locale }}" data-toggle="tab" aria-expanded="false"
@@ -29,13 +21,10 @@
                         </a>
                     </li>
                     @endforeach
-
                 </ul>
                 <div class="tab-content">
                     @foreach (config('app.locales') as $locale)
-                    <div role="tabpanel" class="tab-pane fade @if($locale == app()->getLocale()) active show @endif "
-                        id="locale-{{ $locale }}">
-
+                    <div role="tabpanel" class="tab-pane fade @if($locale == app()->getLocale()) active show @endif " id="locale-{{ $locale }}">
                         <div class="form-group">
                             <label for="{{ $locale }}-title">{{ trans('admin.title') }}</label>
                             @error('name')
@@ -55,23 +44,6 @@
                             <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
                                 class="@error('slug') danger @enderror form-control" id="{{ $locale }}-slug" Required>
                         </div>
-
-                        <div class="form-group">
-                            @foreach ($sections as $section)
-                            <input type="hidden" name=" order" value="{{$section->id}}">
-                            @endforeach
-                        </div>
-
-
-                        {{-- <div class="form-group">
-                                    <label for="{{ $locale }}-keywords">{{ trans('admin.keywords') }}</label>
-
-                        <div class="tags-default">
-                            <input id="{{ $locale }}-keywords" name="{{ $locale }}[keywords]" type="text" value=""
-                                data-role="tagsinput" />
-                        </div>
-                    </div> --}}
-
                     <div class="form-group">
                         <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                         <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]"
@@ -88,110 +60,33 @@
                         <input type="checkbox" name="{{ $locale }}[active]" id="{{ $locale }}-active" checked value="1"
                             data-plugin="switchery" data-color="#3bafda" />
                     </div>
-
-
-                    {{-- <div class="form-group">
-                        <label for="icon">{{trans('admin.icon')}}</label>
-                        <br>
-                        <input id="icon" type="file" name="icon">
-                    </div> --}}
-
-
-
-                    {{-- {{dd($sectionTypes['structure']['id'])}} --}}
-
                 </div>
                 @endforeach
         </div>
         <div style="padding-top:20px">
-            {{-- <div class="form-group">
-                <label for="cover">{{trans('admin.cover')}}</label>
-                <br>
-                <input  type="file" name="cover">
-            </div> --}}
             <div class="form-group">
-                <label for="type">{{ trans('admin.type') }}</label>
+                <label for="type">{{ trans('admin.parent') }}</label>
                 @error('active')
                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                 @enderror
-                <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect">
-
-                    @foreach ($sectionTypes as $key => $type)
-                    <option value="{{ $type['id'] }}" id="typeoption">{{ trans('sectionTypes.'.$key) }}</option>
-
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group form-for-color">
-                <label for="color">{{trans('admin.section_color')}}</label>
-                <br>
-                <input id="color"  value="#EBEDF3" type="color" name="color">
-            </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-            <script>
-                $('#typeselect').change(function(){
-
-                    if($(this).val() == '9'){
-                    $( ".form-for-color" ).addClass( "open" );
-                    }
-                    else{
-                        $( ".form-for-color" ).removeClass( "open" );
-                    }
-                });
-            </script>
-
-            <div class="form-group">
-                <label for="parent">{{ trans('admin.parent') }}</label>
-                <select class="form-control" name="parent_id" id="parent">
-                    <option value="">{{ trans('admin.parent') }}</option>
-                    @foreach ($sections as $key => $sec)
-                    <option value="{{ $sec->id }}">{{ $sec->title }}</option>
-                    @endforeach
+                <select disabled class="form-control  @error('parent_id') danger @enderror " name="parent_id" id="typeselect">
+                    <option value="{{$section->id}}"  selected>{{$section->title}}</option>
                 </select>
             </div>
             <div class="form-group">
-
-                {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
-                <br>
-                {{ Form::hidden('is_component', '0') }}
-                {{ Form::checkbox('is_component', 1,  null, [
-                    'data-plugin' => 'switchery',
-                    'data-color'=>'#3bafda',
-                ]) }}
-
+                <label for="componentselect">{{ trans('admin.component') }}</label>
+                @error('active')
+                <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.component_is_required') }}</small>
+                @enderror
+                <select class="form-control  @error('type') danger @enderror " name="type_id" id="componentselect">
+                    @foreach (componentTypes() as $key => $type)
+                    <option value="{{ $type['id'] }}" id="componentoption">{{ trans('componentTypes.'.$key) }}</option>
+                    @endforeach
+                </select>
             </div>
-            @foreach ( menuTypes() as $key => $menuType )
-
-            <div class="checkbox checkbox-primary">
-                <input type="checkbox" name="menu_types[]" id="type_{{ $key }}" value="{{ $key }}">
-                <label for="type_{{ $key }}">
-                    {{ trans('menuTypes.'.$menuType) }}
-                </label>
-            </div>
-
-            @endforeach
-
+            <input type="hidden" name="parent_id" value="{{$section->id}}">
+            <input type="hidden" name="is_component" value="1">
         </div>
-
-
-        <style>
-            .form-for-color{
-                height: 0;
-                overflow: hidden;
-                transition-duration: 1s
-            }
-            .open{
-                height: 60px;
-            }
-
-
-            </style>
-
-
-
-
-
-
         <div class="form-group text-right mb-0">
             <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
                 {{ trans('admin.save') }}
@@ -203,8 +98,6 @@
     </div>
 </div>
 </div>
-
-
 @endsection
 
 @push('styles')

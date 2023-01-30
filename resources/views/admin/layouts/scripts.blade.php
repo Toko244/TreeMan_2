@@ -12,10 +12,9 @@
 <script src="{{ asset('/admin/libs/jquery-knob/jquery.knob.min.js')}}"></script>
 
 
-    
+
 @filemanagerScript
-<!-- ckeditor script -->
-<script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+<!-- ckeditor script --><script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 <script>
     var allEditors = document.querySelectorAll('.ckeditor');
     for (var i = 0; i < allEditors.length; ++i) {

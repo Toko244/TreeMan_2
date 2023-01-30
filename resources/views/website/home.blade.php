@@ -14,4 +14,5 @@
        @endforeach
        
 
+<h1>{{$child->title}}</h1>
 @endsection

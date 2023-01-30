@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddComponentToSectionsTable extends Migration
+class AddIscomponentToSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddComponentToSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->boolean('component')->default(0);
+            $table->boolean('is_component')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ class AddComponentToSectionsTable extends Migration
     public function down()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->dropColumn('component');
+            $table->dropColumn('is_component');
         });
     }
 }
