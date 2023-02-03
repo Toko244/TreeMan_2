@@ -95,6 +95,24 @@
     .green-section {
         padding: 40px 0px;
     }
+    .footer-logo{
+        margin-bottom: 40px;
+    }
+    .footer-info.flex.items-center.h-full.justify-around.wrap .flex.items-center{
+        margin-bottom: 30px;
+    }
+    .down-footer-info.flex.items-center.justify-start.h-full,
+    .footer-book.flex.items-center.justify-end.h-full{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .down-footer-info.flex.items-center.justify-start.h-full div,
+    .footer .text-lg.bold.white.mr-3{
+        margin-bottom: 20px;
+    }
+    .row-item{
+        border: none;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -110,6 +128,23 @@
     }
     .count-section {
         margin: 0;
+    }
+    .footer-social.flex.justify-end.items-center{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+    .footer-social .social.flex.items-center{
+        padding-bottom: 30px;
+        border-bottom: 1px solid #237E54;
+        width: 100%;
+    }
+    .footer .col-xl-5.col-lg-5.col-md-12{
+        padding: 0;
+    }
+    .made{
+        margin-left: 0;
+        margin-top: 28px;
     }
 }
 
