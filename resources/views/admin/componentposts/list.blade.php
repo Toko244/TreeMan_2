@@ -5,7 +5,7 @@
     <div class="col-12">
         <div class="card-box">
             <h3>{{ $section->title }}</h3>
-            <a  href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/create" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_post') }}</a>
+            <a  href="/{{ app()->getLocale() }}/admin/component/{{ $section->id }}/posts/create" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_post') }}</a>
 
             <table id="datatable" class="table table-bordered dt-responsive nowrap">
                 <thead>
@@ -49,7 +49,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a style="color: #fff"  href="{{ route('post.edit', [app()->getLocale(), $post->id]) }}" class="btn btn-primary">{{ trans('admin.edit') }}</a>
+                                <a style="color: #fff"  href="{{ route('componentpost.edit', [app()->getLocale(), $post->id]) }}" class="btn btn-primary">{{ trans('admin.edit') }}</a>
                                 <a style="color: #fff" href="{{ route('post.destroy', [app()->getLocale(), $post->id]) }}" onclick="return confirm_alert(this);" class="btn btn-warning">{{ trans('admin.delete') }}</a>
                             </td>
                         </tr>

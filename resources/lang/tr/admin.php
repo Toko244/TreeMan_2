@@ -113,7 +113,7 @@ return [
     'add' => 'Add File',
     'visit' => 'Visit Website',
     'new_contact_form' => 'New Submission From Contact Page',
-    'administrator_login' => 'Administrator Login',
-    'login' => 'Login',
-    'component' => 'Component'
+    'administrator_login' => 'Yönetici Girişi',
+    'login' => 'Giriş yapmak',
+    'component' => 'bileşen'
 ];

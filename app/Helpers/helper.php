@@ -8,8 +8,6 @@ use App\Models\Banner;
 use App\Models\PostSections;
 use App\Models\Subscription;
 
-
-
 function settings($key = null, Array $replace = []) {
     if($key == null) {
         return collect(config('settings'));
@@ -68,6 +66,16 @@ function sectionTypes(){
     return $value['id'];
   });
 }
+
+ function getComponentAttribute($id) {
+    return collect(Config::get('componentTypes'))->where('id', $id)->first()['fields'];
+}
+
+function componentTypes(){
+    return  collect(Config::get('componentTypes'))->sortBy(function($value, $key) {
+      return $value['id'];
+    });
+  }
 // function secType($id){
 
 //   foreach(collect(Config::get('sectionTypes')) as $key => $type){

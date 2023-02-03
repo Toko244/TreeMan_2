@@ -36,10 +36,9 @@ class SectionController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->icon->getClientOriginalName());
         $values = $request->all();
         Validator::validate($values, [
-            'type_id' => 'required'
+            'type_id' => 'required',
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();
@@ -61,7 +60,6 @@ class SectionController extends Controller
             Validator::validate($values[$locale], [
                 'slug' => 'unique:section_translations,slug,',
             ]);
-            // dd($values['en']['slug'] );
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
         }
 
@@ -97,7 +95,7 @@ class SectionController extends Controller
         $values = $request->all();
         $section = Section::where('id', $id)->first();
         Validator::validate($values, [
-            'type_id' => 'required'
+            'type_id' => 'required',
         ]);
         if($request->cover != ''){
             $originalName = $request->cover->getClientOriginalName();

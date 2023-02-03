@@ -1,15 +1,25 @@
 @extends('admin.layouts.app')
+
 @push('name')
     {{ trans('admin.sections') }}
 @endpush
+
 @section('content')
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box">
+
+
+
+
+
+
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_section') }}</h4>
+
             <form action="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}" method="post" enctype="multipart/form-data"  novalidate>
                 @csrf
                     <ul class="nav nav-tabs">
+
                         @foreach (config('app.locales') as $locale)
                         <li class="nav-item ">
                             <a href="#locale-{{ $locale }}" data-toggle="tab" aria-expanded="false" class="nav-link @if($locale == app()->getLocale()) active @endif">
@@ -17,6 +27,7 @@
                             </a>
                         </li>
                         @endforeach
+
                     </ul>
                     <div class="tab-content">
                         @foreach (config('app.locales') as $locale)
@@ -39,6 +50,8 @@
                                     <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
                                         class="@error('slug') danger @enderror form-control" value="{{$section->translate($locale)->slug}}" id="{{ $locale }}-slug" Required>
                                 </div>
+
+
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor">{{ $section->translate($locale)->desc ?? '' }}</textarea>
@@ -55,14 +68,6 @@
 
 
                                      </div>
-                                    {{-- <div class="form-group">
-                                        <label for="icon">{{trans('admin.icon')}}</label>
-                                        <br>
-                                        <input id="icon" type="file" name="icon" value="{{ image($section->icon) }}">
-                                        <img src="{{ image($section->icon) }}" alt="">
-                                    </div>  --}}
-
-
                             </div>
                         @endforeach
                     </div>
@@ -72,15 +77,16 @@
                             @error('active')
                                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                             @enderror
-                            <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect">
+                            <select class="form-control   @error('type') danger @enderror " name="type_id" id="typeselect" disabled>
 
-                                @foreach ($sectionTypes as $key => $type)
-                                    <option value="{{ $type['id'] }}"  {{ $type['id'] == $section->type_id ? "selected" : '' }}>{{ trans('sectionTypes.'.$key) }}</option>
+                                @foreach (componentTypes() as $key => $type)
+                                    <option value="{{ $type['id'] }}"  {{ $type['id'] == $section->type_id ? "selected" : '' }}>{{ trans('componentTypes.'.$key) }}</option>
                                 @endforeach
                             </select>
+                            <input type="hidden" name="type_id" value="{{$section->type_id}}">
                         </div>
 
-
+{{--
 
                         <div class="form-group">
                             <label for="parent">{{ trans('admin.parent') }}</label>
@@ -91,21 +97,21 @@
                                     <option value="{{ $sec->id }}" {{ $sec->id == $section->parent_id ? "selected" : '' }}>{{ $sec->title }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
 
-@if ($section->is_component)
-    <div class="form-group">
-        {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
-        <br>
-        {{ Form::hidden('is_component', '0') }}
-        {{ Form::checkbox('is_component', 1,  $section->is_component, [
-            'data-plugin' => 'switchery',
-            'data-color'=>'#3bafda',
-        ]) }}
-    </div>
-@endif
 
-                        @foreach ( menuTypes() as $key => $menuType )
+                        {{-- <div class="form-group">
+
+                            {{ Form::label(trans('admin.component'), null, ['class' => 'control-label']) }}
+                            <br>
+                            {{ Form::hidden('component', '0') }}
+                            {{ Form::checkbox('component', 1,  $section->component, [
+                                'data-plugin' => 'switchery',
+                                'data-color'=>'#3bafda',
+                            ]) }}
+
+                        </div> --}}
+                        {{-- @foreach ( menuTypes() as $key => $menuType )
 
                         <div class="checkbox checkbox-primary">
                             <input type="checkbox" name="menu_types[]" @if (isMenuType($section, $menuType)) checked @endif id="type_{{ $key }}" value="{{ $key }}">
@@ -114,7 +120,7 @@
                             </label>
                         </div>
 
-                        @endforeach
+                        @endforeach --}}
 
                     </div>
 
