@@ -142,7 +142,12 @@ class Section extends Model
         ->with('parent')->with('children')->orderBy('order', 'asc');
     }
 
-
+    public function sectionComponents() {
+      return $this->hasMany('App\Models\Section', 'parent_id')->with(['translations' => function($query){
+        $query->where('locale', app()->getLocale());
+      }])
+      ->where('is_component', 1)->orderBy('order', 'asc');
+    }
 
     public function parent() {
         return $this->belongsTo('App\Models\Section', 'parent_id')->with('parent.translations');

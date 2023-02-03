@@ -9,8 +9,7 @@ use App\Models\Section;
 class HomePageController extends Controller
 {
 	public static function homePage($model, $locales = null){
-
-        $homepage= Section::where('type_id', 0)->with('children')->first();
+        $homepage= Section::where('type_id', 1)->with('sectionComponents')->first();
         if($locales == null){
             foreach(config('app.locales') as $locale){
                     $locales[$locale] = '/'.$locale;
