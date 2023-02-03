@@ -15,21 +15,20 @@ use Carbon\Carbon;
 use Redirect;
 use Illuminate\Support\Facades\File;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
 
     public function index($sec){
-
         $section = Section::where('id', $sec)->with('translations')->first();
 
-        if (isset($section->type) && $section->type['type'] === 1) {
+        if ($section->type_id == 22 || $section->type_id == 24) {
             $post = Post::where('section_id', $sec)->with(['translations', 'slugs'])->first();
             if (isset($post) && $post !== null) {
-                return Redirect::route('post.edit', [app()->getLocale(), $post->id,]);
+                return redirect()->route('post.edit', [app()->getLocale(), $post->id,]);
             }
-            return Redirect::route('post.create', [app()->getLocale(), $sec,]);
+            return redirect()->route('post.create', [app()->getLocale(), $sec,]);
 
         }
         $posts = Post::where('section_id', $sec)->orderBy('date', 'desc')->orderBy('created_at', 'desc')
@@ -48,18 +47,61 @@ class PostController extends Controller
         return view('admin.posts.add', compact(['section']));
     }
 
-
-
     public function store($sec, Request $request){
+
         $section = Section::where('id', $sec)->with('translations')->first();
         $values = $request->all();
-        $post = null;
-        $this->storePost($values, $section, $post);
-
-            return Redirect::route('post.list', [app()->getLocale(), $section->id,]);
+        $values['section_id'] = $sec;
+        $values['author_id'] = auth()->user()->id;
+        $postFillable = (new Post)->getFillable();
+        $postTransFillable = (new PostTranslation)->getFillable();
+        
+        if(isset($values['image']) && ($values['image'] != '')){
+            $newimageName = uniqid() . "." . $values['image']->getClientOriginalExtension();
+            $values['image']->move(config('config.file_path'), $newimageName );
+            $values['image'] = '';
+            $values['image'] = $newimageName;
+        }
+        
+        if($request->has('is_component')){
+            $values['additional'] = getAdditional($values, array_diff(array_keys($section->componentfields['nonTrans']), $postFillable) );
+        }else{
+            $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
+        }
+		
+        foreach(config('app.locales') as $locale){
+			if(isset($values[$locale]['title']) && ($values[$locale]['title'] != '')){
+				$values[$locale]['slug'] = SlugService::createSlug(PostTranslation::class, 'slug', $values[$locale]['title']);
+			}            
+            if($request->has('is_component')){
+                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->componentfields['trans']), $postTransFillable) ); 
+            }else{
+                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) ); 
+            }
+        }
+        $post = Post::create($values);
+        foreach(config('app.locales') as $locale){
+            $post->slugs()->create([
+                'fullSlug' => $locale.'/'.$post->translate($locale)->slug,
+                'locale' => $locale
+            ]);
+        }
+        if (isset($values['files']) && count($values['files']) > 0) {
+			
+            foreach($values['files'] as $key => $files){
+				foreach($files['file'] as $k => $file){
+					$postFile = new PostFile;
+					$postFile->type = $key;
+					$postFile->file = $file;
+					$postFile->title = $values['files'][$key]['desc'][$k];
+					$postFile->post_id = $post->id;
+					$postFile->save();
+				}
+            }
+        }
+        
+        return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
-
-
 
 
     public function edit($id){
@@ -70,12 +112,73 @@ class PostController extends Controller
 
 
 
-    public function update($post, Request $request){
-        $post = Post::where('id', $post)->with('translations')->first();
+    public function update($id, Request $request){
+        $post = Post::where('id', $id)->with('translations')->first();
         $section = Section::where('id', $post->section_id)->with('translations')->first();
         $values = $request->all();
-        $this->storePost($values, $section, $post);
-        return Redirect::route('post.list', [app()->getLocale(), $section->id,]);
+        $postFillable = (new Post)->getFillable();
+        $postTransFillable = (new PostTranslation)->getFillable();
+        if(isset($values['image']) && ($values['image'] != '')){
+            $newimageName = uniqid() . "." . $values['image']->getClientOriginalExtension();
+            $values['image']->move(config('config.file_path'), $newimageName );
+            $values['image'] = '';
+            $values['image'] = $newimageName;
+        }elseif(isset($values['old_image'])){
+            $values['image'] = $values['old_image'];
+        }
+        
+        
+        if($request->has('is_component')){
+            $values['additional'] = getAdditional($values, array_diff(array_keys($section->componentfields['nonTrans']), $postFillable) );
+        }else{
+            $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
+        }
+
+        foreach(config('app.locales') as $locale){
+			if($values[$locale]['title'] != $post->$locale->title){
+				$values[$locale]['slug'] = SlugService::createSlug(PostTranslation::class, 'slug', $values[$locale]['title']);
+			}                        
+            if($request->has('is_component')){
+                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->componentfields['trans']), $postTransFillable) ); 
+            }else{
+                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) ); 
+            }  
+        }
+        // dd($values);
+        $allOldFiles = PostFile::where('post_id', $post->id)->get();
+        foreach ($allOldFiles as $key => $fil) {
+            if(isset($values['old_file']) && count($values['old_file']) > 0) {
+            if(!in_array($fil->id, array_keys($values['old_file']))){
+                $fil->delete();
+            }
+            }else{
+                $fil->delete();
+            }
+        }
+        Post::find($post->id)->update($values);
+        $post = Post::find($post->id); 
+            Slug::where('slugable_id', $post->id)->delete();
+			foreach(config('app.locales') as $locale){ 
+				$post->slugs()->create([
+					'fullSlug' => $locale.'/'.$post->translate($locale)->slug,
+					'locale' => $locale
+				]);
+                // dd($post->translate($locale)->slug);
+			}  
+        if (isset($values['files']) && count($values['files']) > 0) {
+			
+            foreach($values['files'] as $key => $files){
+				foreach($files['file'] as $k => $file){
+					$postFile = new PostFile;
+					$postFile->type = $key;
+					$postFile->file = $file;
+					$postFile->title = $values['files'][$key]['desc'][$k];
+					$postFile->post_id = $post->id;
+					$postFile->save();
+				}
+            }
+        }
+        return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
 
     protected function storePost($values, $section, $post){
@@ -322,7 +425,7 @@ class PostController extends Controller
         Slug::where('slugable_id', $post->id)->where('slugable_type', 'App\Models\Post')->delete();
 
         $post->delete();
-        return Redirect::route('post.list', [app()->getLocale(), $section->id,]);
+        return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
 
 

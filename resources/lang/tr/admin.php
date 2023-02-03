@@ -1,6 +1,7 @@
 <?php
 return [
     'locale_en' => 'English',
+    'locale_tr' => 'Turkey',
     'idea_home_link' => 'https://ideadesigngroup.ge/en',
     'idea_about_link' => 'https://ideadesigngroup.ge/en/Contact',
     'idea_contact_link' => 'https://ideadesigngroup.ge/en/about-us',
@@ -115,5 +116,10 @@ return [
     'new_contact_form' => 'New Submission From Contact Page',
     'administrator_login' => 'Yönetici Girişi',
     'login' => 'Giriş yapmak',
-    'component' => 'bileşen'
+    'component' => 'bileşen',
+    'add_component' => 'Add New Component',
+    'please_select_component_style' => 'Select Text Component Style',
+    'text_image_right' => 'Image right',
+    'text_image_left' => 'Image Left',
+    'text_image_bottom' => 'Image bottom',
 ];

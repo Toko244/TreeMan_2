@@ -12,6 +12,7 @@ use App\Models\SectionTranslation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Redirect;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class SectionController extends Controller
 {
@@ -30,8 +31,6 @@ class SectionController extends Controller
         $sectionTypes = sectionTypes();
         $sections = Section::with('translations')->get();
         $menuTypes = menuTypes();
-
-
         return view('admin.sections.add', compact(['sectionTypes', 'sections', 'menuTypes']));
     }
 
@@ -40,26 +39,14 @@ class SectionController extends Controller
         Validator::validate($values, [
             'type_id' => 'required',
         ]);
-        if($request->cover != ''){
-            $originalName = $request->cover->getClientOriginalName();
-            $newName = uniqid() . "." . $request->cover->getClientOriginalExtension();
-            $request->cover->move(config('config.image_path'), $newName );
-            $values['cover'] = $newName;
-        }
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
-        if($request->icon != ''){
-            $originalName = $request->icon->getClientOriginalName();
-            $newName = uniqid() . "." . $request->icon->getClientOriginalExtension();
-            $request->icon->move(config('config.image_path'), $newName );
-            $values['icon'] = $newName;
-        }
-
         foreach(config('app.locales') as $locale){
-
-            $values[$locale]['slug'] = str_replace(' ', '-', $values[$locale]['slug']);
-            Validator::validate($values[$locale], [
-                'slug' => 'unique:section_translations,slug,',
-            ]);
+            if($request->has('is_component')){
+                $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['title']);
+            }else{
+                $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['slug']);
+            }
+            $fullslug[$locale] = $locale.'/'.$values[$locale]['slug'];
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
         }
 
@@ -72,15 +59,19 @@ class SectionController extends Controller
 				]);
 			}
 		}
-
-
+        
         foreach(config('app.locales') as $locale){
             $section->slugs()->create([
-                'fullSlug' => genFullSlug($section, $locale),
+                'fullSlug' => $fullslug[$locale],
+                'slugable_id' => $section->id,
                 'locale' => $locale
             ]);
         }
-        return Redirect::route('section.list', [app()->getLocale()]);
+        if($request->has('is_component')){
+            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']]);
+        }else{
+            return redirect()->route('section.list', [app()->getLocale()]);
+        }
     }
 
     public function edit($id){
@@ -152,7 +143,7 @@ class SectionController extends Controller
             }
 
         }
-        return Redirect::route('section.list', [app()->getLocale()]);
+        return redirect()->route('section.list', [app()->getLocale()]);
     }
 
     public function destroy($id) {
@@ -165,7 +156,7 @@ class SectionController extends Controller
         Section::find($id)->slugs()->delete();
         Section::find($id)->delete();
 
-        return Redirect::route('section.list', [app()->getLocale()]);
+        return redirect()->route('section.list', [app()->getLocale()]);
     }
     public function arrange(Request $request) {
         $array = $request->input('orderArr');

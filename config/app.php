@@ -80,8 +80,8 @@ return [
     |
     */
     'locales' => [
-        'ka',
 		'en',
+        'ka',
         'tr'
 
     ],

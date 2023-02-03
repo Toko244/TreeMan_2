@@ -72,7 +72,15 @@ class Section extends Model
         return collect(Config::get('sectionTypes'))->where('id', $this->type_id)->first()['fields'];
     }
 
-
+/**
+     * tgis function gets Type of the section
+     * you can use it with just "->componentfields"
+     *
+     * @return void
+     */
+    public function getComponentFieldsAttribute() {
+      return collect(Config::get('componentTypes'))->where('id', $this->type_id)->first()['fields'];
+  }
 
     public function getFullSlug() {
         $slug = Slug::where('slugable_type', 'App\Models\Section')->where('slugable_id', $this->id)->where('locale', app()->getlocale())->first();
@@ -129,7 +137,9 @@ class Section extends Model
     public function children() {
         return $this->hasMany('App\Models\Section', 'parent_id')->with(['translations' => function($query){
           $query->where('locale', app()->getLocale());
-        }])->with('parent')->with('children')->orderBy('order', 'asc');
+        }])
+        ->where('is_component', '!=', 1)
+        ->with('parent')->with('children')->orderBy('order', 'asc');
     }
 
 
@@ -143,7 +153,22 @@ class Section extends Model
     public function slugs(){
         return $this->morphMany(Slug::class, 'slugable');
     }
+    public static function componentrearrange($array) {
+      self::_componentrearrangerearrange($array, 0);
 
+      \App\Models\Section::all()->each(function($item) {
+          $item->save();
+      });
+    }
+
+private static function _componentrearrangerearrange($array, $count, $parent = null) {
+  foreach($array as $a) {
+    $count++;
+    self::where('id', $a['id'])->update(['order' => $count]);
+
+  }
+  return $count;
+}
 
     public static function rearrange($array) {
         self::_rearrange($array, 0);
@@ -153,7 +178,7 @@ class Section extends Model
         });
       }
 
-	private static function _rearrange($array,$count, $parent = null) {
+	private static function _rearrange($array, $count, $parent = null) {
 	foreach($array as $a) {
 		$count++;
 		self::where('id', $a['id'])->update(['parent_id'=> $parent, 'order' => $count]);

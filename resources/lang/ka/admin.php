@@ -1,6 +1,7 @@
 <?php
 return [
     'locale_en' => 'English',
+    'locale_tr' => 'Turkey',
     'contact_us' => 'Contact Us',
     'about_us' => 'About Us',
     'dashboard' => 'Dashboard.',
@@ -121,5 +122,10 @@ return [
     'submission_sent' => 'შეტყობინება გაიგზავნა',
     'administrator_login' => 'ადმინისტრატორის ავტორიზაცია',
     'login' => 'შესვლა',
-    'component' => 'კომპონენტი'
+    'component' => 'კომპონენტი',
+    'add_component' => 'Add New Component',
+    'please_select_component_style' => 'Select Text Component Style',
+    'text_image_right' => 'Image right',
+    'text_image_left' => 'Image Left',
+    'text_image_bottom' => 'Image bottom',
 ];

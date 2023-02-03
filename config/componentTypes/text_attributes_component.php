@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 3,
-    'type' => 3,
-    'folder' => 'contact',
+    'id' => 26,
+    'type' => 26,
+    'folder' => '../components/text',
     'fields' => [
         'trans' => [
             'title' => [
@@ -14,24 +14,28 @@ return [
                 'translateble' => true,
 
             ],
-            'slug' => [
-                'type' => 'text',
-                'error_msg' => 'slug_is_required',
-                'required' => 'required',
-            ],
             'desc' => [
                 'type' => 'textarea',
             ],
             'text' => [
                 'type' => 'textarea',
             ],
-            'active' => [
-                'type' => 'checkbox',
+            'redirect_link' => [
+                'type' => 'text',
             ],
         ],
         'nonTrans' => [
-            'email' => [
-                'type' => 'text',
+            'images' => [
+                'type' => 'images',
+            ],
+            'target' => [
+                'type' => 'toggle',
+            ],
+            'component_style' => [
+                'type' => 'radio',
+            ],
+            'date' => [
+                'type' => 'date',
             ],
         ],
     ]

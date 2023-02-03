@@ -21,8 +21,10 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>
-                                @if (isset($post->thumb))
-                                <img src="{{image($post->thumb)}}" alt="" style="    width: 80px;">
+                                @if (isset($post->image))
+                                <img src="/{{config('config.file_path').$post->image}}" alt="" style="width: 80px;">
+                                @elseif(isset($post->thumb))
+                                <img src="{{image($post->thumb)}}" alt="" style="width: 80px;">
                                 @else
                                 <img src="/projectscover.png" alt="" style="    width: 80px;">
                                 @endif

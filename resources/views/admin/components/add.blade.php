@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="row">
-
     <div class="col-xl-12">
         <div class="card-box">
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_component') }}</h4>
@@ -33,16 +32,6 @@
                             @enderror
                             <input type="text" name="{{ $locale }}[title]" parsley-trigger="change"
                                 class="@error('title') danger @enderror form-control" id="{{ $locale }}-title" Required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="{{ $locale }}-slug">{{ trans('admin.slug') }}</label>
-                            @error('slug')
-                            <small
-                                style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.slug_is_required') }}</small>
-                            @enderror
-                            <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
-                                class="@error('slug') danger @enderror form-control" id="{{ $locale }}-slug" Required>
                         </div>
                     <div class="form-group">
                         <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
@@ -79,6 +68,7 @@
                 <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.component_is_required') }}</small>
                 @enderror
                 <select class="form-control  @error('type') danger @enderror " name="type_id" id="componentselect">
+                    <option value="">{{ trans('admin.choose_component') }}</option>
                     @foreach (componentTypes() as $key => $type)
                     <option value="{{ $type['id'] }}" id="componentoption">{{ trans('componentTypes.'.$key) }}</option>
                     @endforeach

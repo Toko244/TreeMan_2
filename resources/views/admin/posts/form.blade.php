@@ -52,14 +52,14 @@
         </div>
         @endforeach
     </div>
-
-
     @endif
     @if (isset(getComponentAttribute($section->type_id)['nonTrans']) && count(getComponentAttribute($section->type_id)['nonTrans']) > 0)
     @foreach (getComponentAttribute($section->type_id)['nonTrans'] as $key => $field)
         @include('admin.form-controllers.nonTrans.'.$field['type'])
     @endforeach
     @endif
+    <input type="hidden" name="type_id" value="{{$section->type_id}}">
+    <input type="hidden" name="is_component" value="1">
 @endif
 
 <div class="form-group text-right mb-0">
@@ -67,8 +67,3 @@
         {{ trans('admin.save') }}
     </button>
 </div>
-<script>
-    function confirm_alert(node) {
-      return confirm("Do you want to delete this Post?");
-    }
-  </script>

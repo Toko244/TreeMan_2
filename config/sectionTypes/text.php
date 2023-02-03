@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 3,
-    'type' => 3,
-    'folder' => 'contact',
+    'id' => 2,
+    'type' => 2,
+    'folder' => 'textpage',
     'fields' => [
         'trans' => [
             'title' => [

@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 3,
-    'type' => 3,
-    'folder' => 'contact',
+    'id' => 24,
+    'type' => 24,
+    'folder' => '../components/bookbanner',
     'fields' => [
         'trans' => [
             'title' => [
@@ -14,24 +14,22 @@ return [
                 'translateble' => true,
 
             ],
-            'slug' => [
-                'type' => 'text',
-                'error_msg' => 'slug_is_required',
-                'required' => 'required',
-            ],
             'desc' => [
                 'type' => 'textarea',
             ],
-            'text' => [
-                'type' => 'textarea',
-            ],
-            'active' => [
-                'type' => 'checkbox',
+            'redirect_link' => [
+                'type' => 'text',
             ],
         ],
         'nonTrans' => [
-            'email' => [
-                'type' => 'text',
+            'image' => [
+                'type' => 'image',
+            ],
+            'target' => [
+                'type' => 'switch',
+            ],
+            'date' => [
+                'type' => 'date',
             ],
         ],
     ]

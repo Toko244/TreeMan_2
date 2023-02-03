@@ -1,6 +1,7 @@
 <?php
 return [
     'locale_en' => 'English',
+    'locale_tr' => 'Turkey',
     'idea_home_link' => 'https://ideadesigngroup.ge/en',
     'idea_about_link' => 'https://ideadesigngroup.ge/en/Contact',
     'idea_contact_link' => 'https://ideadesigngroup.ge/en/about-us',
@@ -85,7 +86,6 @@ return [
     'fill_all_fields' => 'Please Fill All Required Fields',
     'enter_valid_email_address' => 'Enter Valid email Address',
     'submission_sent' => 'Submission Sent',
-
     'header_title1' => 'Header Title1',
     'header_title2' => 'Header Title2',
     'lastname' => 'Lastname',
@@ -98,7 +98,6 @@ return [
     'search' => 'Search',
     'send_date' => 'Send Date',
     'period' => 'Period',
-
     'budget' => 'Budget',
     'period' => 'Period',
     'status' => 'Status',
@@ -115,5 +114,11 @@ return [
     'new_contact_form' => 'New Submission From Contact Page',
     'administrator_login' => 'Administrator Login',
     'login' => 'Login',
-    'component' => 'Component'
+    'component' => 'Component',
+    'choose_component' => '...',
+    'add_component' => 'Add New Component',
+    'please_select_component_style' => 'Select Text Component Style',
+    'text_image_right' => 'Image right',
+    'text_image_left' => 'Image Left',
+    'text_image_bottom' => 'Image bottom',
 ];

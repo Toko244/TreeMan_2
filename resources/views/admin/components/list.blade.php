@@ -13,7 +13,7 @@
         <div style="display: flex; align-items:center; justify-content: space-between; padding:20px 0">
           <h4 class="mt-0 header-title float-left">{{ $section->title}}</h4>
           @if (auth()->user()->isType('admin'))
-            <a href="/{{ app()->getLocale() }}/admin/section/{{$id}}/component/create" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_compnent') }}</a>
+            <a href="/{{ app()->getLocale() }}/admin/component/{{$id}}/create" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_component') }}</a>
           @endif
           </div>
         <div class="dd section-list">
@@ -112,7 +112,7 @@
 
       $('.btn-save-nestable').click(function(){
         var $this = $(this);
-        $.post("/{{ app()->getLocale() }}/admin/sections/arrange", {orderArr: $('.dd').nestable('serialize'), '_token': "{{ csrf_token() }}"}, function(data){
+        $.post("/{{ app()->getLocale() }}/admin/component/arrange/{{$section->id}}", {orderArr: $('.dd').nestable('serialize'), '_token': "{{ csrf_token() }}"}, function(data){
           // $this.button('reset');
         });
 

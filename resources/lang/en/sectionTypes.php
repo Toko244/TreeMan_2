@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'home' => 'Home',
+    'home' => 'Home Page',
+    'text' => 'Text Page',
+    'photo_video' => 'Photo-Video Gallery',
+    'contact' => 'Contact Page',
 ];
