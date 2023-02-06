@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 22,
-    'type' => 22,
-    'folder' => '../components/text',
+    'id' => 30,
+    'type' => 30,
+    'folder' => '../components/bookbanner',
     'fields' => [
         'trans' => [
             'title' => [
@@ -12,12 +12,8 @@ return [
                 'min' => '3',
                 'name' => 'title',
                 'translateble' => true,
-
             ],
             'desc' => [
-                'type' => 'textarea',
-            ],
-            'text' => [
                 'type' => 'textarea',
             ],
             'redirect_link' => [
@@ -25,14 +21,11 @@ return [
             ],
         ],
         'nonTrans' => [
-            'images' => [
-                'type' => 'images',
+            'image' => [
+                'type' => 'image',
             ],
             'target' => [
-                'type' => 'toggle',
-            ],
-            'component_style' => [
-                'type' => 'radio',
+                'type' => 'switch',
             ],
             'date' => [
                 'type' => 'date',

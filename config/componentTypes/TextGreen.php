@@ -2,7 +2,7 @@
 return [
     'id' => 25,
     'type' => 25,
-    'folder' => '../components/counter',
+    'folder' => '../components/text',
     'fields' => [
         'trans' => [
             'title' => [
@@ -12,12 +12,25 @@ return [
                 'min' => '3',
                 'name' => 'title',
                 'translateble' => true,
+
             ],
-            'value' => [
+            'desc' => [
+                'type' => 'textarea',
+            ],
+            'text' => [
+                'type' => 'textarea',
+            ],
+            'redirect_link' => [
                 'type' => 'text',
             ],
         ],
         'nonTrans' => [
+            'image' => [
+                'type' => 'image',
+            ],
+            'target_blank' => [
+                'type' => 'switch',
+            ],
             'date' => [
                 'type' => 'date',
             ],

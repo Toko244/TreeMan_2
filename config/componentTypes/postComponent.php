@@ -1,7 +1,7 @@
 <?php
 return [
-    'id' => 28,
-    'type' => 28,
+    'id' => 21,
+    'type' => 21,
     'folder' => '../components/postslider',
     'fields' => [
         'trans' => [
@@ -25,7 +25,7 @@ return [
             'image' => [
                 'type' => 'image',
             ],
-            'target' => [
+            'target_blank' => [
                 'type' => 'switch',
             ],
             'date' => [

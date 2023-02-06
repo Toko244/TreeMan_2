@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 20,
-    'type' => 20,
-    'folder' => '../components/mainslider',
+    'id' => 26,
+    'type' => 26,
+    'folder' => '../components/text',
     'fields' => [
         'trans' => [
             'title' => [
@@ -15,6 +15,9 @@ return [
 
             ],
             'desc' => [
+                'type' => 'textarea',
+            ],
+            'text' => [
                 'type' => 'textarea',
             ],
             'redirect_link' => [

@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 26,
-    'type' => 26,
-    'folder' => '../components/text',
+    'id' => 27,
+    'type' => 27,
+    'folder' => '../components/cardbanner',
     'fields' => [
         'trans' => [
             'title' => [
@@ -17,22 +17,16 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'text' => [
-                'type' => 'textarea',
-            ],
             'redirect_link' => [
                 'type' => 'text',
             ],
         ],
         'nonTrans' => [
-            'images' => [
-                'type' => 'images',
+            'image' => [
+                'type' => 'image',
             ],
-            'target' => [
-                'type' => 'toggle',
-            ],
-            'component_style' => [
-                'type' => 'radio',
+            'target_blank' => [
+                'type' => 'switch',
             ],
             'date' => [
                 'type' => 'date',

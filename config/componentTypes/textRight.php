@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 21,
-    'type' => 21,
-    'folder' => '../components/bannerSlider',
+    'id' => 23,
+    'type' => 23,
+    'folder' => '../components/text',
     'fields' => [
         'trans' => [
             'title' => [
@@ -14,27 +14,25 @@ return [
                 'translateble' => true,
 
             ],
-            'slug' => [
-                'type' => 'text',
-                'error_msg' => 'slug_is_required',
-                'required' => 'required',
-            ],
             'desc' => [
                 'type' => 'textarea',
             ],
             'text' => [
                 'type' => 'textarea',
             ],
-            'active' => [
-                'type' => 'checkbox',
+            'redirect_link' => [
+                'type' => 'text',
             ],
         ],
         'nonTrans' => [
-            'email' => [
-                'type' => 'text',
+            'image' => [
+                'type' => 'image',
             ],
-            'images' => [
-                'type' => 'images',
+            'target_blank' => [
+                'type' => 'switch',
+            ],
+            'date' => [
+                'type' => 'date',
             ],
         ],
     ]

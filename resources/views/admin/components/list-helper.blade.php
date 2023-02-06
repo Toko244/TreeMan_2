@@ -2,7 +2,7 @@
     @foreach ($components as $component)
       <li class="dd-item sections-list-li" data-id="{{ $component->id }}">
         <div class="dd-handle" style="">
-          {{ $component->title }}
+          {{ $component->title }} - ({{componentTypes($component->type_id)}})
         </div>
         <div class="change-icons">
             <a href="/{{ app()->getLocale() }}/admin/section/{{ $component->id }}/posts"  class="far fa-eye"></a>

@@ -69,7 +69,7 @@
                 @enderror
                 <select class="form-control  @error('type') danger @enderror " name="type_id" id="componentselect">
                     <option value="">{{ trans('admin.choose_component') }}</option>
-                    @foreach (componentTypes() as $key => $type)
+                    @foreach (componentsType() as $key => $type)
                     <option value="{{ $type['id'] }}" id="componentoption">{{ trans('componentTypes.'.$key) }}</option>
                     @endforeach
                 </select>

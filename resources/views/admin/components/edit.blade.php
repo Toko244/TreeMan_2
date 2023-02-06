@@ -92,7 +92,7 @@
                         <select class="form-control   @error('type') danger @enderror " name="type_id" id="typeselect"
                             disabled>
 
-                            @foreach (componentTypes() as $key => $type)
+                            @foreach (componentsType() as $key => $type)
                                 <option value="{{ $type['id'] }}"
                                     {{ $type['id'] == $section->type_id ? 'selected' : '' }}>
                                     {{ trans('componentTypes.' . $key) }}</option>

@@ -2,7 +2,7 @@
 return [
     'id' => 24,
     'type' => 24,
-    'folder' => '../components/bookbanner',
+    'folder' => '../components/text',
     'fields' => [
         'trans' => [
             'title' => [
@@ -17,6 +17,9 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
+            'text' => [
+                'type' => 'textarea',
+            ],
             'redirect_link' => [
                 'type' => 'text',
             ],
@@ -25,7 +28,7 @@ return [
             'image' => [
                 'type' => 'image',
             ],
-            'target' => [
+            'target_blank' => [
                 'type' => 'switch',
             ],
             'date' => [

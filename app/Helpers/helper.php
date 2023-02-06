@@ -67,23 +67,23 @@ function sectionTypes(){
   });
 }
 
- function getComponentAttribute($id) {
-    return collect(Config::get('componentTypes'))->where('id', $id)->first()['fields'];
+function componentTypes($id){
+  foreach(collect(Config::get('componentTypes')) as $key => $type){
+    if($type['id'] == $id){
+      return $key;
+    }
+  }
 }
 
-function componentTypes(){
-    return  collect(Config::get('componentTypes'))->sortBy(function($value, $key) {
-      return $value['id'];
-    });
-  }
-// function secType($id){
+function componentsType(){
 
-//   foreach(collect(Config::get('sectionTypes')) as $key => $type){
-//     if($type['id'] == $id){
-//       return $key;
-//     }
-//   }
-// }
+  return  collect(Config::get('componentTypes'))->sortBy(function($value, $key) {
+    return $value['id'];
+  });
+}
+function getComponentAttribute($id) {
+  return collect(Config::get('componentTypes'))->where('id', $id)->first()['fields'];
+}
 function sections(){
     $sections = Section::where('type_id', 2)->get();
     $data = [

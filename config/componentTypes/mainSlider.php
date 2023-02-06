@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 21,
-    'type' => 21,
-    'folder' => '../components/postslider',
+    'id' => 20,
+    'type' => 20,
+    'folder' => '../components/mainslider',
     'fields' => [
         'trans' => [
             'title' => [
@@ -12,7 +12,6 @@ return [
                 'min' => '3',
                 'name' => 'title',
                 'translateble' => true,
-
             ],
             'desc' => [
                 'type' => 'textarea',
@@ -22,11 +21,11 @@ return [
             ],
         ],
         'nonTrans' => [
-            'images' => [
-                'type' => 'images',
+            'image' => [
+                'type' => 'image',
             ],
-            'target' => [
-                'type' => 'toggle',
+            'target_blank' => [
+                'type' => 'switch',
             ],
             'date' => [
                 'type' => 'date',

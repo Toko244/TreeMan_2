@@ -69,7 +69,7 @@
 
             @if($field['type'] == 'select')
             <select name="{{ $k }}[{{ $key }}][value]" id="" class="form-control">
-                @foreach (getSectionsWithTypes($field['options']) as $section)
+                @foreach(getSectionsWithTypes($field['options']) as $section)
                 <option @if ($field['value']==$section->id) selected @endif
                     value="{{ $section->id }}">{{ $section->title }}</option>
                 @endforeach

@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class bookBanner extends Component
+class counterBanner extends Component
 {
     public $section;
     /**
@@ -30,7 +30,7 @@ class bookBanner extends Component
      */
     public function render()
     {
-        return view('components.book-banner')->with([
+        return view('components.counter-banner')->with([
             'section' => $this->section
         ]);
     }

@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 23,
-    'type' => 23,
-    'folder' => '../components/cardbanner',
+    'id' => 29,
+    'type' => 29,
+    'folder' => '../components/counter',
     'fields' => [
         'trans' => [
             'title' => [
@@ -12,22 +12,12 @@ return [
                 'min' => '3',
                 'name' => 'title',
                 'translateble' => true,
-
             ],
-            'desc' => [
-                'type' => 'textarea',
-            ],
-            'redirect_link' => [
+            'value' => [
                 'type' => 'text',
             ],
         ],
         'nonTrans' => [
-            'image' => [
-                'type' => 'image',
-            ],
-            'target' => [
-                'type' => 'toggle',
-            ],
             'date' => [
                 'type' => 'date',
             ],
