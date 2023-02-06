@@ -264,6 +264,9 @@
     .photo-gallery .content{
         padding: 0 5px;
     }
+    .photo-gallery .text{
+        margin-bottom: 40px;
+    }
 }
 
 /*--------------------------------- 440px -------------------------------*/
