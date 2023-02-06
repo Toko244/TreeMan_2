@@ -1,6 +1,7 @@
+
+@if(isset($section) && isset($section->posts) && count($section->posts) > 0)
 <section>
     <div class="home-slider">
-        @if(isset($section) && isset($section->posts) && count($section->posts) > 0)
         @foreach ($section->posts as $key => $post)
         <div class="home-banner w-full relative background-green">
             <div class="home-slider-slide w-full h-full flex items-center">
@@ -41,6 +42,6 @@
             </div>
         </div>  
         @endforeach
-        @endif
     </div>
 </section>
+@endif

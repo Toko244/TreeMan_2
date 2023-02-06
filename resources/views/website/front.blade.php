@@ -4,11 +4,11 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" type="text/css" href="assets/style/slick.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/fonts.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/gorda.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/responsive.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/slick.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/fonts.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/gorda.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
    <title>Document</title>
 </head>
  <body>
@@ -97,7 +97,7 @@
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="logo flex items-center justify-center" style="max-width: 105px;">
                             <a href="" class="w-full h-full block">
-                                <img src="assets/img/header-logo.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
                     </div>
@@ -173,15 +173,15 @@
                     </div>
         
                     <div class="image absolute z-1 top-0 right-0 h-full image-side-width">
-                        <img src="assets/img/tringle.png" alt="" class="tringle-cover h-full absolute top-0 z-10" style="left: -1px;">
+                        <img src="/assets/img/tringle.png" alt="" class="tringle-cover h-full absolute top-0 z-10" style="left: -1px;">
         
         
                         <div class="image-slider w-full h-full">
                             <div class="img w-full h-full">
-                                <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
                             <div class="img w-full h-full">
-                                <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
                         </div>
         
@@ -212,15 +212,15 @@
                     </div>
         
                     <div class="image absolute z-1 top-0 right-0 h-full image-side-width">
-                        <img src="assets/img/tringle.png" alt="" class="tringle-cover h-full absolute left-0 top-0 z-10" style="left: -1px;">
+                        <img src="/assets/img/tringle.png" alt="" class="tringle-cover h-full absolute left-0 top-0 z-10" style="left: -1px;">
         
         
                         <div class="image-slider w-full h-full">
                             <div class="img w-full h-full">
-                                <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
                             <div class="img w-full h-full">
-                                <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
                         </div>
         
@@ -233,11 +233,11 @@
             <div class="flex column w-full relative">
                 <div class="image-slider">
                     <div class="img-slide">
-                        <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
+                        <img src="/assets/img/slider-image.png" alt="" class="w-full h-full cover">
                     </div>
 
                     <div class="img-slide">
-                        <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
+                        <img src="/assets/img/slider-image.png" alt="" class="w-full h-full cover">
                     </div>
                 </div>
             </div>
@@ -262,7 +262,7 @@
 
     <section>
         <div class="text_section section-pad relative">
-            <img src="assets/img/Vector 1.png" alt="" class="w-full absolute left-0 line">
+            <img src="/assets/img/Vector 1.png" alt="" class="w-full absolute left-0 line">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -281,7 +281,7 @@
 
                     <div class="col-lg-6">
                         <div class="image flex items-center justify-center hidden relative">
-                            <img src="assets/img/post-image.png" alt="" class="w-full h-full cover">
+                            <img src="/assets/img/post-image.png" alt="" class="w-full h-full cover">
                         </div>
                     </div>
                 </div>
@@ -289,7 +289,7 @@
         </div>
 
         <div class="text_section section-pad relative reverce">
-            <img src="assets/img/Vector 2.png" alt="" class="w-full absolute left-0 line">
+            <img src="/assets/img/Vector 2.png" alt="" class="w-full absolute left-0 line">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -308,7 +308,7 @@
 
                     <div class="col-lg-6">
                         <div class="image flex items-center justify-center hidden relative">
-                            <img src="assets/img/post-image.png" alt="" class="w-full h-full cover">
+                            <img src="/assets/img/post-image.png" alt="" class="w-full h-full cover">
                         </div>
                     </div>
                 </div>
@@ -324,7 +324,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
                             <a href="" class="w-full h-full relative flex items-center justify-center">
-                                <img src="assets/img/card.png" alt="" class="w-full h-full cover relative">
+                                <img src="/assets/img/card.png" alt="" class="w-full h-full cover relative">
                             </a>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
                             <a href="" class="w-full h-full relative flex items-center justify-center">
-                                <img src="assets/img/card.png" alt="" class="w-full h-full cover relative">
+                                <img src="/assets/img/card.png" alt="" class="w-full h-full cover relative">
                             </a>
                         </div>
                     </div>
@@ -340,7 +340,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
                             <a href="" class="w-full h-full relative flex items-center justify-center">
-                                <img src="assets/img/card.png" alt="" class="w-full h-full cover relative">
+                                <img src="/assets/img/card.png" alt="" class="w-full h-full cover relative">
                             </a>
                         </div>
                     </div>
@@ -348,7 +348,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
                             <a href="" class="w-full h-full relative flex items-center justify-center">
-                                <img src="assets/img/card.png" alt="" class="w-full h-full cover relative">
+                                <img src="/assets/img/card.png" alt="" class="w-full h-full cover relative">
                             </a>
                         </div>
                     </div>
@@ -356,7 +356,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
                             <a href="" class="w-full h-full relative flex items-center justify-center">
-                                <img src="assets/img/card.png" alt="" class="w-full h-full cover relative">
+                                <img src="/assets/img/card.png" alt="" class="w-full h-full cover relative">
                             </a>
                         </div>
                     </div>
@@ -405,31 +405,31 @@
                     <div class="post-slider" style="width: 130%;">
                         <div class="slide">
                             <a href="" class="block w-full h-full">
-                                <img src="assets/img/flower.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/flower.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
 
                         <div class="slide">
                             <a href="" class="block w-full h-full">
-                                <img src="assets/img/flower.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/flower.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
 
                         <div class="slide">
                             <a href="" class="block w-full h-full">
-                                <img src="assets/img/post-image.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/post-image.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
 
                         <div class="slide">
                             <a href="" class="block w-full h-full">
-                                <img src="assets/img/flower.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/flower.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
 
                         <div class="slide">
                             <a href="" class="block w-full h-full">
-                                <img src="assets/img/flower.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/flower.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
 
@@ -459,13 +459,13 @@
                     <div class="col-xl-6 col-lg-5 col-md-4 col-sm-12 col-12">
                         <div class="video w-full relative hidden">
                             <a href="" class="w-full h-full relative flex items-center justify-center flex items-center justify-center">
-                                <img src="assets/img/vide-cover.png" alt="" class="w-full h-full cover">
-                                <img src="assets/img/play.png" alt="" class="absolute z-1">
+                                <img src="/assets/img/vide-cover.png" alt="" class="w-full h-full cover">
+                                <img src="/assets/img/play.png" alt="" class="absolute z-1">
                             </a>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 background-green">
                         <div class="title mt-4 mb-4">
                             <h3 class="white text-2xl bold">
                                 Why to work with us
@@ -476,7 +476,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-12">
                                 <div class="text-block flex items-center justify-start">
                                     <div class="logo h-full flex items-center mr-2">
-                                        <img src="assets/img/check.png" alt="">
+                                        <img src="/assets/img/check.png" alt="">
                                     </div>
 
                                     <div class="info">
@@ -496,7 +496,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-12">
                                 <div class="text-block flex items-center justify-start">
                                     <div class="logo h-full flex items-center mr-2">
-                                        <img src="assets/img/check.png" alt="">
+                                        <img src="/assets/img/check.png" alt="">
                                     </div>
 
                                     <div class="info">
@@ -516,7 +516,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-12">
                                 <div class="text-block flex items-center justify-start">
                                     <div class="logo h-full flex items-center mr-2">
-                                        <img src="assets/img/check.png" alt="">
+                                        <img src="/assets/img/check.png" alt="">
                                     </div>
 
                                     <div class="info">
@@ -597,8 +597,8 @@
 
     <section>
         <div class="book-section w-full relative flex items-center justify-start hidden">
-            <img src="assets/img/book_cover.png" alt="" class="w-full h-full cover absolute left-0 top-0">
-            <img src="assets/img/book-section-cover.png" alt="" class="h-full absolute left-0 z-1">
+            <img src="/assets/img/book_cover.png" alt="" class="w-full h-full cover absolute left-0 top-0">
+            <img src="/assets/img/book-section-cover.png" alt="" class="h-full absolute left-0 z-1">
 
             <div class="container">
                 <div class="book-info relative z-10 flex items-start w-initial">
@@ -629,8 +629,8 @@
                     
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -645,8 +645,8 @@
 
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -661,8 +661,8 @@
 
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -677,8 +677,8 @@
 
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -693,8 +693,8 @@
 
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -709,8 +709,8 @@
 
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="" class="w-full h-full flex items-center justify-center relative hidden">
-                            <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
-                            <img src="assets/img/post-cover.png" alt="" class="post-cover w-full">
+                            <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover relative hover-image">
+                            <img src="/assets/img/post-cover.png" alt="" class="post-cover w-full">
 
                             <div class="post_arrow flex items-center justify-start absolute">
                                 <div class="flex items-center semibold white mr-1">
@@ -736,7 +736,7 @@
                     <div class="row">
                         <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-4">
                             <div class="footer-logo">
-                                <img src="assets/img/footerlogo.png" alt="">
+                                <img src="/assets/img/footerlogo.png" alt="">
                             </div>
                         </div>
 
@@ -860,7 +860,7 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/slick.js"></script>
-    <script type="text/javascript" src="assets/javascript/script.js"></script>
+    <script type="text/javascript" src="/assets/javascript/slick.js"></script>
+    <script type="text/javascript" src="/assets/javascript/script.js"></script>
  </body>
  </html>

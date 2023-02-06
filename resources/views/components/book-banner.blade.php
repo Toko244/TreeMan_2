@@ -1,3 +1,4 @@
+@if(isset($section) && isset($section->posts) && count($section->posts) > 0)
 <section>
     <div class="book-section w-full relative flex items-center justify-start hidden">
         <img src="/assets/img/book_cover.png" alt="" class="w-full h-full cover absolute left-0 top-0">
@@ -7,11 +8,11 @@
             <div class="book-info relative z-10 flex items-start w-initial">
                 <div class="flex column">
                     <div class="title flex items-center bold white mb-1">
-                        Want to learn more?
+                        {{$section->posts[0]->translate(app()->getlocale())->title}}
                     </div>
 
                     <div class="desc white semibold">
-                        Book an online appointment
+                        {!! $section->posts[0]->translate(app()->getlocale())->desc !!}
                     </div>
                 </div>
 
@@ -24,3 +25,4 @@
         </div>
     </div>
 </section>
+@endif

@@ -21,8 +21,8 @@ return [
             ],
         ],
         'nonTrans' => [
-            'image' => [
-                'type' => 'image',
+            'images' => [
+                'type' => 'images',
             ],
             'target_blank' => [
                 'type' => 'switch',

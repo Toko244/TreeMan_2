@@ -10,11 +10,12 @@ class HomePageController extends Controller
 {
 	public static function homePage($model, $locales = null){
         $homepage= Section::where('type_id', 1)->first();
-        $components = Section::where('parent_id', $homepage->id)->where('is_component', 1)->pluck('type_id','id');
+        $components = Section::where('parent_id', $homepage->id)->where('is_component', 1)->orderBy('order', 'asc')->pluck('type_id','id');
 
         foreach($components as $key => $item){
                 $components[$key] = componentTypes($item);
         }
+// dd($components);
         if($locales == null){
             foreach(config('app.locales') as $locale){
                     $locales[$locale] = '/'.$locale;
