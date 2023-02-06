@@ -4,11 +4,11 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" type="text/css" href="/assets/style/slick.css">
-   <link rel="stylesheet" type="text/css" href="/assets/style/fonts.css">
-   <link rel="stylesheet" type="text/css" href="/assets/style/gorda.css">
-   <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
-   <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
+   <link rel="stylesheet" type="text/css" href="assets/style/slick.css">
+   <link rel="stylesheet" type="text/css" href="assets/style/fonts.css">
+   <link rel="stylesheet" type="text/css" href="assets/style/gorda.css">
+   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+   <link rel="stylesheet" type="text/css" href="assets/style/responsive.css">
    <title>Document</title>
 </head>
 <body>
@@ -97,7 +97,7 @@
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="logo flex items-center justify-center" style="max-width: 105px;">
                             <a href="" class="w-full h-full block">
-                                <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
+                                <img src="assets/img/header-logo.png" alt="" class="w-full h-full cover">
                             </a>
                         </div>
                     </div>
@@ -152,8 +152,8 @@
         <div class="contact-page w-full">
             <div class="contact-cover w-full background-green relative">
 
-                <div class="contact-image absolute top-0 right-0 h-full w-3_5">
-                    <img src="/assets/img/contacr-cover.png" alt="" class="w-full h-full cover">
+                <div class="contact-image absolute top-0 right-0 h-full w-3_5 contact-resp-none">
+                    <img src="assets/img/contacr-cover.png" alt="" class="w-full h-full cover">
                     <div class="tringle background-green absolute top-0 left-0 z-10 h-full" style="clip-path: polygon(0 0, 0% 100%, 100% 0); width: 250px;"></div>
                 </div>
 
@@ -202,6 +202,10 @@
 
                        
                     </div>
+                </div>
+
+                <div class="contact-image w-full contact-resp-on">
+                    <img src="assets/img/contacr-cover.png" alt="" class="w-full h-full cover">
                 </div>
             </div>
 
@@ -259,7 +263,7 @@
             </div>
 
             <div class="contact-map w-full flex items-center justify-center">
-                <img src="/assets/img/map.png" alt="" class="w-full h-full cover">
+                <img src="assets/img/map.png" alt="" class="w-full h-full cover">
             </div>
         </div>
     </section>
@@ -271,7 +275,7 @@
                     <div class="row">
                         <div class="col-xl-1 col-lg-2 col-md-4">
                             <div class="footer-logo">
-                                <img src="/assets/img/footerlogo.png" alt="">
+                                <img src="assets/img/footerlogo.png" alt="">
                             </div>
                         </div>
 
@@ -360,7 +364,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-5 col-lg-5 col-md-12">
+                        <div class="col-xl-5 col-lg-6 col-md-12">
                             <div class="footer-social flex justify-end items-center">
                                 <div class="social flex items-center">
                                     <a href="" class="flex items-center">
@@ -397,7 +401,7 @@
 
     
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/assets/javascript/slick.js"></script>
-    <script type="text/javascript" src="/assets/javascript/script.js"></script>
+    <script type="text/javascript" src="assets/javascript/slick.js"></script>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
 </body>
 </html>
