@@ -17,9 +17,6 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'text' => [
-                'type' => 'textarea',
-            ],
             'redirect_link' => [
                 'type' => 'text',
             ],

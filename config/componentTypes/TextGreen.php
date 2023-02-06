@@ -17,9 +17,6 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'text' => [
-                'type' => 'textarea',
-            ],
             'redirect_link' => [
                 'type' => 'text',
             ],
@@ -27,6 +24,9 @@ return [
         'nonTrans' => [
             'image' => [
                 'type' => 'image',
+            ],
+            'youtube' => [
+                'type' => 'text',
             ],
             'target_blank' => [
                 'type' => 'switch',

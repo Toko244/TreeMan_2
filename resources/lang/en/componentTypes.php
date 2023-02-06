@@ -1,11 +1,15 @@
 <?php
 
 return [
-    'main_slider_component' => 'Main Slider',
-    'post_slider_component' => 'Post Slider',
-    'text_component' => 'Text Page',
-    'card_component' => 'Card page',
-    'book_component' => 'Book Page',
-    'counter_component' => 'Counter Page',
-    'text_attributes_component' => 'Text Page With Attributes'
+    'mainSlider' => 'Main Slider',
+    'postComponent' => 'Post Slider',
+    'textLeft' => 'Text Left',
+    'textRight' => 'Text Right',
+    'textTop' => 'Text Top',
+    'TextGreen' => 'Text Green',
+    'postGreen' => 'Post Green',
+    'cardBanner' => 'Card banner',
+    'bannerSlider' => 'Banner Slider',
+    'counterBanner' => 'Counter Banner',
+    'bookBanner' => 'Book Banner'
 ];
