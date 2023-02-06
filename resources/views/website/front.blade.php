@@ -177,11 +177,9 @@
         
         
                         <div class="image-slider w-full h-full">
-                            <!-- @foreach images -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
-                            <!-- @endforeach -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
@@ -218,11 +216,9 @@
         
         
                         <div class="image-slider w-full h-full">
-                            <!-- @foreach images -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
-                            <!-- @endforeach -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
