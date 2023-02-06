@@ -368,6 +368,30 @@
     </section>
 
     <section>
+        <div class="text_section column">
+            <div class="container">
+                <div class="title green text-xl lemon-medium relative">
+                    popularity Confirmed
+                </div>
+    
+                <div class="text-seemore flex items-center justify-between">
+                    <div class="text medium text-lg black">
+                        World interest over Paulownia in the 5 year period based on Google Trends data. Clearly visible that there exists continuous interest over it.
+                    </div>
+    
+                    <a href="" class="medium text-lg black">
+                        See More
+                    </a>
+                </div>
+
+                <div class="image">
+                    <img src="assets/img/graph.png" alt="" class="w-full h-full cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
         <div class="slider-posts section-padding">
             <div class="container">
                 <div class="title w-full flex items-center justify-between mb-3">

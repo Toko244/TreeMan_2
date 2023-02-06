@@ -396,3 +396,9 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .contact-resp-on{
     display: none;
 }
+.text_section.column .image{
+    margin: 0;
+}
+.text_section.column .title::after{
+    display: none;
+}
