@@ -29,7 +29,7 @@ class SectionController extends Controller
     public function create(){
 
         $sectionTypes = sectionTypes();
-        $sections = Section::with('translations')->get();
+        $sections = Section::with('translations')->where('is_component', '!=', 1)->get();
         $menuTypes = menuTypes();
         return view('admin.sections.add', compact(['sectionTypes', 'sections', 'menuTypes']));
     }
@@ -109,6 +109,7 @@ class SectionController extends Controller
         }
         $section = Section::find($id)->update($values);
         MenuSection::where('section_id', $id)->delete();
+        Slug::where('slugable_id', $id)->delete();
         if (isset($values['menu_types']) && $values['menu_types'] !== null) {
             foreach($values['menu_types'] as $type){
                 MenuSection::create([

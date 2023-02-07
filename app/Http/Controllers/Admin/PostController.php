@@ -16,13 +16,13 @@ use Redirect;
 use Illuminate\Support\Facades\File;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
-
+           
 class PostController extends Controller
 {
 
     public function index($sec){
         $section = Section::where('id', $sec)->with('translations')->first();
-        if ($section->type_id >= 22 && $section->type_id <= 25) {
+        if (($section->type_id >= 22 && $section->type_id <= 25) || $section->type_id == 2) {
             $post = Post::where('section_id', $sec)->with(['translations', 'slugs'])->first();
             if (isset($post) && $post !== null) {
                 return redirect()->route('post.edit', [app()->getLocale(), $post->id,]);
