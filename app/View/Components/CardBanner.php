@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class postGreen extends Component
+class CardBanner extends Component
 {
     public $section;
     /**
@@ -30,7 +30,7 @@ class postGreen extends Component
      */
     public function render()
     {
-        return view('components.post-green')->with([
+        return view('components.card-banner')->with([
             'section' => $this->section
         ]);
     }

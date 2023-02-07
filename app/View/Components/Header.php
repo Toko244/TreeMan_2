@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class header extends Component
+class Header extends Component
 {
     public $sections;
     /**

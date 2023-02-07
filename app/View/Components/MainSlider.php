@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class mainSlider extends Component
+class MainSlider extends Component
 {
     public $section;
     /**
