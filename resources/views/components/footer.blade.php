@@ -79,14 +79,14 @@
                             Copyright all right is reserved
                         </div>
 
-                        @foreach ($footer_sections as $footer_section)
+                        @foreach ($footerSections as $footerSection)
 
-                        @endforeach
                         <div class="">
                             <a href="" class="row-item thin text-lg white pr-1 mr-1">
                                 Privacy Policy
                             </a>
                         </div>
+                        @endforeach
 
                         <div class="">
                             <a href="" class="row-item thin text-lg white pr-1 mr-1">
