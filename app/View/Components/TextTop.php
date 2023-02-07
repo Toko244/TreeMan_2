@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class postComponent extends Component
+class TextTop extends Component
 {
     public $section;
     /**
@@ -30,7 +30,7 @@ class postComponent extends Component
      */
     public function render()
     {
-        return view('components.post-component')->with([
+        return view('components.text-top')->with([
             'section' => $this->section
         ]);
     }

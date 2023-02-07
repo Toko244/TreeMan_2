@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class textRight extends Component
+class PostGreen extends Component
 {
     public $section;
     /**
@@ -30,7 +30,7 @@ class textRight extends Component
      */
     public function render()
     {
-        return view('components.text-right')->with([
+        return view('components.post-green')->with([
             'section' => $this->section
         ]);
     }

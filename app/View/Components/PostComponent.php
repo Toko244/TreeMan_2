@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class counterBanner extends Component
+class PostComponent extends Component
 {
     public $section;
     /**
@@ -30,7 +30,7 @@ class counterBanner extends Component
      */
     public function render()
     {
-        return view('components.counter-banner')->with([
+        return view('components.post-component')->with([
             'section' => $this->section
         ]);
     }

@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\Section;
 use Illuminate\View\Component;
 
-class header extends Component
+class Footer extends Component
 {
-    public $sections;
+    private $footerSections;
     /**
      * Create a new component instance.
      *
@@ -15,21 +15,20 @@ class header extends Component
      */
     public function __construct()
     {
-        $this->sections = Section::whereHas('translations', function($q) {
+        $this->footerSections = Section::whereHas('translations', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
         })
         ->whereHas('menuTypes', function($q){
-            $q->where('menu_type_id', 0);
+            $q->where('menu_type_id', 1);
         })
 		->whereHas('translations', function($q){
 			$q->where('active', 1);
 		})->with(array('children' => function($query) {
             $query->whereHas('menuTypes', function($q){
-                $q->where('menu_type_id', 0);
+                $q->where('menu_type_id', 1);
             })->orderBy('order', 'asc')->orderBy('created_at', 'desc');
 		}))
         ->with(['translations', 'menuTypes'])
-				->where('parent_id', null)
         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
         ->get();
     }
@@ -41,8 +40,8 @@ class header extends Component
      */
     public function render()
     {
-        return view('components.header')->with([
-            'sections' => $this->sections
+        return view('components.footer', [
+            'footerSections' => $this->footerSections
         ]);
     }
 }
