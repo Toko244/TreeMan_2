@@ -89,3 +89,21 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+$(document).ready(function(){
+  $('#nav-icon3').click(function(){
+      $(this).toggleClass('open');
+  });
+
+  $( "#nav-icon3" ).click(function() {
+      $( ".burgermenu" ).toggleClass( "open" );
+    });
+
+    
+$( ".icon-right-arrow" ).click(function() {
+  $(this).parent().toggleClass( "sub-open" );
+});
+
+
+
+});
