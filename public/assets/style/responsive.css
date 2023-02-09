@@ -17,6 +17,12 @@
     .footer-info.flex.items-center.h-full.justify-around.wrap .flex.items-center{
         margin-bottom: 10px;
     }
+    .book-info .title{
+        font-size: 20px;
+    }
+    .book-info .desc{
+        font-size: 18px;
+    }
 }
 
 /*----------------------------- 1200px-----------------------------------*/
@@ -27,11 +33,6 @@
     }
     a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
         padding: 10px 20px;
-    }
-    .menu-header .col-lg-8,
-    .header.upper-header.w-full.pt-1.pb-1,
-    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
-        display: none;
     }
     .home-banner .title{
         line-height: 40px;
@@ -56,11 +57,37 @@
     .contact-page .contact-image{
         width: 50%;
     }
+    .book-info{
+        padding-left: 40px;
+    }
 }
 
 /*------------------------------- 992px ---------------------------------*/
 
 @media (max-width: 992px) {
+    .menu-header .col-lg-8,
+    .header.upper-header.w-full.pt-1.pb-1,
+    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
+        display: none;
+    }
+    .burger-icon{
+        display: block;
+    }
+    .logo img.w-full.h-full.cover{
+        width: 50%;
+    }
+    .menu-header{
+        position: fixed;
+        height: 116px;
+        background: white;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        box-shadow: 0px 9px 20px 0px rgb(0 0 0 / 20%);
+    }
+    .responsive-margin{
+        height: 116px;
+    }
     .text_section .text{
         margin-bottom: 40px;
         margin-right: 0;
@@ -97,6 +124,19 @@
     .footer-social.flex.justify-end.items-center{
         justify-content: space-between;
         margin-top: 40px;
+    }
+    .book-section .row{
+        height: initial;
+    }
+    .book-section{
+        height: initial;
+    }
+    .book-section .book-image,
+    .book-info{
+        height: 202px;
+    }
+    .book-image::before{
+        display: none;
     }
 }
 
@@ -266,6 +306,37 @@
     }
     .photo-gallery .text{
         margin-bottom: 40px;
+    }
+    .contact-info div{
+        margin-bottom: 20px;
+    }
+    .contact-info{
+        padding-top: 30px;
+    }
+    .footer-book.flex.items-center.justify-end.h-full{
+        margin: 0;
+    }
+    .menu-header{
+        padding: 44px 0px 16px 0 !important;
+    }
+    .book-info{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .book-button-black{
+        top: 0;
+        left: 0;
+        padding: 8px 48px;
+    }
+    .book-info{
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+    .book-section .container{
+        padding: 0;
+    }
+    .book-section .row{
+        border-radius: 0;
     }
 }
 
