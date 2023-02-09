@@ -17,6 +17,12 @@
     .footer-info.flex.items-center.h-full.justify-around.wrap .flex.items-center{
         margin-bottom: 10px;
     }
+    .book-info .title{
+        font-size: 20px;
+    }
+    .book-info .desc{
+        font-size: 18px;
+    }
 }
 
 /*----------------------------- 1200px-----------------------------------*/
@@ -51,6 +57,9 @@
     .contact-page .contact-image{
         width: 50%;
     }
+    .book-info{
+        padding-left: 40px;
+    }
 }
 
 /*------------------------------- 992px ---------------------------------*/
@@ -74,6 +83,7 @@
         top: 0;
         z-index: 999;
         width: 100%;
+        box-shadow: 0px 9px 20px 0px rgb(0 0 0 / 20%);
     }
     .responsive-margin{
         height: 116px;
@@ -114,6 +124,19 @@
     .footer-social.flex.justify-end.items-center{
         justify-content: space-between;
         margin-top: 40px;
+    }
+    .book-section .row{
+        height: initial;
+    }
+    .book-section{
+        height: initial;
+    }
+    .book-section .book-image,
+    .book-info{
+        height: 202px;
+    }
+    .book-image::before{
+        display: none;
     }
 }
 
@@ -296,309 +319,24 @@
     .menu-header{
         padding: 44px 0px 16px 0 !important;
     }
-}
-
-/*--------------------------------- 440px -------------------------------*/
-@media (max-width: 440px) {
-  
-}
-@media (max-width: 1620px) {
-    .photo-gallery .photo{
-        height: 280px;
-    }
-}
-
-/*----------------------------- 1400px-----------------------------------*/
-
-@media (max-width: 1400px) {
-    .photo-gallery .photo {
-        height: 210px;
-    }
-    .footer-info.flex.items-center.h-full.justify-around.wrap{
+    .book-info{
         flex-direction: column;
         align-items: flex-start;
     }
-    .footer-info.flex.items-center.h-full.justify-around.wrap .flex.items-center{
-        margin-bottom: 10px;
-    }
-}
-
-/*----------------------------- 1200px-----------------------------------*/
-
-@media (max-width: 1200px) {
-    .menu-item.h-full.flex.items-center.mr-4.relative{
-        margin-right: 24px;
-    }
-    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
-        padding: 10px 20px;
-    }
-    .home-banner .title{
-        line-height: 40px;
-        font-size: 24px;
-    }
-    .home-banner .text{
-        font-size: 18px;
-        line-height: 30px;
-    }
-    .home-banner {
-        height: 450px;
-    }
-    .section-pad{
-        padding: 60px 0;
-    }
-    .green-section .video{
-        margin-top: 60px;
-    }
-    .photo-gallery .text {
-        margin-bottom: 80px;
-    }
-    .contact-page .contact-image{
-        width: 50%;
-    }
-}
-
-/*------------------------------- 992px ---------------------------------*/
-
-@media (max-width: 992px) {
-    .menu-header .col-lg-8,
-    .header.upper-header.w-full.pt-1.pb-1,
-    a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{
-        display: none;
-    }
-    .burger-icon{
-        display: block;
-    }
-    .logo img.w-full.h-full.cover{
-        width: 50%;
-    }
-    .menu-header{
-        position: fixed;
-        height: 116px;
-        background: white;
+    .book-button-black{
         top: 0;
-        z-index: 999;
-        width: 100%;
+        left: 0;
+        padding: 8px 48px;
     }
-    .responsive-margin{
-        height: 116px;
+    .book-info{
+        padding-left: 20px;
+        padding-top: 20px;
     }
-    .text_section .text{
-        margin-bottom: 40px;
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .text_section.reverce .image{
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .text_section .image{
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
-    .reverce .text, .reverce .title{
-        padding: 0;
-        margin-left: 0;
-    }
-    .count.flex.column.w-full{
-        margin-bottom: 40px;
-    }
-    .count-section{
-        margin: 20px 0;
-    }
-    .green-section .text-block.flex.items-center.justify-start{
-        margin-bottom: 50px;
-    }
-    .tab.flex.items-center.justify-center.wrap{
-        justify-content: space-evenly;
-    }
-    .footer-book.flex.items-center.justify-end.h-full{
-        justify-content: center;
-        margin-top: 30px;
-    }
-    .footer-social.flex.justify-end.items-center{
-        justify-content: space-between;
-        margin-top: 40px;
-    }
-}
-
-/*--------------------------------- 768px -------------------------------*/
-
-@media (max-width: 768px) {
-    .section-pad{
-        padding: 40px 0;
-    }
-    .green-section {
-        padding: 40px 0px;
-    }
-    .footer-logo{
-        margin-bottom: 40px;
-    }
-    .footer-info.flex.items-center.h-full.justify-around.wrap .flex.items-center{
-        margin-bottom: 30px;
-    }
-    .down-footer-info.flex.items-center.justify-start.h-full,
-    .footer-book.flex.items-center.justify-end.h-full{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .down-footer-info.flex.items-center.justify-start.h-full div,
-    .footer .text-lg.bold.white.mr-3{
-        margin-bottom: 20px;
-    }
-    .row-item{
-        border: none;
-    }
-    .green-section .text.white.medium.text-xl.pr-4{
+    .book-section .container{
         padding: 0;
     }
-    .resp-slider-none{
-        display: none;
-    }
-    .home-slider-resp{
-        display: block;
-    }
-    .text_section .row{
-        flex-direction: column-reverse;
-    }
-    .contact-resp-none{
-        display: none;
-    }
-    .contact-resp-on{
-        display: block;
-    }
-    .contact-page .info{
-        padding-right: 0;
-        padding-top: 40px;
-    }
-    .contact-cover {
-        height: initial;
-    }
-    .contact-page .contact-image{
-        width: 100%;
-        position: relative;
-        top: 6px;
-        height: 240px;
-    }
-}
-
-/*--------------------------------- 576px -------------------------------*/
-
-@media (max-width: 576px) {
-    .text_section .image{
-        height: 230px;
-    }
-    .count.flex.column.w-full{
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-    .count-section {
-        margin: 0;
-    }
-    .footer-social.flex.justify-end.items-center{
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 10px;
-    }
-    .footer-social .social.flex.items-center{
-        padding-bottom: 30px;
-        border-bottom: 1px solid #237E54;
-        width: 100%;
-    }
-    .footer .col-xl-5.col-lg-5.col-md-12{
-        padding: 0;
-    }
-    .made{
-        margin-left: 0;
-        margin-top: 28px;
-    }
-    .green-section .title{
-        margin-top: 0;
-    }
-    .green-section .video.w-full.relative.hidden{
-        margin-bottom: 20px;
-    }
-    .section-padding{
-        padding: 20px 0;
-    }
-    .component-padding-100-120{
-        padding: 40px 0;
-    }
-    .text_section{
-        padding-bottom: 0;
-    }
-    .post-slider img.h-full.cover {
-        width: calc(100% - 20px);
-    }
-    .post-slider .slide{
-        height: 157px;
-    }
-    .slider-posts .info{
-        display: none;
-    }
-    .slider-posts .title{
-        margin-bottom: 20px;
-    }
-    .green-section{
-        padding: 25px 0;
-    }
-    .text-block .text{
-        padding: 0;
-    }
-    .green-section .text-block.flex.items-center.justify-start{
-        margin-bottom: 20px;
-    }
-    .row_post{
-        height: 200px;
-    }
-    .upper-footer{
-        padding: 32px 0;
-    }
-    .front-card-banner .card{
-        height: 128px;
-        margin-bottom: 15px;
-    }
-    .text_section .text{
-        margin-bottom: 0px;
-    }
-    .contact-form .flex.column.items-start.w-1_2.pr-1,
-    .contact-form .flex.column.items-start.w-1_2.pl-1{
-        width: 100%;
-        padding: 0;
-    }
-    .contact-form .form input{
-        margin-bottom: 18px;
-    }
-    .contact-map{
-        height: 173px;
-    }
-    .form .w-full.flex.items-center.justify-end{
-        margin-top: 30px;
-    }
-    .photo-gallery .photo{
-        height: 142px;
-        margin-bottom: 20px;
-    }
-    .photo-gallery .col-xl-3.col-lg-4.col-md-6.col-6{
-        padding: 0 10px;
-    }
-    .photo-gallery .content{
-        padding: 0 5px;
-    }
-    .photo-gallery .text{
-        margin-bottom: 40px;
-    }
-    .contact-info div{
-        margin-bottom: 20px;
-    }
-    .contact-info{
-        padding-top: 30px;
-    }
-    .footer-book.flex.items-center.justify-end.h-full{
-        margin: 0;
-    }
-    .menu-header{
-        padding: 44px 0px 16px 0 !important;
+    .book-section .row{
+        border-radius: 0;
     }
 }
 
