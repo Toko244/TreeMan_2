@@ -189,6 +189,9 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     bottom: -10px;
     display: block;
 }
+.section-m-100{
+    margin: 100px 0;
+}
 .section-pad{
     padding: 80px 0;
 }
@@ -668,4 +671,49 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 }
 .testimonial-block a:hover img{
     filter: grayscale(100%);
+}
+.subscribe-section,
+.subscribe-info,
+.subscribe-form,
+.subscribe-logo,
+.subscribe-cover{
+    height: 228px;
+}
+.subscribe-cover{
+    width: 100%;
+}
+.subscribe-cover img{
+    position: absolute;
+    right: 0;
+    width: initial;
+}
+.subscribe-logo{
+    z-index: 99;
+}
+.subscribe-section .title{
+    margin-bottom: 20px;
+}
+.subscribe-form form{
+    margin-top: 30px;
+}
+.subscribe-form input{
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.subscribe-form input::placeholder{
+    color: #006838;
+}
+.subscribe-form button{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+.subscribe-info .text{
+    font-size: 22px;
+}
+.subscribe-info{
+    position: relative;
+    z-index: 99;
 }
