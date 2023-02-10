@@ -723,3 +723,15 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     position: relative;
     z-index: 99;
 }
+.front-card-banner .col-lg-4:nth-child(odd) .card-title{
+    color: #fff;
+}
+.front-card-banner .col-lg-4:nth-child(odd) .white{
+    display: none;
+}
+.front-card-banner .col-lg-4:nth-child(even) .card-title{
+    color: #000;
+}
+.front-card-banner .col-lg-4:nth-child(even) .brown{
+    display: none;
+}
