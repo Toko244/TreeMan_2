@@ -23,11 +23,26 @@
     .book-info .desc{
         font-size: 18px;
     }
+    .component-padding-100-120{
+        padding: 60px 0 80px 0;
+    }
+    .section-m-100{
+        margin: 80px 0;
+    }
 }
 
 /*----------------------------- 1200px-----------------------------------*/
 
 @media (max-width: 1200px) {
+    .modal-content{
+        width: 60%;
+    }
+    .modal-input{
+        width: 100%;
+    }
+    .modal-content input{
+        width: 100%;
+    }
     .section-m-100{
         margin: 60px 0;
     }
@@ -219,6 +234,9 @@
     .subscribe-form{
         margin-bottom: 40px;
     }
+    .modal-content{
+        width: 80%;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -256,13 +274,14 @@
         margin-top: 0;
     }
     .green-section .video.w-full.relative.hidden{
-        margin-bottom: 20px;
+        margin-bottom: 35px;
+        margin-top: 25px;
     }
     .section-padding{
         padding: 20px 0;
     }
     .component-padding-100-120{
-        padding: 40px 0;
+        padding: 20px 0;
     }
     .text_section{
         padding-bottom: 0;
@@ -358,6 +377,49 @@
     }
     .book-section .row{
         border-radius: 0;
+    }
+    .testimonial-slider{
+        margin: 0;
+    }
+    .testimonial .title{
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .testimonial .text{
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .testimonial{
+        padding: 30px 0;
+    }
+    .testimonial-block .block-title{
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    .testimonial-block .block-text{
+        font-size: 16px;
+    }
+    .section-m-100{
+        margin: 20px 0;
+    }
+    .modal-content{
+        width: 100%;
+    }
+    .title .white{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .info h3.white.text-2xl.bold{
+        font-size: 18px;
+    }
+    .text.white.pr-4.medium{
+        font-size: 16px !important;
+    }
+    .green-section .title{
+        margin-bottom: 6px;
+    }
+    .section-pad{
+        padding: 20px 0;
     }
 }
 

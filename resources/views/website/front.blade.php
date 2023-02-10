@@ -268,11 +268,9 @@
         
         
                         <div class="image-slider w-full h-full">
-                            <!-- @foreach images -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
-                            <!-- @endforeach -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
@@ -309,11 +307,9 @@
         
         
                         <div class="image-slider w-full h-full">
-                            <!-- @foreach images -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover">
                             </div>
-                            <!-- @endforeach -->
                             <div class="img w-full h-full">
                                 <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover">
                             </div>
@@ -834,6 +830,25 @@
                         </div>
                     </div>
 
+                    <div class="col-xl-3">
+                        <div class="testimonial-block">
+                            <a href="" class="black transition-duration">
+                                <div class="image w-full flex items-center justify-center">
+                                    <img src="assets/img/slack.png" alt="">
+                                </div>
+    
+                                <div class="block-title black text-xl semibold">
+                                    Love The Quality
+                                </div>
+    
+                                <div class="block-text medium text-lg">
+                                    The life span of the root is 70-100 years and it can endure between 4 and 8-9 cycles for eight years, which gives us the opportunity to resume our work process without the cost of new planting and land cultivation!
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    
                     <div class="col-xl-3">
                         <div class="testimonial-block">
                             <a href="" class="black transition-duration">
