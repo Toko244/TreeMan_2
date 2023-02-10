@@ -12,6 +12,45 @@ $('.image-slider').slick({
   fade: true,
   cssEase: 'linear'
 });
+$('.testimonial-slider').slick({
+dots: false,
+arrows:false,
+slidesToShow: 4,
+slidesToScroll: 1,
+infinite: true,
+speed: 500,
+responsive: [
+  {
+    breakpoint: 1200,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      infinite: true,
+    }
+  },
+  {
+    breakpoint: 992,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 576,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  }
+]
+});
 $('.post-slider').slick({
 dots: false,
 arrows:false,
@@ -76,6 +115,7 @@ $('.post_row').slick({
     }
   ]
 });
+
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -100,10 +140,9 @@ $(document).ready(function(){
     });
 
     
-  $( ".icon-right-arrow" ).click(function() {
-    $(this).parent().toggleClass( "sub-open" );
-  });
-
+$( ".icon-right-arrow" ).click(function() {
+  $(this).parent().toggleClass( "sub-open" );
+});
 });
 
 var modal = document.getElementById("myModal");
@@ -116,44 +155,17 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-  modal.style.display = "block";
+modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+if (event.target == modal) {
   modal.style.display = "none";
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 }
