@@ -45,6 +45,9 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .lang:hover .other-langs{
     display: flex;
 }
+.padding-0{
+    padding: 0;
+}
 .menu-point::before{
     content: "";
     width: 100%;
@@ -133,7 +136,7 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     left: 25px;
 }
 .book-section{
-    height: 300px;
+    height: 244px;
 }
 .book-info .title{
     font-size: 28px;
@@ -150,7 +153,7 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     left: 60px;
 }
 .book-button-black:hover{
-    background-color: var(--bs-black);
+    background-color: #01514E;
     color: var(--bs-white);
 }
 .home-banner .title{
@@ -391,7 +394,6 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 }
 .home-slider-resp .image-slider {
     position: relative;
-    top: 9px;
 }
 .contact-resp-on{
     display: none;
@@ -648,4 +650,22 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 }
 .modal-button{
     margin-top: 50px;
+}
+.testimonial{
+    padding: 60px 0;
+    background: #F3F5F6;
+}
+.testimonial .testimonial-block .image{
+    height: 224px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+.testimonial .testimonial-block .block-title{
+    margin-bottom: 10px;
+}
+.testimonial-block a:hover{
+    color: var(--bs-green);
+}
+.testimonial-block a:hover img{
+    filter: grayscale(100%);
 }
