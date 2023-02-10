@@ -28,6 +28,8 @@
 @endif
 
 
+
+
 <section>
     <div class="section-padding">
         <div class="book-section w-full relative flex items-center justify-start hidden">
