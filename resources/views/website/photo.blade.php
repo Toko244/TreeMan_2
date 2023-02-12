@@ -4,11 +4,11 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" type="text/css" href="assets/style/slick.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/fonts.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/gorda.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-   <link rel="stylesheet" type="text/css" href="assets/style/responsive.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/slick.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/fonts.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/gorda.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
+   <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
    <title>Document</title>
 </head>
 <body>
@@ -97,7 +97,7 @@
                    <div class="col-lg-2 col-md-6 col-6">
                        <div class="logo flex items-center justify-center" style="max-width: 105px;">
                            <a href="" class="w-full h-full block">
-                               <img src="assets/img/header-logo.png" alt="" class="w-full h-full cover">
+                               <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
                            </a>
                        </div>
                    </div>
@@ -171,7 +171,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/Mask group.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/Mask group.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/post-image.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/post-image.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -251,7 +251,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                 <div class="photo hidden w-full hover" style="border-radius: 8px;">
                                     <a href="">
-                                        <img src="assets/img/slider-image.png" alt="" class="w-full h-full cover hover-image relative">
+                                        <img src="/assets/img/slider-image.png" alt="" class="w-full h-full cover hover-image relative">
                                     </a>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                     <div class="row">
                         <div class="col-xl-1 col-lg-2 col-md-4">
                             <div class="footer-logo">
-                                <img src="assets/img/footerlogo.png" alt="">
+                                <img src="/assets/img/footerlogo.png" alt="">
                             </div>
                         </div>
 
@@ -393,7 +393,7 @@
         </div>
     </footer>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/slick.js"></script>
-<script type="text/javascript" src="assets/javascript/script.js"></script>
+<script type="text/javascript" src="/assets/javascript/slick.js"></script>
+<script type="text/javascript" src="/assets/javascript/script.js"></script>
 </body>
 </html>

@@ -142,11 +142,24 @@ class Section extends Model
         ->with('parent')->with('children')->orderBy('order', 'asc');
     }
 
-    public function sectionComponents() {
-      return $this->hasMany('App\Models\Section', 'parent_id')->with(['translations' => function($query){
+    public function components() {
+
+      // $components = Section::where('parent_id', $homepage->id)->where('is_component', 1)->orderBy('order', 'asc')->pluck('type_id','id');
+      $component =  $this->hasMany('App\Models\Section', 'parent_id')->with(['translations' => function($query){
         $query->where('locale', app()->getLocale());
       }])
-      ->where('is_component', 1)->orderBy('order', 'asc');
+      ->where('is_component', 1)->orderBy('order', 'asc')->pluck('type_id','id');
+      if(count($component) > 0){
+
+        foreach($component as $key => $item){
+          $component[$key] = componentTypes($item);
+        }
+      }
+
+
+      return $component;
+
+      
     }
 
     public function parent() {

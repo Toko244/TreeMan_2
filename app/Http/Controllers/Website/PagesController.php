@@ -4,10 +4,25 @@ namespace App\Http\Controllers\Website;
 
 use App\Models\Section;
 use App\Models\Post;
+use App\Models\Submission;
 use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
-	public static function index($model, $locales){
+	public static function index($model){
+
+        if (request()->method() == 'POST') {
+			// dd(request());
+			$values = request()->all();
+			$submission = Submission::create($values);
+			return redirect()->back()->with([
+				'message' => trans('website.submission_sent'),
+			]);
+		}
+        
+		if ($model->type_id == 2) {
+            $section = Section::where('id', $model->id)->with('translation')->first();
+            return view('website.text-page', compact('section'));
+		}
         $section = Section::where('id', $model->id)
         ->with('posts', function($q){
             $q->whereHas('translations', function($que){

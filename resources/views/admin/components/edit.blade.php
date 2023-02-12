@@ -75,8 +75,7 @@
 
                     <div class="form-group mt-20">
                         <label for="parent">{{ trans('admin.parent') }}</label>
-                        <select class="form-control" name="parent_id" id="parent" disabled>
-
+                        <select class="form-control" name="parent_id" id="parent_id" disabled>
                             <option value="">{{ trans('admin.parent') }}</option>
                             @foreach ($sections as $key => $sec)
                                 <option value="{{ $sec->id }}"
@@ -89,8 +88,7 @@
                         @error('active')
                             <small style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                         @enderror
-                        <select class="form-control   @error('type') danger @enderror " name="type_id" id="typeselect"
-                            disabled>
+                        <select class="form-control   @error('type') danger @enderror " name="type_id" id="typeselect">
 
                             @foreach (componentsType() as $key => $type)
                                 <option value="{{ $type['id'] }}"
@@ -98,7 +96,6 @@
                                     {{ trans('componentTypes.' . $key) }}</option>
                             @endforeach
                         </select>
-                        <input type="hidden" name="type_id" value="{{ $section->type_id }}">
                     </div>
 
 
@@ -108,6 +105,8 @@
 
 
 
+                    <input type="hidden" name="is_component" value="1">
+                    <input type="hidden" name="parent_id" value="{{ $section->parent_id }}">
 
                     <div class="form-group text-right mb-0">
                         <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">

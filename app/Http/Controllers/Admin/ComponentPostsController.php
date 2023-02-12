@@ -15,7 +15,7 @@ class ComponentPostsController extends Controller
      * @return void
      */
     public function index($id){
-        $section = Section::where('id', $id)->first();
+        $section = Section::where('id', $id)->orderBy('order', 'asc')->first();
         $posts = Post::where('section_id', $id)->orderBy('date', 'desc')->get();
         return view('admin.componentposts.list', compact('posts', 'section'));
     }
