@@ -3,11 +3,12 @@
 namespace App\View\Components;
 
 use App\Models\Section;
+use App\Models\Post;
 use Illuminate\View\Component;
 
 class MainSlider extends Component
 {
-    public $section;
+    public $components;
     /**
      * Create a new component instance.
      * 
@@ -15,11 +16,9 @@ class MainSlider extends Component
      */
     public function __construct($sectionId)
     {
-        $this->section = Section::where('id', $sectionId)->whereHas('translations', function($q) {
+        $this->components = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
-        })->with(['translation:id,section_id,title,desc', 'posts'])
-        ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
-        ->first();
+        })->with('translation')->orderBy('date', 'asc')->get();
     }
 
     /**
@@ -30,7 +29,7 @@ class MainSlider extends Component
     public function render()
     {
         return view('components.main-slider')->with([
-            'section' => $this->section
+            'components' => $this->components
         ]);
     }
 }

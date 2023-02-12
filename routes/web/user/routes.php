@@ -20,7 +20,9 @@ Route::get('/photo', function(){
 Route::get('/contact', function(){
     return view('website.contact');
 });
-
+Route::get('/text-page', function(){
+    return view('website.text-page');
+});
 // Routes for Davita
 Route::get('/home-page', function(){
     return view('website.home');

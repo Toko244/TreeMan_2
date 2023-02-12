@@ -35,6 +35,7 @@ class SectionController extends Controller
     }
 
     public function store(Request $request){
+        
         $values = $request->all();
         Validator::validate($values, [
             'type_id' => 'required',
@@ -49,7 +50,7 @@ class SectionController extends Controller
             $fullslug[$locale] = $locale.'/'.$values[$locale]['slug'];
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
         }
-
+        $values['order'] = Section::max('id');
         $section = Section::create($values);
 		if (isset($values['menu_types']) && $values['menu_types'] !== null) {
 			foreach($values['menu_types'] as $type){
@@ -84,32 +85,42 @@ class SectionController extends Controller
 
     public function update($id, Request $request){
         $values = $request->all();
-        $section = Section::where('id', $id)->first();
         Validator::validate($values, [
-            'type_id' => 'required',
+            'type_id' => 'required'
         ]);
-        if($request->cover != ''){
-            $originalName = $request->cover->getClientOriginalName();
-            $newName = uniqid() . "." . $request->cover->getClientOriginalExtension();
-            $request->cover->move(config('config.image_path'), $newName );
-            $values['cover'] = $newName;
-        }
-        if($request->icon != ''){
-            $originalName = $request->icon->getClientOriginalName();
-            $newName = uniqid() . "." . $request->icon->getClientOriginalExtension();
-            $request->icon->move(config('config.image_path'), $newName );
-            $values['icon'] = $newName;
-        }
+        $section = Section::where('id', $id)->with('translations')->first();
+        MenuSection::where('section_id', $id)->delete();
+        // Slug::where('slugable_id', $id)->delete();
 
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
-        foreach(config('app.locales') as $locale){
+        foreach(config('app.locales') as $key => $locale){
+            if($request->has('is_component')){
+                if($section->translations[$key]['title'] != $values[$locale]['title']){
+                    Slug::where('slugable_id', $id)->where('locale', $locale)->delete();
+                    $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['title']);
+                    $section->slugs()->create([
+                        'fullSlug' => $locale.'/'.$values[$locale]['slug'],
+                        'slugable_id' => $id,
+                        'locale' => $locale
+                    ]);
+                }
+            }else{
+                if($section->translations[$key]['slug'] != $values[$locale]['slug']){
+                    Slug::where('slugable_id', $id)->where('locale', $locale)->delete();
+                    $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['slug']);
+                    
+                    $section->slugs()->create([
+                        'fullSlug' => $locale.'/'.$values[$locale]['slug'],
+                        'slugable_id' => $id,
+                        'locale' => $locale
+                    ]);
+                }
+            }
+
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
-
-
         }
         $section = Section::find($id)->update($values);
-        MenuSection::where('section_id', $id)->delete();
-        Slug::where('slugable_id', $id)->delete();
+
         if (isset($values['menu_types']) && $values['menu_types'] !== null) {
             foreach($values['menu_types'] as $type){
                 MenuSection::create([
@@ -119,32 +130,11 @@ class SectionController extends Controller
             }
         }
 
-        $section = Section::find($id);
-
-        foreach(config('app.locales') as $locale){
-            if(isset($values[$locale]['active']) && $values[$locale]['active'] == 1){
-                $oldSlug = Section::find($id)->slugs()->where('locale', $locale)->first();
-                if ($oldSlug !== null) {
-                    $newSlug = genFullSlug($section, $locale);
-                    $slugs = Slug::where('fullSlug', 'LIKE', $oldSlug->fullSlug.'%')->get();
-                    if (count($slugs) > 0) {
-                        foreach($slugs as $slug){
-                            $oldFullSlug = $slug->fullSlug;
-                            $newFullSlug = str_replace($oldSlug->fullSlug, $newSlug, $slug->fullSlug);
-                            $slug->fullSlug = $newFullSlug;
-                            $slug->save();
-                        }
-                    }
-                }else{
-                    $section->slugs()->create([
-                        'fullSlug' => genFullSlug($section, $locale),
-                        'locale' => $locale
-                    ]);
-                }
-            }
-
+        if($request->has('is_component')){
+            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']]);
+        }else{
+            return redirect()->route('section.list', [app()->getLocale()]);
         }
-        return redirect()->route('section.list', [app()->getLocale()]);
     }
 
     public function destroy($id) {
