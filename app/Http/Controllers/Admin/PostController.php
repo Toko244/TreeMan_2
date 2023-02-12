@@ -22,7 +22,7 @@ class PostController extends Controller
 
     public function index($sec){
         $section = Section::where('id', $sec)->with('translations')->first();
-        if (($section->type_id >= 22 && $section->type_id <= 25) || $section->type_id == 2 || $section->type_id == 30) {
+        if (($section->type_id >= 22 && $section->type_id <= 25) || $section->type_id == 2|| $section->type_id == 4 || $section->type_id == 30) {
             $post = Post::where('section_id', $sec)->with(['translations', 'slugs'])->first();
             if (isset($post) && $post !== null) {
                 return redirect()->route('post.edit', [app()->getLocale(), $post->id,]);
@@ -90,6 +90,7 @@ class PostController extends Controller
             foreach($values['files'] as $key => $files){
 				foreach($files['file'] as $k => $file){
 					$postFile = new PostFile;
+					$postFile->section_id = $sec;
 					$postFile->type = $key;
 					$postFile->file = $file;
 					$postFile->title = $values['files'][$key]['desc'][$k];
@@ -170,6 +171,7 @@ class PostController extends Controller
 				foreach($files['file'] as $k => $file){
 					$postFile = new PostFile;
 					$postFile->type = $key;
+					$postFile->section_id = $section->id;
 					$postFile->file = $file;
 					$postFile->title = $values['files'][$key]['desc'][$k];
 					$postFile->post_id = $post->id;

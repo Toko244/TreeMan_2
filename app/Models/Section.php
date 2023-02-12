@@ -124,7 +124,7 @@ class Section extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'section_id', 'id')->with(['translations' => function($query){
+        return $this->hasMany(Post::class, 'section_id', 'id')->with(['translation' => function($query){
             $query->where('locale', app()->getLocale());
           }])->orderBy('date', 'desc')->orderBy('id', 'asc');
     }
@@ -247,5 +247,11 @@ private static function _componentrearrangerearrange($array, $count, $parent = n
 
         return $this->getTranslatedFullSlugs($slugs, $parent);
       }
+      public function files($type = null)    {
+        if ($type !== null) {
+          return $this->hasMany(PostFile::class, 'section_id', 'id')->where('type', $type);
+        }
+            return $this->hasMany(PostFile::class, 'section_id', 'id');
+        }
 
 }

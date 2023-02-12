@@ -23,6 +23,16 @@ class PagesController extends Controller
             $section = Section::where('id', $model->id)->with('translation')->first();
             return view('website.text-page', compact('section'));
 		}
+        
+		if ($model->type_id == 3) {
+            $section = Section::where('id', $model->id)->with('translation')->first();
+            return view('website.photo-video', compact('section'));
+		}
+        
+		if ($model->type_id == 4) {
+            $section = Section::where('id', $model->id)->with('translation')->first();
+            return view('website.contact', compact('section'));
+		}
         $section = Section::where('id', $model->id)
         ->with('posts', function($q){
             $q->whereHas('translations', function($que){

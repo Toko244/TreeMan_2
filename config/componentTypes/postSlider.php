@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 4,
-    'type' => 4,
-    'folder' => 'contact',
+    'id' => 31,
+    'type' => 31,
+    'folder' => '../components/postslider',
     'fields' => [
         'trans' => [
             'title' => [
@@ -17,22 +17,19 @@ return [
             'desc' => [
                 'type' => 'textarea',
             ],
-            'address' => [
+            'redirect_link' => [
                 'type' => 'text',
-            ],
-            'active' => [
-                'type' => 'checkbox',
             ],
         ],
         'nonTrans' => [
-            'mobile' => [
-                'type' => 'text',
-            ],
-            'email' => [
-                'type' => 'text',
-            ],
             'image' => [
                 'type' => 'image',
+            ],
+            'target_blank' => [
+                'type' => 'switch',
+            ],
+            'date' => [
+                'type' => 'date',
             ],
         ],
     ]
