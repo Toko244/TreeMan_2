@@ -1,7 +1,7 @@
 <html lang="{{app()->getLocale()}}">
 
 <x-head></x-head>
-<x-header></x-header>
+<x-header  :languageSlugs="$language_slugs"></x-header>
 
 <body>
     @yield('master')

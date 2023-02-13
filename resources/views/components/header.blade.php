@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo flex items-center justify-center" style="max-width: 105px;">
-                        <a href="" class="w-full h-full block">
+                        <a href="/" class="w-full h-full block">
                             <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
                         </a>
                     </div>

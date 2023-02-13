@@ -8,4 +8,16 @@ return [
 	'see_more' => 'See More',
 	'see_all' => 'See All',
 	'book' => 'Book',
+	'name' => 'Name',
+	'email' => 'Email',
+	'phone' => 'Phone',
+	'organization' => 'Organization',
+	'country' => 'Country',
+	'quality' => 'Quality',
+	'message' => 'Message',
+	'send' => 'Send',
+	'subject' => 'Subject',
+	'text' => 'Text',
+	'send_request' => 'Send Request',
+	'subscribe' => 'Subscribe'
 ];

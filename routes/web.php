@@ -37,4 +37,3 @@ Route::middleware(['auth.check'])->group(function () {
 
 require __DIR__ . '/web/user/routes.php';
 
-Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');

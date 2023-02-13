@@ -1,6 +1,6 @@
 @extends('website.master')
 @section('master')
-    @if (isset($section) && count($section->components()) > 0)
+    @if (isset($section))
         @if ($section->post())
             <div class="text_section section-pad relative">
                 <img src="/assets/img/Vector 1.png" alt="" class="w-full absolute left-0 line">
@@ -31,10 +31,12 @@
                 </div>
             </div>
         @endif
+        @if(count($section->components()) > 0)
         @foreach ($section->components() as $key => $item)
             <section>
                 <x-dynamic-component :component="$item" :sectionId="$key" />
             </section>
         @endforeach
+        @endif
     @endif
 @endsection
