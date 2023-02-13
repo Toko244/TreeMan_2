@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 class Header extends Component
 {
     public $sections;
+    public $languageSlugs;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($languageSlugs)
     {
         $this->sections = Section::whereHas('translations', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
@@ -32,6 +33,8 @@ class Header extends Component
 				->where('parent_id', null)
         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
         ->get();
+
+        $this->languageSlugs = $languageSlugs;
     }
 
     /**
@@ -42,7 +45,8 @@ class Header extends Component
     public function render()
     {
         return view('components.header')->with([
-            'sections' => $this->sections
+            'sections' => $this->sections,
+            'language_slugs' => $this->languageSlugs,
         ]);
     }
 }

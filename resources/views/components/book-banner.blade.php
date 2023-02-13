@@ -25,7 +25,6 @@
 
                     <div class="col-lg-6 padding-0 h-full">
                         <div class="book-image w-full h-full relative">
-                            
                             @if($component->image != '')
                             <img src="/uploads/files/{{$component->image}}" alt="" class="w-full h-full cover">
                             @else
@@ -38,51 +37,45 @@
         </div>
     </div>
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content flex justify-center column items-center">
-            <div class="bold text-2xl black">Send Request</div>
+            <div class="bold text-2xl black">{{ trans('website.send_request') }}</div>
             <span class="close">&times;</span>
-            <form action="">
+            <form method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="post_id" value="{{$component->id}}">
                 <div class="modal-form flex column items-center">
                     <div class="modal-input flex column items-start">
-                        <label for=""class="required">Name</label>
-                        <input type="text" name="" id="">
+                        <label for=""class="required">{{ trans('website.name') }}</label>
+                        <input type="text" name="name" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for=""class="required">E-Mail</label>
-                        <input type="text" name="" id="">
+                        <label for=""class="required">{{ trans('website.email') }}</label>
+                        <input type="text" name="email" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for="">Phone</label>
-                        <input type="text" name="" id="">
+                        <label for="">{{ trans('website.phone') }}</label>
+                        <input type="text" name="phone" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for="">Organisation</label>
-                        <input type="text" name="" id="">
+                        <label for="">{{ trans('website.organization') }}</label>
+                        <input type="text" name="organization" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for="">Country</label>
-                        <input type="text" name="" id="">
+                        <label for="">{{ trans('website.country') }}</label>
+                        <input type="text" name="country" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for="">Quality</label>
-                        <input type="text" name="" id="">
+                        <label for="">{{ trans('website.quality') }}</label>
+                        <input type="text" name="quality" id="">
                     </div>
-
                     <div class="modal-input flex column items-start">
-                        <label for=""class="required">Message</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <label for=""class="required">{{ trans('website.message') }}</label>
+                        <textarea name="message" id="" cols="30" rows="10"></textarea>
                     </div>
-
                     <div class="flex items-center modal-button">
                         <button style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green white transition-duration">
-                            SEND
+                            {{ trans('website.send') }}
                         </button>
                     </div>
                 </div>

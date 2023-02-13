@@ -86,8 +86,10 @@
                         </div>
 
                         <div class="form">
-                            <form action="">
+                            <form method="post">
+                                {{ csrf_field() }}
                                 <div class="row">
+                                    <input type="hidden" class="w-full pl-1" style="height: 50px;" name="post_id" value="{{ $section->post()->id }}">
                                     <div class="col-xl-6 flex wrap">
                                         <div class="flex column items-start w-1_2 pr-1">
                                             <label for="" class="semibold text-lg mb-1 required"

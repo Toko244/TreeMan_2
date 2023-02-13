@@ -12,18 +12,17 @@ use App\Models\Slug;
 class RoutesController extends Controller
 {
     public function index($url){
-
-		
         $slug = Slug::where('fullSlug', app()->getLocale()."/{$url}")->first();
 		
         $model = $slug->slugable()->first();
+            
+		$language_slugs = $model->getTranslatedFullSlugs();
         // dd($slug->slugable()->get());
         if ($slug->slugable_type === "App\Models\Section") {
-            return PagesController::index($model);
-
+            return PagesController::index($model, $language_slugs);
         }
         if ($slug->slugable_type === "App\Models\Post") {
-            return PagesController::show($model);
+            return PagesController::show($model, $language_slugs);
         }
 
 
