@@ -90,7 +90,6 @@ class PostController extends Controller
             foreach($values['files'] as $key => $files){
 				foreach($files['file'] as $k => $file){
 					$postFile = new PostFile;
-					$postFile->section_id = $sec;
 					$postFile->type = $key;
 					$postFile->file = $file;
 					$postFile->title = $values['files'][$key]['desc'][$k];
@@ -171,7 +170,6 @@ class PostController extends Controller
 				foreach($files['file'] as $k => $file){
 					$postFile = new PostFile;
 					$postFile->type = $key;
-					$postFile->section_id = $section->id;
 					$postFile->file = $file;
 					$postFile->title = $values['files'][$key]['desc'][$k];
 					$postFile->post_id = $post->id;
