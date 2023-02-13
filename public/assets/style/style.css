@@ -735,3 +735,61 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .front-card-banner .col-lg-4:nth-child(even) .brown{
     display: none;
 }
+.guideline-list{
+    padding: 50px 70px 20px 70px;
+    border-radius: 12px;
+    background: #3F9752;
+}
+.guideline .list{
+    font-size: 22px;
+    cursor: pointer;
+}
+.list-bullet{
+    flex: 33%;
+    margin-bottom: 42px;
+}
+.list-bullet .semibold{
+    width: 80%;
+}
+.circle{
+    content: '';
+    width: 15px;
+    height: 15px;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 30px;
+    transition-duration: 0.3s;
+}
+.list-bullet:hover .circle{
+    margin-right: 50px;
+}
+.fixed-guidline{
+    width: 600px;
+    background-color: #3F9752;
+    position: fixed;
+    z-index: 999;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    top: 100px;
+    left: -600px;
+    transition-duration: 0.3s;
+}
+.fixed-guidline.active{
+    left: 0;
+}
+.fixed-guidline-list{
+    padding-left: 190px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.fixed-guidline-list li{
+    margin-bottom: 60px;
+    cursor: pointer;
+}
+.fixed-guidline .guidline-icon{
+    position: absolute;
+    right: -66px;
+    top: 35%;
+    cursor: pointer;
+}
