@@ -169,3 +169,9 @@ if (event.target == modal) {
   modal.style.display = "none";
 }
 }
+
+$(function() {                     
+  $(".guidline-icon").click(function() {  
+    $(".fixed-guidline").toggleClass("active");     
+  });
+});
