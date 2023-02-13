@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Models\Section;
-use App\Models\Post;
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\PostFile;
 use App\Models\Submission;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,8 @@ class PagesController extends Controller
 			$values = request()->all();
             $values['additional'] = getAdditional($values, config('contactFormAttr.additional'));
 			$submission = Submission::create($values);
+			$data2 = 'Your Request has succsessfully been sent';
+			Mail::to(settings('email'))->send(new \App\Mail\SendMail($data2));
 			return redirect()->back()->with([
 				'message' => trans('website.submission_sent'),
 			]);

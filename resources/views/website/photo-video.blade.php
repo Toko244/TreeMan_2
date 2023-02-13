@@ -28,10 +28,12 @@
                             @if(count($files) > 0)
                             @foreach ($files as $key => $sectionfile)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-6">
-                                <div class="photo hidden w-full hover" style="border-radius: 8px;">
-                                    <a href="">
-                                        <img src="/uploads/img/{{$sectionfile->file}}" alt=""
-                                            class="w-full h-full cover hover-image relative">
+                                <div class="photo hidden w-full hover relative" style="border-radius: 8px;">
+                                    <a href="@if($sectionfile->title != '') {{$sectionfile->title}} @else /uploads/img/{{$sectionfile->file}} @endif" data-fancybox="photo">
+                                        <img src="/uploads/img/{{$sectionfile->file}}" alt="" class="w-full h-full cover hover-image relative">
+                                        @if($sectionfile->title != '')
+                                        <img src="/assets/img/youtubeicon.png" alt="" class="youtubeicon">
+                                        @endif
                                     </a>
                                 </div>
                             </div>
@@ -46,13 +48,16 @@
                                 <div class="row">
                                     @if (count($post->files) > 0)
                                         @foreach ($post->files as $key => $image)
-                                            <div class="col-xl-3 col-lg-4 col-md-6 col-6">
-                                                <div class="photo w-full hover" style="border-radius: 8px;">
-                                                    <a href="">
-                                                        <img src="/uploads/img/{{$image->file}}" alt="" class="w-full h-full cover hover-image relative">
-                                                    </a>
-                                                </div>
+                                        <div class="col-xl-3 col-lg-4 col-md-6 col-6">
+                                            <div class="photo hidden w-full hover relative" style="border-radius: 8px;">
+                                                <a href="@if($image->title != '') {{$image->title}} @else /uploads/img/{{$image->file}} @endif" data-fancybox="photo">
+                                                    <img src="/uploads/img/{{$image->file}}" alt="" class="w-full h-full cover hover-image relative">
+                                                    @if($sectionfile->title != '')
+                                                    <img src="/assets/img/youtubeicon.png" alt="" class="youtubeicon">
+                                                    @endif
+                                                </a>
                                             </div>
+                                        </div>
                                         @endforeach
                                     @endif
                                 </div>

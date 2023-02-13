@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 return [
 	"facebook" => [
@@ -15,5 +15,10 @@ return [
 		"title" => "Youtube",
 		"type" => "text",
 		"value" => "https://www.youtube.com/",
+	],
+	"email" => [
+		"title" => "Email",
+		"type" => "text",
+		"value" => "info@treeman.ge",
 	],
 ];

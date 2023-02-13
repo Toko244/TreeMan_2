@@ -801,3 +801,9 @@ a:hover{
     top: 35%;
     cursor: pointer;
 }
+.youtubeicon{
+    position: absolute;
+    z-index: 9999;
+    left: calc(50% - 36px);
+    top: calc(50% - 25px);
+}

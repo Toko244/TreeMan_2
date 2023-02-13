@@ -86,7 +86,6 @@ class PostController extends Controller
             ]);
         }
         if (isset($values['files']) && count($values['files']) > 0) {
-			
             foreach($values['files'] as $key => $files){
 				foreach($files['file'] as $k => $file){
 					$postFile = new PostFile;
