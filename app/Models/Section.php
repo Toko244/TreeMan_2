@@ -141,7 +141,16 @@ class Section extends Model
         ->where('is_component', '!=', 1)
         ->with('parent')->with('children')->orderBy('order', 'asc');
     }
+    public function sectioncomponents() {
 
+      $component =  $this->hasMany('App\Models\Section', 'parent_id')->with(['translation' => function($query){
+        $query->where('locale', app()->getLocale());
+      }])->whereHas('posts')
+      ->where('is_component', 1)->orderBy('order', 'asc')->get();
+      return $component;
+
+      
+    }
     public function components() {
 
       // $components = Section::where('parent_id', $homepage->id)->where('is_component', 1)->orderBy('order', 'asc')->pluck('type_id','id');
