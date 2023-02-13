@@ -4,24 +4,39 @@ namespace App\Http\Controllers\Website;
 
 use App\Models\Section;
 use App\Models\Post;
+use App\Models\PostFile;
 use App\Models\Submission;
 use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
-	public static function index($model){
-
+	public static function index($model, $language_slugs){
         if (request()->method() == 'POST') {
-			// dd(request());
 			$values = request()->all();
+            $values['additional'] = getAdditional($values, config('contactFormAttr.additional'));
 			$submission = Submission::create($values);
 			return redirect()->back()->with([
 				'message' => trans('website.submission_sent'),
 			]);
 		}
         
+		if ($model->type_id == 1) {
+            $section= Section::where('type_id', 1)->first();
+            return view('website.home', compact('section', 'language_slugs'));
+		}
 		if ($model->type_id == 2) {
             $section = Section::where('id', $model->id)->with('translation')->first();
-            return view('website.text-page', compact('section'));
+            return view('website.text-page', compact('section', 'language_slugs'));
+		}
+        
+		if ($model->type_id == 3) {
+            $model->load('translation', 'posts.translation');
+            $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->get();
+            return view('website.photo-video', compact('model', 'language_slugs','files'));
+		}
+        
+		if ($model->type_id == 4) {
+            $section = Section::where('id', $model->id)->with('translation')->first();
+            return view('website.contact', compact('section', 'language_slugs'));
 		}
         $section = Section::where('id', $model->id)
         ->with('posts', function($q){

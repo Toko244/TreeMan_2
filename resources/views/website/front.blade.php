@@ -513,6 +513,82 @@
         </div>
     </section>
 
+    
+    <section>
+        <div class="guideline relative">
+            <div class="container">
+                <div class="guideline-list">
+                    <div class="title semibold text-2xl mb-3 w-full white">
+                        Page Guideline
+                    </div>
+
+                    <div class="list flex wrap w-full">
+                        <div class="list-bullet relative flex items-center">
+                            <div class="circle"></div>
+                            <a href="#section1" class="semibold white">
+                                Why to grow?
+                            </a>
+                        </div>
+
+                        <div class="list-bullet relative flex items-center">
+                            <div class="circle"></div>
+                            <a href="#section2" class="semibold white">
+                                Why to grow?
+                            </a>
+                        </div>
+
+                        <div class="list-bullet relative flex items-center">
+                            <div class="circle"></div>
+                            <a href="#section3" class="semibold white">
+                                Why to grow?
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="fixed-guidline">
+                <div class="guidline-icon">
+                    <svg width="68" height="71" viewBox="0 0 68 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M-1 0H58C63.5228 0 68 4.47715 68 10V61C68 66.5229 63.5229 71 58 71H-1V0Z" fill="#3F9752"/>
+                        <rect x="14" y="21" width="37" height="4" rx="2" fill="white"/>
+                        <rect x="14" y="33" width="28" height="4" rx="2" fill="white"/>
+                        <rect x="14" y="45" width="37" height="4" rx="2" fill="white"/>
+                    </svg>
+                </div>
+
+                <div class="fixed-guidline-list flex column">
+                    <div class="title semibold text-2xl mb-3 w-full white">
+                        Page Guideline
+                    </div>
+
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section1" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
+    
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section2" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
+
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section3" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section>
         <div class="slider-posts section-padding">
             <div class="container">

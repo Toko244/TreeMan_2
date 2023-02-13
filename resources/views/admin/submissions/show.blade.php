@@ -36,7 +36,7 @@
 
             
         </div>
-        <a class="btn btn-warning" href="/{{ app()->getLocale() }}/admin/submission/export/{{$submission->id }}">Export Submission Data</a>
+        {{-- <a class="btn btn-warning" href="/{{ app()->getLocale() }}/admin/submission/export/{{$submission->id }}">Export Submission Data</a> --}}
     </div>
 </div>
 @endsection 

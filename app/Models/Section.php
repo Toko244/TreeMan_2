@@ -124,7 +124,7 @@ class Section extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'section_id', 'id')->with(['translations' => function($query){
+        return $this->hasMany(Post::class, 'section_id', 'id')->with(['translation' => function($query){
             $query->where('locale', app()->getLocale());
           }])->orderBy('date', 'desc')->orderBy('id', 'asc');
     }
@@ -141,7 +141,16 @@ class Section extends Model
         ->where('is_component', '!=', 1)
         ->with('parent')->with('children')->orderBy('order', 'asc');
     }
+    public function sectioncomponents() {
 
+      $component =  $this->hasMany('App\Models\Section', 'parent_id')->with(['translation' => function($query){
+        $query->where('locale', app()->getLocale());
+      }])->whereHas('posts')
+      ->where('is_component', 1)->orderBy('order', 'asc')->get();
+      return $component;
+
+      
+    }
     public function components() {
 
       // $components = Section::where('parent_id', $homepage->id)->where('is_component', 1)->orderBy('order', 'asc')->pluck('type_id','id');
@@ -247,5 +256,11 @@ private static function _componentrearrangerearrange($array, $count, $parent = n
 
         return $this->getTranslatedFullSlugs($slugs, $parent);
       }
+      public function files($type = null)    {
+        if ($type !== null) {
+          return $this->hasMany(PostFile::class, 'section_id', 'id')->where('type', $type);
+        }
+            return $this->hasMany(PostFile::class, 'section_id', 'id');
+        }
 
 }

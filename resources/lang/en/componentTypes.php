@@ -11,5 +11,7 @@ return [
     'cardBanner' => 'Card banner',
     'bannerSlider' => 'Banner Slider',
     'counterBanner' => 'Counter Banner',
-    'bookBanner' => 'Book Banner'
+    'bookBanner' => 'Book Banner',
+    'subscribeBanner' => 'Subscribe Banner',
+    'postSlider' => 'Post Slider',
 ];
