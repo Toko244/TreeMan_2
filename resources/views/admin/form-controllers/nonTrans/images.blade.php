@@ -9,6 +9,7 @@
                 <div class="close-it" data-delete="{{ route('image.del', app()->getLocale(), ['_token' => csrf_token()]) }}"></div>
                 <input type="hidden" name="old_file[{{ $file->id }}][file]" value="{{ $file->file }}">
                 <img src="{{ '/' . config('config.image_path') . config('config.thumb_path') .  $file->file }}">
+                <input type="text" name="files[images][desc][]" class="form-control" placeholder="description" value="{{ $file->title }}">
             </li>
             @endforeach
         @endif

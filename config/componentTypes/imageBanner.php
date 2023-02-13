@@ -1,8 +1,8 @@
 <?php
 return [
-    'id' => 27,
-    'type' => 27,
-    'folder' => '../components/cardbanner',
+    'id' => 33,
+    'type' => 33,
+    'folder' => '../components/imagebanner',
     'fields' => [
         'trans' => [
             'title' => [
@@ -22,6 +22,9 @@ return [
             ],
         ],
         'nonTrans' => [
+            'image' => [
+                'type' => 'image',
+            ],
             'target_blank' => [
                 'type' => 'switch',
             ],
