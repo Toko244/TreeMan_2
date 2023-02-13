@@ -131,6 +131,11 @@ function openCity(evt, cityName) {
 }
 
 $(document).ready(function(){
+  $(function() {                     
+    $(".guidline-icon").click(function() {  
+      $(".fixed-guidline").toggleClass("active");     
+    });
+  });
   $('#nav-icon3').click(function(){
       $(this).toggleClass('open');
   });
@@ -170,8 +175,3 @@ if (event.target == modal) {
 }
 }
 
-$(function() {                     
-  $(".guidline-icon").click(function() {  
-    $(".fixed-guidline").toggleClass("active");     
-  });
-});
