@@ -48,6 +48,9 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .padding-0{
     padding: 0;
 }
+a:hover{
+    color: #fff;
+}
 .menu-point::before{
     content: "";
     width: 100%;
@@ -225,6 +228,7 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .front-card-banner .card{
     height: 190px;
     border-radius: 8px;
+    overflow: hidden;
 }
 .green-section{
     padding: 56px 80px;
@@ -752,7 +756,6 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
     width: 80%;
 }
 .circle{
-    content: '';
     width: 15px;
     height: 15px;
     display: block;
@@ -786,6 +789,7 @@ a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration:hover{
 .fixed-guidline-list li{
     margin-bottom: 60px;
     cursor: pointer;
+    padding-right: 30px;
 }
 .fixed-guidline .guidline-icon{
     position: absolute;
