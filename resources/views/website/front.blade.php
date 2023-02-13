@@ -494,31 +494,25 @@
                     <div class="list flex wrap w-full">
                         <div class="list-bullet relative flex items-center">
                             <div class="circle"></div>
-                            <div class="semibold white">
+                            <a href="#section1" class="semibold white">
                                 Why to grow?
-                            </div>
+                            </a>
                         </div>
 
                         <div class="list-bullet relative flex items-center">
                             <div class="circle"></div>
-                            <div class="semibold white">
+                            <a href="#section2" class="semibold white">
                                 Why to grow?
-                            </div>
+                            </a>
                         </div>
 
                         <div class="list-bullet relative flex items-center">
                             <div class="circle"></div>
-                            <div class="semibold white">
+                            <a href="#section3" class="semibold white">
                                 Why to grow?
-                            </div>
+                            </a>
                         </div>
 
-                        <div class="list-bullet relative flex items-center">
-                            <div class="circle"></div>
-                            <div class="semibold white">
-                                Why to grow?
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -539,19 +533,26 @@
                         Page Guideline
                     </div>
 
-                    <li class="semibold white text-xl">
-                        Why to grow?
-                    </li>
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section1" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
     
-                    <li class="semibold white text-xl">
-                        Why to grow?
-                    </li>
-    
-                    <li class="semibold white text-xl">
-                        Why to grow?
-                    </li>
-    
-                    
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section2" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
+
+                    <div class="flex items-center mb-3">
+                        <div class="circle"></div>
+                        <a href="#section3" class="semibold white text-xl">
+                            Why to grow?
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
