@@ -225,10 +225,14 @@ a:hover{
 .reverce .line{
     top: 46%;
 }
+.front-card-banner-multiple-color .card,
 .front-card-banner .card{
     height: 190px;
     border-radius: 8px;
     overflow: hidden;
+}
+.front-card-banner-multiple-color a{
+    color: #fff;
 }
 .green-section{
     padding: 56px 80px;
