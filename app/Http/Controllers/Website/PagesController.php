@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Models\Section;
 use App\Models\Post;
+use App\Models\PostFile;
 use App\Models\Submission;
 use App\Http\Controllers\Controller;
 class PagesController extends Controller
@@ -28,8 +29,9 @@ class PagesController extends Controller
 		}
         
 		if ($model->type_id == 3) {
-            $section = Section::where('id', $model->id)->with('translation')->first();
-            return view('website.photo-video', compact('section', 'language_slugs'));
+            $model->load('translation', 'posts.translation');
+            $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->get();
+            return view('website.photo-video', compact('model', 'language_slugs','files'));
 		}
         
 		if ($model->type_id == 4) {
