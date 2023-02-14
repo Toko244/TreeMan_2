@@ -34,6 +34,12 @@
 /*----------------------------- 1200px-----------------------------------*/
 
 @media (max-width: 1200px) {
+    .search-form input{
+        width: 650px;
+    }
+    .search-cover {
+        height: 430px;
+    }
     .modal-content{
         width: 60%;
     }
@@ -237,6 +243,13 @@
     .modal-content{
         width: 80%;
     }
+    .search-form input {
+        width: 340px;
+    }
+    .search-cover{
+        margin-top: 116px;
+        height: 285px;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -420,6 +433,23 @@
     }
     .section-pad{
         padding: 20px 0;
+    }
+    .search-result .result{
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .result-block .title{
+        margin-bottom: 10px;
+    }
+    .result-block .title a{
+        font-size: 18px;
+    }
+    .result-block .text{
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    .result-block{
+        margin-bottom: 40px;
     }
 }
 
