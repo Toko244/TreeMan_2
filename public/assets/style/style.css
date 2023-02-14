@@ -807,3 +807,37 @@ a:hover{
     left: calc(50% - 36px);
     top: calc(50% - 25px);
 }
+
+.search-cover{
+    height: 530px;
+}
+.search-cover img{
+    z-index: -1;
+}
+.search-form input{
+    width: 854px;
+    height: 60px;
+    border:none;
+    border-radius: 12px;
+    padding-left: 20px;
+}
+.search-form button{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.result-list a:hover{
+    color: #3F9752;
+}
+.search-result .result{
+    margin-bottom: 40px;
+}
+.result-block{
+    margin-bottom: 60px;
+}
+.result-block .title{
+    margin-bottom: 28px;
+}
+.result-block .text{
+    margin-bottom: 20px;
+}
