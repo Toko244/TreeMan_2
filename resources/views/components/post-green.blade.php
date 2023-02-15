@@ -1,9 +1,9 @@
 @if(isset($components) && count($components) > 0)
-        <div class="green-section w-full background-green relative">
+        <div class="green-section green-post w-full background-green relative">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 background-green">
-                        <div class="title mt-4 mb-4">
+                        <div class="title mb-4">
                             <h3 class="white text-2xl bold">
                                 {{$section->translate(app()->getlocale())->title}}
                             </h3>

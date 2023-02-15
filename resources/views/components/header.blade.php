@@ -123,6 +123,14 @@
                                 <a href="/{{ $sec->getFullSlug() }}" class="medium green text-lg menu-point relative">
                                     {{ $sec->title }}
                                 </a>
+                                <div class="dropdown flex column items-center" style="background: #3F9752; padding: 30px 40px 10px 40px;">
+                                    <a href="" class="text-base white semibold">
+                                        Paulownia Seedlings
+                                    </a>
+                                    <a href="" class="text-base white semibold">
+                                        Paulownia roots
+                                    </a>
+                                </div>
                             </div>
                         @endforeach
                     </div>

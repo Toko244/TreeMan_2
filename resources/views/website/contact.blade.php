@@ -24,7 +24,7 @@
                                         {!! $section->post()->translate(app()->getlocale())->desc !!}
                                     </div>
 
-                                    <div class="contact-info flex column justify-between h-full">
+                                    <div class="contact-info flex column justify-between    ">
                                         <div class="flex items-center justify-start">
                                             <svg width="20" height="41" viewBox="0 0 20 41" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
