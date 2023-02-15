@@ -575,7 +575,7 @@ a:hover{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 999; /* Sit on top */
-    padding-top: 60px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -590,7 +590,7 @@ a:hover{
     position: relative;
     background-color: #F3F5F6;
     margin: auto;
-    padding: 80px 20px;
+    padding: 40px 20px;
     border: 1px solid #888;
     width: 36%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -646,8 +646,8 @@ a:hover{
     font-family: 'LibreFranklin-SemiBold';
     font-size: 18px;
     color: #656C69;
-    margin-bottom: 16px;
-    margin-top: 30px;
+    margin-bottom: 12px;
+    margin-top: 10px;
 }
 .modal-content textarea{
     font-family: 'LibreFranklin-Medium'; 
