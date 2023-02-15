@@ -11,22 +11,28 @@ use App\Models\Slug;
 
 class RoutesController extends Controller
 {
-    public function index($url){
-        $slug = Slug::where('fullSlug', app()->getLocale()."/{$url}")->first();
-		
-        $model = $slug->slugable()->first();
-            
+	public function index($url)
+	{
+		$slug = Slug::where('fullSlug', app()->getLocale() . "/{$url}")->first();
+		if($slug == ''){
+			
+			$language_slugs = '';
+			return view('website.404', compact('language_slugs'));
+		}
+		$model = $slug->slugable()->first();
 		$language_slugs = $model->getTranslatedFullSlugs();
-        // dd($slug->slugable()->get());
-        if ($slug->slugable_type === "App\Models\Section") {
-            return PagesController::index($model, $language_slugs);
-        }
-        if ($slug->slugable_type === "App\Models\Post") {
-            return PagesController::show($model, $language_slugs);
-        }
+
+		// dd($slug->slugable()->get());
+		if ($slug->slugable_type === "App\Models\Section") {
+			return PagesController::index($model, $language_slugs);
+		}
+		if ($slug->slugable_type === "App\Models\Post") {
+			return PagesController::show($model, $language_slugs);
+		}
 
 
-        //  $slug = Slug::where('fullSlug', "/".app()->getLocale()."/{$url}")->first();
+
+		//  $slug = Slug::where('fullSlug', "/".app()->getLocale()."/{$url}")->first();
 		// $model = $slug->slugable()->first();
 		// dd($model);
 		// 	$locales = null;
@@ -41,9 +47,9 @@ class RoutesController extends Controller
 		// 				}
 		// 			}
 		// 		}
-        //     if ($model->type_id == 5) {
-        //         return ContactPageController::index($model, $locales);
-        //     }
+		//     if ($model->type_id == 5) {
+		//         return ContactPageController::index($model, $locales);
+		//     }
 		// 	if ($slug->slugable_type === "App\Models\Section") {
 		// 		return PagesController::index($model, $locales);
 		// 	}
@@ -51,5 +57,5 @@ class RoutesController extends Controller
 		// 		return PagesController::show($model, $locales);
 		// 	}
 
-    }
+	}
 }

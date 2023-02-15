@@ -210,7 +210,7 @@ a:hover{
     margin-left: 0;
 }
 .text_section .image{
-    height: 476px;
+    /* height: 476px; */
     border-radius: 10px;
     margin-left: 7%;
 }

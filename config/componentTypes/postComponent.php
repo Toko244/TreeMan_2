@@ -2,7 +2,7 @@
 return [
     'id' => 21,
     'type' => 21,
-    'folder' => '../components/postslider',
+    'folder' => '../components/postComponent',
     'fields' => [
         'trans' => [
             'title' => [
