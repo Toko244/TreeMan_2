@@ -2,7 +2,6 @@
     <div class="row_posts component-padding-100-120">
         <div class="container">
             <div class="flex items-center justify-start post_row">
-
                 @foreach ($components as $key => $component)
                     <div class="row_post flex items-center justify-center hidden hover">
                         <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="w-full h-full flex items-center justify-center relative hidden">

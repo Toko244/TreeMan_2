@@ -122,10 +122,12 @@ a:hover{
     margin-left: 30px;
 }
 .row_post{
-    width: 18%;
-    padding: 0 3%;
     height: 325px;
     border-radius: 8px;
+}
+.row_post a{
+    border-radius: 12px;
+    overflow: hidden;
 }
 .row_post .post-cover{
     position: absolute;
@@ -840,4 +842,16 @@ a:hover{
 }
 .result-block .text{
     margin-bottom: 20px;
+}
+.image-side-width .img.w-full.h-full::before{
+    content: '';
+    width: 30%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #006838;
+    z-index: 2;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
 }

@@ -17,7 +17,7 @@
         </div>
 
         <div class="image">
-            <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full cover">
+            <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover">
         </div>
     </div>
 </div>
