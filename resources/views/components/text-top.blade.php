@@ -1,5 +1,5 @@
 @if(isset($component))
-<div class="text_section column">
+<div class="text_section column section-padding">
     <div class="container">
         
         <a  href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="title green text-xl lemon-medium relative">

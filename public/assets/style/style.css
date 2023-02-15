@@ -237,7 +237,10 @@ a:hover{
     color: #fff;
 }
 .green-section{
-    padding: 56px 80px;
+    padding: 56px 0 30px 0;
+}
+.green-post{
+    padding: 30px 0 56px 0;
 }
 .green-section .video{
     border-radius: 12px;
