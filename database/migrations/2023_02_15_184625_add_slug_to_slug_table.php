@@ -13,7 +13,7 @@ class AddSlugToSlugTable extends Migration
      */
     public function up()
     {
-        Schema::table('slug', function (Blueprint $table) {
+        Schema::table('slugs', function (Blueprint $table) {
             $table->string('slug')->nullable();
         });
     }
