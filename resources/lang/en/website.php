@@ -19,5 +19,14 @@ return [
 	'subject' => 'Subject',
 	'text' => 'Text',
 	'send_request' => 'Send Request',
-	'subscribe' => 'Subscribe'
+	'subscribe' => 'Subscribe',
+
+	
+	'all_rights' => 'Copyright all right is reserved',
+	'book_an_online_appointment' => 'Book an online appointment',
+	'subscribe' => 'Subscribe',
+	'subscribe' => 'Subscribe',
+	'subscribe' => 'Subscribe',
+	'subscribe' => 'Subscribe',
+	'subscribe' => 'Subscribe',
 ];

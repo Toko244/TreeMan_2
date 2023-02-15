@@ -8,10 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Section;
 use App\Models\MenuSection;
 use App\Models\Slug;
-use App\Models\SectionTranslation;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
-use Redirect;
+use App\Models\PostFile;
+use Illuminate\Support\Facades\File;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class SectionController extends Controller
@@ -43,9 +41,9 @@ class SectionController extends Controller
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
         foreach(config('app.locales') as $locale){
             if($request->has('is_component')){
-                $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['title']);
+                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
             }else{
-                $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['slug']);
+                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug',  $values[$locale]['slug']);
             }
             $fullslug[$locale] = $locale.'/'.$values[$locale]['slug'];
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
@@ -64,6 +62,7 @@ class SectionController extends Controller
         foreach(config('app.locales') as $locale){
             $section->slugs()->create([
                 'fullSlug' => $fullslug[$locale],
+                'slug' => $values[$locale]['slug'],
                 'slugable_id' => $section->id,
                 'locale' => $locale
             ]);
@@ -97,9 +96,10 @@ class SectionController extends Controller
             if($request->has('is_component')){
                 if($section->translations[$key]['title'] != $values[$locale]['title']){
                     Slug::where('slugable_id', $id)->where('locale', $locale)->delete();
-                    $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['title']);
+                    $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
                     $section->slugs()->create([
                         'fullSlug' => $locale.'/'.$values[$locale]['slug'],
+                        'slug' => $values[$locale]['slug'],
                         'slugable_id' => $id,
                         'locale' => $locale
                     ]);
@@ -107,10 +107,11 @@ class SectionController extends Controller
             }else{
                 if($section->translations[$key]['slug'] != $values[$locale]['slug']){
                     Slug::where('slugable_id', $id)->where('locale', $locale)->delete();
-                    $values[$locale]['slug'] = SlugService::createSlug(SectionTranslation::class, 'slug', $values[$locale]['slug']);
+                    $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['slug']);
                     
                     $section->slugs()->create([
                         'fullSlug' => $locale.'/'.$values[$locale]['slug'],
+                        'slug' => $values[$locale]['slug'],
                         'slugable_id' => $id,
                         'locale' => $locale
                     ]);
@@ -136,22 +137,67 @@ class SectionController extends Controller
             return redirect()->route('section.list', [app()->getLocale()]);
         }
     }
-
-    public function destroy($id) {
-        $sec = Section::find($id)->with('translations')->first();
-        foreach(Section::find($id)->slugs()->get() as $slug){
-            Slug::where('fullSlug', 'LIKE', $slug->fullSlug.'%')->delete();
-        }
-
-
-        Section::find($id)->slugs()->delete();
-        Section::find($id)->delete();
-
-        return redirect()->route('section.list', [app()->getLocale()]);
-    }
     public function arrange(Request $request) {
         $array = $request->input('orderArr');
         Section::rearrange($array);
         return ['error' => false];
+    }
+
+    public function destroy($id) {
+
+        $section = Section::where('id',$id)->with('translations','posts')->first();
+        if(count($section->sectioncomponents()) > 0){
+            foreach($section->sectioncomponents() as $key => $component){
+                if(count($component->posts) > 0){
+                    foreach($component->posts as $key => $component_post){
+                        
+                        if(isset($component_post->image) && File::exists(config('config.file_path').$component_post->image)) {
+                            File::delete(config('config.file_path').$component_post->image);
+                        }
+                        $files = PostFile::where('post_id', $component_post->id)->get();
+                        foreach($files as $file){
+                            if(File::exists(config('config.image_path').$file->file)) {
+                                File::delete(config('config.image_path').$file->file);
+                            }
+                            if(File::exists(config('config.image_path').'thumb/'.$file->file)) {
+                                File::delete(config('config.image_path').'thumb/'.$file->file);
+                            }
+                            $file->delete();
+                        }
+                        $component_post->slugs()->delete();
+                        // Slug::where('slugable_id', $component_post->id)->where('slugable_type', 'App\Models\Post')->delete();
+                    }
+                }
+                $component->slugs()->delete();
+            }
+        }
+
+        
+        if(count($section->posts) > 0){
+            foreach($section->posts as $key => $post){
+                
+                if(isset($post->image) && File::exists(config('config.file_path').$post->image)) {
+                    File::delete(config('config.file_path').$post->image);
+                }
+                    $files = PostFile::where('post_id', $post)->get();
+                    if($files){
+                        foreach($files as $file){
+                            if(File::exists(config('config.image_path').$file->file)) {
+                                File::delete(config('config.image_path').$file->file);
+                            }
+                            if(File::exists(config('config.thumb_path').'thumb/'.$file->file)) {
+                                File::delete(config('config.thumb_path').'thumb/'.$file->file);
+                            }
+                            $file->delete();
+                        }
+                    }
+                    $post->slugs()->delete();
+            }
+        }
+
+        $section->slugs()->delete();
+        $section->delete();
+
+        return redirect()->route('section.list', [app()->getLocale()]);
     }
 }

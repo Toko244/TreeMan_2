@@ -6,13 +6,13 @@
                 <div class="flex items-center justify-start">
                     <div class="follow-block flex items-center justify-start mr-1">
                         <div class="follow green medium text-lg">
-                            {{trans('website.follow_us')}}
+                            {{ trans('website.follow_us') }}
                         </div>
                     </div>
 
                     <div class="social flex items-center">
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                            <a href="{{settings('facebook')}}"
+                            <a href="{{ settings('facebook') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow"
                                 style="width: 40px; height: 40px;">
                                 <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                            <a href="{{settings('linkedin')}}"
+                            <a href="{{ settings('linkedin') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow"
                                 style="width: 40px; height: 40px;">
                                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                            <a href="{{settings('youtube')}}"
+                            <a href="{{ settings('youtube') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow"
                                 style="width: 40px; height: 40px;">
                                 <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="lang-search flex items-center">
-                    <form action="{{route('search', app()->getLocale())}}"  method="POST" style="margin: 0">
+                    <form action="{{ route('search', app()->getLocale()) }}" method="POST" style="margin: 0">
                         @csrf
                         <div class="search flex items-center justify-center">
                             <button type="submit" class="h-full flex items-center">
@@ -92,7 +92,7 @@
                         <div class="other-langs flex items-center column pl-1 pr-1">
                             @foreach (config('app.locales') as $k => $value)
                                 @if ($value != app()->getLocale())
-                                    <a href="@if (isset($language_slugs)) {{ asset($language_slugs[$value]) }} @else {{ $value }} @endif"
+                                    <a href="@if (isset($language_slugs) && is_array($language_slugs)) {{ asset($language_slugs[$value]) }} @else {{ $value }} @endif"
                                         class="medium green text-lg">{{ strtoupper($value) }}</a>
                                 @endif
                             @endforeach
@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="logo flex items-center justify-center" style="max-width: 105px;">
-                        <a href="/" class="w-full h-full block">
+                        <a href="{{ URL::to('/') }}" class="w-full h-full block">
                             <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
                         </a>
                     </div>
@@ -121,7 +121,7 @@
                         @foreach ($sections as $sec)
                             <div class="menu-item h-full flex items-center mr-4 relative">
                                 <a href="/{{ $sec->getFullSlug() }}" class="medium green text-lg menu-point relative">
-                                    {{$sec->title}}
+                                    {{ $sec->title }}
                                 </a>
                                 <div class="dropdown flex column items-center" style="background: #3F9752; padding: 30px 40px 10px 40px;">
                                     <a href="" class="text-base white semibold">
@@ -140,7 +140,7 @@
                     <div class="flex items-center justify-end h-full">
                         <a href="" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
                             class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
-                            {{trans('website.get_a_quote')}}
+                            {{ trans('website.get_a_quote') }}
                         </a>
                     </div>
                 </div>
@@ -176,19 +176,23 @@
         </form>
 
         <div class="burger-menu flex column mt-2">
-            @if(isset($sections) && count($sections) > 0)
-            @foreach ($sections as $section)
-            <div class="flex items-center justify-center">
-                <a href="/{{ $section->getFullSlug() }}" class="semibold white text-xl">{{$section->title}}</a>
-            </div>
-            @endforeach
+            @if (isset($sections) && count($sections) > 0)
+                @foreach ($sections as $section)
+                    <div class="flex items-center justify-center">
+                        <a href="/{{ $section->getFullSlug() }}"
+                            class="semibold white text-xl">{{ $section->title }}</a>
+                    </div>
+                @endforeach
             @endif
         </div>
 
         <div class="burger-lang flex items-center justify-center">
-            <a href="" class="white bold text-xl">
-                EN
-            </a>
+            @foreach (config('app.locales') as $k => $value)
+                @if ($value != app()->getLocale())
+                    <a href="@if (isset($language_slugs) && is_array($language_slugs)) {{ asset($language_slugs[$value]) }} @else {{ $value }} @endif"
+                        class="white bold text-xl">{{ strtoupper($value) }}</a>
+                @endif
+            @endforeach
         </div>
 
         <div class="burger-social flex items-center justify-center">
@@ -238,7 +242,7 @@
         <div class="burger-book">
             <a href="" class="book-button text-lg bold green background-white transition-duration"
                 style="line-height: 32px;">
-                {{trans('website.get_a_quote')}}
+                {{ trans('website.get_a_quote') }}
             </a>
         </div>
     </div>

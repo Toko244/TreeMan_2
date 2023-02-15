@@ -2,7 +2,7 @@
 
 return [
     'mainSlider' => 'Main Slider',
-    'postComponent' => 'Post Slider',
+    'postComponent' => 'Post Component',
     'textLeft' => 'Text Left',
     'textRight' => 'Text Right',
     'textTop' => 'Text Top',

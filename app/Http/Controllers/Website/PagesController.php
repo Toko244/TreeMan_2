@@ -23,7 +23,7 @@ class PagesController extends Controller
 		}
         
 		if ($model->type_id == 1) {
-            $section= Section::where('type_id', 1)->first();
+            $section= Section::where('id', $model->id)->first();
             return view('website.home', compact('section', 'language_slugs'));
 		}
 		if ($model->type_id == 2) {

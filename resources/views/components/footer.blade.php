@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-1">
                     <div class="footer-logo">
-                        <img src="assets/img/footerlogo.png" alt="">
+                        <img src="/assets/img/footerlogo.png" alt="">
                     </div>
                 </div>
 
@@ -23,7 +23,7 @@
                                     </defs>
                                 </svg>
 
-                                <a href="tel:{{settings('address')}}" class="text-lg white thin pl-1">
+                                <a href="tel:{{settings('phone')}}" class="text-lg white thin pl-1">
                                     {{settings('phone')}}
                                 </a>
                             </div>
@@ -35,20 +35,20 @@
                                     <path d="M12 24.9875L18.6 18.4431C19.9052 17.1488 20.794 15.4998 21.1541 13.7046C21.5141 11.9094 21.3292 10.0486 20.6228 8.3576C19.9163 6.66659 18.7201 5.22126 17.1852 4.20439C15.6504 3.18751 13.8459 2.64476 12 2.64476C10.1541 2.64476 8.34962 3.18751 6.81478 4.20439C5.27994 5.22126 4.08367 6.66659 3.37722 8.3576C2.67077 10.0486 2.48589 11.9094 2.84594 13.7046C3.20599 15.4998 4.09481 17.1488 5.4 18.4431L12 24.9875ZM12 28.7264L3.51467 20.3126C1.83646 18.6485 0.693582 16.5283 0.230571 14.2202C-0.232439 11.912 0.00520913 9.51956 0.913465 7.34534C1.82172 5.17111 3.35979 3.31277 5.33318 2.00531C7.30656 0.697853 9.62663 0 12 0C14.3734 0 16.6934 0.697853 18.6668 2.00531C20.6402 3.31277 22.1783 5.17111 23.0865 7.34534C23.9948 9.51956 24.2324 11.912 23.7694 14.2202C23.3064 16.5283 22.1635 18.6485 20.4853 20.3126L12 28.7264ZM12 14.543C12.7072 14.543 13.3855 14.2644 13.8856 13.7685C14.3857 13.2726 14.6667 12.6001 14.6667 11.8988C14.6667 11.1975 14.3857 10.5249 13.8856 10.029C13.3855 9.53316 12.7072 9.25457 12 9.25457C11.2928 9.25457 10.6145 9.53316 10.1144 10.029C9.61429 10.5249 9.33333 11.1975 9.33333 11.8988C9.33333 12.6001 9.61429 13.2726 10.1144 13.7685C10.6145 14.2644 11.2928 14.543 12 14.543ZM12 17.1872C10.5855 17.1872 9.22896 16.63 8.22877 15.6382C7.22857 14.6465 6.66667 13.3013 6.66667 11.8988C6.66667 10.4962 7.22857 9.15108 8.22877 8.15931C9.22896 7.16755 10.5855 6.61038 12 6.61038C13.4145 6.61038 14.771 7.16755 15.7712 8.15931C16.7714 9.15108 17.3333 10.4962 17.3333 11.8988C17.3333 13.3013 16.7714 14.6465 15.7712 15.6382C14.771 16.63 13.4145 17.1872 12 17.1872Z" fill="white"/>
                                 </svg>
 
-                                <a href="#" class="text-lg white thin pl-1">
+                                <a href="https://www.google.com/maps/search/{{settings('address')}}" target="_blank" class="text-lg white thin pl-1">
                                     {{settings('address')}}
                                 </a>
                             </div>
                         @endif
 
-                        @if(settings('mail') != null)
+                        @if(settings('email') != null)
                             <div class="flex items-center">
                                 <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M30 23.6208C29.9975 23.9856 29.8542 24.3347 29.6011 24.5928C29.348 24.8508 29.0054 24.9971 28.6473 25H4.08C3.72111 24.9996 3.37704 24.8542 3.12339 24.5956C2.86975 24.337 2.72727 23.9864 2.72727 23.6208V22.2222H27.2727V5.97222L16.3636 15.9722L2.72727 3.47222V1.38889C2.72727 1.02053 2.87094 0.667263 3.12667 0.406796C3.3824 0.146329 3.72925 0 4.09091 0H28.6364C28.998 0 29.3449 0.146329 29.6006 0.406796C29.8563 0.667263 30 1.02053 30 1.38889V23.6208ZM6.04636 2.77778L16.3636 12.2361L26.6809 2.77778H6.04636ZM0 16.6667H10.9091V19.4444H0V16.6667ZM0 9.72222H6.81818V12.5H0V9.72222Z" fill="white"/>
                                 </svg>
 
-                                <a href="mailto:{{settings('address')}}" class="text-lg white thin pl-1">
-                                    {{settings('mail')}}
+                                <a href="mailto:{{settings('email')}}" class="text-lg white thin pl-1">
+                                    {{settings('email')}}
                                 </a>
                             </div>
                         @endif
@@ -58,11 +58,11 @@
                 <div class="col-lg-4">
                     <div class="footer-book flex items-center justify-end h-full">
                         <div class="text-lg bold white mr-3">
-                            BOOK AN ONLINE APPOINTMENT
+                            {{trans('website.book_an_online_appointment')}}
                         </div>
 
                         <a href="" class="book-button text-lg bold green background-white transition-duration" style="line-height: 32px;">
-                            Book
+                            {{trans('website.book')}}
                         </a>
                     </div>
                 </div>
@@ -76,15 +76,15 @@
                 <div class="col-lg-7">
                     <div class="down-footer-info flex items-center justify-start h-full">
                         <div class="row-item thin text-lg white pr-1 mr-1">
-                            Copyright all right is reserved
+                            {{trans('website.all_rights')}}
                         </div>
 
                         @foreach ($footerSections as $footerSection)
-                            <div class="">
-                                <a href="" class="row-item thin text-lg white pr-1 mr-1">
-                                    Privacy Policy
-                                </a>
-                            </div>
+                        <div class="">
+                            <a href="/{{$footerSection->getFullSlug()}}" class="row-item thin text-lg white pr-1 mr-1">
+                                {{$footerSection->title}}
+                            </a>
+                        </div>
                         @endforeach
                     </div>
                 </div>

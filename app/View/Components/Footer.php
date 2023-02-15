@@ -15,20 +15,14 @@ class Footer extends Component
      */
     public function __construct()
     {
-        $this->footerSections = Section::whereHas('translations', function($q) {
+        $this->footerSections = Section::whereHas('translation', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
+			$q->where('active', 1);
         })
         ->whereHas('menuTypes', function($q){
-            $q->where('menu_type_id', 1);
+            $q->where('menu_type_id', 0);
         })
-		->whereHas('translations', function($q){
-			$q->where('active', 1);
-		})->with(array('children' => function($query) {
-            $query->whereHas('menuTypes', function($q){
-                $q->where('menu_type_id', 1);
-            })->orderBy('order', 'asc')->orderBy('created_at', 'desc');
-		}))
-        ->with(['translations', 'menuTypes'])
+        ->with(['translation', 'menuTypes'])
         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
         ->get();
     }
