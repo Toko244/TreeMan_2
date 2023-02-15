@@ -1,5 +1,5 @@
 @if(isset($component))
-<div class="text_section column section-padding">
+<div class="text_section flex column section-pad">
     <div class="container">
         
         <a  href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="title green text-xl lemon-medium relative">
@@ -11,9 +11,7 @@
                 {!! $component->translate(app()->getlocale())->desc !!}
             </div>
             
-            <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="medium text-lg black">
-                {{ trans('website.see_more') }}
-            </a>
+            
         </div>
 
         <div class="image">

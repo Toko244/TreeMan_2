@@ -80,25 +80,12 @@
                         </div>
 
                         @foreach ($footerSections as $footerSection)
-
-                        <div class="">
-                            <a href="" class="row-item thin text-lg white pr-1 mr-1">
-                                Privacy Policy
-                            </a>
-                        </div>
+                            <div class="">
+                                <a href="" class="row-item thin text-lg white pr-1 mr-1">
+                                    Privacy Policy
+                                </a>
+                            </div>
                         @endforeach
-
-                        <div class="">
-                            <a href="" class="row-item thin text-lg white pr-1 mr-1">
-                                Terms and Conditions
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="" class="row-item thin text-lg white pr-1 mr-1">
-                                Cookies
-                            </a>
-                        </div>
                     </div>
                 </div>
 

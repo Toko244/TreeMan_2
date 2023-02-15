@@ -34,6 +34,9 @@
 /*----------------------------- 1200px-----------------------------------*/
 
 @media (max-width: 1200px) {
+    .text_section .image{
+        height: 400px;
+    }
     .search-form input{
         width: 650px;
     }
@@ -95,6 +98,9 @@
 /*------------------------------- 992px ---------------------------------*/
 
 @media (max-width: 992px) {
+    .text_section .image{
+        height: 350px;
+    }
     .menu-header .col-lg-8,
     .header.upper-header.w-full.pt-1.pb-1,
     a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration{

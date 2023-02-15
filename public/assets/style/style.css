@@ -212,7 +212,7 @@ a:hover{
     margin-left: 0;
 }
 .text_section .image{
-    height: 476px;
+    height: 450px;
     border-radius: 10px;
     margin-left: 7%;
 }
@@ -794,6 +794,10 @@ a:hover{
     padding-left: 190px;
     padding-top: 60px;
     padding-bottom: 40px;
+    box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    border-radius: 12px;
 }
 .fixed-guidline-list li{
     margin-bottom: 60px;
@@ -805,6 +809,11 @@ a:hover{
     right: -66px;
     top: 35%;
     cursor: pointer;
+}
+.fixed-guidline .guidline-icon svg{
+    box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
 }
 .youtubeicon{
     position: absolute;
@@ -852,9 +861,12 @@ a:hover{
     height: 100%;
     display: block;
     position: absolute;
-    left: 0;
+    left: -2px;
     top: 0;
     background: #006838;
     z-index: 2;
     clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+.burger-lang a{
+    padding: 0 10px;
 }
