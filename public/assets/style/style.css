@@ -870,3 +870,14 @@ a:hover{
 .burger-lang a{
     padding: 0 10px;
 }
+.dropdown{
+    position: absolute;
+    width: max-content;
+    top: 100%;
+    z-index: 9;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.dropdown a{
+    margin-bottom: 20px;
+}
