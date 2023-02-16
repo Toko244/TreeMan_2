@@ -72,7 +72,7 @@
                             </button>
 
                             <div class="pl-1 pr-1" style="border-right: 1.5px solid #E6EEED">
-                                <input type="text" placeholder="Search" class="medium green text-lg ">
+                                <input type="text" placeholder="{{ trans('website.search') }}" class="medium green text-lg" name="que">
                             </div>
 
 
@@ -118,19 +118,20 @@
 
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
-                        @foreach ($sections as $sec)
+                        @foreach ($sections as $section)
                             <div class="menu-item h-full flex items-center mr-4 relative">
-                                <a href="/{{ $sec->getFullSlug() }}" class="medium green text-lg menu-point relative">
-                                    {{ $sec->title }}
+                                <a href="/{{ $section->getFullSlug() }}" class="medium green text-lg menu-point relative">
+                                    {{ $section->title }}
                                 </a>
+                                @if ($section->children->count() > 0)
                                 <div class="dropdown flex column items-center" style="background: #3F9752; padding: 30px 40px 10px 40px;">
-                                    <a href="" class="text-base white semibold">
-                                        Paulownia Seedlings
+                                    @foreach ($section->children as $subSec)
+                                    <a href="/{{ $subSec->getFullSlug() }}" class="text-base white semibold">
+                                        {{ $subSec->title }}
                                     </a>
-                                    <a href="" class="text-base white semibold">
-                                        Paulownia roots
-                                    </a>
+                                    @endforeach
                                 </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>
@@ -163,7 +164,8 @@
 
 
     <div class="burgermenu flex column items-center pl-1 pr-1 pt-2">
-        <form action="" class="w-full relative">
+        <form action="{{ route('search', app()->getLocale()) }}" class="w-full relative"  method="POST">
+            @csrf
             <button type="submit" class="flex items-center absolute">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +174,7 @@
                         fill="#006838" />
                 </svg>
             </button>
-            <input type="text" name="" id="" placeholder="Search" class="w-full">
+            <input type="text" name="que" placeholder="{{ trans('website.search') }}" class="w-full">
         </form>
 
         <div class="burger-menu flex column mt-2">
