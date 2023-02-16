@@ -24,9 +24,5 @@ return [
 	
 	'all_rights' => 'Copyright all right is reserved',
 	'book_an_online_appointment' => 'Book an online appointment',
-	'subscribe' => 'Subscribe',
-	'subscribe' => 'Subscribe',
-	'subscribe' => 'Subscribe',
-	'subscribe' => 'Subscribe',
-	'subscribe' => 'Subscribe',
+	'search' => 'search',
 ];
