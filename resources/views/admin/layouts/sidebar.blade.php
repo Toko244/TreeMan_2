@@ -63,7 +63,7 @@
                 </li>
 
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span> {{ trans('admin.banners') }} </span>
@@ -75,7 +75,7 @@
                         @endforeach
 
                     </ul>
-                </li>
+                </li> --}}
 {{--
                 <li>
                     <a href="javascript: void(0);">

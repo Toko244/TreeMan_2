@@ -20,7 +20,7 @@ class Footer extends Component
 			$q->where('active', 1);
         })
         ->whereHas('menuTypes', function($q){
-            $q->where('menu_type_id', 0);
+            $q->where('menu_type_id', 1);
         })
         ->with(['translation', 'menuTypes'])
         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')

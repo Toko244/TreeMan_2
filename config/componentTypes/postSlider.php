@@ -7,23 +7,21 @@ return [
         'trans' => [
             'title' => [
                 'type' => 'text',
-                'reqired' => 'required',
-                'max' => '100',
-                'min' => '3',
-                'name' => 'title',
-                'translateble' => true,
-
-            ],
-            'desc' => [
-                'type' => 'textarea',
+                'required' => 'required',
+                'data-icon' => '-',
             ],
             'redirect_link' => [
                 'type' => 'text',
+                'required' => '',
+                'data-icon' => '',
+            ],
+            'active' => [
+                'type' => 'checkbox',
             ],
         ],
         'nonTrans' => [
-            'image' => [
-                'type' => 'image',
+            'images' => [
+                'type' => 'images',
             ],
             'target_blank' => [
                 'type' => 'switch',

@@ -61,7 +61,7 @@
                             {{trans('website.book_an_online_appointment')}}
                         </div>
 
-                        <a href="" class="book-button text-lg bold green background-white transition-duration" style="line-height: 32px;">
+                        <a href="{{ settings('book_link') }}" target="_blank" class="book-button text-lg bold green background-white transition-duration" style="line-height: 32px;">
                             {{trans('website.book')}}
                         </a>
                     </div>

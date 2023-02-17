@@ -8,8 +8,7 @@ use Illuminate\View\Component;
 
 class PostSlider extends Component
 {
-    public $components;
-    public $section;
+    public $component;
     /**
      * Create a new component instance.
      * 
@@ -17,10 +16,9 @@ class PostSlider extends Component
      */
     public function __construct($sectionId)
     {
-        $this->section = Section::where('id', $sectionId)->with('translation')->first();
-        $this->components = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
+        $this->component = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
-        })->with('translation')->orderBy('date', 'asc')->get();
+        })->with('translation')->orderBy('date', 'desc')->first();
     }
 
     /**
@@ -31,8 +29,7 @@ class PostSlider extends Component
     public function render()
     {
         return view('components.post-slider')->with([
-            'components' => $this->components,
-            'section' => $this->section,
+            'component' => $this->component
         ]);
     }
 }

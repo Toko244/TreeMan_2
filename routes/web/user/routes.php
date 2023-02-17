@@ -18,13 +18,16 @@ Route::get('/front', function(){
 Route::get('/photo', function(){
     return view('website.photo');
 });
-
+Route::get('/search', function(){
+    return view('website.search');
+});
 Route::get('/contact', function(){
     return view('website.contact');
 });
 Route::get('/text-page', function(){
     return view('website.text-page');
 });
+
 // Routes for Davita
 Route::get('/home-page', function(){
     return view('website.home');
