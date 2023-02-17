@@ -883,3 +883,6 @@ a:hover{
 .dropdown a{
     margin-bottom: 20px;
 }
+.photo-gallery h1{
+    font-weight: 100;
+}
