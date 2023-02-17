@@ -25,7 +25,7 @@
                                                 </h3>
                                             </div>
 
-                                            <div class="text white pr-4 medium"
+                                            <div class="text white medium"
                                                 style="font-size: 18px; line-height: 26px;">
                                                 {!! $component->translate(app()->getlocale())->desc !!}
                                             </div>
