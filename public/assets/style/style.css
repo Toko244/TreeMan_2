@@ -887,6 +887,10 @@ a:hover{
 .dropdown a{
     margin-bottom: 20px;
 }
+
+.photo-gallery h1{
+    font-weight: 100;
+}
 .menu-item:hover .dropdown{
     display: flex;
   }
@@ -896,3 +900,4 @@ a:hover{
 .title{
     text-transform: capitalize;
 }
+
