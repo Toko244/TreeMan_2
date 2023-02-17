@@ -879,6 +879,10 @@ a:hover{
     z-index: 9;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    display: none;
+}
+.medium:hover .dropdown{
+    display: flex;
 }
 .dropdown a{
     margin-bottom: 20px;
