@@ -7,6 +7,7 @@ return [
         'country',
         'quality',
         'message',
+        'text',
         'organization',
 
     ],

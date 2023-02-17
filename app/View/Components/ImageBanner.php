@@ -3,11 +3,13 @@
 namespace App\View\Components;
 
 use App\Models\Section;
+use App\Models\Post;
 use Illuminate\View\Component;
 
 class ImageBanner extends Component
 {
     public $section;
+    public $components;
     /**
      * Create a new component instance.
      *
@@ -16,11 +18,10 @@ class ImageBanner extends Component
     
      public function __construct($sectionId)
      {
-         $this->section = Section::where('id', $sectionId)->whereHas('translations', function($q) {
-             $q->whereActive(true)->whereLocale(app()->getLocale());
-         })->with(['translation:id,section_id,title,desc', 'posts'])
-         ->orderBy('order', 'asc')->orderBy('created_at', 'desc')
-         ->first();
+        $this->section = Section::where('id', $sectionId)->with('translation')->first();
+        $this->components = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
+            $q->whereActive(true)->whereLocale(app()->getLocale());
+        })->with('translation')->orderBy('date', 'desc')->get();
      }
 
     /**
@@ -31,7 +32,8 @@ class ImageBanner extends Component
     public function render()
     {
         return view('components.image-banner')->with([
-            'section' => $this->section
+            'section' => $this->section,
+            'components' => $this->components
         ]);
     }
 }

@@ -20,7 +20,7 @@ class BannerSlider extends Component
         $this->section = Section::where('id', $sectionId)->with('translation')->first();
         $this->components = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
-        })->with('translation')->orderBy('date', 'asc')->get();
+        })->with('translation')->orderBy('date', 'desc')->get();
     }
 
     /**

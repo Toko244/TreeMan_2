@@ -18,7 +18,7 @@ class SubscribeBanner extends Component
      {
         $this->component = Post::where('section_id', $sectionId)->whereHas('translation', function($q) {
             $q->whereActive(true)->whereLocale(app()->getLocale());
-        })->with('translation')->orderBy('date', 'asc')->first();
+        })->with('translation')->first();
      }
 
     /**

@@ -1,44 +1,47 @@
 @extends('website.master')
 @section('master')
-    @if (isset($section))
-        @if ($section->post())
-            <div class="text_section section-pad relative">
+    @if (isset($section) && isset($post))
+        <div class="text_section section-pad relative">
+            @if ($post->thumb != '')
                 <img src="/assets/img/Vector 1.png" alt="" class="w-full absolute left-0 line">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="info flex items-start justify-center column h-full">
-                                <a href="{{ $section->post()->translate(app()->getlocale())->redirect_link }}"
-                                    @if ($section->target_blank == 1) target="_blank" @endif
+            @endif
+            <div class="container">
+                <div class="row">
+                    <div @if ($post->thumb != '') class="col-lg-6" @else class="col-lg-12" @endif>
+                        <div class="info flex items-start justify-center column h-full">
+                            @if ($post->translation != '')
+                                <a href="{{ $post->redirect_link }}" @if ($post->target_blank == 1) target="_blank" @endif
                                     class="title green text-xl lemon-medium relative">
-                                    {{ $section->post()->translate(app()->getlocale())->title }}
+                                    {{ $post->translate(app()->getlocale())->title }}
                                 </a>
-
-                                <div class="text medium text-lg black">
-                                    {!! $section->post()->translate(app()->getlocale())->desc !!}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="image flex items-center justify-center hidden relative">
-                                <img src="/uploads/img/{{ $section->post()->thumb }}"
-                                    alt="{{ $section->post()->translate(app()->getlocale())->title }}"
-                                    class="w-full h-full cover">
+                            @endif
+                            <div class="text medium text-lg black">
+                                @if ($post->translation != '')
+                                    {!! $post->translate(app()->getlocale())->desc !!}
+                                @else
+                                    {{ trans('website.no_content_acailable') }}
+                                @endif
                             </div>
                         </div>
                     </div>
+                    @if ($post->thumb != '')
+                        <div class="col-lg-6">
+                            <div class="image flex items-center justify-center hidden relative">
+                                <img src="/uploads/img/{{ $post->thumb }}" alt="{{ $post->title }}"
+                                    class="w-full h-full cover">
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
-        @endif
-        @if (count($section->sectioncomponents()) > 0)
+        </div>
+        @if(count($section->sectioncomponents()) > 0)
             <div class="guideline relative">
                 <div class="container">
                     <div class="guideline-list">
                         <div class="title semibold text-2xl mb-3 w-full white">
                             {{ trans('website.page_guideline') }}
                         </div>
-
                         <div class="list flex wrap w-full">
                             @foreach ($section->sectioncomponents() as $key => $item)
                                 <div class="list-bullet relative flex items-center">
@@ -51,7 +54,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="fixed-guidline">
                     <div class="guidline-icon">
                         <svg width="68" height="71" viewBox="0 0 68 71" fill="none"

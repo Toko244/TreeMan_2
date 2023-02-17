@@ -16,7 +16,7 @@
                             </div>
         
                             <div class="flex items-center h-full">
-                                <button id="myBtn" class="book-button book-button-black relative text-lg bold black background-white transition-duration" style="line-height: 32px;">
+                                <button id="myBtn" class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
                                     {{ trans('website.book') }}
                                 </button>
                             </div>

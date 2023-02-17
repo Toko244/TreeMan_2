@@ -28,7 +28,8 @@ class PagesController extends Controller
 		}
 		if ($model->type_id == 2) {
             $section = Section::where('id', $model->id)->with('translation')->first();
-            return view('website.text-page', compact('section', 'language_slugs'));
+            $post = $section->sectionPost();
+            return view('website.text-page', compact('section','post','language_slugs'));
 		}
         
 		if ($model->type_id == 3) {
@@ -41,14 +42,11 @@ class PagesController extends Controller
             $section = Section::where('id', $model->id)->with('translation')->first();
             return view('website.contact', compact('section', 'language_slugs'));
 		}
-        $section = Section::where('id', $model->id)
-        ->with('posts', function($q){
-            $q->whereHas('translations', function($que){
-                $que->where('locale', app()->getlocale())
-                ->where('active', true);
-            }) ->orderBy('date', 'desc')->paginate($model->type['paginate']?? 6);
-        })->first();
-        return view("website.pages.{$model->type['folder']}.index", compact('section', 'locales' ));
+		if ($model->type_id == 5) {
+            $section = Section::where('id', $model->id)->with('translation')->first();
+            $post = $section->sectionPost();
+            return view('website.list-page', compact('section','post', 'language_slugs'));
+		}
 
     }
 

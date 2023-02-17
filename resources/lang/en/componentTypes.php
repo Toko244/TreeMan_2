@@ -6,6 +6,7 @@ return [
     'textLeft' => 'Text Left',
     'textRight' => 'Text Right',
     'textTop' => 'Text Top',
+    'textGreen' => 'Text Green',
     'TextGreen' => 'Text Green',
     'postGreen' => 'Post Green',
     'cardBanner' => 'Card banner',
@@ -13,5 +14,6 @@ return [
     'counterBanner' => 'Counter Banner',
     'bookBanner' => 'Book Banner',
     'subscribeBanner' => 'Subscribe Banner',
-    'postSlider' => 'Post Slider',
+    'postSlider' => 'Image Slider',
+    'imageBanner' => 'Card-Image Banner',
 ];
