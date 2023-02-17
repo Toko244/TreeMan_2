@@ -52,7 +52,7 @@
                                             <div class="photo hidden w-full hover relative" style="border-radius: 8px;">
                                                 <a href="@if($image->title != '') {{$image->title}} @else /uploads/img/{{$image->file}} @endif" data-fancybox="photo">
                                                     <img src="/uploads/img/{{$image->file}}" alt="" class="w-full h-full cover hover-image relative">
-                                                    @if($sectionfile->title != '')
+                                                    @if($image->title != '')
                                                     <img src="/assets/img/youtubeicon.png" alt="" class="youtubeicon">
                                                     @endif
                                                 </a>

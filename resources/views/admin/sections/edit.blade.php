@@ -64,8 +64,6 @@
                                         id="{{ $locale }}-active"
                                         @if ($section->translate($locale) !== null) {{ $section->translate($locale)->active == 1 ? 'checked' : '' }} @endif
                                         value="1" data-plugin="switchery" data-color="#3bafda" />
-
-
                                 </div>
 
 

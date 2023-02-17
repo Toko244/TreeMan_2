@@ -33,7 +33,6 @@
 @else
     @if (isset(getComponentAttribute($section->type_id)['trans']) && count(getComponentAttribute($section->type_id)['trans']) > 0)
     <ul class="nav nav-tabs">
-
         @foreach (config('app.locales') as $locale)
         <li class="nav-item ">
             <a href="#locale-{{ $locale }}"  data-toggle="tab" aria-expanded="false" class="nav-link @if($locale == app()->getLocale()) active @endif">
@@ -41,13 +40,12 @@
             </a>
         </li>
         @endforeach
-
     </ul>
     <div class="tab-content">
         @foreach (config('app.locales') as $locale)
         <div role="tabpanel" class="tab-pane fade @if($locale == app()->getLocale()) active show @endif " id="locale-{{ $locale }}">
             @foreach (getComponentAttribute($section->type_id)['trans'] as $key => $field)
-                @include('admin.form-controllers.trans.'.$field['type'])
+                @include('admin.form-controllers.trans.'.$field['type'], ['field' => $field])
             @endforeach
         </div>
         @endforeach

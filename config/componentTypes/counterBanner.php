@@ -7,14 +7,14 @@ return [
         'trans' => [
             'title' => [
                 'type' => 'text',
-                'reqired' => 'required',
-                'max' => '100',
-                'min' => '3',
-                'name' => 'title',
-                'translateble' => true,
+                'required' => 'required',
+                'data-icon' => '-',
             ],
             'value' => [
                 'type' => 'text',
+            ],
+            'active' => [
+                'type' => 'checkbox',
             ],
         ],
         'nonTrans' => [
