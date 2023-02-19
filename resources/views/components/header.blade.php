@@ -1,5 +1,4 @@
 <header>
-    <div class="responsive-margin"></div>
     <div class="header upper-header w-full pt-1 pb-1" style="border-bottom: 1.5px solid RGBA(1,81,78,0.2);">
         <div class="container">
             <div class="header flex w-full items-center justify-between">
@@ -249,3 +248,5 @@
         </div>
     </div>
 </header>
+
+<div class="responsive-margin"></div>
