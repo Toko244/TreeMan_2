@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="fixed-guidline">
-                    <div class="guidline-icon">
+                    <div class="guidline-icon" id="guideline">
                         <svg width="68" height="71" viewBox="0 0 68 71" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M-1 0H58C63.5228 0 68 4.47715 68 10V61C68 66.5229 63.5229 71 58 71H-1V0Z"
