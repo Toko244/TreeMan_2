@@ -1,3 +1,11 @@
+$(window).scroll(function(){
+  if ($(this).scrollTop() > 800) {
+     $('#guideline').addClass('guid-on');
+  } else {
+     $('#guideline').removeClass('guid-on');
+  }
+});
+
 $('.home-slider').slick({
   dots: false,
   arrows:false,
@@ -207,4 +215,3 @@ if (event.target == modal) {
   modal.style.display = "none";
 }
 }
-
