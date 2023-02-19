@@ -84,3 +84,9 @@
     
     </div>
 @endif
+
+@if(Session::has('message'))
+    <div class="alert alert-className">
+        {{session('message')}}
+    </div>
+@endif
