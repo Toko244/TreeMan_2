@@ -22,13 +22,15 @@
                                     {{ trans('website.no_content_acailable') }}
                                 @endif
                             </div>
+
+                            <div class="sharethis-inline-share-buttons"></div>
                         </div>
                     </div>
                     @if ($post->thumb != '')
                         <div class="col-lg-6">
+                            
                             <div class="image flex items-center justify-center hidden relative">
-                                <img src="/uploads/img/{{ $post->thumb }}" alt="{{ $post->title }}"
-                                    class="w-full h-full cover">
+                                <img src="/uploads/img/{{ $post->thumb }}" alt="{{ $post->title }}" class="w-full h-full cover">
                             </div>
                         </div>
                     @endif
