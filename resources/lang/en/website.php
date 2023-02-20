@@ -26,5 +26,9 @@ return [
 	'book_an_online_appointment' => 'Book an online appointment',
 	'search' => 'search',
 	'no_content_acailable' => 'No content is available in this language!',
-	'page_guideline' => 'Page Guideline'
+	'page_guideline' => 'Page Guideline',
+	'contact_form' => 'Contact Form',
+	'contact_description' => 'Fill out the form to contact us',
+	'subscribe' => 'Subscribe',
+	'subscribe' => 'Subscribe',
 ];

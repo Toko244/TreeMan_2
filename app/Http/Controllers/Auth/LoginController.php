@@ -64,6 +64,7 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
+        $request->session()->flush();
         return redirect(app()->getLocale().'/login');
       }
 }
