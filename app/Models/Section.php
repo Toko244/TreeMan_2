@@ -14,6 +14,7 @@ class Section extends Model
 {
     use HasFactory;
     use Translatable;
+    
 
     protected $casts = [
         'additional' => 'collection',
@@ -157,8 +158,17 @@ class Section extends Model
 
       
     }
+    public function listcomponents(){
 
-    public function sectioncomponents() {
+      $component =  $this->hasMany('App\Models\Section', 'parent_id')->with(['translation' => function($query){
+        $query->where('locale', app()->getLocale());
+      }])->whereHas('posts')
+      ->where('is_component', 1)->orderBy('order', 'asc')->paginate(settings('list_pagination'));
+      return $component;
+
+      
+    }
+    public function sectioncomponents(){
 
       $component =  $this->hasMany('App\Models\Section', 'parent_id')->with(['translation' => function($query){
         $query->where('locale', app()->getLocale());

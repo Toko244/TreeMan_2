@@ -44,10 +44,11 @@ class PagesController extends Controller
 		}
 		if ($model->type_id == 5) {
             $section = Section::where('id', $model->id)->with('translation')->first();
-            $post = $section->sectionPost()->paginate(settings('list_pagination'));
-            return view('website.list-page', compact('section','post', 'language_slugs'));
+            $post = $section->sectionPost();
+            $components = Section::where([['is_component', true],['parent_id', $section->id]])->select('type_id','id')->paginate(settings('list_pagination'));
+            // $components = $section->components();
+            return view('website.list-page', compact('section','post','components', 'language_slugs'));
 		}
-
     }
 
 	public static function show($model, $locales){

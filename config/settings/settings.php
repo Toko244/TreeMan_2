@@ -44,6 +44,6 @@ return [
 	"list_pagination" => [
 		"title" => "List Page Pagination",
 		"type" => "text",
-		"value" => "5",
+		"value" => "2",
 	],
 ];
