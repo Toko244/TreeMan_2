@@ -945,3 +945,21 @@ a:hover{
 .none{
     display: none;
 }
+.text-section-slider .image{
+    margin-left: 0;
+}
+.text-slider-arrows .background-green{
+    width: 75px;
+    height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text-slider-arrows .prev{
+    border-top-left-radius: 12px;
+    cursor: pointer;
+}
+.text-slider-arrows .next{
+    border-bottom-right-radius: 12px;
+    cursor: pointer;
+}

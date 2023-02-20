@@ -16,6 +16,16 @@ $('.home-slider').slick({
   infinite: true,
   autoplay:true,
 });
+$('.text-section-slider').slick({
+  dots: false,
+  arrows:false,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  prevArrow: $('.prev'),
+  nextArrow: $('.next'),
+  autoplay:true,
+});
 $('.image-slider').slick({
   dots: false,
   arrows:false,

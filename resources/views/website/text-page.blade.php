@@ -2,9 +2,6 @@
 @section('master')
     @if (isset($section) && isset($post))
         <div class="text_section section-pad relative">
-            @if ($post->thumb != '')
-                <img src="/assets/img/Vector 1.png" alt="" class="w-full absolute left-0 line">
-            @endif
             <div class="container">
                 <div class="row">
                     <div @if ($post->thumb != '') class="col-lg-6" @else class="col-lg-12" @endif>
@@ -28,9 +25,29 @@
                     </div>
                     @if ($post->thumb != '')
                         <div class="col-lg-6">
-                            
-                            <div class="image flex items-center justify-center hidden relative">
-                                <img src="/uploads/img/{{ $post->thumb }}" alt="{{ $post->title }}" class="w-full h-full cover">
+                            <div class="relative" style="border-radius: 12px; overflow: hidden;">
+                                <div class="text-section-slider">
+                                    @foreach($post->files as $file)
+                                        <div class="image flex items-center justify-center hidden relative">
+                                            <img src="/uploads/img/{{ $file->file }}" alt="{{ $post->title }}" class="w-full h-full cover">
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <div class="text-slider-arrows w-full flex items-center justify-end absolute bottom-0">
+                                    <div class="prev background-green">
+                                        <svg width="34" height="20" viewBox="0 0 34 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.87034 8.71432L34 8.71432L34 11.2857L4.87034 11.2857L11.6949 18.1821L9.89589 20L2.22735e-08 10L9.89589 2.26179e-08L11.6949 1.81795L4.87034 8.71432Z" fill="white"/>
+                                        </svg>
+                                    </div>
+    
+                                    <div class="next background-green">
+                                        <svg width="34" height="20" viewBox="0 0 34 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M29.1297 11.2857L4.55712e-06 11.2857L4.77619e-06 8.71432L29.1297 8.71432L22.3051 1.81795L24.1041 1.0196e-06L34 10L24.1041 20L22.3051 18.1821L29.1297 11.2857Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     @endif
