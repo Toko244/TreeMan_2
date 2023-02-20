@@ -26,7 +26,7 @@
                                             </div>
 
                                             <div class="text white medium"
-                                                style="font-size: 18px; line-height: 26px;">
+                                                style="font-size: 16px; line-height: 26px;">
                                                 {!! $component->translate(app()->getlocale())->desc !!}
                                             </div>
                                         </div>
