@@ -35,12 +35,15 @@
                 </div>
             </div>
         </div>
-        @if(count($section->components()) > 0)
-            @foreach ($section->components() as $key => $item)
-                <section id="{{ $key }}">
-                    <x-dynamic-component :component="$item" :sectionId="$key" />
+        @if(count($components) > 0)
+            @foreach ($components as $key => $item)
+                <section>
+                    <x-dynamic-component :component="componentTypes($item->type_id)" :sectionId="$item->id" />
                 </section>
             @endforeach
+            @if($components->links())
+            {{$components->links()}}
+            @endif
         @endif
     @endif
 @endsection

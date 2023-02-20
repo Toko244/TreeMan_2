@@ -12,6 +12,8 @@ return [
             ],
             'value' => [
                 'type' => 'text',
+                'required' => 'required',
+                'data-icon' => '-',
             ],
             'active' => [
                 'type' => 'checkbox',
