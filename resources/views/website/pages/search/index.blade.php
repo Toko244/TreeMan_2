@@ -16,32 +16,32 @@
            </button>
        </div>
    </div>
-
    <div class="search-result mt-1">
        <div class="container">
            <div class="result w-full flex items-start semibold text-xl" style="color: #656C69;">
-               Result: 10
+               Result: {{count($data)}}
            </div>
 
            <div class="result-list w-full flex column">
-
-               <div class="result-block">
+                @if(count($data) > 0)
+                @foreach($data as $key => $value)
+                <div class="result-block">
                    <div class="title">
-                       <a href="" class="green text-2xl semibold transition-duration">
-                           Roots are strong
+                       <a href="{{$value['slug']}}" class="green text-2xl semibold transition-duration">
+                           {{$value['title']}}
                        </a>
                    </div>
 
                    <div class="text text-lg medium">
-                       Plantation is good to be planted at areas without strong winds reaching over 28km/h. When there are stronger winds at the place of planting stabilizing post has to be put during the first year of development until they form strong wooden stem. The speed of the wind is dangerous for the young plants over 45km/h and such areas have to be avoided
+                    {{$value['desc']}}
                    </div>
 
                    <div class="section-name flex items-center justify-between">
-                       <a href="" class="semibold text-xl" style="color: #656C69;">
-                           Paulownia
+                       <a href="{{ $value['slug'] }}" class="semibold text-xl" style="color: #656C69;">
+                        {{ $value['section'] }}
                        </a>
 
-                       <a href="">
+                       <a href="{{ $value['slug'] }}">
                            <svg width="73" height="16" viewBox="0 0 73 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                <line x1="-8.74227e-08" y1="7.77832" x2="57" y2="7.77832" stroke="#006838" stroke-width="2"/>
                                <path d="M69.172 8.778L57 8.778L57 6.778L69.172 6.778L63.808 1.414L65.222 -3.39987e-07L73 7.778L65.222 15.556L63.808 14.142L69.172 8.778Z" fill="#006838"/>
@@ -49,6 +49,8 @@
                        </a>
                    </div>
                </div>
+               @endforeach
+               @endif
            </div>
        </div>
    </div>

@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PostTranslation;
 use App\Models\Post;
+use DB;
 
 class SearchController extends Controller
 {
-    public static function index(Request $request){
-		
-        
+	public static function index(Request $request)
+	{
+
 		$language_slugs['en'] = 'en/search';
 		$language_slugs['ka'] = 'ka/search';
 		$language_slugs['tr'] = 'tr/search';
@@ -20,56 +21,28 @@ class SearchController extends Controller
 			'que' => 'required',
 		]);
 		$searchText = $validatedData['que'];
-		$postTranlations = PostTranslation::whereActive(true)->whereLocale(app()->getLocale())
-			->where('title', 'LIKE', "%{$searchText}%")
-			->orWhere('desc', 'LIKE', "%{$searchText}%")
-			->orWhere('text', 'LIKE', "%{$searchText}%")
-			->orWhere('keywords', 'LIKE', "%{$searchText}%")
-			->orWhere('locale_additional', 'LIKE', "%{$searchText}%")->pluck('post_id')->toArray();
-		$posts  = Post::whereIn('id', $postTranlations)->with('translations', 'parent', 'parent.translations')->paginate(settings('paginate'));
-		
+
+
+
+		$posts = Post::whereNotNull('section_id')->whereHas('translations', function ($q) use ($searchText) {
+			$q->where('locale', app()->getLocale())->where('active', true);
+			$q->where('title', 'like', '%' . strtolower($searchText) . '%')
+				->orWhere('desc', 'like', '%' . strtolower($searchText) . '%')
+				->orWhere('text', 'like', '%' . strtolower($searchText) . '%')
+				->orWhere('keywords', 'like', '%' . strtolower($searchText) . '%')
+				->orWhere('locale_additional', 'like', '%' . strtolower($searchText) . '%');
+		})->whereHas('parent', function ($q) {
+			$q->where('is_component', '!=', 1);
+		})->with('parent')->with('translation')->get();
 		$data = [];
 		foreach ($posts as $post) {
 			$data[] = [
-				'slug' => $post->getFullSlug() ?? '#',
+				'slug' => $post->parent->translate(app()->getLocale())->slug,
 				'title' => $post->translate(app()->getLocale())->title,
 				'desc' => str_limit(strip_tags($post->translate(app()->getLocale())->desc)),
+				'section' => $post->parent->translate(app()->getLocale())->title,
 			];
 		}
-dd($data);
-		return view('website.pages.search.index', compact('posts','data', 'language_slugs'));
-
-	}
-    public static function search(Request $request)
-	{
-
-		$language_slugs['ka'] = 'ka/search?que='.$request->que;
-		$language_slugs['en'] = 'en/search?que='.$request->que;
-		$language_slugs['ru'] = 'ru/search?que='.$request->que;
-		$validatedData = $request->validate([
-			'que' => 'required',
-		]);
-
-		$searchText = $validatedData['que'];
-		
-		$posts = Post::whereNotNull('section_id')->whereHas('translations', function ($q) use($searchText){
-            $q->where('locale', app()->getLocale())->where('active', true);
-
-            if ($searchText && strlen($searchText) > 0) {
-                $q->where('title', 'like', '%' . strtolower($searchText) . '%')
-                    ->orWhere('desc', 'like', '%' . strtolower($searchText) . '%')
-                    ->orWhere('text', 'like', '%' . strtolower($searchText) . '%')
-                    ->orWhere('keywords', 'like', '%' . strtolower($searchText) . '%')
-                    ->orWhere('locale_additional', 'like', '%' . strtolower($searchText) . '%');
-            }
-        })->with('parent')->paginate(settings('paginate'));
-		$SectionTranlations = SectionTranslation::whereActive(true)->whereLocale(app()->getLocale())
-			->where('title', 'LIKE', "%{$searchText}%")
-			->orWhere('locale_additional', 'LIKE', "%{$searchText}%")->pluck('section_id')->toArray();
-			
-			$pages  = Section::whereIn('id', $SectionTranlations)->with('translations', 'parent','children' , 'parent.translations')
-			->where('type_id' ,'!=' , '3' )
-			->paginate(settings('paginate'));
-		return view('website.pages.search.index', compact('posts', 'language_slugs', 'searchText','pages'));
+		return view('website.pages.search.index', compact('posts', 'data', 'language_slugs'));
 	}
 }

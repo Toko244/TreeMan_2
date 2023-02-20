@@ -6,19 +6,19 @@ return [
     'fields' => [
         'trans' => [
             'title' => [
-                'type' => 'text',
-                'reqired' => 'required',
-                'max' => '100',
-                'min' => '3',
-                'name' => 'title',
-                'translateble' => true,
-
+               'type' => 'text',
+               'required' => 'required',
+               'data-icon' => '-',
             ],
             'desc' => [
                 'type' => 'textarea',
+                'required' => 'required',
+                'data-icon' => '-',
             ],
             'address' => [
                 'type' => 'text',
+                'required' => '',
+                'data-icon' => '-',
             ],
             'active' => [
                 'type' => 'checkbox',

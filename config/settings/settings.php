@@ -41,4 +41,9 @@ return [
 		"type" => "text",
 		"value" => "https://stackoverflow.com/questions/44212318/laravel-blade-advantage-of-slot-component-vs-include",
 	],
+	"list_pagination" => [
+		"title" => "List Page Pagination",
+		"type" => "text",
+		"value" => "5",
+	],
 ];

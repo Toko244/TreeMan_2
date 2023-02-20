@@ -6,6 +6,7 @@ use App\Models\Section;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PostFile;
+use App\Models\Post;
 use App\Models\Submission;
 use App\Http\Controllers\Controller;
 class PagesController extends Controller
@@ -21,7 +22,6 @@ class PagesController extends Controller
 				'message' => trans('website.submission_sent'),
 			]);
 		}
-        
 		if ($model->type_id == 1) {
             $section= Section::where('id', $model->id)->first();
             return view('website.home', compact('section', 'language_slugs'));
@@ -44,7 +44,7 @@ class PagesController extends Controller
 		}
 		if ($model->type_id == 5) {
             $section = Section::where('id', $model->id)->with('translation')->first();
-            $post = $section->sectionPost();
+            $post = $section->sectionPost()->paginate(settings('list_pagination'));
             return view('website.list-page', compact('section','post', 'language_slugs'));
 		}
 
