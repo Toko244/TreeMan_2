@@ -16,13 +16,13 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
           script: |
             cd www/TreeMan
-            php artisan down
+            git checkout .
             git pull
+            sudo chmod -R 777 ../TreeMan
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan optimize:clear
             php artisan migrate
             php artisan optimize
-            php artisan up
             
             
       - name: Slack Notification
