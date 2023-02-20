@@ -18,7 +18,6 @@ jobs:
             cd www/TreeMan
             git checkout .
             git pull
-            sudo chmod -R 777 ../TreeMan
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan optimize:clear
             php artisan migrate
