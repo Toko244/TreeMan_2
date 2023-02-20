@@ -932,3 +932,16 @@ a:hover{
 .post-row-slider{
     margin: 0 -30px;
 }
+
+.contact-alert-message{
+    z-index: 99999;
+}
+.contact-alert-message .background-green{
+    box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+.none{
+    display: none;
+}

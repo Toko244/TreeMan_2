@@ -6,6 +6,10 @@ $(window).scroll(function(){
   }
 });
 
+setTimeout(function() {
+  $('.contact-alert-message').addClass('none');
+}, 3000);
+
 $('.home-slider').slick({
   dots: false,
   arrows:false,
