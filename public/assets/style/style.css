@@ -963,3 +963,7 @@ a:hover{
     border-bottom-right-radius: 12px;
     cursor: pointer;
 }
+.post-row-slider .post{
+    border-radius: 12px;
+    overflow: hidden;
+}
