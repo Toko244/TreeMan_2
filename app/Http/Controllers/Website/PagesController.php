@@ -34,7 +34,7 @@ class PagesController extends Controller
         
 		if ($model->type_id == 3) {
             $model->load('translation', 'posts.translation');
-            $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->get();
+            $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->paginate(settings('gallery_pagination'));
             return view('website.photo-video', compact('model', 'language_slugs','files'));
 		}
         

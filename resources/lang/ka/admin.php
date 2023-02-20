@@ -128,4 +128,7 @@ return [
     'text_image_right' => 'Image right',
     'text_image_left' => 'Image Left',
     'text_image_bottom' => 'Image bottom',
+    'target_blank' => 'Target Blank',
+    'image' => 'Image',
+    'value' => 'Value',
 ];

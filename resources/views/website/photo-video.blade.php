@@ -38,6 +38,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            {{$files->links()}}
                             @endif
                         </div>
                     </div>

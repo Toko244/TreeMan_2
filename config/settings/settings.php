@@ -46,4 +46,9 @@ return [
 		"type" => "text",
 		"value" => "2",
 	],
+	"gallery_pagination" => [
+		"title" => "Galery Page Pagination",
+		"type" => "text",
+		"value" => "12",
+	],
 ];
