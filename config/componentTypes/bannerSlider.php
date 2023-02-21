@@ -2,6 +2,7 @@
 return [
     'id' => 28,
     'type' => 28,
+    'style' => 2,
     'folder' => '../components/postslider',
     'fields' => [
         'trans' => [

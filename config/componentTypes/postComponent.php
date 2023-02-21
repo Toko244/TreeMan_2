@@ -2,6 +2,7 @@
 return [
     'id' => 21,
     'type' => 21,
+    'style' => 2,
     'folder' => '../components/postComponent',
     'fields' => [
         'trans' => [

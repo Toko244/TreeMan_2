@@ -2,6 +2,7 @@
 return [
     'id' => 27,
     'type' => 27,
+    'style' => 2,
     'folder' => '../components/cardbanner',
     'fields' => [
         'trans' => [

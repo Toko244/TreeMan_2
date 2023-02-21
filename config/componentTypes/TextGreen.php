@@ -2,6 +2,7 @@
 return [
     'id' => 25,
     'type' => 25,
+    'style' => 1,
     'folder' => '../components/text',
     'fields' => [
         'trans' => [

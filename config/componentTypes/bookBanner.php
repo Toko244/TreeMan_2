@@ -2,6 +2,7 @@
 return [
     'id' => 30,
     'type' => 30,
+    'style' => 1,
     'folder' => '../components/bookbanner',
     'fields' => [
         'trans' => [

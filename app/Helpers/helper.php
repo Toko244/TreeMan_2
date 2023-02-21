@@ -66,6 +66,13 @@ function sectionTypes(){
     return $value['id'];
   });
 }
+function getStyleAttribute($id) {
+  if($id < 10){
+    return collect(Config::get('sectionTypes'))->where('type', $id)->first()['style'];
+  }else{
+    return collect(Config::get('componentTypes'))->where('type', $id)->first()['style'];
+  }
+}
 
 function componentTypes($id){
   foreach(collect(Config::get('componentTypes')) as $key => $type){

@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function index($sec){
         $section = Section::where('id', $sec)->with('translations')->first();
-        if (($section->type_id >= 22 && $section->type_id <= 25) || $section->type_id == 2 || $section->type_id == 5 || $section->type_id == 4 || ($section->type_id >= 30 && $section->type_id <= 32)) {
+        if (getStyleAttribute($section->type_id) == 1){
             $post = Post::where('section_id', $sec)->with(['translations', 'slugs'])->first();
             if (isset($post) && $post !== null) {
                 return redirect()->route('post.edit', [app()->getLocale(), $post->id,]);
