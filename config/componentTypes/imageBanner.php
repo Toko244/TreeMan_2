@@ -2,6 +2,7 @@
 return [
     'id' => 33,
     'type' => 33,
+    'style' => 2,
     'folder' => '../components/imagebanner',
     'fields' => [
         'trans' => [

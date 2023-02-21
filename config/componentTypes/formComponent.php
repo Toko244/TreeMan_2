@@ -1,9 +1,9 @@
 <?php
 return [
-    'id' => 32,
-    'type' => 32,
+    'id' => 34,
+    'type' => 34,
     'style' => 1,
-    'folder' => '../components/subscribebanner',
+    'folder' => '../components/cardbanner',
     'fields' => [
         'trans' => [
             'title' => [

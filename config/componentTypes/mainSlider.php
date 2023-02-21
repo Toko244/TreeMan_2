@@ -2,6 +2,7 @@
 return [
     'id' => 20,
     'type' => 20,
+    'style' => 2,
     'folder' => '../components/mainslider',
     'fields' => [
         'trans' => [

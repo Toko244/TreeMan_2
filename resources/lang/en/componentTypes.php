@@ -10,10 +10,11 @@ return [
     'TextGreen' => 'Text Green',
     'postGreen' => 'Post Green',
     'cardBanner' => 'Card banner',
-    'bannerSlider' => 'Banner Slider',
+    'bannerSlider' => 'Post Slider',
     'counterBanner' => 'Counter Banner',
     'bookBanner' => 'Book Banner',
     'subscribeBanner' => 'Subscribe Banner',
     'postSlider' => 'Image Slider',
     'imageBanner' => 'Card-Image Banner',
+    'formComponent' => 'Form Component',
 ];
