@@ -20,7 +20,7 @@ return [
 	'text' => 'Text',
 	'send_request' => 'Send Request',
 	'subscribe' => 'Subscribe',
-	
+	'submission_sent' => 'Submission Sent',
 	
 	'all_rights' => 'Copyright all right is reserved',
 	'book_an_online_appointment' => 'Book an online appointment',

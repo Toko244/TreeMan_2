@@ -253,6 +253,9 @@
         margin-top: 116px;
         height: 285px;
     }
+    .contact-alert-message .background-green{
+        padding: 50px 70px;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -453,6 +456,9 @@
     }
     .result-block{
         margin-bottom: 40px;
+    }
+    .contact-alert-message .background-green{
+        padding: 20px 40px;
     }
 }
 

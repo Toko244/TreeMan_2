@@ -435,6 +435,8 @@ a:hover{
 .text_section.column .image{
     margin-top: 30px;
     margin-left: 0;
+    border-radius: 12px;
+    overflow: hidden;
 }
 .text_section.column .title::after{
     display: none;
@@ -941,6 +943,7 @@ a:hover{
     -webkit-box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
     -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
     border-radius: 12px;
+    padding: 120px 212px;
 }
 .none{
     display: none;
@@ -966,4 +969,33 @@ a:hover{
 .post-row-slider .post{
     border-radius: 12px;
     overflow: hidden;
+}
+.book-info p,
+.subscribe-info p{
+    margin-top: 0;
+}
+.pagination li{
+    list-style-type: none;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination .paginate_button{
+    color: #6A6A6A;
+    font-size: 18px;
+    font-family: 'LibreFranklin-Medium';
+    padding: 0 6px;
+}
+.paginate_button.page-item.active{
+    color: #006838;
+}
+.paginate_button.page-item.previous{
+    color: #6A6A6A;
+    padding: 0 26px;
+}
+.paginate_button.page-item.next{
+    color: #006838;
+    padding: 0 26px;
 }
