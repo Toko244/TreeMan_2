@@ -2,6 +2,7 @@
 return [
     'id' => 2,
     'type' => 2,
+    'style' => 1,
     'folder' => 'textpage',
     'fields' => [
         'trans' => [

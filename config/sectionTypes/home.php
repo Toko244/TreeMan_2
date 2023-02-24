@@ -2,7 +2,7 @@
 return [
     'id' => 1,
     'type' => 1,
-
+    'style' => 1,
     'fields' => [
         'title' => [
             'type' => 'text',
