@@ -7,19 +7,22 @@
    <div class="search-cover w-full flex items-center justify-center relative">
        <img src="/assets/img/search201.png" alt="" class="absolute w-full h-full top-0 left-0 cover">
        <div class="search-form relative">
-           <input type="text" placeholder="Search..." class="semibold green">
+        <form action="{{ route('search', app()->getLocale()) }}" method="POST">
+            @csrf
+           <input type="text" placeholder="{{ trans('website.search') }}" class="semibold green" name="que">
 
            <button type="submit" class="flex items-center">
                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M8.86088 0C13.7521 0 17.7218 3.96968 17.7218 8.86088C17.7218 13.7521 13.7521 17.7218 8.86088 17.7218C3.96968 17.7218 0 13.7521 0 8.86088C0 3.96968 3.96968 0 8.86088 0ZM8.86088 15.7527C12.6681 15.7527 15.7527 12.6681 15.7527 8.86088C15.7527 5.05267 12.6681 1.96909 8.86088 1.96909C5.05267 1.96909 1.96909 5.05267 1.96909 8.86088C1.96909 12.6681 5.05267 15.7527 8.86088 15.7527ZM17.2147 15.8226L20 18.6069L18.6069 20L15.8226 17.2147L17.2147 15.8226Z" fill="#006838"/>
                </svg>
            </button>
+        </form>
        </div>
    </div>
    <div class="search-result mt-1">
        <div class="container">
            <div class="result w-full flex items-start semibold text-xl" style="color: #656C69;">
-               Result: {{count($data)}}
+            {{ trans('website.search') }}: {{count($data)}}
            </div>
 
            <div class="result-list w-full flex column">
