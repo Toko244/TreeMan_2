@@ -118,7 +118,7 @@
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
                         @foreach ($sections as $section)
-                            <div class="menu-item h-full flex items-center mr-4 relative">
+                            <div class="menu-item h-full flex items-center justify-center mr-4 relative">
                                 <a href="/{{ $section->getFullSlug() }}" class="medium green text-lg menu-point relative">
                                     {{ $section->title }}
                                 </a>
