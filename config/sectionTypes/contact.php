@@ -3,6 +3,7 @@ return [
     'id' => 4,
     'type' => 4,
     'folder' => 'contact',
+    'style' => 1,
     'fields' => [
         'trans' => [
             'title' => [

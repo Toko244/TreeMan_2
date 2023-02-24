@@ -2,6 +2,7 @@
 return [
     'id' => 5,
     'type' => 5,
+    'style' => 1,
     'folder' => 'listpage',
     'fields' => [
         'trans' => [
