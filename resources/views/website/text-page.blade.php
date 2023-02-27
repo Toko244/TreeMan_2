@@ -12,7 +12,7 @@
                                     {{ $post->translate(app()->getlocale())->title }}
                                 </a>
                             @endif
-                            <div class="text medium text-lg black">
+                            <div class="text regular text-lg black">
                                 @if ($post->translation != '')
                                     {!! $post->translate(app()->getlocale())->desc !!}
                                 @else

@@ -35,6 +35,16 @@
 }
 
 @font-face {
+    font-family: 'LibreFranklin-Regular';
+    src: url('../fonts/LibreFranklin-Regular.woff2') format('woff2'),
+        url('../fonts/LibreFranklin-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
     font-family: 'LEMONMILK-Medium';
     src: url('../fonts/LEMONMILK-Medium.woff2') format('woff2'),
         url('../fonts/LEMONMILK-Medium.woff') format('woff');
@@ -51,6 +61,25 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'BPGNinoMtavruli-Bold';
+    src: url('../fonts/BPGNinoMtavruli-Bold.woff2') format('woff2'),
+        url('../fonts/BPGNinoMtavruli-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BPGDejaVuSans';
+    src: url('../fonts/BPGDejaVuSans.woff2') format('woff2'),
+        url('../fonts/BPGDejaVuSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 .lemon-regular{
     font-family: 'LEMONMILK-Regular';
@@ -69,4 +98,7 @@
 }
 .medium{
     font-family: 'LibreFranklin-Medium';
+}
+.regular{
+    font-family: 'LibreFranklin-Regular';
 }
