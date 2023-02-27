@@ -981,21 +981,22 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
 }
-.pagination .paginate_button{
+.pagination .paginate_button a{
     color: #6A6A6A;
     font-size: 18px;
     font-family: 'LibreFranklin-Medium';
     padding: 0 6px;
 }
-.paginate_button.page-item.active{
+.paginate_button.page-item.active a{
     color: #006838;
 }
-.paginate_button.page-item.previous{
+.paginate_button.page-item.previous a{
     color: #6A6A6A;
     padding: 0 26px;
 }
-.paginate_button.page-item.next{
+.paginate_button.page-item.next a{
     color: #006838;
     padding: 0 26px;
 }

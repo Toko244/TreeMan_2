@@ -36,4 +36,13 @@
         </div>
     </div>
 </div>
+
+
+@if(Session::has('message'))
+    <div class="w-full h-full flex items-center justify-center fixed top-0 left-0 contact-alert-message">
+        <div class="background-green white flex items-center justify-center semibold text-2xl">
+            {{session('message')}}
+        </div>
+    </div>
+@endif  
 @endif

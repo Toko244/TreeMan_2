@@ -14,7 +14,7 @@
                         {{ $component->translate(app()->getlocale())->title }}
                     </p>
                     @endif
-                    <div class="text medium text-lg black">
+                    <div class="text regular text-lg black">
                         {!! $component->translate(app()->getlocale())->desc !!}
                     </div>
                 </div>

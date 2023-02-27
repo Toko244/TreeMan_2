@@ -11,7 +11,7 @@
         </p>
         @endif
         <div class="text-seemore flex items-center justify-between mb-2">
-            <div class="text medium text-lg black">
+            <div class="text regular text-lg black">
                 {!! $component->translate(app()->getlocale())->desc !!}
             </div>
         </div>
