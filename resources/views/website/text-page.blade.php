@@ -7,7 +7,7 @@
                     <div @if ($post->thumb != '') class="col-lg-6" @else class="col-lg-12" @endif>
                         <div class="info flex items-start justify-center column h-full">
                             @if ($post->translation != '')
-                                <a href="{{ $post->redirect_link }}" @if ($post->target_blank == 1) target="_blank" @endif
+                                <a href="javascript:void(0)"
                                     class="title green text-xl lemon-medium relative">
                                     {{ $post->translate(app()->getlocale())->title }}
                                 </a>
