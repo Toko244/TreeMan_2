@@ -134,12 +134,12 @@
                     </a>
                 </li>
 
-               {{-- <li>
+               <li>
                     <a href="/{{ app()->getLocale() }}/admin/subscribers">
                         <i class="mdi mdi-account-multiple-outline"></i>
                         <span> {{ trans('admin.subscribers') }} </span>
                     </a>
-                </li> --}}
+                </li>
   {{--
                 <li>
                     <a href="/{{ app()->getLocale() }}/admin/mailers">

@@ -26,7 +26,7 @@
                 </tbody>
             </table>
         </div>
-        <a class="btn btn-warning" href="/{{ app()->getLocale() }}/admin/subscribers/export">Export Subscribers List</a>
+        {{-- <a class="btn btn-warning" href="/{{ app()->getLocale() }}/admin/subscribers/export">Export Subscribers List</a> --}}
     </div>
 </div>
 @endsection

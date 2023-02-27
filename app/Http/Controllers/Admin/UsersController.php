@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Subscription;
+use App\Models\Subscribers;
 use App\Models\UserLog;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
@@ -180,10 +180,18 @@ class UsersController extends Controller
 
 
 
+    public function subscribers(){
+        $subscribers = Subscribers::orderBy('created_at')->get();
+        return view('admin.subscribers.index', compact('subscribers'));
+    }
 
+    public function deletesubsctiber($id){
+        $delete = Subscribers::find($id)->Delete();
+        return back()->with('success');
+    }
 
     public function exportSubscribers(){
-        $subscribers = Subscription::all(); 
+        $subscribers = Subscribers::all(); 
         return Excel::download(new SubscribersExport($subscribers), 'subscribers.xlsx');
     }
 }

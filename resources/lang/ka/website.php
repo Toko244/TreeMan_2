@@ -21,11 +21,13 @@ return [
 	'send_request' => 'Send Request',
 	'subscribe' => 'Subscribe',
 	'submission_sent' => 'Submission Sent',
-	
-	
 	'all_rights' => 'Copyright all right is reserved',
 	'book_an_online_appointment' => 'Book an online appointment',
 	'search' => 'search',
 	'no_content_acailable' => 'No content is available in this language!',
-	'page_guideline' => 'Page Guideline'
+	'page_guideline' => 'Page Guideline',
+	'contact_form' => 'Contact Form',
+	'contact_description' => 'Fill out the form to contact us',
+	'request_sent' => 'Request Sent',
+	'subscribed_done' => 'Subsribe Done',
 ];

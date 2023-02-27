@@ -7,6 +7,7 @@ use App\Http\Controllers\Website\HomePageController;
 use App\Http\Controllers\Website\SearchController;
 
 Route::post('/submission', [PagesController::class, 'submission'])->name('submission');
+Route::post('/subscribe', [PagesController::class, 'subscribe'])->name('subscribe');
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 Route::any('/', [HomePageController::class, 'homePage']);
 Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');

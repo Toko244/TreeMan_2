@@ -21,8 +21,9 @@
 
             <div class="col-lg-4 col-md-4">
                 <div class="subscribe-form w-full flex items-center">
-                    <form action="" class="w-full relative">
-                        <input type="text" class="w-full medium green" placeholder="{{ trans('website.email') }}">
+                    <form class="w-full relative"  method="POST" action="/{{app()->getLocale()}}/subscribe">
+                        @csrf
+                        <input type="text" class="w-full medium green" placeholder="{{ trans('website.email') }}" name="email">
                         <button type="submit" class="semibold text-lg" style="color: #006838">{{ trans('website.subscribe') }}</button>
                     </form>
                 </div>

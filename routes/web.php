@@ -22,6 +22,7 @@ Auth::routes();
 // 	Lfm::routes();
 // });
 Route::middleware(['auth.check'])->group(function () {
+        require __DIR__ . '/web/admin/subscribers.php';
         require __DIR__ . '/web/admin/users.php';
         require __DIR__ . '/web/admin/profile.php';
         require __DIR__ . '/web/admin/admin.php';
