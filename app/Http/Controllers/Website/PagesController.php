@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Website;
 
 use App\Models\Section;
+use Illuminate\Http\Request;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PostFile;
 use App\Models\Post;
 use App\Models\Submission;
+use App\Models\Subscribers;
 use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
@@ -16,7 +18,7 @@ class PagesController extends Controller
 			$values = request()->all();
             $values['additional'] = getAdditional($values, config('contactFormAttr.additional'));
 			$submission = Submission::create($values);
-			$data2 = 'Your Request has succsessfully been sent';
+			$data2 = trans('website.request_sent');
 			Mail::to(settings('email'))->send(new \App\Mail\SendMail($data2));
 			return redirect()->back()->with([
 				'message' => trans('website.submission_sent'),
@@ -63,6 +65,28 @@ class PagesController extends Controller
             'post' => $post,
             'locales' => $locales
             ])->render();
+	}
+    public static function subscribe(Request $request){  
+		$validatedData = $request->validate([
+			'email' => 'required|email',
+		]);
+		$subscriber = Subscribers::where('email', $validatedData['email'])->first();
+		if ($subscriber == null) {
+			$subscription = new Subscribers;
+			$subscription->locale = app()->getLocale();
+			$subscription->email = $validatedData['email'];
+			$subscription->save();
+			$data2 = trans('website.subscribed_done');
+			Mail::to($validatedData['email'])->send(new \App\Mail\SendMail($data2));
+			// Mail::to(settings('mail'))->send(new \App\Mail\Mailers([$values]));
+			return back()->with([
+				'message' => trans('website.successfuly_subscribed'),
+			]); 
+		}
+
+		return back()->with([
+			'message' => trans('website.allready_subscribed'),
+		]); 
 	}
 
     public function front(){

@@ -21,7 +21,6 @@ return [
 	'send_request' => 'Send Request',
 	'subscribe' => 'Subscribe',
 	'submission_sent' => 'Submission Sent',
-	
 	'all_rights' => 'Copyright all right is reserved',
 	'book_an_online_appointment' => 'Book an online appointment',
 	'search' => 'search',
@@ -29,6 +28,6 @@ return [
 	'page_guideline' => 'Page Guideline',
 	'contact_form' => 'Contact Form',
 	'contact_description' => 'Fill out the form to contact us',
-	'subscribe' => 'Subscribe',
-	'subscribe' => 'Subscribe',
+	'request_sent' => 'Request Sent',
+	'subscribed_done' => 'Subsribe Done',
 ];
