@@ -13,17 +13,13 @@
                             </div>
                             <div class="flex items-center justify-start">
                                 @if(is_numeric($component->translate(app()->getlocale())->value))
-                                <div class="number green text-4xl lemon-medium counter-value" data-count="{{$component->translate(app()->getlocale())->value}}K">
-                                    0
+                                <div class="number green text-4xl lemon-medium counter-value" data-count="{{$component->translate(app()->getlocale())->value}}">
                                 </div>
                                 @else
                                 <div class="number green text-4xl lemon-medium counter-value">
                                     {{$component->translate(app()->getlocale())->value}}
                                 </div>
                                 @endif
-                                <div class="number green text-4xl lemon-medium plus">
-                                    +
-                                </div>
                             </div>
                         </div>
                     </div>

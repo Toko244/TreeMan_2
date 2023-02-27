@@ -13,8 +13,8 @@ return [
             ],
             'desc' => [
                 'type' => 'textarea',
-                'required' => 'required',
-                'data-icon' => '-',
+                'required' => '',
+                'data-icon' => '',
             ],
         ],
         'nonTrans' => [

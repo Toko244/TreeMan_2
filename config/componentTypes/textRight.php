@@ -13,8 +13,8 @@ return [
             ],
             'desc' => [
                 'type' => 'textarea',
-                'required' => 'required',
-                'data-icon' => '-',
+                'required' => '',
+                'data-icon' => '',
             ],
             'redirect_link' => [
                 'type' => 'text',
