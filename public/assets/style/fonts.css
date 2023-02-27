@@ -102,3 +102,12 @@
 .regular{
     font-family: 'LibreFranklin-Regular';
 }
+
+html:lang(ka) .title,
+html:lang(ka) .menu-item a{
+    font-family: 'BPGNinoMtavruli-Bold' !important;
+}
+
+html:lang(ka) .text{
+    font-family: 'BPGDejaVuSans' !important;
+}
