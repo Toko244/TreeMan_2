@@ -4,7 +4,7 @@
 
 @if ($paginator->hasPages())
 
-<ul class="pagination" style="width: fit-content; margin:auto"> 
+<ul class="pagination" style="width: fit-content;"> 
     <li class="paginate_button page-item previous " aria-disabled="true" @if ($paginator->onFirstPage()) disabled @endif ><a href="{{ $paginator->previousPageUrl() }}"
             class="page-link">Prev</a></li>
             
