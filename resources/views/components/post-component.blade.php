@@ -4,7 +4,7 @@
         <div class="post-row-slider component-padding-100-120">
             @foreach ($components as $key => $component)
                 <a @if($component->translate(app()->getlocale())->redirect_link != '') href="{{$component->translate(app()->getlocale())->redirect_link}}" @else href="javascript:void(0)" @endif @if($component->translate(app()->getlocale())->redirect_link != '' && $component->target_blank == 1) target="_blank" @endif>
-                    <div class="post relative">
+                    <div class="post relative hover">
                         <img src="/uploads/files/{{$component->image}}" alt="" class="w-full h-full cover relative hover-image">
                         <img src="assets/img/post-cover.png" alt="" class="post-cover w-full absolute bottom-0">
 

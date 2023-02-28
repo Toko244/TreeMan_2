@@ -2,13 +2,13 @@
     <div class="upper-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-1">
+                <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-6">
                     <div class="footer-logo">
                         <img src="/assets/img/footerlogo.png" alt="">
                     </div>
                 </div>
 
-                <div class="col-lg-7">
+                <div class="col-xxl-7 col-xl-6 col-lg-5 col-md-6">
                     <div class="footer-info flex items-center h-full justify-around wrap">
                         @if (settings('phone') != null)
                             <div class="flex items-center">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-xxl-4 col-xl-4 col-lg-5">
                     <div class="footer-book flex items-center justify-end h-full">
                         <div class="text-lg bold white mr-3">
                             {{trans('website.book_an_online_appointment')}}

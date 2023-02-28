@@ -1,4 +1,5 @@
 <header>
+<div class="fixed w-full top-0 header-scroll">
     <div class="header upper-header w-full pt-1 pb-1" style="border-bottom: 1.5px solid RGBA(1,81,78,0.2);">
         <div class="container">
             <div class="header flex w-full items-center justify-between">
@@ -12,8 +13,7 @@
                     <div class="social flex items-center">
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('facebook') }}"
-                                class="flex items-center justify-center rounded transition-duration shadow"
-                                style="width: 40px; height: 40px;">
+                                class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
                                 <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -25,8 +25,7 @@
 
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('linkedin') }}"
-                                class="flex items-center justify-center rounded transition-duration shadow"
-                                style="width: 40px; height: 40px;">
+                                class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
                                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -44,8 +43,7 @@
 
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('youtube') }}"
-                                class="flex items-center justify-center rounded transition-duration shadow"
-                                style="width: 40px; height: 40px;">
+                                class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
                                 <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -108,7 +106,7 @@
 
             <div class="row">
                 <div class="col-lg-2 col-md-6 col-6">
-                    <div class="logo flex items-center justify-center" style="max-width: 105px;">
+                    <div class="logo flex items-center justify-center">
                         <a href="{{ URL::to('/') }}" class="w-full h-full block">
                             <img src="/assets/img/header-logo.png" alt="" class="w-full h-full cover">
                         </a>
@@ -247,6 +245,7 @@
             </a>
         </div>
     </div>
-</header>
+</div>
 
-<div class="responsive-margin"></div>
+    <div class="header-margin"></div>
+</header>

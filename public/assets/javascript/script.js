@@ -6,6 +6,16 @@ $(window).scroll(function(){
   }
 });
 
+
+$(window).scroll(function(){
+  if ($(this).scrollTop() > 1) {
+     $('.header-scroll').addClass('header-short');
+  } else {
+     $('.header-scroll').removeClass('header-short');
+  }
+});
+
+
 setTimeout(function() {
   $('.contact-alert-message').addClass('none');
 }, 3000);
@@ -42,6 +52,7 @@ $(window).scroll(function() {
   }
 
 });
+
 
 $('.home-slider').slick({
   dots: false,
