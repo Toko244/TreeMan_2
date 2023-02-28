@@ -22,7 +22,6 @@ class Post extends Model
         'thumb',
         'author_id',
         'date',
-		'additional',
 		'sections',
 		'country',
         'active_on_home',

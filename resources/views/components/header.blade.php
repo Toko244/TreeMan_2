@@ -138,9 +138,9 @@
 
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="flex items-center justify-end h-full">
-                        <a href="{{ settings('get_a_quote_link') }}" target="_blank" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
+                        <a href="{{ settings('book_link') }}" target="_blank" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
                             class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
-                            {{ trans('website.get_a_quote') }}
+                            {{ trans('website.book') }}
                         </a>
                     </div>
                 </div>
@@ -241,9 +241,9 @@
         </div>
 
         <div class="burger-book">
-            <a href=" href="{{ settings('get_a_quote_link') }}" target="_blank" " class="book-button text-lg bold green background-white transition-duration"
+            <a href=" href="{{ settings('book_link') }}" target="_blank" " class="book-button text-lg bold green background-white transition-duration"
                 style="line-height: 32px;">
-                {{ trans('website.get_a_quote') }}
+                {{ trans('website.book') }}
             </a>
         </div>
     </div>

@@ -99,7 +99,19 @@
                     </div>
 
 
-
+                    @if($section->parent->type_id == 2)
+                    <div class="button-container on">
+                        {{-- <div class="button"></div> --}}
+                        <div class="text">
+                            {{ Form::label(trans('admin.scroll_content'), null, ['class' => 'control-label']) }}
+                            <br>
+                            
+                            <input type="hidden" name="scroll_content" value="0" />
+                            <input type="checkbox" name="scroll_content" @if($section->additional['scroll_content'] == 1) checked @endif value="1" data-plugin="switchery"
+                                data-color="#3bafda" />
+                        </div>
+                      </div>
+                      @endif
 
 
 

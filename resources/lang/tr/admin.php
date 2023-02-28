@@ -122,4 +122,5 @@ return [
     'text_image_right' => 'Image right',
     'text_image_left' => 'Image Left',
     'text_image_bottom' => 'Image bottom',
+	'scroll_content' => 'content menu'
 ];

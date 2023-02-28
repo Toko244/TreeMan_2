@@ -2,7 +2,7 @@
 
 return [
     'additional' => [
-        'color',
+        'scroll_content',
     ],
     'translateable_additional' => [
     ]
