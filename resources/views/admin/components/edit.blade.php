@@ -107,7 +107,7 @@
                             <br>
                             
                             <input type="hidden" name="scroll_content" value="0" />
-                            <input type="checkbox" name="scroll_content" @if($section->additional['scroll_content'] == 1) checked @endif value="1" data-plugin="switchery"
+                            <input type="checkbox" name="scroll_content" @if(isset($section->additional['scroll_content']) && $section->additional['scroll_content'] == 1) checked @endif value="1" data-plugin="switchery"
                                 data-color="#3bafda" />
                         </div>
                       </div>
