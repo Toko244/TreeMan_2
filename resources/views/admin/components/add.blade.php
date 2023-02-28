@@ -33,8 +33,8 @@
                                             style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.title_is_required') }}</small>
                                     @enderror
                                     <input type="text" name="{{ $locale }}[title]" parsley-trigger="change"
-                                        class="@error('title') danger @enderror form-control inputparsley"  onchange="myFunction()"
-                                        id="{{ $locale }}-title" Required>
+                                        class="@error('title') danger @enderror form-control inputparsley"
+                                        onchange="myFunction()" id="{{ $locale }}-title" Required>
                                 </div>
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
@@ -156,27 +156,31 @@
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
     <script>
-
-        // function myFunction() {
-        //     var x = document.getElementsByClassName("inputparsley");
-        //     console.log(x)
-        // };
         $(document).ready(function() {
             $(document).on('click', 'button[name="save"]', function() {
-
                 var danj = $(".danger");
-
                 for (var i = 0; i < danj.length; i++) {
                     var cl3s = danj[i].classList;
                     cl3s.remove("danger");
                 }
             });
             $.listen('parsley:field:error', function(parsleyField) {
-                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest('.tab-pane').attr('id');
+                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest(
+                    '.tab-pane').attr('id');
                 var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
                 for (var i = 0; i < els.length; i++) {
                     var classes = els[i].classList;
                     classes.add("danger");
+                }
+            });
+            $("input").on("input", function() {
+                if ($(this).val().length > 0) {
+                    var ewes = $(this).closest('.tab-pane').attr('id');
+                    var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                    for (var i = 0; i < els.length; i++) {
+                        var classes = els[i].classList;
+                        classes.remove("danger");
+                    }
                 }
             });
         });
