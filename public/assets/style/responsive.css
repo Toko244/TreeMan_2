@@ -40,6 +40,9 @@
 /*----------------------------- 1200px-----------------------------------*/
 
 @media (max-width: 1200px) {
+    .green-section .video{
+        height: 300px;
+    }
     .text_section .image{
         height: 400px;
     }
@@ -104,6 +107,15 @@
 /*------------------------------- 992px ---------------------------------*/
 
 @media (max-width: 992px) {
+    .text-slider-arrows{
+        bottom: 20px;
+    }
+    .header-margin {
+        height: 160px;
+    }
+    .fixed-guidline-list{
+        padding-left: 100px;
+    }
     .text_section .image{
         height: 350px;
     }
@@ -116,11 +128,10 @@
         display: block;
     }
     .logo img.w-full.h-full.cover{
-        width: 50%;
+        width: 75%;
     }
     .menu-header{
         position: fixed;
-        height: 116px;
         background: white;
         top: 0;
         z-index: 999;
@@ -157,7 +168,7 @@
         justify-content: space-evenly;
     }
     .footer-book.flex.items-center.justify-end.h-full{
-        justify-content: center;
+        justify-content: start;
         margin-top: 30px;
     }
     .footer-social.flex.justify-end.items-center{

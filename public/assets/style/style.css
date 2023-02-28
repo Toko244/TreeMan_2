@@ -1,15 +1,13 @@
-header{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    background-color: #fff;
+header .header-scroll{
     z-index: 999;
+    background-color: #fff;
+    width: 100vw;
     box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
     -webkit-box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 20%);
     -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
 }
 .responsive-margin{
-    height: 213px;
+    height: 100%;
 }
 a.flex.items-center.justify-center.rounded{
     background: #E6EEED;
@@ -211,7 +209,7 @@ a:hover{
     margin: 100px 0;
 }
 .section-pad{
-    padding: 80px 0;
+    padding: 0 0 80px 0;
 }
 .text_section .line{
     top: 10px;
@@ -262,6 +260,7 @@ a:hover{
 }
 .green-section .video{
     border-radius: 12px;
+    height: 500px;
 }
 .count-section{
     margin: 50px 0;
@@ -444,7 +443,7 @@ a:hover{
 
 .burger-icon{
     right: 10px;
-    top: 10%;
+    top: 20%;
     display: none;
 }
 #nav-icon3 {
@@ -769,6 +768,9 @@ a:hover{
 .front-card-banner .col-lg-4:nth-child(even) .brown{
     display: none;
 }
+.guideline{
+    margin-bottom: 50px;
+}
 .guideline-list{
     padding: 50px 70px 20px 70px;
     border-radius: 12px;
@@ -822,6 +824,14 @@ a:hover{
     overflow-y: scroll;
     height: 800px;
 }
+.fixed-guidline-list::-webkit-scrollbar {
+    background-color: var(--bs-white);
+    outline: 1px solid #006838;
+    width: 5px;
+}
+.fixed-guidline-list::-webkit-scrollbar-thumb {
+    background-color: var(--bs-green);
+}
 .fixed-guidline-list li{
     margin-bottom: 60px;
     cursor: pointer;
@@ -829,7 +839,7 @@ a:hover{
 }
 .fixed-guidline .guidline-icon{
     position: absolute;
-    right: -66px;
+    right: -69px;
     top: 35%;
     cursor: pointer;
     border-radius: 10px;
@@ -999,4 +1009,36 @@ a:hover{
 .paginate_button.page-item.next a{
     color: #006838;
     padding: 0 26px;
+}
+.menu-header .logo{
+    max-width: 105px;
+}
+.header-scroll .upper-header,
+.header-scroll .menu-header,
+.header-scroll .logo,
+.header-scroll .follow{
+    transition-duration: 0.3s;
+}
+.header-short .upper-header{
+    padding: 10px 0;
+}
+.header-short .menu-header{
+    padding: 16px 0 !important;
+}
+.header-short .logo{
+    max-width: 80px !important;
+}
+.header-margin{
+    height: 230px;
+}
+.menu-social-icon{
+    width: 40px;
+    height: 40px;
+}
+.header-short .menu-social-icon{
+    width: 34px;
+    height: 34px;
+}
+.header-short .follow {
+    font-size: 16px;
 }
