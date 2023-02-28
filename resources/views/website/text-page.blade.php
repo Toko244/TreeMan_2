@@ -97,7 +97,7 @@
                         </div>
 
                         @foreach ($section->sectioncomponents() as $key => $item)
-                        @if($item->additional['scroll_content'] == 1)
+                        @if(isset($item->additional['scroll_content']) && $item->additional['scroll_content'] == 1)
                             <div class="flex items-center mb-3">
                                 <div class="circle"></div>
                                 <a href="#{{ $item->id }}" class="semibold white text-xl">
