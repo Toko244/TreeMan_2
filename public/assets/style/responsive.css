@@ -29,6 +29,12 @@
     .section-m-100{
         margin: 80px 0;
     }
+    .menu-item a.medium.green.text-lg.menu-point.relative{
+        font-size: 16px;
+    }
+    .footer-book .text-lg.bold.white.mr-3{
+        font-size: 16px;
+    }
 }
 
 /*----------------------------- 1200px-----------------------------------*/

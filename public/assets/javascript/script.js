@@ -55,8 +55,8 @@ $('.text-section-slider').slick({
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  prevArrow: $('.prev'),
-  nextArrow: $('.next'),
+  prevArrow: $('.text-prev'),
+  nextArrow: $('.text-next'),
   autoplay:true,
 });
 $('.image-slider').slick({
