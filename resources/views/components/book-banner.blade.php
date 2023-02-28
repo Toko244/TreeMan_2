@@ -16,9 +16,15 @@
                             </div>
         
                             <div class="flex items-center h-full">
-                                <button id="myBtn" class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
+                                @if(isset($component->translate(app()->getlocale())->redirect_link))
+                                <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif  class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
                                     {{ trans('website.book') }}
+                                </a>
+                                @else
+                                <button id="myBtn" class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
+                                    {{ trans('website.get_a_quote') }}
                                 </button>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -63,12 +63,14 @@
                         </div>
                         <div class="list flex wrap w-full">
                             @foreach ($section->sectioncomponents() as $key => $item)
+                                @if($item->additional['scroll_content'] == 1)
                                 <div class="list-bullet relative flex items-center">
                                     <div class="circle"></div>
                                     <a href="#{{ $item->id }}" class="semibold white">
                                         {{ $item->title }}
                                     </a>
                                 </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
@@ -95,12 +97,14 @@
                         </div>
 
                         @foreach ($section->sectioncomponents() as $key => $item)
+                        @if($item->additional['scroll_content'] == 1)
                             <div class="flex items-center mb-3">
                                 <div class="circle"></div>
                                 <a href="#{{ $item->id }}" class="semibold white text-xl">
                                     {{ $item->title }}
                                 </a>
                             </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

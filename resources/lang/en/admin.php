@@ -124,4 +124,5 @@ return [
     'target_blank' => 'Target Blank',
     'image' => 'Image',
     'value' => 'Value',
+	'scroll_content' => 'content menu'
 ];

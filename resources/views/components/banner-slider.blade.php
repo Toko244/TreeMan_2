@@ -16,7 +16,7 @@
                             
                         @if($component->translate(app()->getlocale())->redirect_link != '')
                             <a href="{{ $component->translate(app()->getlocale())->redirect_link }}"
-                                @if ($component->target == 1) target="_blank" @endif
+                                @if ($component->target_blank == 1) target="_blank" @endif
                                 class="black transition-duration">
                                 @else
                                 <a href="javascript:void(0)"

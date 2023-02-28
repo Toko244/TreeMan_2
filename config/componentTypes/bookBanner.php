@@ -29,7 +29,7 @@ return [
             'image' => [
                 'type' => 'image',
             ],
-            'target' => [
+            'target_blank' => [
                 'type' => 'switch',
             ],
             'date' => [
