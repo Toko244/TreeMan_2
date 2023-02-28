@@ -208,4 +208,35 @@
 
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', 'button[name="save"]', function() {
+                var danj = $(".danger");
+                for (var i = 0; i < danj.length; i++) {
+                    var cl3s = danj[i].classList;
+                    cl3s.remove("danger");
+                }
+            });
+            $.listen('parsley:field:error', function(parsleyField) {
+                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest(
+                    '.tab-pane').attr('id');
+                var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                for (var i = 0; i < els.length; i++) {
+                    var classes = els[i].classList;
+                    classes.add("danger");
+                }
+            });
+            $("input").on("input", function() {
+                if ($(this).val().length > 0) {
+                    var ewes = $(this).closest('.tab-pane').attr('id');
+                    var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                    for (var i = 0; i < els.length; i++) {
+                        var classes = els[i].classList;
+                        classes.remove("danger");
+                    }
+                }
+            });
+        });
+    </script>
 @endpush
