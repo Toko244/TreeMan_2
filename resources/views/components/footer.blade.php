@@ -62,7 +62,7 @@
                         </div>
 
                         <a href="{{ settings('book_link') }}" target="_blank" class="book-button text-lg bold green background-white transition-duration" style="line-height: 32px;">
-                            {{trans('website.book')}}
+                            {{trans('website.book_now')}}
                         </a>
                     </div>
                 </div>

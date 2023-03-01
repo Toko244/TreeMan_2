@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor"></textarea>
-                                </div>
+                                {{-- </div>
                                 <div class="form-group">
                                     <label for="{{ $locale }}-active">{{ trans('admin.active') }}</label>
                                     @error('active')
@@ -51,7 +51,7 @@
                                     <input type="checkbox" name="{{ $locale }}[active]"
                                         id="{{ $locale }}-active" checked value="1" data-plugin="switchery"
                                         data-color="#3bafda" />
-                                </div>
+                                </div> --}}
                             </div>
                         @endforeach
                     </div>

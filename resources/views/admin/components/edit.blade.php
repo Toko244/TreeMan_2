@@ -53,7 +53,7 @@
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor">{{ $section->translate($locale)->desc ?? '' }}</textarea>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="{{ $locale }}-active">{{ trans('admin.active') }}</label>
                                     @error('active')
                                         <small
@@ -66,9 +66,7 @@
                                         id="{{ $locale }}-active"
                                         @if ($section->translate($locale) !== null) {{ $section->translate($locale)->active == 1 ? 'checked' : '' }} @endif
                                         value="1" data-plugin="switchery" data-color="#3bafda" />
-
-
-                                </div>
+                                </div> --}}
                             </div>
                         @endforeach
                     </div>
