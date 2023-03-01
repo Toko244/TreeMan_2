@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class Head extends Component
 {
+    public $section;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($section)
     {
-        //
+        $this->section = $section;
     }
 
     /**
@@ -23,6 +24,8 @@ class Head extends Component
      */
     public function render()
     {
-        return view('components.head');
+        return view('components.head')->with([
+            'section' => $this->section
+        ]);
     }
 }

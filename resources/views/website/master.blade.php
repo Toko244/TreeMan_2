@@ -1,6 +1,5 @@
 <html lang="{{app()->getLocale()}}">
-
-<x-head></x-head>
+<x-head :section="$section"></x-head>
 <x-header  :languageSlugs="$language_slugs"></x-header>
 
 <body>

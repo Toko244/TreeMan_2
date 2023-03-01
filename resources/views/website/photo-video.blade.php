@@ -1,22 +1,22 @@
 @extends('website.master')
 @section('master')
-    @if (isset($model))
+    @if (isset($section))
 
         <div class="photo-gallery section-pad">
             <div class="container">
                 <div class="list-section-title flex items-center justify-start mb-1">
-                    <h1 class="lemon-medium green" style="font-size: 26px; line-height: 35px;">{{ $model->title }}</h1>
+                    <h1 class="lemon-medium green" style="font-size: 26px; line-height: 35px;">{{ $section->title }}</h1>
                 </div>
 
                 <div class="text text-xl medium">
-                    {!! $model->desc !!}
+                    {!! $section->desc !!}
                 </div>
 
                 <div class="content">
                     <div class="tab flex items-center justify-center wrap">
                         <button class="tablinks bold text-xl active" onclick="openCity(event, 'London')">All</button>
-                        @if (count($model->posts) > 0)
-                            @foreach ($model->posts as $key => $post)
+                        @if (count($section->posts) > 0)
+                            @foreach ($section->posts as $key => $post)
                                 <button class="tablinks bold text-xl"
                                     onclick="openCity(event, '{{ $post->translate(app()->getlocale())->slug }}')">{{ $post->translate(app()->getlocale())->title }}</button>
                             @endforeach
@@ -43,8 +43,8 @@
                         </div>
                     </div>
 
-                    @if (count($model->posts) > 0)
-                        @foreach ($model->posts as $key => $post)
+                    @if (count($section->posts) > 0)
+                        @foreach ($section->posts as $key => $post)
                             <div id="{{ $post->translate(app()->getlocale())->slug }}" class="tabcontent">
                                 <div class="row">
                                     @if (count($post->files) > 0)
@@ -69,8 +69,8 @@
             </div>
         </div>
         </div>
-        @if (count($model->components()) > 0)
-            @foreach ($model->components() as $key => $item)
+        @if (count($section->components()) > 0)
+            @foreach ($section->components() as $key => $item)
                 <section>
                     <x-dynamic-component :component="$item" :sectionId="$key" />
                 </section>
