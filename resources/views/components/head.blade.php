@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
+
     
     @if (isset($section))
         <title>TreeMan - {{ $section->translate(app()->getlocale())->title }}</title>
@@ -37,5 +38,3 @@
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="{{URL::to('/')}}/assets/img/header-logo.png">
 
-
-</head>

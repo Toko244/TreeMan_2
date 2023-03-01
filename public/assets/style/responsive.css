@@ -40,6 +40,9 @@
 /*----------------------------- 1200px-----------------------------------*/
 
 @media (max-width: 1200px) {
+    .list-bullet{
+        width: 50%;
+    }
     .green-section .video{
         height: 300px;
     }
@@ -101,6 +104,9 @@
     }
     .book-info{
         padding-left: 40px;
+    }
+    .pagination{
+        margin-bottom: 50px;
     }
 }
 
@@ -188,6 +194,9 @@
     .book-image::before{
         display: none;
     }
+    .pagination{
+        margin-bottom: 40px;
+    }
 }
 
 /*--------------------------------- 768px -------------------------------*/
@@ -272,6 +281,16 @@
     }
     .contact-alert-message .background-green{
         padding: 50px 70px;
+    }
+    .list-bullet{
+        width: 100%;
+    }
+    .fixed-guidline{
+        width: 460px;
+        left: -460px;
+    }
+    .fixed-guidline-list {
+        padding-left: 40px;
     }
 }
 
@@ -476,6 +495,38 @@
     }
     .contact-alert-message .background-green{
         padding: 20px 40px;
+    }
+    .fixed-guidline{
+        width: 330px;
+        left: -330px;
+    }
+    .fixed-guidline-list {
+        padding-left: 40px;
+        padding-top: 30px;
+    }
+    .fixed-guidline .title{
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+    .fixed-guidline-list .flex.items-center.mb-3{
+        margin-bottom: 30px;
+    }
+    .fixed-guidline-list .flex.items-center.mb-3 a{
+        font-size: 16px;
+    }
+    .circle{
+        margin-right: 16px;
+        width: 10px;
+        height: 10px;
+    }
+    .guideline{
+        margin: 0;
+    }
+    .guideline .guideline-list{
+        display: none;
+    }
+    .pagination{
+        margin-bottom: 30px;
     }
 }
 
