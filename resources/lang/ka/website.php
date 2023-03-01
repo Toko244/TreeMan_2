@@ -8,6 +8,7 @@ return [
 	'see_more' => 'See More',
 	'see_all' => 'See All',
 	'book' => 'Book',
+	'book_now' => 'Book Now',
 	'name' => 'Name',
 	'email' => 'Email',
 	'phone' => 'Phone',

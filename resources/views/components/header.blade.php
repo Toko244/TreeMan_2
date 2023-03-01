@@ -11,6 +11,7 @@
                     </div>
 
                     <div class="social flex items-center">
+                        @if(settings('facebook') != '')
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('facebook') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
@@ -22,7 +23,9 @@
                                 </svg>
                             </a>
                         </div>
+                        @endif
 
+                        @if(settings('linkedin') != '')
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('linkedin') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
@@ -40,7 +43,9 @@
                                 </svg>
                             </a>
                         </div>
+                        @endif
 
+                        @if(settings('youtube') != '')
                         <div class="icon flex items-center h-full" style="margin: 0 11px;">
                             <a href="{{ settings('youtube') }}"
                                 class="flex items-center justify-center rounded transition-duration shadow menu-social-icon">
@@ -52,6 +57,7 @@
                                 </svg>
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
 
@@ -138,7 +144,7 @@
                     <div class="flex items-center justify-end h-full">
                         <a href="{{ settings('book_link') }}" target="_blank" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
                             class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
-                            {{ trans('website.book') }}
+                            {{ trans('website.book_meeting') }}
                         </a>
                     </div>
                 </div>
@@ -241,7 +247,7 @@
         <div class="burger-book">
             <a href=" href="{{ settings('book_link') }}" target="_blank" " class="book-button text-lg bold green background-white transition-duration"
                 style="line-height: 32px;">
-                {{ trans('website.book') }}
+                {{ trans('website.book_meeting') }}
             </a>
         </div>
     </div>
