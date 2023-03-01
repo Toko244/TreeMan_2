@@ -2,11 +2,11 @@
 <div class="text_section flex column section-pad text-top">
     <div class="container">
         @if($component->translate(app()->getlocale())->redirect_link != '')
-        <a  href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="title green text-xl lemon-medium relative">
+        <a  href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif class="title green text-xl bold relative">
             {{$component->translate(app()->getlocale())->title}}
         </a>
         @else
-        <p class="title green text-xl lemon-medium relative">
+        <p class="title green text-xl bold relative">
             {{ $component->translate(app()->getlocale())->title }}
         </p>
         @endif
