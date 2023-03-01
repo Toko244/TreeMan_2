@@ -103,6 +103,8 @@ a:hover{
     padding: 14px 24px;
     border: 1px solid var(--bs-green);
     border-radius: 5px;
+    display: block;
+    width: fit-content;
 }
 .book-button-2:hover{
     border-color: var(--bs-white);
@@ -182,6 +184,7 @@ a:hover{
 }
 .home-banner{
     height: 530px;
+    margin-bottom: 50px;
 }
 .green-side-width{
     width: 55%;
@@ -195,6 +198,7 @@ a:hover{
 .text_section .title{
     width: fit-content;
     margin-bottom: 42px;
+    display: block;
 }
 .text_section .title::after{
     content: '';
@@ -992,6 +996,7 @@ a:hover{
     align-items: center;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 60px;
 }
 .pagination .paginate_button a{
     color: #6A6A6A;
@@ -1041,4 +1046,7 @@ a:hover{
 }
 .header-short .follow {
     font-size: 16px;
+}
+.text p{
+    margin-top: 0;
 }

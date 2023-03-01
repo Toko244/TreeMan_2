@@ -18,6 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/assets/style/gorda.css">
     <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <title>TreeMan</title>
  </head>

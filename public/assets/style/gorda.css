@@ -266,7 +266,7 @@ button:not(:disabled),
 }
 
 .component-padding-100-120{
-  padding: 100px 0 120px 0;
+  padding: 0 0 100px 0;
 }
 
 .hover:hover .hover-image{

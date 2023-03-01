@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="green-side-width">
                                 <div class="info">
-                                    <div class="title white lemon-regular text-3xl">
+                                    <div class="title white bold text-3xl">
                                         {{$component->translate(app()->getlocale())->title}}
                                     </div>
         
@@ -51,7 +51,7 @@
         </div>
         <div class="slide-info background-green">
             <div class="info relative">
-                <div class="title white lemon-regular text-3xl">
+                <div class="title white bold text-3xl">
                     {{$component->translate(app()->getlocale())->title}}
                 </div>
                 <div class="text text-xl white medium">
