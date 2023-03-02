@@ -1053,3 +1053,6 @@ a:hover{
 .contact-cover{
     margin-bottom: 50px;
 }
+.text a{
+    color: var(--bs-green);
+}
