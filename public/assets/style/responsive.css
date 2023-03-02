@@ -292,6 +292,9 @@
     .fixed-guidline-list {
         padding-left: 40px;
     }
+    .post-row-slider .slick-slide{
+        margin: 0;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/

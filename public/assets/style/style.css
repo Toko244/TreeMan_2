@@ -829,12 +829,12 @@ a:hover{
     height: 800px;
 }
 .fixed-guidline-list::-webkit-scrollbar {
-    background-color: var(--bs-white);
-    outline: 1px solid #006838;
+    background-color: #3F9752;
+    outline: 1px solid #3F9752;
     width: 5px;
 }
 .fixed-guidline-list::-webkit-scrollbar-thumb {
-    background-color: var(--bs-green);
+    background-color: var(--bs-white);
 }
 .fixed-guidline-list li{
     margin-bottom: 60px;
@@ -863,7 +863,7 @@ a:hover{
 }
 
 .search-cover{
-    height: 530px;
+    height: 350px;
 }
 .search-cover img{
     z-index: -1;
@@ -1049,4 +1049,10 @@ a:hover{
 }
 .text p{
     margin-top: 0;
+}
+.contact-cover{
+    margin-bottom: 50px;
+}
+.text a{
+    color: var(--bs-green);
 }

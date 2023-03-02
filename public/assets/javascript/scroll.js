@@ -1,3 +1,5 @@
+if ($(window).width() > 960) {
+    
 ScrollReveal().reveal('.book-section', {
     delay: 250,
     duration: 600,
@@ -130,3 +132,5 @@ ScrollReveal().reveal('.green-section .image', {
     distance: '400px',
     origin: 'right'
 });
+
+}
