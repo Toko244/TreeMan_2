@@ -11,10 +11,10 @@
                         <a href="{{ $component->translate(app()->getlocale())->redirect_link }}" @if ($component->target_blank == 1) target="_blank" @endif class="title green text-2xl  bold relative">
                             {{ $component->translate(app()->getlocale())->title }}
                         </a>
-                        @else
-                        <p class="title green text-2xl  bold relative">
+                        @else 
+                        <p class="title green text-2xl  bold relative"> 
                             {{ $component->translate(app()->getlocale())->title }}
-                        </p>
+                        </div>
                         @endif
                         <div class="text regular text-lg black">
                             {!! $component->translate(app()->getlocale())->desc !!}

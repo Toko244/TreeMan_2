@@ -359,6 +359,9 @@ a:hover{
     padding-left: 20px;
     color: var(--bs-white);
 }
+.contact-form{
+    padding-top: 50px;
+}
 .contact-form .form{
     margin-top: 44px;
 }
@@ -834,12 +837,12 @@ a:hover{
     height: 800px;
 }
 .fixed-guidline-list::-webkit-scrollbar {
-    background-color: var(--bs-white);
-    outline: 1px solid #006838;
+    background-color: #3F9752;
+    outline: 1px solid #3F9752;
     width: 5px;
 }
 .fixed-guidline-list::-webkit-scrollbar-thumb {
-    background-color: var(--bs-green);
+    background-color: var(--bs-white);
 }
 .fixed-guidline-list li{
     margin-bottom: 60px;
@@ -868,7 +871,7 @@ a:hover{
 }
 
 .search-cover{
-    height: 530px;
+    height: 350px;
 }
 .search-cover img{
     z-index: -1;
@@ -1054,8 +1057,7 @@ a:hover{
 }
 .text p{
     margin-top: 0;
-}
-
+}  
 .form-info{
     padding-top: 80px;
 }
@@ -1101,3 +1103,4 @@ a:hover{
     justify-content: end;
     padding-right: 5%;
  }
+ 
