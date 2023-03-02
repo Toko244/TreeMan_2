@@ -62,7 +62,7 @@ $('.home-slider').slick({
 });
 $('.text-section-slider').slick({
   dots: false,
-  arrows:false,
+  arrows: true,
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -188,7 +188,7 @@ $('.post-row-slider').slick({
   slidesToShow: 5,
   slidesToScroll: 1,
   infinite: true,
-  autoplay:true,
+  // autoplay:true,
   responsive: [
     {
       breakpoint: 1200,
@@ -211,6 +211,13 @@ $('.post-row-slider').slick({
         slidesToShow: 2,
         slidesToScroll: 1
       }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
     }
   ]
 });
@@ -230,11 +237,14 @@ function openCity(evt, cityName) {
 }
 
 $(document).ready(function(){
-  $(function() {                     
+                    
     $(".guidline-icon").click(function() {  
-      $(".fixed-guidline").toggleClass("active");     
-    });
-  });
+      $(".fixed-guidline").toggleClass("active").focus();  
+    });  
+    $("section, header").click(function() {  
+      $(".fixed-guidline").removeClass("active");  
+    });  
+   
   $('#nav-icon3').click(function(){
       $(this).toggleClass('open');
   });
@@ -248,6 +258,12 @@ $( ".icon-right-arrow" ).click(function() {
   $(this).parent().toggleClass( "sub-open" );
 });
 });
+
+$( ".fixed-guidline" ).mouseleave(function() {
+  console.log('active remove');
+});
+
+ 
 
 var modal = document.getElementById("myModal");
 

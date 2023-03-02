@@ -492,7 +492,7 @@
     <section>
         <div class="front-card-banner-multiple-color section-padding">
             <div class="container">
-                <div class="row">
+                <div class="row row-resp-slider">
 
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
@@ -891,43 +891,43 @@
             <div class="bold text-2xl black">Send Request</div>
             <span class="close">&times;</span>
             <form action="">
-                <div class="modal-form flex column items-center">
-                    <div class="modal-input flex column items-start">
+                <div class="modal-form flex column items-center modal-width_01">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for=""class="required">Name</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for=""class="required">E-Mail</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">Phone</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">Organisation</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">Country</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">Quality</label>
                         <input type="text" name="" id="">
                     </div>
 
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-textarea-box_01">
                         <label for=""class="required">Message</label>
                         <textarea name="" id="" cols="30" rows="10"></textarea>
                     </div>
 
-                    <div class="flex items-center modal-button">
+                    <div class="flex items-center modal-button modal-button-box_01">
                         <button style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green white transition-duration">
                             SEND
                         </button>
@@ -1048,7 +1048,7 @@
     <section>
        <div class="subscribe-section w-full background-green section-m-100 relative">
             <div class="subscribe-cover absolute right-0 top-0">
-                <img src="/assets/img/Davit.png" alt="" class="w-full h-full cover">
+                <img src="/assets/img/right-img-01.jpg" alt="" class="w-full h-full cover">
             </div>
 
             <div class="container">
