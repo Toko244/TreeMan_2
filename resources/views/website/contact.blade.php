@@ -117,7 +117,7 @@
                                     </div>
 
                                     <div class="col-xl-6">
-                                        <div class="textarea w-full h-full pl-1">
+                                        <div class="textarea w-full h-full pl-1 pad-l-contact_01">
                                             <label for="" class="semibold text-lg required"
                                                 style="color: #656C69;">{{ trans('website.text') }}</label>
                                             <textarea name="text" id="" cols="30" rows="10" class="w-full mt-1 pt-1 pl-1 pr-1 pb-1" required></textarea>

@@ -2,7 +2,7 @@
 @if(isset($component))
 <div class="subscribe-section w-full background-green section-m-100 relative">
     <div class="subscribe-cover absolute right-0 top-0">
-        <img src="/assets/img/Davit.png" alt="" class="w-full h-full cover">
+        <img src="/assets/img/right-img-01.png" alt="" class="w-full h-full cover">
     </div>
 
     <div class="container">
