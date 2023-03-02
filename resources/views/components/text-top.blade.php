@@ -6,17 +6,19 @@
             {{$component->translate(app()->getlocale())->title}}
         </a>
         @else
-        <p class="title green text-xl bold relative">
+        <div class="title green text-xl bold relative">
             {{ $component->translate(app()->getlocale())->title }}
-        </p>
+        </div>
         @endif
-        <div class="text-seemore flex items-center justify-between mb-2">
+        @if(isset($component->translate(app()->getlocale())->desc))
+        <div class="text-seemore flex items-center justify-between">
             <div class="text regular text-lg black">
                 {!! $component->translate(app()->getlocale())->desc !!}
             </div>
         </div>
+        @endif
         @if($component->image != '')
-        <div class="image">
+        <div class="image mt-2">
             <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover">
         </div>
         @endif

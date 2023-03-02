@@ -358,6 +358,9 @@ a:hover{
     padding-left: 20px;
     color: var(--bs-white);
 }
+.contact-form{
+    padding-top: 50px;
+}
 .contact-form .form{
     margin-top: 44px;
 }
@@ -694,6 +697,7 @@ a:hover{
 .testimonial{
     padding: 60px 0;
     background: #F3F5F6;
+    margin-bottom: 50px;
 }
 .testimonial-slider{
     margin: 0 -30px;

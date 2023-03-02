@@ -197,6 +197,9 @@
     .pagination{
         margin-bottom: 40px;
     }
+    .contact-form{
+        padding-top: 40px;
+    }
 }
 
 /*--------------------------------- 768px -------------------------------*/
@@ -294,6 +297,9 @@
     }
     .post-row-slider .slick-slide{
         margin: 0;
+    }
+    .contact-form{
+        padding-top: 30px;
     }
 }
 
@@ -449,6 +455,7 @@
     }
     .testimonial{
         padding: 30px 0;
+        margin-bottom: 30px;
     }
     .testimonial-block .block-title{
         font-size: 18px;
@@ -530,6 +537,9 @@
     }
     .pagination{
         margin-bottom: 30px;
+    }
+    .contact-form{
+        padding-top: 20px;
     }
 }
 
