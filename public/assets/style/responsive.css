@@ -593,6 +593,13 @@
     .modal-input-box_01{ 
         width: 100%;
     }
+    .header-scroll .container.relative{
+        padding: 0;
+    }
+    .logo img.w-full.h-full.cover{
+        max-width: 78px;
+    }
+
     .modal-textarea-box_01{
         width: 100%;
     } 
