@@ -541,6 +541,12 @@
     .contact-form{
         padding-top: 20px;
     }
+    .header-scroll .container.relative{
+        padding: 0;
+    }
+    .logo img.w-full.h-full.cover{
+        max-width: 78px;
+    }
 }
 
 /*--------------------------------- 440px -------------------------------*/
