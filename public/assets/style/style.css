@@ -68,7 +68,7 @@ a:hover{
     height: 4px;
     background: var(--bs-green);
     position: absolute;
-    top: -60px;
+    top: -50px;
     border-radius: 5px;
     width: 0%;
     transition-duration: 0.3s;
@@ -341,7 +341,7 @@ a:hover{
 }
 .contact-page .info{
     padding-top: 75px;
-    padding-right: 40%;
+    padding-right: 15%;
 }
 .contact-info{
     padding-top: 55px;
@@ -359,9 +359,9 @@ a:hover{
     padding-left: 20px;
     color: var(--bs-white);
 }
-.contact-form{
+/* .contact-form{
     padding-top: 50px;
-}
+} */
 .contact-form .form{
     margin-top: 44px;
 }
@@ -620,7 +620,7 @@ a:hover{
     margin: auto;
     padding: 80px 100px;
     border: 1px solid #888;
-    width: 36%;
+    width: 50.1%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -629,6 +629,12 @@ a:hover{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 10px;
+  }
+  .modal-content form{
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 30px;
   }
   
   /* Add Animation */
@@ -677,8 +683,7 @@ a:hover{
     font-family: 'LibreFranklin-SemiBold';
     font-size: 18px;
     color: #656C69;
-    margin-bottom: 12px;
-    margin-top: 10px;
+    margin-bottom: 16px; 
 }
 .modal-content textarea{
     font-family: 'LibreFranklin-Medium'; 
@@ -1061,12 +1066,11 @@ a:hover{
 .form-info{
     padding-top: 80px;
 }
-.modal-content{
-    padding: 30px 30px;
-} 
+ 
 .modal-width_01{
     width: 100%;
     flex-wrap: wrap;
+    flex-direction: initial;
     gap: 34px;
 }
 .modal-input-box_01{
@@ -1077,8 +1081,8 @@ a:hover{
 .modal-textarea-box_01{
     width: 100%;
 }
-.modal-button-box_01{
-    margin-top: 20px;
+.modal-button-box_01{ 
+    margin-top: 0;
     width: 100%;
     display: flex;
     justify-content: end;
@@ -1104,3 +1108,7 @@ a:hover{
     padding-right: 5%;
  }
  
+.logo a img{
+    width: 80px;
+    height: 65px;
+}

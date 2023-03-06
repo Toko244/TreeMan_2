@@ -20,7 +20,7 @@
 
                                         <div class="info">
                                             <div class="title mb-1">
-                                                <h3 class="white text-2xl bold">
+                                                <h3 class="white text-2xl bold ka-font-nino">
                                                     {{$component->translate(app()->getlocale())->title}}
                                                 </h3>
                                             </div>
