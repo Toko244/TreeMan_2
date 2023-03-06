@@ -359,6 +359,19 @@
     .modal-input-box_01{
         width: 100%;
     }
+    .book-button-2{
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .text-3xl {
+        font-size: 20px;
+    }
+    .text-2xl {
+        font-size: 18px;
+    }
+    .subscribe-logo{
+        display: none;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -617,6 +630,7 @@
      .header-scroll .container.relative{
         padding-left: 12px;
      }
+      
 }
 
 /*--------------------------------- 440px -------------------------------*/

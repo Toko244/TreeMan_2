@@ -115,7 +115,8 @@ html:lang(ka) .title,
 html:lang(ka) .menu-item a,
 html:lang(ka) .menu-item .down-footer-info a,
 html:lang(ka) .semibold, 
-html:lang(ka) .ka-font-nino {
+html:lang(ka) .ka-font-nino,
+html:lang(ka) .book-info .title{
     font-family: 'BPGNinoMtavruli-Bold' !important;
 }
 

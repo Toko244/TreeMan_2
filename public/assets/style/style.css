@@ -160,7 +160,7 @@ a:hover{
 .book-info .title{
     font-size: 28px;
     line-height: 34px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .book-info .desc{
     font-size: 20px;
