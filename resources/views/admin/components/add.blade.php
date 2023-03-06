@@ -39,8 +39,8 @@
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor"></textarea>
-                                {{-- </div>
-                                <div class="form-group">
+                                </div>
+                                {{-- <div class="form-group">
                                     <label for="{{ $locale }}-active">{{ trans('admin.active') }}</label>
                                     @error('active')
                                         <small
