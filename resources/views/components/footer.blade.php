@@ -121,7 +121,7 @@
 
                         <div class="made">
                             <a href="https://ideadesigngroup.ge/ka" class="semibold text-lg white" target="_blank">
-                                {{trans('website.maid_by')}}
+                                {{trans('website.made_by')}}
                             </a>
                         </div>
                     </div>
