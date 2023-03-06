@@ -32,4 +32,5 @@ return [
 	'request_sent' => 'Request Sent',
 	'subscribed_done' => 'Subsribe Done',
 	'successfuly_subscribed' => 'Successfuly Subsribed',
+	'allready_subscribed' => 'Allready Subsribed',
 ];
