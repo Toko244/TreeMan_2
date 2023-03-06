@@ -5,7 +5,7 @@
             <div class="header flex w-full items-center justify-between">
                 <div class="flex items-center justify-start">
                     <div class="follow-block flex items-center justify-start mr-1">
-                        <div class="follow green medium text-lg">
+                        <div class="follow green medium text-lg ka-font-nino">
                             {{ trans('website.follow_us') }}
                         </div>
                     </div>
@@ -142,7 +142,7 @@
 
                 <div class="col-lg-2 col-md-6 col-6">
                     <div class="flex items-center justify-end h-full">
-                        <a href="{{ settings('book_link') }}" target="_blank" style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
+                        <a href="{{ settings('book_link') }}" target="_blank" style="white-space: nowrap; font-size: 16px; border-radius: 8px; border: 2px solid #006838;"
                             class="bold background-green pt-1 pl-2 pb-1 pr-2 white transition-duration">
                             {{ trans('website.book_meeting') }}
                         </a>

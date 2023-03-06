@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-7 col-md-8 col-sm-12 col-12">
                     <div class="title mt-4 mb-2">
-                        <h3 class="white text-2xl bold">
+                        <h3 class="white text-2xl bold ka-font-nino">
                             {{$component->translate(app()->getlocale())->title}}
                         </h3>
                     </div>

@@ -2,7 +2,7 @@
 <div class="slider-posts section-padding">
     <div class="container">
         <div class="title w-full flex items-center justify-between mb-3">
-            <div class="green text-2xl bold">
+            <div class="green text-2xl bold ka-font-nino">
                 {{$component->translate(app()->getlocale())->title}}
             </div>
 
