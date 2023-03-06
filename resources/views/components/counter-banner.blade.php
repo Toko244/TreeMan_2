@@ -2,10 +2,10 @@
 <section>
     <div class="count-section section-padding" id="counter">
         <div class="container">
-            <div class="row">
+            <div class="row row-resp-slider">
                 @foreach ($components as $key => $component)
                     @if($key < 4)
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 width-slider-item-resp">
                         <div class="count flex column w-full">
                             <div class="dot"></div>
                             <div class="title lemon-medium text-2xl green mb-1">

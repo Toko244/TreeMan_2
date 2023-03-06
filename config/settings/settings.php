@@ -44,7 +44,7 @@ return [
 	"list_pagination" => [
 		"title" => "List Page Pagination",
 		"type" => "text",
-		"value" => "2",
+		"value" => "12",
 	],
 	"gallery_pagination" => [
 		"title" => "Galery Page Pagination",

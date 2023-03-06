@@ -4,7 +4,7 @@
             <div class="green text-2xl bold  mb-3">
                 {{$section->translate(app()->getlocale())->title}}
             </div>
-            <div class="row">
+            <div class="row row-resp-slider">
                 @foreach ($components as $key => $post)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">

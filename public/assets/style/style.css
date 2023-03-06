@@ -93,6 +93,7 @@ a:hover{
     padding: 10px 46px;
     border: 1px solid var(--bs-green);
     border-radius: 5px;
+    white-space: nowrap;
 }
 .book-button:hover{
     border-color: var(--bs-white);
@@ -336,7 +337,7 @@ a:hover{
     margin-bottom: 46px;
 }
 .contact-cover{
-    height: 530px;
+    min-height: 530px;
 }
 .contact-page .info{
     padding-top: 75px;
@@ -617,14 +618,17 @@ a:hover{
     position: relative;
     background-color: #F3F5F6;
     margin: auto;
-    padding: 40px 20px;
+    padding: 80px 100px;
     border: 1px solid #888;
     width: 36%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   /* Add Animation */
@@ -1053,10 +1057,50 @@ a:hover{
 }
 .text p{
     margin-top: 0;
+}  
+.form-info{
+    padding-top: 80px;
 }
-.contact-cover{
-    margin-bottom: 50px;
+.modal-content{
+    padding: 30px 30px;
+} 
+.modal-width_01{
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 34px;
 }
-.text a{
-    color: var(--bs-green);
+.modal-input-box_01{
+    display: flex;
+    flex-direction: column;
+    width: calc((100%/2) - 17px);
 }
+.modal-textarea-box_01{
+    width: 100%;
+}
+.modal-button-box_01{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.modal-input-box_01 input,
+.modal-textarea-box_01 textarea{
+    width: 100%;
+}
+.resp-height-initial{
+    height: fit-content;
+}
+ .header-short .menu-point::before{
+    top: -39px;
+ }
+ header{
+    margin-bottom: 40px;
+ }
+
+ .subscribe-logo {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 5%;
+ }
+ 

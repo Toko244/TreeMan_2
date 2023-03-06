@@ -15,10 +15,16 @@
                                 </div>
                             </div>
         
-                            <div class="flex items-center h-full">
+                            <div class="flex items-center h-full resp-height-initial">
+                                @if(isset($component->translate(app()->getlocale())->redirect_link))
+                                <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif  class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
+                                    {{ trans('website.book_now') }}
+                                </a>
+                                @else
                                 <button id="myBtn" class="book-button book-button-black relative text-lg bold background-white transition-duration" style="line-height: 32px;">
-                                    {{ trans('website.book') }}
+                                    {{ trans('website.get_a_quote') }}
                                 </button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -44,36 +50,36 @@
             <form method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="post_id" value="{{$component->id}}">
-                <div class="modal-form flex column items-center">
-                    <div class="modal-input flex column items-start">
+                <div class="modal-form flex column items-center modal-width_01">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for=""class="required">{{ trans('website.name') }}</label>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="name" id="" required>
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for=""class="required">{{ trans('website.email') }}</label>
-                        <input type="text" name="email" id="">
+                        <input type="text" name="email" id="" required>
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">{{ trans('website.phone') }}</label>
                         <input type="text" name="phone" id="">
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">{{ trans('website.organization') }}</label>
                         <input type="text" name="organization" id="">
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">{{ trans('website.country') }}</label>
                         <input type="text" name="country" id="">
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-input-box_01">
                         <label for="">{{ trans('website.quality') }}</label>
                         <input type="text" name="quality" id="">
                     </div>
-                    <div class="modal-input flex column items-start">
+                    <div class="modal-input flex column items-start modal-textarea-box_01">
                         <label for=""class="required">{{ trans('website.message') }}</label>
                         <textarea name="message" id="" cols="30" rows="10"></textarea>
                     </div>
-                    <div class="flex items-center modal-button">
+                    <div class="flex items-center modal-button modal-button-box_01">
                         <button style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green white transition-duration">
                             {{ trans('website.send') }}
                         </button>

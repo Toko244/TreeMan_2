@@ -53,7 +53,7 @@
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor">{{ $section->translate($locale)->desc ?? '' }}</textarea>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="{{ $locale }}-active">{{ trans('admin.active') }}</label>
                                     @error('active')
                                         <small
@@ -66,9 +66,7 @@
                                         id="{{ $locale }}-active"
                                         @if ($section->translate($locale) !== null) {{ $section->translate($locale)->active == 1 ? 'checked' : '' }} @endif
                                         value="1" data-plugin="switchery" data-color="#3bafda" />
-
-
-                                </div>
+                                </div> --}}
                             </div>
                         @endforeach
                     </div>
@@ -99,7 +97,19 @@
                     </div>
 
 
-
+                    @if($section->parent->type_id == 2)
+                    <div class="button-container on">
+                        {{-- <div class="button"></div> --}}
+                        <div class="text">
+                            {{ Form::label(trans('admin.scroll_content'), null, ['class' => 'control-label']) }}
+                            <br>
+                            
+                            <input type="hidden" name="scroll_content" value="0" />
+                            <input type="checkbox" name="scroll_content" @if(isset($section->additional['scroll_content']) && $section->additional['scroll_content'] == 1) checked @endif value="1" data-plugin="switchery"
+                                data-color="#3bafda" />
+                        </div>
+                      </div>
+                      @endif
 
 
 
@@ -164,4 +174,34 @@
     <script src="{{ asset('/admin/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', 'button[name="save"]', function() {
+                var danj = $(".danger");
+                for (var i = 0; i < danj.length; i++) {
+                    var cl3s = danj[i].classList;
+                    cl3s.remove("danger");
+                }
+            });
+            $.listen('parsley:field:error', function(parsleyField) {
+                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest(
+                    '.tab-pane').attr('id');
+                var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                for (var i = 0; i < els.length; i++) {
+                    var classes = els[i].classList;
+                    classes.add("danger");
+                }
+            });
+            $("input").on("input", function() {
+                if ($(this).val().length > 0) {
+                    var ewes = $(this).closest('.tab-pane').attr('id');
+                    var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                    for (var i = 0; i < els.length; i++) {
+                        var classes = els[i].classList;
+                        classes.remove("danger");
+                    }
+                }
+            });
+        });
+    </script>
 @endpush

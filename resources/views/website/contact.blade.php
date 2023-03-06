@@ -94,13 +94,13 @@
                                         <div class="flex column items-start w-1_2 pr-1">
                                             <label for="" class="semibold text-lg mb-1 required"
                                                 style="color: #656C69;">{{ trans('website.name') }}</label>
-                                            <input type="text" class="w-full pl-1" style="height: 50px;" name="name">
+                                            <input type="text" class="w-full pl-1" style="height: 50px;" name="name" required>
                                         </div>
 
                                         <div class="flex column items-start w-1_2 pl-1">
                                             <label for="" class="semibold text-lg mb-1 required"
                                                 style="color: #656C69;">{{ trans('website.email') }}</label>
-                                            <input type="text" class="w-full pl-1" style="height: 50px;" name="email">
+                                            <input type="email" class="w-full pl-1" style="height: 50px;" name="email" required>
                                         </div>
 
                                         <div class="flex column items-start w-1_2 pr-1">
@@ -112,15 +112,15 @@
                                         <div class="flex column items-start w-1_2 pl-1">
                                             <label for="" class="semibold text-lg mb-1"
                                                 style="color: #656C69;">{{ trans('website.subject') }}</label>
-                                            <input type="text" class="w-full pl-1" style="height: 50px;" name="subject">
+                                            <input type="text" class="w-full pl-1" style="height: 50px;" name="subject" >
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6">
-                                        <div class="textarea w-full h-full pl-1">
+                                        <div class="textarea w-full h-full pl-1 pad-l-contact_01">
                                             <label for="" class="semibold text-lg required"
                                                 style="color: #656C69;">{{ trans('website.text') }}</label>
-                                            <textarea name="text" id="" cols="30" rows="10" class="w-full mt-1 pt-1 pl-1 pr-1 pb-1"></textarea>
+                                            <textarea name="text" id="" cols="30" rows="10" class="w-full mt-1 pt-1 pl-1 pr-1 pb-1" required></textarea>
                                         </div>
                                     </div>
 

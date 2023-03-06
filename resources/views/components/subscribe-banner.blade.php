@@ -2,7 +2,7 @@
 @if(isset($component))
 <div class="subscribe-section w-full background-green section-m-100 relative">
     <div class="subscribe-cover absolute right-0 top-0">
-        <img src="/assets/img/Davit.png" alt="" class="w-full h-full cover">
+        <img src="/assets/img/right-img-01.png" alt="" class="w-full h-full cover">
     </div>
 
     <div class="container">
@@ -23,7 +23,7 @@
                 <div class="subscribe-form w-full flex items-center">
                     <form class="w-full relative"  method="POST" action="/{{app()->getLocale()}}/subscribe">
                         @csrf
-                        <input type="text" class="w-full medium green" placeholder="{{ trans('website.email') }}" name="email">
+                        <input type="email" class="w-full medium green" placeholder="{{ trans('website.email') }}" name="email" required>
                         <button type="submit" class="semibold text-lg" style="color: #006838">{{ trans('website.subscribe') }}</button>
                     </form>
                 </div>

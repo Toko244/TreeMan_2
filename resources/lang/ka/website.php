@@ -8,6 +8,7 @@ return [
 	'see_more' => 'See More',
 	'see_all' => 'See All',
 	'book' => 'Book',
+	'book_now' => 'Book Now',
 	'name' => 'Name',
 	'email' => 'Email',
 	'phone' => 'Phone',
@@ -30,4 +31,5 @@ return [
 	'contact_description' => 'Fill out the form to contact us',
 	'request_sent' => 'Request Sent',
 	'subscribed_done' => 'Subsribe Done',
+	'successfuly_subscribed' => 'Successfuly Subsribed',
 ];

@@ -35,9 +35,10 @@ class PagesController extends Controller
 		}
         
 		if ($model->type_id == 3) {
-            $model->load('translation', 'posts.translation');
+			$section = Section::where('id', $model->id)->with('translation')->first();
+            // $model->load('translation', 'posts.translation');
             $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->paginate(settings('gallery_pagination'));
-            return view('website.photo-video', compact('model', 'language_slugs','files'));
+            return view('website.photo-video', compact('section', 'language_slugs','files'));
 		}
         
 		if ($model->type_id == 4) {
@@ -62,6 +63,7 @@ class PagesController extends Controller
         ->with('files')
         ->first();
         return view("website.pages.{$model->parent->type['folder']}.show", [
+			'section' => $post,
             'post' => $post,
             'locales' => $locales
             ])->render();

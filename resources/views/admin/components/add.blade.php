@@ -33,14 +33,14 @@
                                             style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.title_is_required') }}</small>
                                     @enderror
                                     <input type="text" name="{{ $locale }}[title]" parsley-trigger="change"
-                                        class="@error('title') danger @enderror form-control inputparsley"  onchange="myFunction()"
-                                        id="{{ $locale }}-title" Required>
+                                        class="@error('title') danger @enderror form-control inputparsley"
+                                        onchange="myFunction()" id="{{ $locale }}-title" Required>
                                 </div>
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
                                     <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]" class="form-control ckeditor"></textarea>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="{{ $locale }}-active">{{ trans('admin.active') }}</label>
                                     @error('active')
                                         <small
@@ -51,7 +51,7 @@
                                     <input type="checkbox" name="{{ $locale }}[active]"
                                         id="{{ $locale }}-active" checked value="1" data-plugin="switchery"
                                         data-color="#3bafda" />
-                                </div>
+                                </div> --}}
                             </div>
                         @endforeach
                     </div>
@@ -82,6 +82,20 @@
                                 @endforeach
                             </select>
                         </div>
+                        @if($section->type_id == 2)
+                        <div class="button-container on">
+                            {{-- <div class="button"></div> --}}
+                            <div class="text">
+                                {{ Form::label(trans('admin.scroll_content'), null, ['class' => 'control-label']) }}
+                                <br>
+                                
+                                <input type="hidden" name="scroll_content" value="0" />
+                                <input type="checkbox" name="scroll_content"
+                                    id="{{ $locale }}-active" checked value="1" data-plugin="switchery"
+                                    data-color="#3bafda" />
+                            </div>
+                          </div>
+                          @endif
                         <input type="hidden" name="parent_id" value="{{ $section->id }}">
                         <input type="hidden" name="is_component" value="1">
                     </div>
@@ -156,27 +170,31 @@
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
     <script>
-
-        // function myFunction() {
-        //     var x = document.getElementsByClassName("inputparsley");
-        //     console.log(x)
-        // };
         $(document).ready(function() {
             $(document).on('click', 'button[name="save"]', function() {
-
                 var danj = $(".danger");
-
                 for (var i = 0; i < danj.length; i++) {
                     var cl3s = danj[i].classList;
                     cl3s.remove("danger");
                 }
             });
             $.listen('parsley:field:error', function(parsleyField) {
-                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest('.tab-pane').attr('id');
+                var ewes = $("input[name='" + parsleyField.$element.attr('name') + "']").closest(
+                    '.tab-pane').attr('id');
                 var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
                 for (var i = 0; i < els.length; i++) {
                     var classes = els[i].classList;
                     classes.add("danger");
+                }
+            });
+            $("input").on("input", function() {
+                if ($(this).val().length > 0) {
+                    var ewes = $(this).closest('.tab-pane').attr('id');
+                    var els = document.querySelectorAll("a[href='" + '#' + ewes + "']");
+                    for (var i = 0; i < els.length; i++) {
+                        var classes = els[i].classList;
+                        classes.remove("danger");
+                    }
                 }
             });
         });
