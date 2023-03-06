@@ -33,4 +33,5 @@ return [
 	'subscribed_done' => 'Subsribe Done',
 	'successfuly_subscribed' => 'Successfuly Subsribed',
 	'allready_subscribed' => 'Allready Subsribed',
+	'maid_by' => 'Made by Idea Design Group',
 ];
