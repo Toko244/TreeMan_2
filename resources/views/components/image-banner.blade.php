@@ -7,7 +7,7 @@
             <div class="row row-resp-slider">
                 @foreach ($components as $key => $post)
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card flex items-center justify-center relative w-full hidden mb-2 shadow transition-duration">
+                    <div class="card flex items-center justify-center relative w-full hidden mb-2 @if($post->translate(app()->getlocale())->redirect_link != '') shadow @endif  transition-duration">
                         
                         @if($post->translate(app()->getlocale())->redirect_link != '')
                         <a href="{{ $post->translate(app()->getlocale())->redirect_link }}" @if ($post->target_blank == 1) target="_blank" @endif class="w-full h-full relative flex items-center justify-center">
