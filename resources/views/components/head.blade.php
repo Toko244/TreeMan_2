@@ -20,9 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
-
-    
-    @if (isset($section))
+    @if(isset($section) && ($section != []))
         <title>TreeMan - {{ $section->translate(app()->getlocale())->title }}</title>
         <meta property="og:description" content="{!! $section->translate(app()->getlocale())->desc !!}"/>
     @elseif(isset($post))

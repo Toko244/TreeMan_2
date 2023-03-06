@@ -9,7 +9,7 @@
        <div class="search-form relative">
         <form action="{{ route('search', app()->getLocale()) }}" method="POST">
             @csrf
-           <input type="text" placeholder="{{ trans('website.search') }}" class="semibold green" name="que">
+           <input type="text" placeholder="{{ trans('website.search') }}" class="semibold green" name="que" value="{{$searchText}}">
 
            <button type="submit" class="flex items-center">
                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

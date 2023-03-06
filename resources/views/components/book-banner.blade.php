@@ -53,11 +53,11 @@
                 <div class="modal-form flex column items-center">
                     <div class="modal-input flex column items-start">
                         <label for=""class="required">{{ trans('website.name') }}</label>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="name" id="" required>
                     </div>
                     <div class="modal-input flex column items-start">
                         <label for=""class="required">{{ trans('website.email') }}</label>
-                        <input type="text" name="email" id="">
+                        <input type="text" name="email" id="" required>
                     </div>
                     <div class="modal-input flex column items-start">
                         <label for="">{{ trans('website.phone') }}</label>
