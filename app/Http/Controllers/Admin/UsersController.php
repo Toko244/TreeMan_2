@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SubscribersExport;
 
 class UsersController extends Controller
-{    
+{
     /**
      * index
      *  returns users list where superuser can edit add or delete any user (delete everyone exept himself)
@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function index(){
         $users = User::where('type_id', '!=', 4)->get();
         return view('admin.users.list', compact('users'));
-    }   
+    }
     /**
      * index
      *  returns users list where superuser can edit add or delete any user (delete everyone exept himself)
@@ -32,19 +32,19 @@ class UsersController extends Controller
         $logs = UserLog::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
         return view('admin.users.logs', compact(['user', 'logs']));
-    } 
+    }
 
 
     /**
      * add
-     *  returns user add wiew to add users 
+     *  returns user add wiew to add users
      * @return void
      */
     public function create(){
         $user_types = Config::get('userTypes');
 
         return view('admin.users.add', compact(['user_types']));
-    } 
+    }
     /**
      * store
      * store function stores request form create function
@@ -64,7 +64,7 @@ class UsersController extends Controller
         $user['password'] = Hash::make($request->all()['password']);
         User::create($user);
         return $this->index();
-    } 
+    }
     /**
      * editProfile
      * non superadmin user can edit his profile
@@ -73,7 +73,7 @@ class UsersController extends Controller
     public function editProfile(){
         $user = auth()->user();
         return view('admin.users.edit_profile', compact(['user']));
-    } 
+    }
     /**
      * updateProfile
      *  non superadmin user profile update
@@ -104,7 +104,7 @@ class UsersController extends Controller
     }
 
 
-    
+
     /**
      * edit
      * returns user edit view
@@ -118,10 +118,10 @@ class UsersController extends Controller
         return view('admin.users.edit', compact(['user', 'user_types']));
     }
 
-        
+
     /**
      * update
-     * Update Function updates user details. if password is null than it will be same 
+     * Update Function updates user details. if password is null than it will be same
      *
      * @param  mixed $request
      * @param  mixed $id
@@ -171,16 +171,17 @@ class UsersController extends Controller
      */
     public function destroy(Request $request, $id){
         // User::destroy($id);
-        // return $this->index(); 
+        // return $this->index();
             $user = User::find($id);
             $user->type_id = $request->type_id;
             $user->save();
-            return redirect()->back()->with('message', 'ადმინისტრატორი წაიშალა'); 
+            return redirect()->back()->with('message', 'ადმინისტრატორი წაიშალა');
     }
 
 
 
     public function subscribers(){
+        Subscribers::query()->update(['seen' => true]);
         $subscribers = Subscribers::orderBy('created_at')->get();
         return view('admin.subscribers.index', compact('subscribers'));
     }
@@ -191,7 +192,7 @@ class UsersController extends Controller
     }
 
     public function exportSubscribers(){
-        $subscribers = Subscribers::all(); 
+        $subscribers = Subscribers::all();
         return Excel::download(new SubscribersExport($subscribers), 'subscribers.xlsx');
     }
 }
