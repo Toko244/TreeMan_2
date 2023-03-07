@@ -1112,3 +1112,24 @@ a:hover{
     width: 80px;
     height: 65px;
 }
+.sharethis-inline-share-buttons{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+.sharethis-inline-share-buttons h2{
+    font-size: 18px;
+    color: #000;
+    font-family: 'LibreFranklin-Regular';
+    font-weight: 400;
+}
+
+.at-resp-share-element .at-share-btn .at-label{
+    display: none!important;
+}
+.at-resp-share-element .at-share-btn{
+    border-radius: 5px!important;
+    margin-right: 5px!important;
+    margin-bottom: 0!important;
+}

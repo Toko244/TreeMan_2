@@ -630,6 +630,11 @@
      .header-scroll .container.relative{
         padding-left: 12px;
      }
+     .sharethis-inline-share-buttons{ 
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 20px;
+    }
       
 }
 
