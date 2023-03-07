@@ -1,6 +1,7 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left-side-menu">
 
+
     <div class="slimscroll-menu">
 
         <!-- User box -->
@@ -15,8 +16,6 @@
                         <i class="fe-user mr-1"></i>
                         <span>{{ trans('admin.my_account') }}</span>
                     </a>
-
-
 
 
                     <!-- item-->
@@ -133,11 +132,15 @@
                         <span> {{ trans('admin.users') }} </span>
                     </a>
                 </li>
+                <li>
+                    <a  href="/{{ app()->getLocale() }}/admin/subscribers">
+                        <i class="mdi mdi-account-multiple-outline noti-icon pos-rel">
+                            @if ($unseenSubscribers > 0 )
+                            <span class="badge badge-danger rounded-circle noti-icon-badge sidebar-badge">{{ $unseenSubscribers }}</span>
 
-               <li>
-                    <a href="/{{ app()->getLocale() }}/admin/subscribers">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.subscribers') }} </span>
+                            @endif
+                        </i>
+                        <span > {{ trans('admin.subscribers') }} </span>
                     </a>
                 </li>
   {{--
