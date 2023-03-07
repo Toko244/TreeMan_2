@@ -150,6 +150,9 @@
     .contact-page .info{
         padding-right: 50%;
     }
+    .response-delete-cover{
+        object-fit: initial;
+    }
 }
 
 /*------------------------------- 992px ---------------------------------*/

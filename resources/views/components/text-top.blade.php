@@ -19,7 +19,7 @@
         @endif
         @if($component->image != '')
         <div class="image mt-2">
-            <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover">
+            <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover response-delete-cover">
         </div>
         @endif
     </div>
