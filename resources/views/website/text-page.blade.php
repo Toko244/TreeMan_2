@@ -20,7 +20,12 @@
                                 @endif
                             </div>
 
-                            <div class="sharethis-inline-share-buttons"></div>
+                            <div class="sharethis-inline-share-buttons">
+                                <h2>Share in:</h2>
+                                <div class="share-icons-010">
+                                    <div class="addthis_inline_share_toolbox_68n8"></div> 
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @if ($post->thumb != '')
