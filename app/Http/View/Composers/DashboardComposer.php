@@ -15,7 +15,7 @@ class DashboardComposer
     public function __construct()
     {
         $this->notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
-        $this->unseenSubscribers = Subscribers::where('seen', 0)->count();
+        // $this->unseenSubscribers = Subscribers::where('seen', 0)->count();
     }
 
 

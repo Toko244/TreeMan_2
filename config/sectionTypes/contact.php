@@ -11,6 +11,12 @@ return [
                'required' => 'required',
                'data-icon' => '-',
             ],
+            'slug' => [
+                'type' => 'text',
+                'error_msg' => 'slug_is_required',
+                'required' => 'required',
+                'data-icon' => '-',
+            ],
             'desc' => [
                 'type' => 'textarea',
                 'required' => 'required',
