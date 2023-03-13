@@ -126,7 +126,7 @@
 
                                     <div class="w-full flex items-center justify-end">
                                         <button type="submit"
-                                            class="flex items-center justify-center white bold text-lg submit-button transition-duration">{{ trans('website.send') }}</button>
+                                            class="flex items-center justify-center white bold text-lg submit-button transition-duration  ka-font-nino">{{ trans('website.send') }}</button>
                                     </div>
                                 </div>
                             </form>
