@@ -2,7 +2,7 @@
 return [
     'id' => 3,
     'type' => 3,
-    'style' => 1,
+    'style' => 2,
     'folder' => 'contact',
     'fields' => [
         'trans' => [
