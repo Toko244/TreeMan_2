@@ -5,7 +5,7 @@ return [
         'phone',
         'subject',
         'country',
-        'quality',
+        'quantity',
         'message',
         'text',
         'organization',

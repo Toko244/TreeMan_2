@@ -14,7 +14,7 @@ return [
 	"phone" => "Phone",
 	"organization" => "Organization",
 	"country" => "Country",
-	"quality" => "Quality",
+	"quantity" => "Quantity",
 	"message" => "Message",
 	"send" => "Send",
 	"subject" => "Subject",

@@ -72,8 +72,8 @@
                         <input type="text" name="country" id="">
                     </div>
                     <div class="modal-input flex column items-start modal-input-box_01">
-                        <label for="">{{ trans('website.quality') }}</label>
-                        <input type="text" name="quality" id="">
+                        <label for="">{{ trans('website.quantity') }}</label>
+                        <input type="text" name="quantity" id="">
                     </div>
                     <div class="modal-input flex column items-start modal-textarea-box_01">
                         <label for=""class="required">{{ trans('website.message') }}</label>
