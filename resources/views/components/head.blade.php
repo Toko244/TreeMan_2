@@ -28,7 +28,7 @@
         <meta property="og:description" content="{{$section->translate(app()->getlocale())->desc}}"/>
     @else
         <title>TreeMan</title>
-        <meta property="og:description" content="TreeMan"/>
+        <meta property="og:description" content="{{$section->translate(app()->getlocale())->desc}}"/>
     @endif
 
 
