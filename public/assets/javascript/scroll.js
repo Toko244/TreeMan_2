@@ -218,13 +218,13 @@ ScrollReveal().reveal('.contact-form', {
     origin: 'top', 
     reset: false
 });
-ScrollReveal().reveal('.guideline', {
-    delay: 500,
-    duration: 600,
-    distance: '40px',
-    origin: 'right',
-    reset: false
-});
+// ScrollReveal().reveal('.guideline', {
+//     delay: 500,
+//     duration: 600,
+//     distance: '40px',
+//     origin: 'right',
+//     reset: false
+// });
 ScrollReveal().reveal('.testimonial ', {
     delay: 600,
     duration: 600,
