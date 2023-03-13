@@ -19,18 +19,17 @@
     <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/style/responsive.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
- 
-    @if(isset($section) && ($section != []))
-        <title>TreeMan - {{ $section->translate(app()->getlocale())->title }}</title>
-        <meta property="og:description" content="{{strip_tags(preg_replace('/\s+/', '', $section->translate(app()->getlocale())->desc)) }}"/> 
-        <meta property="description" content="{{strip_tags(preg_replace('/\s+/', '', $section->translate(app()->getlocale())->desc)) }}"/> 
-    @elseif(isset($post))
+
+    @if(isset($post))
         <title>TreeMan - {{ $post->translate(app()->getlocale())->title }}</title>
         <meta property="og:description" content="{{strip_tags(preg_replace('/\s+/', '', $post->translate(app()->getlocale())->desc)) }}"/>
         <meta property="description" content="{{strip_tags(preg_replace('/\s+/', '', $post->translate(app()->getlocale())->desc)) }}"/>
+    @elseif(isset($section) && ($section != []))
+        <title>TreeMan - {{ $section->translate(app()->getlocale())->title }}</title>
+        <meta property="og:description" content="{{strip_tags(preg_replace('/\s+/', '', $section->translate(app()->getlocale())->desc)) }}"/>
+        <meta property="description" content="{{strip_tags(preg_replace('/\s+/', '', $section->translate(app()->getlocale())->desc)) }}"/>
     @else
         <title>TreeMan</title>
-        <meta property="og:description" content="Test"/>
     @endif
 
 
