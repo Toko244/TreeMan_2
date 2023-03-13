@@ -1,3 +1,7 @@
+html{
+    opacity: 0;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -5,6 +9,7 @@ body{
 *{
     box-sizing: border-box;
 }
+
 
 
 header .header-scroll{
@@ -195,7 +200,22 @@ a:hover{
 .home-banner{
     height: 530px;
     margin-bottom: 50px;
+    animation: scrollAnime 0.7s ease;
 }
+
+@media(min-width: 993px){
+    @keyframes scrollAnime{
+        0%{
+            opacity: 0;
+            transform: scale(0.7);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
 .green-side-width{
     width: 55%;
 }
@@ -263,7 +283,8 @@ a:hover{
     border-radius: 8px;
     overflow: hidden;
 }
-.front-card-banner-multiple-color a{
+.front-card-banner-multiple-color a,
+.color-White--1{
     color: #fff;
 }
 .green-section{
@@ -297,9 +318,7 @@ a:hover{
 .slider-posts .see-all{
     margin-left: 34px;
 }
-.slider-posts .see-all a{
-    text-decoration: underline;
-}
+ 
 .slider-posts .see-all a:hover{
     color: var(--bs-green);
 }
@@ -1144,4 +1163,7 @@ a:hover{
 }
 .at-resp-share-element .at4-share-count-container{
     display: none!important;
+}
+.cursor-none{
+    pointer-events: none;
 }

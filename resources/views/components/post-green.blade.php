@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-lg-12 background-green">
                         <div class="title mb-4">
-                            <h3 class="white text-2xl bold">
+                            <h3 class="white text-2xl bold ka-font-nino">
                                 {{$section->translate(app()->getlocale())->title}}
                             </h3>
                         </div>

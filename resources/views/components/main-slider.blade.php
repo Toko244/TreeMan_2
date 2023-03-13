@@ -15,7 +15,7 @@
                                         {!! $component->translate(app()->getlocale())->desc !!}
                                     </div>
         
-                                    <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif" class="book-button-2 text-lg bold green background-white transition-duration" style="line-height: 32px;">
+                                    <a href="{{$component->translate(app()->getlocale())->redirect_link}}" @if($component->target_blank == 1) target="_blank" @endif" class="book-button-2 text-lg bold green background-white transition-duration  ka-font-nino" style="line-height: 32px;">
                                         {{ trans('website.book_meeting') }}
                                     </a>
                                 </div>
@@ -57,7 +57,7 @@
                 <div class="text text-xl white medium">
                     {!! $component->translate(app()->getlocale())->desc !!}
                 </div>
-                <a href="{{$component->translate(app()->getlocale())->redirect_link}}" class="book-button-2 text-lg bold green background-white transition-duration" style="line-height: 32px;">
+                <a href="{{$component->translate(app()->getlocale())->redirect_link}}" class="book-button-2 text-lg bold green background-white transition-duration ka-font-nino" style="line-height: 32px;">
                     {{ trans('website.book_meeting') }}
                 </a>
             </div>

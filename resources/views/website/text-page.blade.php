@@ -8,7 +8,7 @@
                         <div class="info flex items-start justify-center column h-full">
                             @if ($post->translation != '')
                                 <a href="javascript:void(0)"
-                                    class="title green text-xl bold relative">
+                                    class="title green text-2xl bold relative cursor-none">
                                     {{ $post->translate(app()->getlocale())->title }}
                                 </a>
                             @endif

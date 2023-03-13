@@ -116,7 +116,8 @@ html:lang(ka) .menu-item a,
 html:lang(ka) .menu-item .down-footer-info a,
 html:lang(ka) .semibold, 
 html:lang(ka) .ka-font-nino,
-html:lang(ka) .book-info .title{
+html:lang(ka) .book-info .title
+html:lang(ka) .title h3{
     font-family: 'BPGNinoMtavruli-Bold' !important;
 }
 
@@ -125,3 +126,4 @@ html:lang(ka) .text{
 }
  
  
+

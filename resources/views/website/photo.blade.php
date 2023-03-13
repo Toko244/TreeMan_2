@@ -321,7 +321,7 @@
                                     BOOK AN ONLINE APPOINTMENT
                                 </div>
 
-                                <a href="" class="book-button text-lg bold green background-white transition-duration" style="line-height: 32px;">
+                                <a href="" class="book-button text-lg bold green background-white transition-duration  ka-font-nino" style="line-height: 32px;">
                                     Book
                                 </a>
                             </div>

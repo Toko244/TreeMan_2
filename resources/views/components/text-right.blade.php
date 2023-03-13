@@ -10,7 +10,7 @@
                         {{ $component->translate(app()->getlocale())->title }}
                     </a>
                     @else
-                    <p class="title green text-xl bold relative">
+                    <p class="title green text-2xl bold relative">
                         {{ $component->translate(app()->getlocale())->title }}
                     </p>
                     @endif
