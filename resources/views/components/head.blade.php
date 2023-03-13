@@ -22,13 +22,13 @@
  
     @if(isset($section) && ($section != []))
         <title>TreeMan - {{ $section->translate(app()->getlocale())->title }}</title>
-        <meta property="og:description" content="{{$section->translate(app()->getlocale())->desc}}"/> 
+        <meta property="og:description" content="{!! $section->translate(app()->getlocale())->desc !!}"/> 
     @elseif(isset($post))
         <title>TreeMan - {{ $post->translate(app()->getlocale())->title }}</title>
-        <meta property="og:description" content="{{$section->translate(app()->getlocale())->desc}}"/>
+        <meta property="og:description" content="{!! $post->translate(app()->getlocale())->desc !!}"/>
     @else
         <title>TreeMan</title>
-        <meta property="og:description" content="{{$section->translate(app()->getlocale())->desc}}"/>
+        <meta property="og:description" content="Test"/>
     @endif
 
 
