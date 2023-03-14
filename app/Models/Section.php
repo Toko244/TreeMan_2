@@ -257,7 +257,8 @@ private static function _componentrearrangerearrange($array, $count, $parent = n
             $slugs[$value->locale] = $value->slug;
           }
 
-          $parent = $this->parent;
+          // $parent = $this->parent;
+          $parent = '';
         }
 
         else {
@@ -267,7 +268,8 @@ private static function _componentrearrangerearrange($array, $count, $parent = n
             $slugs[$value->locale] = $value->slug . '/' . $slugs[$value->locale];
           }
 
-          $parent = $parent->parent;
+          // $parent = $parent->parent;
+          $parent = '';
         }
 
         if($parent == null) {
