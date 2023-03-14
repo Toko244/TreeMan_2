@@ -1,3 +1,24 @@
+ 
+$(document).ready(function(){ 
+  $(".scroll_data_id").on('click', function(event) {
+    let itemId = $(this).attr('data-id'); 
+    let headerHeight = $('header').height(); 
+    $('html, body').animate({
+      scrollTop: $(`#${itemId}`).offset().top - headerHeight
+  }, 200);
+  });
+});
+
+
+$('.modal-input-box_01 input, .modal-textarea-box_01 textarea').keyup(function(){
+  if($(this).val().length > 0){
+    $(this).prev().addClass('hidden-validate');
+  }else{
+    $(this).prev().removeClass('hidden-validate');
+  }
+}) 
+ 
+
 $(window).scroll(function(){
   if ($(this).scrollTop() > 800) {
      $('#guideline').addClass('guid-on');
@@ -20,22 +41,21 @@ setTimeout(function() {
   $('.contact-alert-message').addClass('none');
 }, 3000);
 
-var a = 0;
-$(window).scroll(function() {
 
+var a = 0; 
+$(window).scroll(function() {
   var oTop = $('#counter').offset().top - window.innerHeight;
   if (a == 0 && $(window).scrollTop() > oTop) {
     $('.counter-value').each(function() {
       var $this = $(this),
         countTo = $this.attr('data-count');
+        console.log(countTo)
       $({
         countNum: $this.text()
       }).animate({
           countNum: countTo
-        },
-
-        {
-
+        }, 
+        { 
           duration: 2000,
           easing: 'swing',
           step: function() {
@@ -49,11 +69,11 @@ $(window).scroll(function() {
         });
     });
     a = 1;
-  }
-
+  } 
 });
 
 
+ 
 $('.home-slider').slick({
   dots: false,
   arrows:false,
@@ -258,10 +278,7 @@ $( ".icon-right-arrow" ).click(function() {
   $(this).parent().toggleClass( "sub-open" );
 });
 });
-
-$( ".fixed-guidline" ).mouseleave(function() {
-  console.log('active remove');
-});
+ 
 
  
 
@@ -273,10 +290,13 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-modal.style.display = "block";
+// When the user clicks the button, open the modal  
+if(btn !== null){
+  btn.onclick = function() { 
+    modal.style.display = "block";
+    }
 }
+ 
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

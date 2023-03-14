@@ -28,7 +28,8 @@
                             </div>
                         </div>
                     </div>
-                    @if ($post->thumb != '')
+                    
+                    @if (isset($post->files) && count($post->files) > 0)
                         <div class="col-lg-6">
                             <div class="relative" style="border-radius: 12px; overflow: hidden;">
                                 <div class="text-section-slider">
@@ -38,7 +39,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-
+                                @if(count($post->files) > 1)
                                 <div class="text-slider-arrows w-full flex items-center justify-end absolute bottom-0">
                                     <div class="prev text-prev background-green">
                                         <svg width="34" height="20" viewBox="0 0 34 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,6 +53,7 @@
                                         </svg>
                                     </div>
                                 </div>
+                                @endif
 
                             </div>
                         </div>
@@ -71,7 +73,7 @@
                                 @if(isset($item->additional['scroll_content']) && $item->additional['scroll_content'] == 1)
                                 <div class="list-bullet relative flex items-center">
                                     <div class="circle"></div>
-                                    <a href="#{{ $item->id }}" class="semibold white">
+                                    <a class="semibold white scroll_data_id" data-id="{{ $item->id }}"   >
                                         {{ $item->title }}
                                     </a>
                                 </div>
@@ -105,7 +107,7 @@
                         @if(isset($item->additional['scroll_content']) && $item->additional['scroll_content'] == 1)
                             <div class="flex items-center mb-3">
                                 <div class="circle"></div>
-                                <a href="#{{ $item->id }}" class="semibold white text-xl">
+                                <a class="semibold white scroll_data_id" data-id="{{ $item->id }}"   >
                                     {{ $item->title }}
                                 </a>
                             </div>

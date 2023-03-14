@@ -20,27 +20,27 @@ if($(window).width() >= 992){
 //     reset: false
 // });
 ScrollReveal().reveal('header .header-scroll', {
-    delay: 250,
+    delay: 450,
     duration: 600,
     distance: '50px', 
     origin: 'top',
     reset: false
 });
 ScrollReveal().reveal('.green-section .video', {
-    delay: 300,
+    delay: 400,
     duration: 600,
     distance: '0', 
     reset: false
 });
 ScrollReveal().reveal('.footer', {
-    delay: 250,
+    delay: 450,
     duration: 600,
-    distance: '20px', 
+    distance: '70px', 
     origin: 'top',
     reset: false
 });
 ScrollReveal().reveal('.book-section', {
-    delay: 250,
+    delay: 550,
     duration: 600,
     distance: '400px',
     origin: 'left',
@@ -73,21 +73,21 @@ ScrollReveal().reveal('.book-section', {
 //     reset: false
 // });
 ScrollReveal().reveal('.text-top .title', {
-    delay: 100,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.text-top .text', {
-    delay: 200,
+    delay: 400,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.text-top .image', {
-    delay: 200,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'right',
@@ -101,28 +101,28 @@ ScrollReveal().reveal('.post-row-slider', {
     reset: false
 });
 ScrollReveal().reveal('.subscribe-section', {
-    delay: 200,
+    delay: 400,
     duration: 600,
     distance: '400px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.reverce .title', {
-    delay: 100,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.reverce .text', {
-    delay: 200,
+    delay: 400,
     duration: 600,
     distance: '400px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.reverce .image', {
-    delay: 200,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'left',
@@ -130,76 +130,84 @@ ScrollReveal().reveal('.reverce .image', {
 }); 
 
 ScrollReveal().reveal('.text-left .title', {
-    delay: 100,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.text-left .text', {
-    delay: 200,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.text-left .image', {
-    delay: 200,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.front-card-banner .green', {
-    delay: 100,
+    delay: 500,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.front-card-banner .col-lg-4', {
-    delay: 200,
+    delay: 400,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.post-slider', {
-    delay: 00,
+    delay: 300,
     duration: 600,
     distance: '800px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.green-section .title', {
-    delay: 100,
+    delay: 200,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.green-section .text', {
-    delay: 200,
+    delay: 300,
     duration: 600,
     distance: '400px',
     origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.green-section .image', {
-    delay: 200,
+    delay: 400,
     duration: 600,
-    distance: '400px',
+    distance: '800px',
+    origin: 'right',
+    reset: false
+});
+ScrollReveal().reveal('.green-section .video', {
+    delay: 400,
+    duration: 600,
+    distance: '800px',
     origin: 'right',
     reset: false
 });
 ScrollReveal().reveal('.contact-cover', {
-    delay: 300,
-    duration: 600,
-    distance: '0', 
+    delay: 400,
+    duration: 700,
+    distance: '400px', 
+    origin: 'left',
     reset: false
 });
 ScrollReveal().reveal('.contact-image', {
-    delay: 500,
+    delay: 700,
     duration: 600,
     distance: '400px',
     origin: 'right',
@@ -208,13 +216,14 @@ ScrollReveal().reveal('.contact-image', {
 ScrollReveal().reveal('.text_section ', {
     delay: 500,
     duration: 600,
-    distance: '0', 
+    distance: '50px',
+    origin: 'bottom', 
     reset: false
 });
 ScrollReveal().reveal('.contact-form', {
     delay: 600,
     duration: 600,
-    distance: '5px',
+    distance: '50px',
     origin: 'top', 
     reset: false
 });
@@ -228,7 +237,8 @@ ScrollReveal().reveal('.contact-form', {
 ScrollReveal().reveal('.testimonial ', {
     delay: 600,
     duration: 600,
-    distance: '0', 
+    distance: '100px', 
+    origin: 'top',
     reset: false
 });
 ScrollReveal().reveal('.count-section ', {

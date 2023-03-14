@@ -2,7 +2,8 @@
 <x-head :section="$section"></x-head>
 <x-header  :languageSlugs="$language_slugs"></x-header>
 
-<body>
+<body class="{{ isset($home) ? 'homepage_0100' : '' }}">
+
     @yield('master')
 
     

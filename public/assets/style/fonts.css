@@ -125,5 +125,8 @@ html:lang(ka) .text{
     font-family: 'BPGDejaVuSans' !important;
 }
  
- 
+html:lang(ka) .book-text-01{
+    font-size: 16px;
+    margin-right: 2rem;
+}
 

@@ -23,6 +23,9 @@
 /*----------------------------- 1400px-----------------------------------*/
 
 @media (max-width: 1400px) {
+    html{
+        overflow-x: hidden;
+    }
     .photo-gallery .photo {
         height: 210px;
     }
@@ -254,6 +257,12 @@
     body::-webkit-scrollbar{
         display: none;
     }
+    .homepage_0100 header{
+        margin: 0;
+    }
+    .homepage_0100 .header-margin{
+        height: 119px;
+    }
 }
 
 /*--------------------------------- 768px -------------------------------*/
@@ -381,6 +390,12 @@
     .subscribe-logo{
         display: none;
     }
+    .homepage_0100 header{
+        margin: 0;
+    }
+    .homepage_0100 .header-margin{
+        height: 119px;
+    }
 }
 
 /*--------------------------------- 576px -------------------------------*/
@@ -421,7 +436,7 @@
         margin-top: 0;
     }
     .green-section .video.w-full.relative.hidden{
-        margin-bottom: 35px;
+        margin-bottom: 0;
         margin-top: 25px;
     }
     .section-padding{
@@ -647,7 +662,35 @@
         gap: 30px;
         margin-top: 20px;
     }
-      
+    .text-slider-arrows .background-green{
+        width: 55px;
+        height: 45px;
+    }
+    .text-slider-arrows .background-green svg{
+        width: 28px;
+    }
+    .text-block .logo{
+        margin-right: 1.25rem;
+    }
+    .text-block .logo img{
+        width: 36px;
+    }
+    .post-row-slider .post {
+        height: 220px;
+    }
+    .modal-content textarea{
+        height: 80px;
+    }
+    .modal-input-box_01 label,  
+    .modal-textarea-box_01 label{
+        font-size: 14px;
+    }
+    .homepage_0100 header{
+        margin: 0;
+    }
+    .homepage_0100 .header-margin{
+        height: 125px;
+    }
 }
 
 /*--------------------------------- 440px -------------------------------*/
