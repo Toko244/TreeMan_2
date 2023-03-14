@@ -14,7 +14,7 @@
 
                 <div class="content">
                     <div class="tab flex items-center justify-center wrap">
-                        <button class="tablinks bold text-xl active" onclick="openCity(event, 'London')">All</button>
+                        <button class="tablinks bold text-xl active" onclick="openCity(event, 'London')">{{ trans('website.all') }}</button>
                         @if (count($section->posts) > 0)
                             @foreach ($section->posts as $key => $post)
                                 <button class="tablinks bold text-xl"
