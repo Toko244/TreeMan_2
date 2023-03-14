@@ -90,7 +90,8 @@ a:hover{
 .menu-point:hover{
     color: var(--bs-green);
 }
-.menu-point:hover::before{
+.menu-point:hover::before,
+.active-local::before{
     width: 100%;
 }
 .footer-info a{
@@ -104,7 +105,7 @@ a:hover{
     padding: 55px 0;
 }
 .book-button{
-    padding: 10px 46px;
+    padding: 10px 35px;
     border: 1px solid var(--bs-green);
     border-radius: 5px;
     white-space: nowrap;
@@ -212,6 +213,26 @@ a:hover{
         100%{
             opacity: 1;
             transform: scale(1);
+        }
+    }
+    @keyframes animeGreenList{
+        0%{
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @keyframes bannerAnime{
+        0%{
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }
@@ -346,6 +367,7 @@ a:hover{
   .content .tab button.active {
     color: #006838;
     text-decoration: underline;
+    pointer-events: none;
   }
   
   /* Style the tab content */
@@ -716,7 +738,7 @@ a:hover{
 .modal-content textarea{
     font-family: 'LibreFranklin-Medium'; 
     width: 364px;
-    height: 120px;
+    height: 100px;
     border: 1px solid #fff;
 }
 .modal-content textarea:focus{
@@ -820,6 +842,7 @@ a:hover{
     padding: 50px 70px 20px 70px;
     border-radius: 12px;
     background: #3F9752;
+    animation: animeGreenList 1.2s ease;
 }
 .guideline .list{
     font-size: 22px;
@@ -851,9 +874,10 @@ a:hover{
     z-index: 999;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-    top: 100px;
+    top: 0;
     left: -600px;
     transition-duration: 0.3s;
+    height: 100vh;
 }
 .fixed-guidline.active{
     left: 0;
@@ -867,7 +891,7 @@ a:hover{
     -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
     border-radius: 12px;
     overflow-y: scroll;
-    height: 800px;
+    height: 100%;
 }
 .fixed-guidline-list::-webkit-scrollbar {
     background-color: #3F9752;
@@ -1105,22 +1129,41 @@ a:hover{
     display: flex;
     flex-direction: column;
     width: calc((100%/2) - 17px);
+    position: relative;
 }
 .modal-textarea-box_01{
     width: 100%;
+    position: relative;
 }
 .modal-button-box_01{ 
     margin-top: 0;
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: end; 
 }
 .modal-input-box_01 input,
 .modal-textarea-box_01 textarea{
     width: 100%;
 }
+.modal-input-box_01 label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 16px;
+}
+.modal-textarea-box_01 label{
+    position: absolute;  
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+}
+.modal-input-box_01
 .resp-height-initial{
     height: fit-content;
+}
+.hidden-validate{
+    display: none;
 }
  .header-short .menu-point::before{
     top: -39px;
@@ -1164,6 +1207,19 @@ a:hover{
 .at-resp-share-element .at4-share-count-container{
     display: none!important;
 }
+#at15s .at-label{
+    color: #000!important;
+}
 .cursor-none{
     pointer-events: none;
 }
+.scroll_data_id{
+    cursor: pointer;
+}
+.homepage_0100 header{
+    margin: 0;
+}
+.homepage_0100 .header-margin{
+    height: 192px;
+}
+

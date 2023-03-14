@@ -1,4 +1,4 @@
-@extends('website.master')
+@extends('website.master', ['home' => true])
 @section('master')
        @if(isset($section) && count($section->components()) > 0)
        @foreach ($section->components() as $key => $item)

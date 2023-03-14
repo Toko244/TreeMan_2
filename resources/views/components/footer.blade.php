@@ -57,7 +57,7 @@
 
                 <div class="col-xxl-4 col-xl-4 col-lg-5">
                     <div class="footer-book flex items-center justify-end h-full">
-                        <div class="text-lg bold white mr-3">
+                        <div class="text-lg bold white mr-3 book-text-01">
                             {{trans('website.book_an_online_appointment')}}
                         </div>
 
