@@ -366,10 +366,12 @@ a:hover{
   /* Create an active/current tablink class */
   .content .tab button.active {
     color: #006838;
-    text-decoration: underline;
+    text-decoration: none;
     pointer-events: none;
   }
-  
+  .content .tab button:hover{
+    color: #006838;
+  }
   /* Style the tab content */
   .tabcontent {
     display: none;
