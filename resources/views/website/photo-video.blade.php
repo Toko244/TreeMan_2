@@ -5,7 +5,7 @@
         <div class="photo-gallery section-pad">
             <div class="container">
                 <div class="list-section-title flex items-center justify-start mb-1">
-                    <h1 class="lemon-medium green" style="font-size: 26px; line-height: 35px;">{{ $section->title }}</h1>
+                    <h1 class="lemon-medium green ka-font-nino" style="font-size: 26px; line-height: 35px;">{{ $section->title }}</h1>
                 </div>
 
                 <div class="text text-xl medium">
