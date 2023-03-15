@@ -16,11 +16,11 @@
                             
                         @if($component->translate(app()->getlocale())->redirect_link != '')
                             <a href="{{ $component->translate(app()->getlocale())->redirect_link }}"
-                                @if ($component->target_blank == 1) target="_blank" @endif
+                            @if ($component->target_blank == 1) target="_blank" @endif
                                 class="black transition-duration">
-                                @else
+                        @else
                                 <a href="javascript:void(0)"
-                                    class="black transition-duration">
+                                    class="black transition-duration cursor-none">
                                 @endif
                                 <div class="image w-full flex items-center justify-center">
                                     <img src="/uploads/files/{{ $component->image }}" alt=""

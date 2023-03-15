@@ -427,7 +427,7 @@ a:hover{
 }
 .required::after{
     content: '*';
-    color: #7A7979;
+    color: #B8B8B8;
 }
 .textarea textarea{
     height: 177px;
@@ -732,7 +732,7 @@ a:hover{
 .modal-content label{
     font-family: 'LibreFranklin-SemiBold';
     font-size: 18px;
-    color: #656C69;
+    color: #B8B8B8;
     margin-bottom: 16px; 
 }
 .modal-content textarea{
