@@ -122,7 +122,7 @@
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
                         @foreach ($sections as $section)
-                            <div class="menu-item h-full flex items-center justify-center mr-4 relative">
+                            <div class="menu-item h-full flex items-center justify-center mr-4 relative margin-right-nav">
                                 <a href="/{{ $section->getFullSlug() }}" class="medium green text-lg menu-point relative @if($language_slugs[app()->getLocale()] == $section->getFullSlug()) active-local @endif">
                                     {{ $section->title }}
                                 </a>

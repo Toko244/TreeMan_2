@@ -1,7 +1,7 @@
 @if(isset($section) && isset($components) && count($components) > 0)  
     <div class="front-card-banner-multiple-color section-padding">
         <div class="container">
-            <div class="green text-2xl bold  mb-3">
+            <div class="title green text-2xl bold  mb-3">
                 {{$section->translate(app()->getlocale())->title}}
             </div>
             <div class="row row-resp-slider">
