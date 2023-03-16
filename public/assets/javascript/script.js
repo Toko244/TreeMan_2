@@ -271,15 +271,25 @@ $(document).ready(function(){
 
   $( "#nav-icon3" ).click(function() {
       $( ".burgermenu" ).toggleClass( "open" );
+      
+      if($('.burgermenu').hasClass('open')){
+         $('.fixed-guidline .guidline-icon').css('display', 'none');
+      }else{
+        $('.fixed-guidline .guidline-icon').css('display', 'flex');
+      }
     });
 
-    
+  
 $( ".icon-right-arrow" ).click(function() {
   $(this).parent().toggleClass( "sub-open" );
 });
 });
  
 
+$('.fancybox-button').on('click', (event) => {
+  console.log('click-fancy-box-close')
+})
+ 
  
 
 var modal = document.getElementById("myModal");
@@ -299,9 +309,11 @@ if(btn !== null){
  
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-modal.style.display = "none";
-}
+ if(span){
+  span.onclick = function() {
+    modal.style.display = "none";
+    }
+ }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

@@ -9,7 +9,7 @@ body{
 *{
     box-sizing: border-box;
 }
-
+ 
 
 
 header .header-scroll{
@@ -589,7 +589,7 @@ a:hover{
   
   }
 .burgermenu{
-    width: 100%;
+    width: 0;
     height: 100%;
     position: fixed;
     background-color: #3F9752;
@@ -597,9 +597,12 @@ a:hover{
     top: 116px;
     right: -100%;
     transition-duration: 0.5s;
+    padding-bottom: 170px;
+    overflow-y: auto;
 }
 .burgermenu.open{
     right: 0;
+    width: 100%;
 }
 .burgermenu input{
     height: 50px;
@@ -1226,4 +1229,7 @@ a:hover{
 }
 .margin-right-nav{
     margin-right: 3rem;
+}
+.fancybox__thumbs{
+    display: none!important;
 }
