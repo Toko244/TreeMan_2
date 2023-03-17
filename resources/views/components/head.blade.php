@@ -36,4 +36,13 @@
     <meta property="og:url" content="{{url()->current()}}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="{{URL::to('/')}}/assets/img/header-logo.png">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XEFS5VWDDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XEFS5VWDDB');
+</script>
 
