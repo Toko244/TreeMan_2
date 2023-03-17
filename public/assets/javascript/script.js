@@ -10,6 +10,12 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+  $('.mg-b_01 .arrow-icon-burger').on('click', function() { 
+    $(this).parents('.resp-burger-links-div').toggleClass('active-burger').siblings().removeClass('active-burger');
+  });
+})
+
 $('.modal-input-box_01 input, .modal-textarea-box_01 textarea').keyup(function(){
   if($(this).val().length > 0){
     $(this).prev().addClass('hidden-validate');
