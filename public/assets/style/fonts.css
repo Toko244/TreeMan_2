@@ -121,7 +121,8 @@ html:lang(ka) .title h3{
     font-family: 'BPGNinoMtavruli-Bold' !important;
 }
 
-html:lang(ka) .text{
+html:lang(ka) .text,
+html:lang(ka)  .burger-submenu a{
     font-family: 'BPGDejaVuSans' !important;
 }
  

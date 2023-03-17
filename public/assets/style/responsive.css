@@ -21,6 +21,9 @@
     .margin-right-nav{
         margin-right: 2rem;
     }
+    .fixed-guidline-list{
+        padding-left: 23%;
+    }
 }
 
 /*----------------------------- 1400px-----------------------------------*/
@@ -68,6 +71,9 @@
     }
     .fixed-guidline .guidline-icon{
         display: flex;
+    }
+    .fixed-guidline-list{
+        padding-left: 20%;
     }
 }
 
@@ -170,6 +176,9 @@
     }
     html:lang(ka) a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration {
         padding: 10px 12px; 
+    }
+    .fixed-guidline-list{
+        padding-left: 10%;
     }
 }
 
@@ -284,6 +293,53 @@
     }
     .burger-social {
         margin-top: 30px;
+    }
+    .mg-b_01{ 
+        margin-bottom: 0px!important;
+        align-items: center;
+        gap: 30px;
+        transition: 0.3s;
+        position: relative;
+    }
+    /* .active-burger .mg-b_01{
+        margin-bottom: 20px!important;
+    } */
+    .mg-b_01 .arrow-icon-burger{
+        margin-top: -2px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        position: absolute;
+        right: -55px;
+    }
+    .mg-b_01 .arrow-icon-burger svg{
+        transform: rotate(180deg);
+        transition: 0.3s;
+    } 
+    .active-burger .arrow-icon-burger svg{
+        transform: rotate(0);
+    }
+    .burger-submenu{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    .burger-submenu a{
+        font-size: 16px;
+        color: #fff;
+        font-weight: 400;
+        font-family: 'LibreFranklin-Medium';
+        margin-top: 15px;
+    } 
+    .resp-burger-links-div{
+        margin-bottom: 30px;
+    }
+    .active-burger .burger-submenu{
+        max-height: 500px;
+        overflow: visible; 
     }
 }
 
@@ -417,6 +473,9 @@
     }
     .homepage_0100 .header-margin{
         height: 119px;
+    }
+    .subscribe-form form{
+        width: 100%;
     }
 }
 
