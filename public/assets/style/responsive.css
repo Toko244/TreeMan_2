@@ -18,6 +18,9 @@
         top: 15px;
         left: 30px;
     }
+    .margin-right-nav{
+        margin-right: 2rem;
+    }
 }
 
 /*----------------------------- 1400px-----------------------------------*/
@@ -62,6 +65,9 @@
     }
     .header-short .menu-point::before {
         top: -39px;
+    }
+    .fixed-guidline .guidline-icon{
+        display: flex;
     }
 }
 
@@ -156,6 +162,15 @@
     .response-delete-cover{
         object-fit: initial;
     }
+    html:lang(ka) .menu-item.h-full.flex.items-center.mr-4.relative {
+        margin-right: 20px;
+    }
+    html:lang(ka) .menu-item a.medium.green.text-lg.menu-point.relative {
+        font-size: 14px;
+    }
+    html:lang(ka) a.bold.background-green.pt-1.pl-2.pb-1.pr-2.white.transition-duration {
+        padding: 10px 12px; 
+    }
 }
 
 /*------------------------------- 992px ---------------------------------*/
@@ -165,7 +180,7 @@
         bottom: 20px;
     }
     .header-margin {
-        height: 160px;
+        height: 120px;
     }
     .fixed-guidline-list{
         padding-left: 100px;
@@ -204,6 +219,7 @@
     .text_section .image{
         margin-left: 0;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
     .reverce .text, .reverce .title{
         padding: 0;
@@ -262,6 +278,12 @@
     }
     .homepage_0100 .header-margin{
         height: 119px;
+    }
+    .burger-menu .flex.items-center.justify-center {
+        margin-bottom: 30px;
+    }
+    .burger-social {
+        margin-top: 30px;
     }
 }
 
@@ -605,8 +627,8 @@
         padding: 20px 40px;
     }
     .fixed-guidline{
-        width: 330px;
-        left: -330px;
+        width: 305px;
+        left: -305px;
     }
     .fixed-guidline-list {
         padding-left: 40px;
