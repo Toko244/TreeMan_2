@@ -1,5 +1,5 @@
 @if(isset($component))
-    <div class="section-padding">
+    <div class="section-padding s-p_01">
         <div class="book-section w-full relative flex items-center justify-start hidden">
             <div class="container h-full">
                 <div class="row h-full">
