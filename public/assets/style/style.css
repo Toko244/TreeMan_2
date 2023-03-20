@@ -1233,3 +1233,7 @@ a:hover{
 .fancybox__thumbs{
     display: none!important;
 }
+
+.green{
+    color: var(--bs-green);
+}
