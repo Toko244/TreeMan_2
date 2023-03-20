@@ -61,53 +61,7 @@
                     </a>
                 </li>
 
-
-                {{-- <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-view-dashboard"></i>
-                        <span> {{ trans('admin.banners') }} </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        @foreach (bannerTypes() as $key => $bannerType)
-                        <li><a href="{{ route('banner.list', [app()->getLocale(), $bannerType['id']]) }}">{{ trans('bannerTypes.'.$bannerType['name']) }}</a></li>
-                        @endforeach
-
-                    </ul>
-                </li> --}}
-{{--
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-view-dashboard"></i>
-                        <span> {{ trans('admin.banners') }} </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        @foreach (bannerTypesOrdered() as $key => $bannerType)
-                        <li><a href="{{ route('banner.list', [app()->getLocale(), $bannerType['id']]) }}">{{ trans('bannerTypes.'.$bannerType['name']) }}</a></li>
-                        @endforeach
-
-                    </ul>
-                </li>
-				 --}}
-
                 @if (auth()->user()->isType('admin'))
-					@if (!empty(directoryTypes()))
-						<li>
-							<a href="javascript: void(0);">
-								<i class="mdi mdi-wrap-disabled"></i>
-								<span> {{ trans('admin.directories') }} </span>
-								<span class="menu-arrow"></span>
-							</a>
-
-							<ul class="nav-second-level" aria-expanded="false">
-								@foreach (directoryTypes() as $key => $directoryType)
-								<li><a href="{{ route('directory.list', [app()->getLocale(), $key]) }}">{{ trans('directoryTypes.'.$directoryType) }}</a></li>
-								@endforeach
-
-							</ul>
-						</li>
-					@endif
                 <li>
                     <a href="/{{ app()->getLocale() }}/admin/languages/edit">
                         <i class="fas fa-language"></i>
@@ -132,6 +86,8 @@
                         <span> {{ trans('admin.users') }} </span>
                     </a>
                 </li>
+                @endif
+                @if (auth()->user()->isType('admin'))
                 <li>
                     <a  href="/{{ app()->getLocale() }}/admin/subscribers">
                         <i class="mdi mdi-account-multiple-outline noti-icon pos-rel">
@@ -143,27 +99,6 @@
                         <span > {{ trans('admin.subscribers') }} </span>
                     </a>
                 </li>
-  {{--
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/mailers">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.mailers') }} </span>
-                    </a>
-                </li> --}}
-{{--
-                <li>
-                    <a href="/{{ app()->getLocale() }}/attandance">
-                        <i class="dripicons-user"></i>
-                        <span> {{ trans('admin.attandance') }} </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/{{ app()->getLocale() }}/employes">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.employes') }} </span>
-                    </a>
-                </li> --}}
 
                 @endif
 

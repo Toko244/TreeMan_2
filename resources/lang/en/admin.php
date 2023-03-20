@@ -111,7 +111,7 @@ return [
     'projects' => 'Projects',
     'add' => 'Add File',
     'visit' => 'Visit Website',
-    'new_contact_form' => 'New Submission From Contact Page',
+    'new_contact_form' => 'New Submission',
     'administrator_login' => 'Administrator Login',
     'login' => 'Login',
     'component' => 'Component',
