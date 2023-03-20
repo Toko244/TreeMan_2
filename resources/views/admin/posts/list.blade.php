@@ -6,7 +6,7 @@
             <h3>{{ $section->title }}</h3>
             <a  href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/create" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_post') }}</a>
 
-            <table id="datatable" class="table table-bordered dt-responsive nowrap">
+            <table id="datatable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th></th>
