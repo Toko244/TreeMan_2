@@ -28,15 +28,21 @@
                             </div>
                         </div>
                     </div>
-                    
                     @if (isset($post->files) && count($post->files) > 0)
                         <div class="col-lg-6">
                             <div class="relative" style="border-radius: 12px; overflow: hidden;">
                                 <div class="text-section-slider">
+                                    @if(isset($post->thumb))
+                                    <div class="image flex items-center justify-center hidden relative">
+                                        <img src="/uploads/img/{{  $post->thumb }}" alt="{{  $post->thumb }}" class="w-full h-full cover">
+                                    </div>
+                                    @endif
                                     @foreach($post->files as $file)
+                                    @if($file->file != $post->thumb)
                                         <div class="image flex items-center justify-center hidden relative">
                                             <img src="/uploads/img/{{ $file->file }}" alt="{{ $post->title }}" class="w-full h-full cover">
                                         </div>
+                                        @endif
                                     @endforeach
                                 </div>
                                 @if(count($post->files) > 1)

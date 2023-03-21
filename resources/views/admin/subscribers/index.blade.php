@@ -8,7 +8,7 @@
     <div class="col-12">
         <div class="card-box">
 
-            <table id="datatable" class="table table-bordered dt-responsive nowrap">
+            <table id="datatable" class="table table-bordered nowrap">
                 <thead>
                     <tr>
                         <th>{{ trans('admin.email') }}</th>
@@ -17,10 +17,9 @@
                 <tbody>
                     @foreach ($subscribers as $subscriber)
                         <tr>
-                            <td class="list-group-item">
-                                <a href="mailto:{{ $subscriber->email}}" target="blank" style="color: #414141">{{ $subscriber->email }}</a>
-                                <a href="/{{ app()->getLocale() }}/admin/subscribers/delete/{{$subscriber->id}}" onclick="return confirm('დარწმნებლი ხართ რომ გსურთ გამომწერის წაშლა ?');" type="button" class="btn btn-danger" style="float: right">{{trans('admin.delete')}}</a>
-                            </td>
+                            <th> <a href="mailto:{{ $subscriber->email}}" target="blank" style="color: #414141">{{ $subscriber->email }}</a></th>
+                            <th>{{ $subscriber->created_at }}</th>
+                            <th> <a href="/{{ app()->getLocale() }}/admin/subscribers/delete/{{$subscriber->id}}" onclick="return confirm('დარწმნებლი ხართ რომ გსურთ გამომწერის წაშლა ?');" type="button" class="btn btn-danger" style="float: right">{{trans('admin.delete')}}</a></th>
                         </tr>
                     @endforeach
                 </tbody>

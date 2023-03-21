@@ -87,20 +87,13 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->isType('admin'))
                 <li>
                     <a  href="/{{ app()->getLocale() }}/admin/subscribers">
                         <i class="mdi mdi-account-multiple-outline noti-icon pos-rel">
-                            @if ($unseenSubscribers > 0 )
-                            <span class="badge badge-danger rounded-circle noti-icon-badge sidebar-badge">{{ $unseenSubscribers }}</span>
-
-                            @endif
                         </i>
                         <span > {{ trans('admin.subscribers') }} </span>
                     </a>
                 </li>
-
-                @endif
 
 
 

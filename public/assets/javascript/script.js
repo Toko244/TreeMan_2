@@ -85,6 +85,7 @@ $('.home-slider').slick({
   arrows:false,
   infinite: true,
   autoplay:true,
+  speed: 1000,
 });
 $('.text-section-slider').slick({
   dots: false,
@@ -102,7 +103,8 @@ $('.image-slider').slick({
   infinite: true,
   speed: 500,
   fade: true,
-  cssEase: 'linear'
+  cssEase: 'linear',
+  autoplay:true,
 });
 $('.testimonial-slider').slick({
 dots: false,

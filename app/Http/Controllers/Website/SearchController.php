@@ -12,11 +12,14 @@ class SearchController extends Controller
 {
 	public static function index(Request $request)
 	{
-
-		$language_slugs['en'] = 'en/search';
-		$language_slugs['ka'] = 'ka/search';
-		$language_slugs['tr'] = 'tr/search';
+		$language_slugs['en'] = '/en/search?que';
+		$language_slugs['ka'] = '/ka/search?que';
+		$language_slugs['tr'] = '/tr/search?que';
 if($request->que != ''){
+	
+	$language_slugs['en'] = '/en/search?que='.$request->que;
+	$language_slugs['ka'] = '/ka/search?que='.$request->que;
+	$language_slugs['tr'] = '/tr/search?que='.$request->que;
 	$searchText = $request->que;
 
 	$posts = Post::whereNotNull('section_id')->whereHas('translations', function ($q) use ($searchText) {
@@ -26,21 +29,32 @@ if($request->que != ''){
 			->orWhere('text', 'like', '%' . strtolower($searchText) . '%')
 			->orWhere('keywords', 'like', '%' . strtolower($searchText) . '%')
 			->orWhere('locale_additional', 'like', '%' . strtolower($searchText) . '%');
-	})->whereHas('parent', function ($q) {
-		$q->where('is_component', '!=', 1);
 	})->with('parent')->with('translation')->get();
 	$data = [];
 	foreach ($posts as $post) {
-		$data[] = [
-			'slug' => $post->parent->translate(app()->getLocale())->slug,
-			'title' => $post->translate(app()->getLocale())->title,
-			'desc' => str_limit(strip_tags($post->translate(app()->getLocale())->desc)),
-			'section' => $post->parent->translate(app()->getLocale())->title,
-		];
+		if($post->parent->is_component == 1){
+			$data[] = [
+				'slug' => $post->parent->parent->translate(app()->getLocale())->slug,
+				'title' => $post->translate(app()->getLocale())->title,
+				'desc' => str_limit(strip_tags($post->translate(app()->getLocale())->desc)),
+				'section' => $post->parent->parent->translate(app()->getLocale())->title,
+			];
+		}else{
+			
+			$data[] = [
+				'slug' => $post->parent->translate(app()->getLocale())->slug,
+				'title' => $post->translate(app()->getLocale())->title,
+				'desc' => str_limit(strip_tags($post->translate(app()->getLocale())->desc)),
+				'section' => $post->parent->translate(app()->getLocale())->title,
+			];
+		}
 	}
 	$section = [];
 	return view('website.pages.search.index', compact('posts', 'section','searchText', 'data', 'language_slugs'));
 }else{
+	$language_slugs['en'] = '/en/search?que=';
+	$language_slugs['ka'] = '/ka/search?que=';
+	$language_slugs['tr'] = '/tr/search?que=';
 	$posts = [];
 	$data = [];
 	$section = [];

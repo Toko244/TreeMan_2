@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <table id="datatable" class="table table-bordered dt-responsive nowrap">
+            <table id="datatable" class="table table-bordered nowrap">
                 <thead>
                     <tr>
                         <th>#</th>
