@@ -8,7 +8,7 @@ use App\Http\Controllers\Website\SearchController;
 
 Route::post('/submission', [PagesController::class, 'submission'])->name('submission');
 Route::post('/subscribe', [PagesController::class, 'subscribe'])->name('subscribe');
-Route::post('/search', [SearchController::class, 'index'])->name('search');
+Route::any('/search', [SearchController::class, 'index'])->name('search');
 Route::any('/', [HomePageController::class, 'homePage']);
 Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');
 
@@ -19,9 +19,9 @@ Route::get('/front', function(){
 Route::get('/photo', function(){
     return view('website.photo');
 });
-Route::get('/search', function(){
-    return view('website.search');
-});
+// Route::get('/search', function(){
+//     return view('website.search');
+// });
 Route::get('/contact', function(){
     return view('website.contact');
 });

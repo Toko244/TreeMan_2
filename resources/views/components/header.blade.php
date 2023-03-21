@@ -62,8 +62,7 @@
                 </div>
 
                 <div class="lang-search flex items-center">
-                    <form action="{{ route('search', app()->getLocale()) }}" method="POST" style="margin: 0">
-                        @csrf
+                    <form action="{{ route('search', app()->getLocale()) }}" method="GET" style="margin: 0">
                         <div class="search flex items-center justify-center">
                             <button type="submit" class="h-full flex items-center">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -167,8 +166,7 @@
 
 
     <div class="burgermenu flex column items-center pl-1 pr-1 pt-2">
-        <form action="{{ route('search', app()->getLocale()) }}" class="w-full relative"  method="POST">
-            @csrf
+        <form action="{{ route('search', app()->getLocale()) }}" class="w-full relative"  method="GET">
             <button type="submit" class="flex items-center absolute">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">

@@ -43,14 +43,14 @@ ScrollReveal().reveal('.photo-gallery .text', {
     reset: false,
     mobile: false
 });
-ScrollReveal().reveal('.photo-gallery .photo', {
-    delay: 450,
-    duration: 600,
-    distance: '100px', 
-    origin: 'bottom',
-    reset: false,
-    mobile: false
-});
+// ScrollReveal().reveal('.photo-gallery .photo', {
+//     delay: 450,
+//     duration: 600,
+//     distance: '100px', 
+//     origin: 'bottom',
+//     reset: false,
+//     mobile: false
+// });
 ScrollReveal().reveal('.green-section .video', {
     delay: 400,
     duration: 600,

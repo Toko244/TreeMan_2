@@ -77,7 +77,7 @@
                     </div>
                     <div class="modal-input flex column items-start modal-textarea-box_01">
                         <label for=""class="required">{{ trans('website.message') }}</label>
-                        <textarea name="message" id="" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="flex items-center modal-button modal-button-box_01">
                         <button style="font-size: 16px; border-radius: 8px; border: 2px solid #006838;" class="bold background-green white transition-duration">

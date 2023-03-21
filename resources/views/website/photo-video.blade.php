@@ -51,7 +51,7 @@
                                         @foreach ($post->files as $key => $image)
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                                             <div class="photo hidden w-full hover relative" style="border-radius: 8px;">
-                                                <a href="@if($image->title != '') {{$image->title}} @else /uploads/img/{{$image->file}} @endif" data-fancybox="photo">
+                                                <a href="@if($image->title != '') {{$image->title}} @else/uploads/img/{{$image->file}} @endif" data-fancybox="photo">
                                                     <img src="/uploads/img/{{$image->file}}" alt="" class="w-full h-full cover hover-image relative">
                                                     @if($image->title != '')
                                                     <img src="/assets/img/youtubeicon.png" alt="" class="youtubeicon">

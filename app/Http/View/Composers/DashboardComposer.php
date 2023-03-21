@@ -23,6 +23,6 @@ class DashboardComposer
     {
 
         $view->with('notifications', $this->notifications);
-        $view->with('unseenSubscribers', $this->unseenSubscribers);
+        // $view->with('unseenSubscribers', $this->unseenSubscribers);
     }
 }

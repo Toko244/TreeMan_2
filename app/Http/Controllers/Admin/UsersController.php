@@ -181,7 +181,7 @@ class UsersController extends Controller
 
 
     public function subscribers(){
-        Subscribers::query()->update(['seen' => true]);
+        // Subscribers::query()->update(['seen' => true]);
         $subscribers = Subscribers::orderBy('created_at')->get();
         return view('admin.subscribers.index', compact('subscribers'));
     }

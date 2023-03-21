@@ -17,7 +17,7 @@
 
             </div>
 
-            <table id="datatable" class="table table-bordered dt-responsive nowrap">
+            <table id="datatable" class="table table-bordered nowrap">
                 <thead>
                     @if(session()->has('message'))
                         <div class="alert alert-success">
