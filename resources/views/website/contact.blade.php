@@ -8,7 +8,7 @@
 
                     <div class="contact-image absolute top-0 right-0 h-full w-3_5 contact-resp-none">
                         <img src="/uploads/files/{{ $section->post()->image }}" alt="" class="w-full h-full cover">
-                        <div class="tringle background-green absolute top-0 left-0 z-10 h-full"
+                        <div class="tringle background-green absolute top-0 left-0 z-10 h-full left-1_px"
                             style="clip-path: polygon(0 0, 0% 100%, 100% 0); width: 250px;"></div>
                     </div>
 
