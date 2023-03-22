@@ -341,6 +341,10 @@
         max-height: 500px;
         overflow: visible; 
     }
+    .header-bottom_margin_01 header {
+        margin: 0!important;
+        height: 120px!important;
+    }
 }
 
 /*--------------------------------- 768px -------------------------------*/
