@@ -4,7 +4,7 @@ return [
 	"facebook" => [
 		"title" => "Facebook",
 		"type" => "text",
-		"value" => "https://www.fb.com/",
+		"value" => null,
 	],
 	"linkedin" => [
 		"title" => "Linkedin",
@@ -30,11 +30,6 @@ return [
 		"title" => "Address",
 		"type" => "text",
 		"value" => "Kehn 2047918 Tönisvorst.",
-	],
-	"get_a_quota_link" => [
-		"title" => "get_a_quota",
-		"type" => "text",
-		"value" => "https://stackoverflow.com/questions/44212318/laravel-blade-advantage-of-slot-component-vs-include",
 	],
 	"book_link" => [
 		"title" => "book_link",
