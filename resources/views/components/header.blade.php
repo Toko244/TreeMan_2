@@ -219,7 +219,7 @@
         <div class="burger-social flex items-center justify-center">
             @if(settings('facebook') != '')
                 <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                    <a href="" class="flex items-center justify-center rounded transition-duration shadow"
+                    <a href="{{settings('facebook')}}" class="flex items-center justify-center rounded transition-duration shadow"
                         style="width: 40px; height: 40px;">
                         <svg width="9" height="18" viewBox="0 0 9 18" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +233,7 @@
 
             @if(settings('linkedin') != '')
                 <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                    <a href="" class="flex items-center justify-center rounded transition-duration shadow"
+                    <a href="{{settings('linkedin')}}" class="flex items-center justify-center rounded transition-duration shadow"
                         style="width: 40px; height: 40px;">
                         <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -252,7 +252,7 @@
             @endif
             @if(settings('youtube') != '')
                 <div class="icon flex items-center h-full" style="margin: 0 11px;">
-                    <a href="" class="flex items-center justify-center rounded transition-duration shadow"
+                    <a href="{{settings('youtube')}}" class="flex items-center justify-center rounded transition-duration shadow"
                         style="width: 40px; height: 40px;">
                         <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
                             xmlns="http://www.w3.org/2000/svg">

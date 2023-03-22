@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        @if(count($section->sectioncomponents()) > 0)
+        @if(count($section->sectioncomponents()) > 0 && count($section->sectionScrollcomponents())> 0)
             <div class="guideline relative">
                 <div class="container">
                     <div class="guideline-list">

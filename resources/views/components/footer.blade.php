@@ -92,7 +92,7 @@
                 <div class="col-lg-5">
                     <div class="footer-social h-full flex items-center justify-end">
                         <div class="social flex items-center">
-                            @if (settings('facebook') != null)
+                            @if (settings('facebook') != '')
                                 <a href="{{settings('facebook')}}" class="flex items-center" target="_blank">
                                     <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.52306 17.8521H5.95551V9.03407H8.35008L8.60446 6.08183H5.95551V4.39709C5.95551 3.70084 6.09203 3.42885 6.74833 3.42885H8.60616V0.365723H6.23194C3.6771 0.365723 2.5256 1.51878 2.5256 3.72812V6.08183H0.737305V9.07455H2.52306V17.8521Z" fill="#fff"/>
@@ -100,7 +100,7 @@
                                 </a>
                             @endif
 
-                            @if (settings('linkedin') != null)
+                            @if (settings('linkedin') != '')
                                 <a href="{{settings('linkedin')}}" class="flex items-center" target="_blank">
                                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.95509 5.49658H0.541568C0.468901 5.49658 0.399211 5.52568 0.347828 5.57748C0.296445 5.62927 0.267578 5.69953 0.267578 5.77278V16.8262C0.267578 16.8994 0.296445 16.9697 0.347828 17.0215C0.399211 17.0733 0.468901 17.1024 0.541568 17.1024H3.95451C4.02717 17.1024 4.09686 17.0733 4.14825 17.0215C4.19963 16.9697 4.2285 16.8994 4.2285 16.8262V5.77278C4.2285 5.69963 4.19971 5.62946 4.14845 5.57768C4.0972 5.5259 4.02765 5.49674 3.95509 5.49658Z" fill="#fff"/>
@@ -110,7 +110,7 @@
                                 </a>
                             @endif
 
-                            @if (settings('youtube') != null)
+                            @if (settings('youtube') != '')
                                 <a href="{{settings('youtube')}}" class="flex items-center" target="_blank">
                                     <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.12153 10.6291V4.81051L13.6236 7.71032L8.12153 10.6291ZM15.0798 0.623231H5.33393C0 0.623231 0 2.16537 0 5.9584V9.66483C0 13.272 0.75559 15 5.33393 15H15.0798C19.2152 15 20.4137 13.9902 20.4137 9.66483V5.9584C20.4137 1.96595 20.2124 0.623231 15.0798 0.623231Z" fill="#fff"/>
