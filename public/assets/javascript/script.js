@@ -78,14 +78,16 @@ $(window).scroll(function() {
   } 
 });
 
-
+ 
  
 $('.home-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
   dots: false,
   arrows:false,
   infinite: true,
-  autoplay:true,
-  speed: 1000,
+  autoplay:false,
+  speed: 1000, 
 });
 $('.text-section-slider').slick({
   dots: false,
@@ -105,6 +107,15 @@ $('.image-slider').slick({
   fade: true,
   cssEase: 'linear',
   autoplay:true,
+  responsive: [ 
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 });
 $('.testimonial-slider').slick({
 dots: false,
