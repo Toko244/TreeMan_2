@@ -927,7 +927,7 @@ a:hover{
 }
 .youtubeicon{
     position: absolute;
-    z-index: 9999;
+    z-index: 999;
     left: calc(50% - 36px);
     top: calc(50% - 25px);
 }
@@ -1242,4 +1242,9 @@ a:hover{
 }
 .left-1_px{
     left: -2px;
+}
+
+.header-bottom_margin_01 header{
+    margin: 0!important;
+    height: 192px!important;
 }

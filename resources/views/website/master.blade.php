@@ -2,7 +2,7 @@
 <x-head :section="$section"></x-head>
 <x-header  :languageSlugs="$language_slugs"></x-header>
 
-<body>
+<body class="{{ isset($home) ? 'header-bottom_margin_01' : '' }}"> 
     @yield('master')
 </body>
     <x-footer></x-footer>
