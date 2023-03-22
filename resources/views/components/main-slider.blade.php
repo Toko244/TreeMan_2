@@ -1,11 +1,11 @@
 @if(isset($components) && count($components) > 0)
     <div class="home-slider resp-slider-none">
         @foreach ($components as $key => $component)
-            <div class="home-banner w-full relative background-green">
-                <div class="home-slider-slide w-full h-full flex items-center">
+            <div class="home-banner w-full relative background-green home-banner-responsive">
+                <div class="home-slider-slide w-full h-full flex items-center home-slider-responsive01">
                     <div class="container">
                         <div class="row">
-                            <div class="green-side-width">
+                            <div class="green-side-width green-side-width-responsive">
                                 <div class="info">
                                     <div class="title white bold text-3xl">
                                         {{$component->translate(app()->getlocale())->title}}
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="image absolute z-1 top-0 right-0 h-full image-side-width">
+                    <div class="image absolute z-1 top-0 right-0 h-full image-side-width image-side-width-responsive ">
                         <div class="image-slider w-full h-full">
                             @if(count($component->files) > 0)
                                 @foreach($component->files as $key => $image)
