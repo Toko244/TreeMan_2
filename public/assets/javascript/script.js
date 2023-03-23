@@ -78,16 +78,20 @@ setTimeout(function() {
 //   } 
 // });
 
- 
- 
+var sliderActive = true;
+// console.log(sliderActive)
+ if( $('.home-banner').attr('data-slider') == 'false'){
+    sliderActive = false;
+ }
+//  console.log(sliderActive)
 $('.home-slider').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: false,
   arrows:false,
   infinite: true,
-  autoplay:false,
-  speed: 1000, 
+  autoplay:  sliderActive,
+  speed: 2000, 
 });
 $('.text-section-slider').slick({
   dots: false,
