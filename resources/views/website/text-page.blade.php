@@ -67,7 +67,8 @@
                 </div>
             </div>
         </div>
-        @if(count($section->sectioncomponents()) > 0 && count($section->sectionScrollcomponents())> 0)
+        @if(count($section->sectioncomponents()) > 0)
+            @if(count($section->sectionScrollcomponents())> 0)
             <div class="guideline relative">
                 <div class="container">
                     <div class="guideline-list">
@@ -122,6 +123,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @foreach ($section->components() as $key => $item)
                 <section id="{{ $key }}">
                     <x-dynamic-component :component="$item" :sectionId="$key" />
