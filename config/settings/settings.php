@@ -29,7 +29,13 @@ return [
 	"address" => [
 		"title" => "Address",
 		"type" => "text",
-		"value" => "Kehn 2047918 Tönisvorst.",
+		"value" => "c",
+	],
+	
+	"address_link" => [
+		"title" => "Address Link",
+		"type" => "text",
+		"value" => "https://goo.gl/maps/K3m2LZS4ZR68Yhk29",
 	],
 	"book_link" => [
 		"title" => "book_link",

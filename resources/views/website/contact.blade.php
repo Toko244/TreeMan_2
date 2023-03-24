@@ -135,7 +135,13 @@
                 </div>
 
                 <div class="contact-map w-full flex items-center justify-center">
+                    @if(settings('address_link') != '')
+                    <a href="{{settings('address_link')}}" target="_blank">
+                        <img src="/assets/img/map.png" alt="" class="w-full h-full cover">
+                    </a>
+                    @else
                     <img src="/assets/img/map.png" alt="" class="w-full h-full cover">
+                    @endif
                 </div>
             </div>
         @endif
