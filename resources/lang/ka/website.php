@@ -4,6 +4,7 @@ return [
 	"made_by" => "დამზადებულია იდეა დიზაინ ჯგუფის მიერ",
 	"follow_us" => "გამოგვყევით",
 	"get_a_quote" => "დაგვიკავშირდით",
+	"request" => "Request",
 	"book_meeting" => "Book a Meeting",
 	"see_more" => "See More",
 	"see_all" => "See All",

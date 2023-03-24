@@ -133,4 +133,5 @@ return [
     'list_pagination' => 'list_pagination',
     'gallery_pagination' => 'gallery_pagination',
     'edit_component' => 'Edit Component',
+    'address_link' => 'Adress Link',
 ];

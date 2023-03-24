@@ -22,7 +22,7 @@
                                 </a>
                                 @else
                                 <button id="myBtn" class="book-button book-button-black relative text-lg bold background-white transition-duration  ka-font-nino" style="line-height: 32px;">
-                                    {{ trans('website.get_a_quote') }}
+                                    {{ trans('website.request') }}
                                 </button>
                                 @endif
                             </div>
