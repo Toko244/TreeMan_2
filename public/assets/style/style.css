@@ -459,9 +459,7 @@ a:hover{
     width: calc(100% - 30px);
     border-radius: 12px;
 }
-.post-slider .slide:hover img{
-    filter: blur(2px);
-}
+ 
 .post-slider .slide{
     height: 308px;
 }
@@ -781,7 +779,7 @@ a:hover{
     color: var(--bs-green);
 }
 .testimonial-block a:hover img{
-    filter: grayscale(100%);
+   transform: scale(1.12);
 }
 .subscribe-section,
 .subscribe-info,
@@ -1247,4 +1245,39 @@ a:hover{
 .header-bottom_margin_01 header{
     margin: 0!important;
     height: 192px!important;
+}
+
+.active-hidden-slider .container-hide_01{
+    display: none;
+} 
+.active-hidden-slider .image-side-width{
+    width: 100%;
+}  
+
+.active-hidden-slider .image-side-width .img.w-full.h-full::before{
+    display: none;
+}
+.text-section-slider .image:hover img{
+    transform: scale(1.1);
+}
+.text_section .image:hover img{
+    transform: scale(1.1);
+}
+
+.post-slider .slide a{
+    width: calc(100% - 30px);
+    overflow: hidden;
+    border-radius: 12px;
+}
+.post-slider img.h-full.cover{
+    width: 100%;
+}
+.post-slider .slide:hover img{
+    transform: scale(1.08);
+}
+.testimonial .testimonial-block .image{
+    overflow: hidden;
+}
+.cursor-01{
+    cursor: default;
 }

@@ -18,9 +18,17 @@
         </div>
         @endif
         @if($component->image != '')
+        @if($component->translate(app()->getlocale())->redirect_link != '')
+        <a href="{{ $component->translate(app()->getlocale())->redirect_link }}">
+            <div class="image mt-2 image-height-resp_01">
+                <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover response-delete-cover">
+            </div>
+        </a>
+        @else
         <div class="image mt-2 image-height-resp_01">
-            <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover response-delete-cover">
-        </div>
+                <img src="/uploads/files/{{$component->image}}" alt="{{$component->translate(app()->getlocale())->title}}" class="w-full h-full cover response-delete-cover">
+            </div>
+        @endif
         @endif
     </div>
 </div>

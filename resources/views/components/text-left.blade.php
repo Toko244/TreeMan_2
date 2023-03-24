@@ -24,9 +24,18 @@
                 @if ($component->image != '')
                     <div class="col-lg-6">
                         <div class="image flex items-center justify-center hidden relative">
-                            <img src="/uploads/files/{{ $component->image }}"
-                                alt="{{ $component->translate(app()->getlocale())->title }}"
-                                class="w-full h-full cover">
+                        @if($component->translate(app()->getlocale())->redirect_link != '')
+                             <a href="{{ $component->translate(app()->getlocale())->redirect_link }}">
+                                <img src="/uploads/files/{{ $component->image }}"
+                                    alt="{{ $component->translate(app()->getlocale())->title }}"
+                                    class="w-full h-full cover">
+                             </a>
+                           @else
+                           <img src="/uploads/files/{{ $component->image }}"
+                                    alt="{{ $component->translate(app()->getlocale())->title }}"
+                                    class="w-full h-full cover">
+                        @endif
+
                         </div>
                     </div>
                 @endif

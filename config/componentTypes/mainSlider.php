@@ -32,6 +32,9 @@ return [
             'target_blank' => [
                 'type' => 'switch',
             ],
+            'only_image' => [
+                'type' => 'switch',
+            ],
             'date' => [
                 'type' => 'date',
             ],

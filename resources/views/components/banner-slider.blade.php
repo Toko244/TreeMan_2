@@ -12,15 +12,14 @@
             <div class="row testimonial-slider">
                 @foreach ($components as $key => $component)
                     <div class="col-xl-3">
-                        <div class="testimonial-block">
-                            
+                        <div class="testimonial-block"> 
                         @if($component->translate(app()->getlocale())->redirect_link != '')
                             <a href="{{ $component->translate(app()->getlocale())->redirect_link }}"
                             @if ($component->target_blank == 1) target="_blank" @endif
                                 class="black transition-duration">
                         @else
                                 <a href="javascript:void(0)"
-                                    class="black transition-duration cursor-none">
+                                    class="black transition-duration cursor-01">
                                 @endif
                                 <div class="image w-full flex items-center justify-center">
                                     <img src="/uploads/files/{{ $component->image }}" alt=""
