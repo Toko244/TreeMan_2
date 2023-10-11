@@ -22,7 +22,15 @@ class HomePageController extends Controller
 				'message' => trans('website.submission_sent'),
 			]);
 		}
-		$section = Section::where('type_id', 1)->first();
+		// $section = Section::where('type_id', 1)->first();
+
+         $section = Section::where('type_id', 1)
+                             ->orWhere('type_id', 2)
+                             ->orWhere('type_id', 3)
+                             ->orWhere('type_id', 4)
+                             ->orWhere('type_id', 5)
+                             ->orWhere('type_id', 6)
+                             ->first();
 		if($section){
 			$language_slugs = $section->getTranslatedFullSlugs();
 		}else{

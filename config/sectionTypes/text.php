@@ -12,7 +12,7 @@ return [
                'data-icon' => '-',
             ],
             'slug' => [
-                'type' => 'text',
+                'type' => 'slug',
                 'error_msg' => 'slug_is_required',
                 'required' => 'required',
                 'data-icon' => '-',

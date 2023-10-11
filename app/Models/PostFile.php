@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PostFile extends Model
 {
     use HasFactory;
-    
+
     protected $casts = [
         'file_additional' => 'collection'
     ];
 
     protected $fillable = [
-        'post_id', 
-        'type_id', 
-        'title', 
+        'post_id',
+        'type_id',
+        'title',
         'file',
         'file_additional'
     ];

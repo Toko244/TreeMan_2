@@ -47,13 +47,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="{{ $locale }}-slug">{{ trans('admin.slug') }}</label>
+                                    <label for="{{ $locale }}[slug]">{{ trans('admin.slug') }}</label>
                                     @error('slug')
                                         <small
                                             style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.slug_is_required') }}</small>
                                     @enderror
                                     <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
-                                        class="@error('slug') danger @enderror form-control" id="{{ $locale }}-slug"
+                                        class="@error('slug') danger @enderror form-control" id="{{ $locale }}[slug]"
                                         Required>
                                 </div>
 
@@ -208,7 +208,7 @@
 
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
-    
+
     <script>
         $(document).ready(function() {
             $(document).on('click', 'button[name="save"]', function() {

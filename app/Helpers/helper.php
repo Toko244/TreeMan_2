@@ -1,12 +1,13 @@
 <?php
 
 
-use App\Models\Section;
 use App\Models\Post;
 use App\Models\Slug;
 use App\Models\Banner;
+use App\Models\Section;
 use App\Models\PostSections;
 use App\Models\Subscription;
+use Illuminate\Support\Facades\Config;
 
 function settings($key = null, Array $replace = []) {
     if($key == null) {
@@ -198,9 +199,10 @@ function getSectionsWithTypes($options){
  */
 function getAdditional($arr, $additionalList){
   $additional = [];
+
   foreach($arr as $key => $item){
-    if (in_array($key, $additionalList)) {
-      $additional[$key] = $item;
+    if ($key != 'slug' && in_array($key, $additionalList)) {
+            $additional[$key] = $item;
     }
   }
 

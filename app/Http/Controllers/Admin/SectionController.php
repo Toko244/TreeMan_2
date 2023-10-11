@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Section;
-use App\Models\MenuSection;
 use App\Models\Slug;
+use App\Models\Section;
 use App\Models\PostFile;
+use App\Models\MenuSection;
+use Illuminate\Http\Request;
+use App\Services\ForSlugService;
+use App\Services\PostImagesUploadService;
+use App\Services\PostImageUploadService;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Validator;
 
 class SectionController extends Controller
 {
+
+    public function __construct(private ForSlugService $forSlugService,
+                                 private PostImageUploadService $postImageUploadService,
+                                 private PostImagesUploadService $postImagesUploadService)
+    {
+        $this->forSlugService = $forSlugService;
+        $this->postImagesUploadService = $postImagesUploadService;
+        $this->postImageUploadService = $postImageUploadService;
+    }
 
     /**
      * index
@@ -36,21 +47,12 @@ class SectionController extends Controller
 
     public function store(Request $request)
     {
-
         $values = $request->all();
         Validator::validate($values, [
             'type_id' => 'required',
         ]);
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
-        foreach (config('app.locales') as $locale) {
-            if ($request->has('is_component')) {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
-            } else {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug',  $values[$locale]['slug']);
-            }
-            $fullslug[$locale] = $locale . '/' . $values[$locale]['slug'];
-            $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
-        }
+
         $values['order'] = Section::max('id');
         $section = Section::create($values);
         if (isset($values['menu_types']) && $values['menu_types'] !== null) {
@@ -62,14 +64,8 @@ class SectionController extends Controller
             }
         }
 
-        foreach (config('app.locales') as $locale) {
-            $section->slugs()->create([
-                'fullSlug' => $fullslug[$locale],
-                'slug' => $values[$locale]['slug'],
-                'slugable_id' => $section->id,
-                'locale' => $locale
-            ]);
-        }
+        $this->forSlugService->storeSectionSlug($request, $values, $section);
+
         if ($request->has('is_component')) {
             return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']]);
         } else {
@@ -92,38 +88,14 @@ class SectionController extends Controller
         Validator::validate($values, [
             'type_id' => 'required'
         ]);
-        $section = Section::where('id', $id)->with('translations')->first();
         MenuSection::where('section_id', $id)->delete();
         Slug::where('slugable_id', $id)->where('slugable_type', 'App\Models\Section')->delete();
 
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
-        foreach (config('app.locales') as $key => $locale) {
-            if ($request->has('is_component')) {
-                if ($section->translations[$key]['title'] != $values[$locale]['title']) {
-                    $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
-                }else{
-                    $values[$locale]['slug'] = $section->translations[$key]['slug'];
-                }
-            } else {
-                if ($section->translations[$key]['slug'] != $values[$locale]['slug']) {
-                    $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['slug']);
-                }else{
-                    $values[$locale]['slug'] = $section->translations[$key]['slug'];
-                }
-            }
 
-            $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
-        }
-
-        foreach (config('app.locales') as $key => $locale) {
-            $section->slugs()->create([
-                'fullSlug' => $locale . '/' . $values[$locale]['slug'],
-                'slug' => $values[$locale]['slug'],
-                'slugable_id' => $id,
-                'locale' => $locale
-            ]);
-        }
         $section = Section::find($id)->update($values);
+
+        $this->forSlugService->updateSectionSlug($request, $values, $section, $id);
 
         if (isset($values['menu_types']) && $values['menu_types'] !== null) {
             foreach ($values['menu_types'] as $type) {
@@ -151,24 +123,19 @@ class SectionController extends Controller
     {
 
         $section = Section::where('id', $id)->with('translations', 'posts')->first();
+        $post = $section->posts;
         if (count($section->sectioncomponents()) > 0) {
             foreach ($section->sectioncomponents() as $key => $component) {
                 if (count($component->posts) > 0) {
                     foreach ($component->posts as $key => $component_post) {
 
                         if (isset($component_post->image) && File::exists(config('config.file_path') . $component_post->image)) {
-                            File::delete(config('config.file_path') . $component_post->image);
+                            $this->postImageUploadService->destroyImage($post);
                         }
                         $files = PostFile::where('post_id', $component_post->id)->get();
-                        foreach ($files as $file) {
-                            if (File::exists(config('config.image_path') . $file->file)) {
-                                File::delete(config('config.image_path') . $file->file);
-                            }
-                            if (File::exists(config('config.image_path') . 'thumb/' . $file->file)) {
-                                File::delete(config('config.image_path') . 'thumb/' . $file->file);
-                            }
-                            $file->delete();
-                        }
+
+                        $this->postImagesUploadService->destroyImages($files);
+
                         // $component_post->slugs()->delete();
                         Slug::where('slugable_id', $component_post->id)->where('slugable_type', 'App\Models\Post')->delete();
                     }
@@ -182,19 +149,11 @@ class SectionController extends Controller
             foreach ($section->posts as $key => $post) {
 
                 if (isset($post->image) && File::exists(config('config.file_path') . $post->image)) {
-                    File::delete(config('config.file_path') . $post->image);
+                    $this->postImageUploadService->destroyImage($post);
                 }
                 $files = PostFile::where('post_id', $post)->get();
                 if ($files) {
-                    foreach ($files as $file) {
-                        if (File::exists(config('config.image_path') . $file->file)) {
-                            File::delete(config('config.image_path') . $file->file);
-                        }
-                        if (File::exists(config('config.thumb_path') . 'thumb/' . $file->file)) {
-                            File::delete(config('config.thumb_path') . 'thumb/' . $file->file);
-                        }
-                        $file->delete();
-                    }
+                    $this->postImagesUploadService->destroyImages($files);
                 }
                 $post->slugs()->delete();
             }

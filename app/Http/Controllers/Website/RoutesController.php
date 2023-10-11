@@ -15,7 +15,7 @@ class RoutesController extends Controller
 	{
 		$slug = Slug::where('fullSlug', app()->getLocale() . "/{$url}")->first();
 		if($slug == ''){
-			
+
 			$language_slugs = '';
 			return view('website.404', compact('language_slugs'));
 		}

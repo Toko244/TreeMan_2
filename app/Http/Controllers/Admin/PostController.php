@@ -5,18 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Section;
-use App\Models\MenuSection;
 use App\Models\Post;
 use App\Models\PostFile;
-use Illuminate\Support\Facades\Validator;
 use App\Models\PostTranslation;
 use App\Models\Slug;
-use Illuminate\Support\Facades\File;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
+use App\Services\ForSlugService;
+use App\Services\PostImagesUploadService;
+use App\Services\PostImageUploadService;
+
 
 class PostController extends Controller
 {
+    public function __construct(private ForSlugService $forSlugService,
+                                 private PostImageUploadService $postImageUploadService,
+                                 private PostImagesUploadService $postImagesUploadService)
+    {
+        $this->forSlugService = $forSlugService;
+        $this->postImagesUploadService = $postImagesUploadService;
+        $this->postImageUploadService = $postImageUploadService;
+    }
 
     public function index($sec)
     {
@@ -28,7 +35,6 @@ class PostController extends Controller
             }
             return redirect()->route('post.create', [app()->getLocale(), $sec,]);
         }
-
 
         $posts = Post::where('section_id', $sec)->orderBy('date', 'desc')->orderBy('created_at', 'desc')->with('translation')->get();
 
@@ -51,12 +57,7 @@ class PostController extends Controller
         $postFillable = (new Post)->getFillable();
         $postTransFillable = (new PostTranslation)->getFillable();
 
-        if (isset($values['image']) && ($values['image'] != '')) {
-            $newimageName = uniqid() . "." . $values['image']->getClientOriginalExtension();
-            $values['image']->move(config('config.file_path'), $newimageName);
-            $values['image'] = '';
-            $values['image'] = $newimageName;
-        }
+        $values['image'] = $this->postImageUploadService->storeImage($values);
 
         if ($request->has('is_component')) {
             $values['additional'] = getAdditional($values, array_diff(array_keys($section->componentfields['nonTrans']), $postFillable));
@@ -64,39 +65,14 @@ class PostController extends Controller
             $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable));
         }
 
-        foreach (config('app.locales') as $locale) {
-            if ($request->has('is_component')) {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->componentfields['trans']), $postTransFillable));
-            } else {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug',  $values[$locale]['slug']);
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable));
-            }
-        }
         $post = Post::create($values);
-        foreach (config('app.locales') as $locale) {
-            $post->slugs()->create([
-                'fullSlug' => $locale . '/' . $post->translate($locale)->slug,
-                'slug' => $values[$locale]['slug'],
-                'locale' => $locale
-            ]);
-        }
-        if (isset($values['files']) && count($values['files']) > 0) {
-            foreach ($values['files'] as $key => $files) {
-                foreach ($files['file'] as $k => $file) {
-                    $postFile = new PostFile;
-                    $postFile->type = $key;
-                    $postFile->file = $file;
-                    $postFile->title = $values['files'][$key]['desc'][$k];
-                    $postFile->post_id = $post->id;
-                    $postFile->save();
-                }
-            }
-        }
+
+        $this->forSlugService->storePostSlug($request, $values, $section, $postTransFillable, $post);
+
+        $this->postImagesUploadService->storeImages($values, $post);
 
         return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
-
 
     public function edit($id)
     {
@@ -106,55 +82,16 @@ class PostController extends Controller
     }
 
 
-
     public function update($id, Request $request)
     {
         $post = Post::where('id', $id)->with('translations')->first();
         $section = Section::where('id', $post->section_id)->with('translations')->first();
         $values = $request->all();
-        $postFillable = (new Post)->getFillable();
-        $postTransFillable = (new PostTranslation)->getFillable();
-        if (isset($values['image']) && ($values['image'] != '')) {
-            $newimageName = uniqid() . "." . $values['image']->getClientOriginalExtension();
-            $values['image']->move(config('config.file_path'), $newimageName);
-            $values['image'] = '';
-            $values['image'] = $newimageName;
-        } elseif (isset($values['old_image'])) {
-            $values['image'] = $values['old_image'];
-        }
 
+        $values['image'] = $this->postImageUploadService->updateImage($values);
 
-        Slug::where('slugable_id', $post->id)->where('slugable_type', 'App\Models\Post')->delete();
-        if ($request->has('is_component')) {
-            $values['additional'] = getAdditional($values, array_diff(array_keys($section->componentfields['nonTrans']), $postFillable));
-        } else {
-            $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable));
-        }
+        $this->forSlugService->updatePostSlug($request, $values, $post, $section, $id);
 
-        foreach (config('app.locales') as $key =>  $locale) {
-
-            if (!$request->has('is_component') && $values[$locale]['slug'] != $post->translations[$key]['slug']) {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['slug']);
-            } elseif ($values[$locale]['title'] != $post->translations[$key]['title']) {
-                $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
-            } else {
-                $values[$locale]['slug'] = $post->translations[$key]['slug'];
-            }
-            if ($request->has('is_component')) {
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->componentfields['trans']), $postTransFillable));
-            } else {
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable));
-            }
-        }
-
-        foreach (config('app.locales') as $key =>  $locale) {
-            $post->slugs()->create([
-                'fullSlug' => $locale . '/' . $values[$locale]['slug'],
-                'slug' => $values[$locale]['slug'],
-                'slugable_id' => $id,
-                'locale' => $locale
-            ]);
-        }
         $allOldFiles = PostFile::where('post_id', $post->id)->get();
         foreach ($allOldFiles as $key => $fil) {
             if (isset($values['old_file']) && count($values['old_file']) > 0) {
@@ -165,20 +102,11 @@ class PostController extends Controller
                 $fil->delete();
             }
         }
-        Post::find($post->id)->update($values);
-        if (isset($values['files']) && count($values['files']) > 0) {
 
-            foreach ($values['files'] as $key => $files) {
-                foreach ($files['file'] as $k => $file) {
-                    $postFile = new PostFile;
-                    $postFile->type = $key;
-                    $postFile->file = $file;
-                    $postFile->title = $values['files'][$key]['desc'][$k];
-                    $postFile->post_id = $post->id;
-                    $postFile->save();
-                }
-            }
-        }
+        Post::findOrFail($post->id)->update($values);
+
+        $this->postImagesUploadService->updateImages($values, $post);
+
         return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
 
@@ -200,22 +128,19 @@ class PostController extends Controller
     public function destroy($post)
     {
         $post = Post::where('id', $post)->first();
+
         $section = Section::where('id', $post->section_id)->with('translations')->first();
-        if (File::exists(config('config.file_path') . $post->image)) {
-            File::delete(config('config.file_path') . $post->image);
-        }
+
+        $this->postImageUploadService->destroyImage($post);
+
         $files = PostFile::where('post_id', $post->id)->get();
-        foreach ($files as $file) {
-            if (File::exists(config('config.image_path') . $file->file)) {
-                File::delete(config('config.image_path') . $file->file);
-            }
-            if (File::exists(config('config.image_path') . 'thumb/' . $file->file)) {
-                File::delete(config('config.image_path') . 'thumb/' . $file->file);
-            }
-            $file->delete();
-        }
+
+        $this->postImagesUploadService->destroyImages($files);
+
         Slug::where('slugable_id', $post->id)->where('slugable_type', 'App\Models\Post')->delete();
+
         $post->delete();
+
         return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
     }
 }

@@ -9,7 +9,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class SectionTranslation extends Model
 {
     use HasFactory;
-    use Sluggable;
 
     protected $casts = [
         'locale_additional' => 'collection'
@@ -18,24 +17,12 @@ class SectionTranslation extends Model
     protected $fillable = [
         'section_id',
         'locale',
-        'title', 
+        'title',
         'keywords',
-        'slug', 
         'desc',
         'icon',
         'locale_additional',
         'active'
     ];
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ]
-        ];
-    }
-
-
-    
 }

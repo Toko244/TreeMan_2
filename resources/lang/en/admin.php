@@ -31,6 +31,7 @@ return [
     'username' => 'Username',
     'email' => 'Email',
     'type' => 'Type',
+    'newsAdditional' => 'newsAddotional',
     'password' => 'Password',
     're_password' => 'Re. Password',
     'username_is_required' => 'Username is Required',

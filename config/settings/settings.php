@@ -14,7 +14,7 @@ return [
 	"instagram" => [
 		"title" => "Instagram",
 		"type" => "text",
-		"value" => "https://www.linkedin.com/",
+		"value" => "",
 	],
 	"youtube" => [
 		"title" => "Youtube",

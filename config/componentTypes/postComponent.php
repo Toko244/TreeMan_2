@@ -26,6 +26,7 @@ return [
             ],
             'target_blank' => [
                 'type' => 'switch',
+
             ],
             'date' => [
                 'type' => 'date',

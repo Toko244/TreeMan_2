@@ -82,8 +82,6 @@ return [
     'locales' => [
 		'en',
         'ka',
-        'tr'
-
     ],
 
     'locale' => 'en',

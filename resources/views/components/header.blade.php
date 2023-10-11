@@ -117,7 +117,7 @@
                         </a>
                     </div>
                 </div>
- 
+
                 <div class="col-lg-8">
                     <div class="menu h-full flex items-center justify-start">
                         @foreach ($sections as $section)
@@ -185,26 +185,26 @@
                         <li class="flex items-center justify-center mg-b_01">
                             <a href="/{{ $section->getFullSlug() }}"
                                 class="semibold white text-xl">{{ $section->title }}
-                            </a> 
+                            </a>
                             @if ($section->children->count() > 0)
                                 <span class="arrow-icon-burger">
                                     <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14.684 8.24986C14.4866 8.44722 14.2529 8.54591 13.9829 8.54591C13.7134 8.54591 13.48 8.44722 13.2827 8.24986L7.49987 2.46706L1.69734 8.26959C1.51313 8.4538 1.28287 8.54591 1.00656 8.54591C0.73025 8.54591 0.493412 8.44722 0.296047 8.24986C0.0986825 8.05249 1.18019e-08 7.81881 0 7.54882C-1.17789e-08 7.27935 0.0986824 7.04593 0.296047 6.84857L6.94725 0.217101C7.02619 0.138155 7.11172 0.0821037 7.20382 0.0489464C7.29592 0.0163155 7.39461 4.60112e-09 7.49987 0C7.60513 -4.60112e-09 7.70381 0.0163155 7.79591 0.0489464C7.88802 0.0821037 7.97354 0.138155 8.05249 0.217101L14.7037 6.8683C14.8879 7.05251 14.98 7.27935 14.98 7.54882C14.98 7.81881 14.8813 8.05249 14.684 8.24986Z" fill="white"/>
                                     </svg>
                                 </span>
-                            @endif 
+                            @endif
                         </li>
                         @if ($section->children->count() > 0)
                             <div class="burger-submenu">
-                                @foreach ($section->children as $subSec) 
-                                <a href="/{{ $subSec->getFullSlug() }}"> {{ $subSec->title }}</a> 
+                                @foreach ($section->children as $subSec)
+                                <a href="/{{ $subSec->getFullSlug() }}"> {{ $subSec->title }}</a>
                                 @endforeach
                             </div>
-                        @endif 
-                    </div> 
+                        @endif
+                    </div>
                 @endforeach
             @endif
-             
+
         </div>
 
         <div class="burger-lang flex items-center justify-center">

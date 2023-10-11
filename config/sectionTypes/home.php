@@ -14,7 +14,7 @@ return [
 
         ],
         'slug' => [
-            'type' => 'text',
+            'type' => 'slug',
             'reqired' => 'required',
             'max' => '50',
             'min' => '3',

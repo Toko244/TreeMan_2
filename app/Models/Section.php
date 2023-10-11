@@ -14,7 +14,7 @@ class Section extends Model
 {
     use HasFactory;
     use Translatable;
-    
+
 
     protected $casts = [
         'additional' => 'collection',
@@ -42,7 +42,6 @@ class Section extends Model
     public $translatedAttributes = [
         'title',
         'keywords',
-        'slug',
         'desc',
         'icon',
         'locale_additional',
@@ -60,6 +59,17 @@ class Section extends Model
 
 
         return collect(Config::get('sectionTypes'))->where('id', $this->type_id)->first();
+    }
+
+    public function getSlug() {
+		$slug = Slug::where('slugable_type', 'App\Models\Section')->where('slugable_id', $this->id)->pluck('slug','locale')->toArray();
+
+		return $slug;
+    }
+
+    public function slugs()
+    {
+        return $this->morphMany(Slug::class, 'slugable');
     }
 
 
@@ -85,8 +95,7 @@ class Section extends Model
 
     public function getFullSlug() {
         $slug = Slug::where('slugable_type', 'App\Models\Section')->where('slugable_id', $this->id)->where('locale', app()->getlocale())->first();
-        if($slug !==null){
-
+        if($slug !== null){
             return $slug->fullSlug;
         }
         return null;
@@ -142,21 +151,21 @@ class Section extends Model
         ->where('is_component', '!=', 1)
         ->with('parent')->with('children')->orderBy('order', 'asc');
     }
-    
+
     public function sectionPost() {
 
-      $post =  $this->hasOne('App\Models\Post', 'section_id')->with(['translation' => function($query){
-        $query->where('locale', app()->getLocale());
-        $query->where('active', 1);
-      }])->first();
-      return $post;
+    //   $post =  $this->hasOne('App\Models\Post', 'section_id')->with(['translation' => function($query){
+    //     $query->where('locale', app()->getLocale());
+    //     $query->where('active', 1);
+    //   }])->first();
+    //   return $post;
 
-      // return Post::where('section_id', $this->id)->with(['translation' => function($query){
-      //   $query->where('locale', app()->getLocale());
-      //   $query->where('active', 1);
-      // }])->first();
+        return Post::where('section_id', $this->id)->with(['translation' => function($query){
+            $query->where('locale', app()->getLocale());
+            $query->where('active', 1);
+        }])->first();
 
-      
+
     }
     public function listcomponents(){
 
@@ -166,7 +175,7 @@ class Section extends Model
       ->where('is_component', 1)->orderBy('order', 'asc')->paginate(settings('list_pagination'));
       return $component;
 
-      
+
     }
     public function sectioncomponents(){
 
@@ -176,7 +185,7 @@ class Section extends Model
       ->where('is_component', 1)->orderBy('order', 'asc')->get();
       return $component;
 
-      
+
     }
     public function sectionScrollcomponents(){
 
@@ -186,7 +195,7 @@ class Section extends Model
       ->where('is_component', 1)->where('additional->scroll_content', 1)->orderBy('order', 'asc')->get();
       return $component;
 
-      
+
     }
     public function components() {
 
@@ -205,7 +214,7 @@ class Section extends Model
 
       return $component;
 
-      
+
     }
 
     public function parent() {
@@ -213,10 +222,6 @@ class Section extends Model
     }
 
 
-
-    public function slugs(){
-        return $this->morphMany(Slug::class, 'slugable');
-    }
     public static function componentrearrange($array) {
       self::_componentrearrangerearrange($array, 0);
 

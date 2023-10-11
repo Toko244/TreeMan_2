@@ -6,4 +6,5 @@ return [
     'photo_video' => 'Photo-Video Gallery',
     'contact' => 'Contact Page',
     'list' => 'List Page',
+    'news' => 'News Page'
 ];

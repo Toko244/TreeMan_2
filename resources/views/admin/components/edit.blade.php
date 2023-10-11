@@ -8,12 +8,6 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card-box">
-
-
-
-
-
-
                 <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_component') }}</h4>
 
                 <form action="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}" method="post"
@@ -103,7 +97,7 @@
                         <div class="text">
                             {{ Form::label(trans('admin.scroll_content'), null, ['class' => 'control-label']) }}
                             <br>
-                            
+
                             <input type="hidden" name="scroll_content" value="0" />
                             <input type="checkbox" name="scroll_content" @if(isset($section->additional['scroll_content']) && $section->additional['scroll_content'] == 1) checked @endif value="1" data-plugin="switchery"
                                 data-color="#3bafda" />

@@ -44,7 +44,7 @@
                                     @enderror
                                     <input type="text" name="{{ $locale }}[slug]" parsley-trigger="change"
                                         class="@error('slug') danger @enderror form-control"
-                                        value="{{ $section->translate($locale)->slug }}" id="{{ $locale }}-slug"
+                                        value="{{ $section->getSlug()[$locale] }}" id="{{ $locale }}-slug"
                                         Required>
                                 </div>
                                 <div class="form-group">
@@ -178,7 +178,7 @@
     <script src="{{ asset('/admin/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <!-- Init js-->
     <script src="{{ asset('/admin/js/pages/form-advanced.init.js') }}"></script>
-    
+
     <script>
         $(document).ready(function() {
             $(document).on('click', 'button[name="save"]', function() {

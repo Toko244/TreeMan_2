@@ -11,7 +11,7 @@ class Slug extends Model
     use HasFactory;
     use Sluggable;
 
-    
+
     public $timestamps = false;
 
     protected $guarded = [];

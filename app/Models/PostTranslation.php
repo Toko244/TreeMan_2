@@ -10,7 +10,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class PostTranslation extends Model
 {
     use HasFactory;
-    use Sluggable;
 
     protected $casts = [
         'locale_additional' => 'collection',
@@ -21,7 +20,6 @@ class PostTranslation extends Model
         'post_id',
         'locale',
         'title',
-        'slug',
         'keywords',
         'desc',
         'text',
@@ -32,7 +30,6 @@ class PostTranslation extends Model
 
     public function getAttribute($key)
     {
-
         if (isset($this->attributes['locale_additional']) && array_key_exists($key, json_decode($this->attributes['locale_additional'], true))) {
 
             return json_decode($this->attributes['locale_additional'], true)[$key];
@@ -49,15 +46,6 @@ class PostTranslation extends Model
     public function post()
     {
         return $this->hasOne(Post::class, 'id', 'post_id');
-    }
-
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ]
-        ];
     }
 
     public function scopeFilter($query, $request)

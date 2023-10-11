@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Website\RoutesController;
 use App\Http\Controllers\Website\PagesController;
+use App\Http\Controllers\Website\RoutesController;
 
 Route::get('/register', function() {
 	return redirect('/login');

@@ -6,11 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Section;
 use App\Models\PostFile;
 use App\Models\Slug;
+use App\Services\PostImagesUploadService;
+use App\Services\PostImageUploadService;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class ComponentsController extends Controller
 {
+
+    public function __construct(private PostImageUploadService $postImageUploadService,
+                                private PostImagesUploadService $postImagesUploadService)
+    {
+        $this->postImagesUploadService = $postImagesUploadService;
+        $this->postImageUploadService = $postImageUploadService;
+    }
 
     /**
      * index
@@ -38,22 +47,16 @@ class ComponentsController extends Controller
     }
     public function destroy($id) {
         $sec = Section::where('id', $id)->with('translations')->first();
-        
+
         if (count($sec->posts) > 0) {
             foreach ($sec->posts as $key => $component_post) {
                 if (isset($component_post->image) && File::exists(config('config.file_path') . $component_post->image)) {
-                    File::delete(config('config.file_path') . $component_post->image);
+                    $this->postImageUploadService->destroyImage($component_post);
                 }
                 $files = PostFile::where('post_id', $component_post->id)->get();
-                foreach ($files as $file) {
-                    if (File::exists(config('config.image_path') . $file->file)) {
-                        File::delete(config('config.image_path') . $file->file);
-                    }
-                    if (File::exists(config('config.image_path') . 'thumb/' . $file->file)) {
-                        File::delete(config('config.image_path') . 'thumb/' . $file->file);
-                    }
-                    $file->delete();
-                }
+
+                $this->postImagesUploadService->destroyImages($files);
+
                 Slug::where('slugable_id', $component_post->id)->where('slugable_type', 'App\Models\Post')->delete();
             }
         }

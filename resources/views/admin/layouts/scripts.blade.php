@@ -1,5 +1,3 @@
-
-
 <!-- Vendor js -->
 <script src="{{ asset('/admin/js/vendor.min.js')}}"></script>
 

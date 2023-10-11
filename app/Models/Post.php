@@ -29,7 +29,6 @@ class Post extends Model
     ];
     public $translatedAttributes = [
         'title',
-        'slug',
         'keywords',
         'desc',
         'text',
@@ -49,8 +48,6 @@ class Post extends Model
     {
         return $this->hasMany(Submission::class, 'post_id', 'id');
     }
-
-
 
     /**
      * Get the user associated with the Post
@@ -73,7 +70,12 @@ class Post extends Model
 		return null;
 
     }
+    public function getSlug() {
+		$slug = Slug::where('slugable_type', 'App\Models\Post')->where('slugable_id', $this->id)->pluck('slug','locale')->toArray();
 
+		return $slug;
+
+    }
     public function section(){
         return Section::where('id', $this->section_id)->with('translations')->first();
 

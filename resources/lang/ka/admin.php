@@ -44,6 +44,7 @@ return [
     'section' => 'Section',
     'add_section' => 'Add Section',
     'title' => 'Title',
+    'newsAdditional' => 'newsAdditional',
     'slug' => 'Slug/Link',
     'keywords' => 'Keywords',
     'desc' => 'Description',

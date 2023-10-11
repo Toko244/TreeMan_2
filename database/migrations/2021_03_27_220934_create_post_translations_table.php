@@ -18,7 +18,6 @@ class CreatePostTranslationsTable extends Migration
             $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
             $table->string('locale');
             $table->string('title')->nullable();
-            $table->string('slug')->nullable();
             $table->text('keywords')->nullable();
             $table->text('desc')->nullable();
             $table->text('text')->nullable();
