@@ -11,6 +11,11 @@ return [
 		"type" => "text",
 		"value" => "https://www.linkedin.com/",
 	],
+	"instagram" => [
+		"title" => "Instagram",
+		"type" => "text",
+		"value" => "https://www.linkedin.com/",
+	],
 	"youtube" => [
 		"title" => "Youtube",
 		"type" => "text",
