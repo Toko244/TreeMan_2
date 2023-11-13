@@ -13,7 +13,7 @@ class LanguageController extends Controller
         $languages = array();
         foreach (config('app.locales') as $locale => $language) {
             app()->setLocale($language);
-            
+
             $languages[$language] = Lang::get('website');
         }
         app()->setLocale($realLocale);
@@ -23,7 +23,7 @@ class LanguageController extends Controller
     public function update(Request $request){
         foreach($request->all() as $key => $values){
             if ($key !== '_token') {
-                
+
                 $filename = base_path("resources/lang/".$key."/website.php");
                 $contents = arrayToPhpArray($values);
                 if(is_file($filename)) {
@@ -31,6 +31,9 @@ class LanguageController extends Controller
                 }
             }
         }
-        return redirect("/".app()->getLocale()."/admin")->with('message', trans('admin.successfully_saved'));
+
+        $notification = array('message' => trans('admin.successfully_saved'), 'type'  => 'success');
+
+        return redirect()->back()->with($notification);
     }
 }

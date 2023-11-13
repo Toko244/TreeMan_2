@@ -31364,6 +31364,223 @@ h6 {
     color: var(--bs-text-success)
 }
 
+.dd {
+    max-width: initial;
+}
+
+.dd-item {
+    font-size: 18px;
+}
+
+.dd-handle {
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: #71b6f9;
+    border: 2px solid #71b6f9;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px;
+    color: white;
+    transition-duration: 0.3s;
+    align-items: center;
+}
+
+.dd-item:hover .dd-handle {
+    cursor: grab;
+    background-color: white;
+    color: #71b6f9;
+}
+
+.dd-item {
+    position: relative;
+    list-style-type: none;
+}
+
+.dd-item .change-icons {
+    position: absolute;
+    right: 8px;
+    font-size: 18px;
+    z-index: 2;
+    top: 5px;
+}
+
+.dd-item .fas,
+.dd-item .fa-eye,
+.dd-item .fa-gear {
+    color: white;
+    padding: 10px 10px;
+    transition-duration: 0.3s
+}
+
+.dd-item:hover .fa-trash-alt:hover {
+    color: #ff5b5b;
+}
+
+.dd-item:hover .fa-pencil-alt:hover {
+    color: #5b69bc;
+}
+
+.dd-item:hover .fa-gear:hover {
+    color: #5b69bc;
+}
+
+.dd-item:hover .fa-eye:hover {
+    color: #f9c851;
+}
+
+.dd-item:hover .fas,
+.dd-item:hover .fa-eye,
+.dd-item:hover .fa-gear {
+    color: #71b6f9
+}
+
+.dd,
+.dd-empty,
+.dd-item,
+.dd-placeholder {
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    position: relative
+}
+
+.dd {
+    max-width: 100%;
+}
+
+.dd-list {
+    position: relative;
+    margin: 0
+}
+
+.dd-list .dd-list {
+    padding-left: 30px
+}
+
+.dd-collapsed .dd-list {
+    display: none
+}
+
+.dd-empty,
+.dd-item,
+.dd-placeholder {
+    display: block;
+    padding: 0;
+    min-height: 20px
+}
+
+.dd-item>button {
+    display: block;
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 20px;
+    margin: 5px 0;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: 0 0;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 700
+}
+
+.dd-item>button:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-indent: 0
+}
+
+.dd-item>button[data-action=collapse]:before {
+    content: '-'
+}
+
+.dd-empty,
+.dd-placeholder {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px
+}
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999
+}
+
+.dd-dragel>.dd-item .dd-handle {
+    margin-top: 0
+}
+
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1)
+}
+
+.nestable-lists {
+    display: block;
+    clear: both;
+    width: 100%;
+    border: 0
+}
+
+#nestable-menu {
+    padding: 0;
+    margin: 20px 0
+}
+
+#nestable-output,
+#nestable2-output {
+    width: 100%;
+    height: 7em;
+    font-size: .75em;
+    line-height: 1.333333em;
+    font-family: Consolas, monospace;
+    padding: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+#nestable2 .dd-handle {
+    color: #fff;
+    min-width: 100% !important;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0, #999 100%);
+    background: -moz-linear-gradient(top, #bbb 0, #999 100%);
+    background: linear-gradient(top, #bbb 0, #999 100%)
+}
+
+#nestable2 .dd-handle:hover {
+    background: #bbb
+}
+
+#nestable2 .dd-item>button:before {
+    color: #fff
+}
+
 .menu-icon-success .menu-item .menu-link .menu-icon,
 .menu-icon-success .menu-item .menu-link .menu-icon .svg-icon,
 .menu-icon-success .menu-item .menu-link .menu-icon i {
@@ -31372,6 +31589,26 @@ h6 {
 
 .menu-bullet-success .menu-item .menu-link .menu-bullet .bullet {
     background-color: var(--bs-text-success)
+}
+
+.menu-link-2 {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: var(--bs-gray-800);
+    flex: 0 0 100%;
+    padding: 0.65rem 1rem;
+    transition: none;
+    outline: 0 !important;
+}
+
+.menu-link-2:hover {
+    color: var(--bs-primary);
+    transition: color .2s ease;
+    background-color: var(--bs-menu-link-bg-color-hover);
+    color: var(--bs-menu-link-color-hover);
+    border-radius: 3px;
 }
 
 .menu-arrow-success .menu-item .menu-link .menu-arrow:after {
@@ -111817,4 +112054,8 @@ body {
     [data-kt-app-layout=dark-header] .app-header .page-heading {
         color: #fff !important
     }
+}
+
+}
+
 }

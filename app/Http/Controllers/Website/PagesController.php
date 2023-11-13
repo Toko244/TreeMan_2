@@ -33,14 +33,14 @@ class PagesController extends Controller
             $post = $section->sectionPost();
             return view('website.text-page', compact('section','post','language_slugs'));
 		}
-        
+
 		if ($model->type_id == 3) {
 			$section = Section::where('id', $model->id)->with('translation')->first();
             // $model->load('translation', 'posts.translation');
             $files = PostFile::whereIn('post_id', $model->posts->pluck('id'))->paginate(settings('gallery_pagination'));
             return view('website.photo-video', compact('section', 'language_slugs','files'));
 		}
-        
+
 		if ($model->type_id == 4) {
             $section = Section::where('id', $model->id)->with('translation')->first();
             return view('website.contact', compact('section', 'language_slugs'));
@@ -68,7 +68,7 @@ class PagesController extends Controller
             'locales' => $locales
             ])->render();
 	}
-    public static function subscribe(Request $request){  
+    public static function subscribe(Request $request){
 		$validatedData = $request->validate([
 			'email' => 'required|email',
 		]);
@@ -83,12 +83,12 @@ class PagesController extends Controller
 			// Mail::to(settings('mail'))->send(new \App\Mail\Mailers([$values]));
 			return back()->with([
 				'message' => trans('website.successfuly_subscribed'),
-			]); 
+			]);
 		}
 
 		return back()->with([
 			'message' => trans('website.allready_subscribed'),
-		]); 
+		]);
 	}
 
     public function front(){

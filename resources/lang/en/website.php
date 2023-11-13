@@ -1,8 +1,8 @@
 <?php 
 
 return [
-	"made_by" => "Made by Idea Design Groupwegweg",
-	"follow_us" => "Follow Us",
+	"made_by" => "Made by Idea Design Group",
+	"follow_us" => "Follow Us updated",
 	"get_a_quote" => "Get A Quote",
 	"request" => "Request",
 	"book_meeting" => "Book a Meeting",
@@ -35,5 +35,5 @@ return [
 	"successfuly_subscribed" => "Successfuly Subsribed",
 	"allready_subscribed" => "Allready Subsribed",
 	"all" => "All",
-	'new_contact_form' => 'New Submission',
+	"new_contact_form" => "New Submission",
 ];

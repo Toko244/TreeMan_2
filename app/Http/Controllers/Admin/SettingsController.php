@@ -12,12 +12,9 @@ class SettingsController extends Controller
         $settings = config('settings');
         $sections = Section::with('translations')->get();
 
-
-
         return view('admin.settings.edit', compact(['settings', 'sections']));
     }
     public function update(Request $request){
-
 
         foreach($request->all() as $key => $values){
             if ($key !== '_token') {
@@ -29,6 +26,9 @@ class SettingsController extends Controller
                 }
             }
         }
-        return redirect("/".app()->getLocale()."/admin")->with('message', trans('admin.successfully_saved'));
+
+        $notification = array('message' => trans('admin.successfully_saved'), 'type' => 'success');
+
+        return redirect()->back()->with($notification);
     }
 }

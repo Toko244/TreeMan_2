@@ -4,7 +4,7 @@ return [
 	"facebook" => [
 		"title" => "Facebook",
 		"type" => "text",
-		"value" => null,
+		"value" => "random facebook 123",
 	],
 	"linkedin" => [
 		"title" => "Linkedin",
@@ -14,7 +14,7 @@ return [
 	"instagram" => [
 		"title" => "Instagram",
 		"type" => "text",
-		"value" => "",
+		"value" => "random instagram",
 	],
 	"youtube" => [
 		"title" => "Youtube",
@@ -36,7 +36,6 @@ return [
 		"type" => "text",
 		"value" => "c",
 	],
-	
 	"address_link" => [
 		"title" => "Address Link",
 		"type" => "text",

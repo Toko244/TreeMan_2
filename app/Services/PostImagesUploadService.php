@@ -23,7 +23,6 @@
 
                 }
             }
-
         }
 
         public function updateImages($values, $post)

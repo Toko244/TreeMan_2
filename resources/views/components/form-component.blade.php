@@ -1,13 +1,12 @@
-
 <div class="contact-form section-pad" style="background: #F3F5F6;">
    <div class="container">
        <div class="form-info">
            <div class="title bold black text-2xl mb-1">
-            {{$component->translate(app()->getlocale())->title}}
+            {{$component->translate()->title}}
            </div>
 
            <div class="text medium black text-lg">
-            {!! $component->translate(app()->getlocale())->desc !!}
+            {!! $component->translate()->desc !!}
            </div>
        </div>
 

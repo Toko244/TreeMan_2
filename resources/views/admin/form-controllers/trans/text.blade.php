@@ -1,11 +1,10 @@
-<div class="form-group">
-    {{ Form::label($key,  trans('admin.'.$key),  ['class' => 'control-label iconify', 'data-icon' => isset($field['data-icon']) ? $field['data-icon'] : '']) }}
-    {{ Form::text($locale.'['.$key.']',  null,   array_merge(  ['class' => 'form-control ',  $field['required'] ? $field['required'] : ''])) }}
+
+<div class="form-floating mb-7">
+    {{ Form::text($locale.'['.$key.']',  null,   array_merge(  ['class' => 'form-control', 'placeholder' => ""])) }}
+    @error("{$locale}.$key")
+        <small
+        style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.title_is_required') }}</small>
+    @enderror
+    {{ Form::label($key,  trans('admin.'.$key),  ) }}
 </div>
-<style>
-    [data-icon]:before {
-        float: right;
-        color:red;
-        font-size: 24px;
-    }
-</style>
+

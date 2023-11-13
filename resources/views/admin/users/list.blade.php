@@ -1,95 +1,88 @@
 @extends('admin.layouts.app')
 
 @push('name')
-    {{ trans('admin.users') }}
+{{ trans('admin.users') }}
 @endpush
 
-
-
 @section('content')
-<div class="row">
-    <div class="col-12">
-        <div class="card-box">
-            <div style="display: flex; align-items:center; justify-content: space-between; padding:20px 0">
-                <h4 class="mt-0 header-title float-left">{{ trans('admin.users') }}</h4>
-
-                <a  href="/{{ app()->getLocale() }}/admin/users/add" type="button" class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_user') }}</a>
+<div class="d-flex flex-column flex-column-fluid">
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                    {{ trans('admin.users') }}</h1>
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                    <li class="breadcrumb-item text-muted">
+                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                    </li>
+                    <li class="breadcrumb-item text-muted">Dashboard</li>
+                </ul>
 
             </div>
+        </div>
+    </div>
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Row-->
+            <div class="card card-flush shadow-sm">
+                <div class="card-body py-5">
+                    <div class="tab-content" id="myTabContent">
+                        <table id="kt_datatable_dom_positioning"
+                            class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+                            <thead>
+                                <div class="card-toolbar" style="text-align: right;">
+                                    @if (auth()->user()->isType('admin'))
+                                    <a href="/{{ app()->getLocale() }}/admin/users/add">
+                                        <button type="button" class="btn btn-sm btn-primary">
+                                            {{ trans('admin.add_user') }}
+                                        </button>
+                                    </a>
+                                    @endif
+                                </div>
+                                <tr class="fw-bold fs-6 text-gray-800 px-7">
+                                    <th>{{ trans('admin.name') }}</th>
+                                    <th>{{ trans('admin.email') }}</th>
+                                    <th>{{ trans('admin.type') }}</th>
+                                    <th>{{ trans('admin.create_date') }}</th>
+                                    <th>{{ trans('admin.update_date') }}</th>
+                                    <th>{{ trans('admin.action') }}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $key => $user)
+                                <tr>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ trans('admin.'.$user->type) }}</td>
+                                    <td>{{ $user->created_at->format('d.m.Y H:i') }}</td>
+                                    <td>{{ $user->updated_at->format('d.m.Y H:i') }}</td>
+                                    <td>
+                                        <a href="/{{ app()->getLocale() }}/admin/users/edit/{{ $user->id }}"
+                                            type="button" class="btn btn-primary">{{ trans('admin.edit') }}</a>
+                                    </td>
+                                    <td>
+                                        @if ($user->id != 1)
+                                        <a href="/{{ app()->getLocale() }}/admin/users/destroy/{{ $user->id }}"
+                                            onclick="return confirm(trans('admin.sure_to_delete_user'));" type="button"
+                                            class="btn btn-danger">{{ trans('admin.delete') }}</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-            <table id="datatable" class="table table-bordered nowrap">
-                <thead>
-                    @if(session()->has('message'))
-                        <div class="alert alert-success">
-                            {{ session()->get('message') }}
-                        </div>
-                    @endif
-                    <tr>
-                        <th>{{ trans('admin.name') }}</th>
-                        <th>{{ trans('admin.email') }}</th>
-                        <th>{{ trans('admin.type') }}</th>
-                        <th>{{ trans('admin.created_at') }}</th>
-                        <th>{{ trans('admin.updated_at') }}</th>
-                        {{-- <th>{{ trans('admin.login_logs') }}</th> --}}
-                        <th></th>
-                        <th ></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $kay => $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ trans('admin.'.$user->type ) }}</td>
-                            <td>{{ $user->created_at->format('d.m.Y H:i') }}</td>
-                            <td>{{ $user->updated_at->format('d.m.Y H:i') }}</td>
-                            {{-- <td><a href="/{{ app()->getLocale() }}/admin/users/logs/{{ $user->id }}" type="button" class="btn btn-info waves-effect width-md waves-light">{{ trans('admin.show_logs') }}</a></td> --}}
-                            <td><a href="/{{ app()->getLocale() }}/admin/users/edit/{{ $user->id }}" type="button" class="btn btn-info waves-effect width-md waves-light">{{ trans('admin.edit') }}</a></td>
-                            <td>
-                                @if($user->id !=1)
-                                <a href="/{{ app()->getLocale() }}/admin/users/destroy/{{ $user->id }}" onclick="return confirm(trans('admin.sure_to_delete_user'));" style="@if($user->id == auth()->user()->id) display:none @endif"  class=" btn btn-danger waves-effect width-md waves-light" id="buttondelete">{{ trans('admin.delete') }}</a>
-                                @endif
-                            </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
 </div>
-
-<style>
-    .dtr-title{
-        display: none !important;
-    }
-</style>
-
+</div>
+</div>
 @endsection
-
-@push('styles')
-    <!-- third party css -->
-        <link href="{{ asset('/admin/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/admin/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/admin/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/admin/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
-    <!-- third party css end -->
-@endpush
-
-@push('scripts')
-    <!-- third party js -->
-    <script src="{{ asset('/admin/libs/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/buttons.flash.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/dataTables.keyTable.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/datatables/dataTables.select.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('/admin/libs/pdfmake/vfs_fonts.js') }}"></script>
-    <!-- third party js ends -->
-    <!-- Datatables init -->
-    <script src="{{ asset('/admin/js/pages/datatables.init.js') }}"></script>
-@endpush

@@ -202,7 +202,7 @@ function getAdditional($arr, $additionalList){
 
   foreach($arr as $key => $item){
     if ($key != 'slug' && in_array($key, $additionalList)) {
-            $additional[$key] = $item;
+        $additional[$key] = $item;
     }
   }
 

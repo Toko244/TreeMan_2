@@ -5,21 +5,19 @@ namespace App\Services;
 use App\Models\Post;
 use App\Models\Slug;
 use App\Models\Section;
+use App\Models\MenuSection;
 use App\Models\PostTranslation;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ForSlugService{
 
-    public function storePostSlug($request, $values, $section, $postTransFillable, $post)
+    public function storePostSlug($request, $values, $post)
     {
         foreach (config('app.locales') as $locale) {
             if ($request->has('is_component')) {
-
                 $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug', $values[$locale]['title']);
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->componentfields['trans']), $postTransFillable));
             } else {
                 $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug',  $values[$locale]['slug']);
-                $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable));
             }
         }
 
@@ -31,7 +29,6 @@ class ForSlugService{
                 'locale' => $locale
             ]);
         }
-
     }
 
     public function storeSectionSlug($request, $values, $section)
@@ -43,7 +40,15 @@ class ForSlugService{
                 $values[$locale]['slug'] = SlugService::createSlug(slug::class, 'slug',  $values[$locale]['slug']);
             }
             $fullslug[$locale] = $locale . '/' . $values[$locale]['slug'];
-            $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
+        }
+
+        if (isset($values['menu_types']) && $values['menu_types'] !== null) {
+            foreach ($values['menu_types'] as $type) {
+                MenuSection::create([
+                    'section_id' => $section->id,
+                    'menu_type_id' => $type
+                ]);
+            }
         }
 
         foreach (config('app.locales') as $locale) {
@@ -116,6 +121,15 @@ class ForSlugService{
             }
 
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], config('sectionAttr.translateable_additional'));
+        }
+
+        if (isset($values['menu_types']) && $values['menu_types'] !== null) {
+            foreach ($values['menu_types'] as $type) {
+                MenuSection::create([
+                    'section_id' => $id,
+                    'menu_type_id' => $type
+                ]);
+            }
         }
 
         foreach (config('app.locales') as $key => $locale) {

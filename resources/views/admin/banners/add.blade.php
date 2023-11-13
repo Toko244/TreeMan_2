@@ -8,23 +8,23 @@
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box">
-            
-            
-            
-           
+
+
+
+
 
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_banner') }}</h4>
             {!! Form::open(['route' => ['banner.store', app()->getLocale(), $type['id']], "enctype" => "multipart/form-data"]) !!}
                 @include('admin.banners.form')
             {!! Form::close() !!}
-            
+
         </div>
     </div>
 </div>
 @endsection
 
 @push('styles')
-    <link href="{{ asset('/admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />  
+    <link href="{{ asset('/admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Plugins css -->
     <link href="{{ asset('/admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet" />
     <link href="{{ asset('/admin/libs/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@
     <link href="{{ asset('/admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/admin/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/admin/libs/switchery/switchery.min.css') }}" rel="stylesheet" />
-    
+
     <link href="{{ asset('/admin/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/admin/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/admin/libs/bootstrap-datepicker/bootstrap-datepicker.css') }}" rel="stylesheet">
@@ -41,19 +41,19 @@
 
 
 
-    
+
     <style>
         .danger{
             border: 1px solid rgb(239, 83, 80) !important;
         }
 
-    
-        
+
+
     </style>
 @endpush
 
 @push('scripts')
-    
+
 
     <!-- Validation js (Parsleyjs) -->
     <script src="{{ asset('admin/libs/parsleyjs/parsley.min.js') }}"></script>
@@ -61,7 +61,7 @@
     <!-- validation init -->
     <script src="{{ asset('admin/js/pages/form-validation.init.js') }}"></script>
 
-   
+
     <!-- init js -->
     <script src="{{ asset('admin/js/pages/form-editor.init.js') }}"></script>
 
@@ -84,7 +84,7 @@
 
     {{-- image Upload --}}
     <script src="{{ asset('/admin/js/dropupload.js') }}"></script>
-  
+
 
 
     <!-- Init js-->

@@ -1,102 +1,43 @@
-
-
-    <!-- Topbar Start -->
-    <div class="navbar-custom">
-        <ul class="list-unstyled topnav-menu float-right mb-0">
-
-            <li class="dropdown notification-list">
-                {{-- <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="fe-bell noti-icon"></i>
-                    @if (count($notifications) > 0)
-                    <span class="badge badge-danger rounded-circle noti-icon-badge">{{ count($notifications) }}</span>
-
-                    @endif
-                </a> --}}
-                <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                    <!-- item-->
-                    <div class="dropdown-item noti-title">
-                        <h5 class="m-0">
-                            {{ trans('admin.notifications') }}
-                        </h5>
-                    </div>
-
-                    <div class="slimscroll noti-scroll">
-
-                        @foreach ($notifications as $notif)
-                            <a href="/{{ app()->getLocale() }}/admin/submission/{{ $notif->id }}" class="dropdown-item notify-item active">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-email"></i>
-                                </div>
-                                <p class="notify-details">
-                                    {{ $notif->post->parent->title }}
-                                </p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>{{ $notif->name }}</small>
-                                </p>
-                            </a>
-                        @endforeach
-
-
-
-                    </div>
-
-                    <!-- All-->
-                    <a href="/{{ app()->getLocale() }}/admin/submissions" class="dropdown-item text-center text-primary notify-item notify-all">
-                        {{ trans('admin.view_all') }}
-                        <i class="fi-arrow-right"></i>
-                    </a>
-
+<div id="kt_app_header" class="app-header">
+    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between"
+        id="kt_app_header_container">
+        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+            <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
+                data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
+                data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end"
+                data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true"
+                data-kt-swapper-mode="{default: 'append', lg: 'prepend'}"
+                data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
+            </div>
+            <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+                <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+                    <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
                 </div>
-            </li>
-
-            <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-                    <span class="pro-user-name ml-1">
-                        {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
-                    </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-
-
-                    <!-- item-->
-                    <a href="/{{ app()->getLocale() }}/admin/profile" class="dropdown-item notify-item">
-                        <i class="fe-user"></i>
-                        <span>{{ trans('admin.my_account') }}</span>
-                    </a>
-
-
-
-                    <div class="dropdown-divider"></div>
-
-                    <!-- item-->
-                    <a href="{{ route('logout', app()->getLocale()) }}" class="dropdown-item notify-item">
-                        <i class="fe-log-out"></i>
-                        <span>{{ trans('admin.logout') }}</span>
-                    </a>
-
+            </div>
+            <div class="app-navbar flex-shrink-0">
+                <div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
+                    <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
+                        data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
+                        data-kt-menu-placement="bottom-end">
+                        <span>{{ auth()->user()->name }}</span>
+                    </div>
+                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
+                        data-kt-menu="true">
+                        <div class="menu-item px-5">
+                            <a href="/{{ app()->getLocale() }}/admin/profile"
+                                class="menu-link px-5">{{ trans('admin.my_account') }}</a>
+                        </div>
+                        <div class="menu-item px-5">
+                            <a href="{{ route('logout', app()->getLocale()) }}"
+                                class="menu-link px-5">{{ trans('admin.logout') }}</a>
+                        </div>
+                    </div>
                 </div>
-            </li>
 
-
-
-
-        </ul>
-
-
-
-        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
-            <li>
-                <button class="button-menu-mobile disable-btn waves-effect">
-                    <i class="fe-menu"></i>
-                </button>
-            </li>
-
-            <li>
-                <h4 class="page-title-main">@stack('name')</h4>
-            </li>
-
-        </ul>
+            </div>
+        </div>
     </div>
-    <!-- end Topbar -->
+</div>

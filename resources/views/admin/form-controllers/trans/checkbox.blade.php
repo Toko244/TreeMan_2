@@ -1,18 +1,17 @@
+<div class="form-floating mb-7">
+    <div class="form-check form-switch form-check-custom form-check-solid">
 
-
-<div class="form-group">
-
-    {{ Form::label(trans('admin.'.$key), null, ['class' => 'control-label']) }}
-    <br>
     {{ Form::hidden($locale.'['.$key.']', '0') }}
     {{ Form::checkbox($locale.'['.$key.']', 1,  null, [
+        'class' => 'form-check-input',
         'data-plugin' => 'switchery',
-        'data-color'=>'#3bafda',
-        'id' =>  $locale.'-'.$key
+        'id' =>  $key
     ]) }}
 
-</div>
+    {{ Form::label(trans('admin.'.$key), null, ['class' => 'form-check-label']) }}
+    </div>
 
+</div>
 
 
 

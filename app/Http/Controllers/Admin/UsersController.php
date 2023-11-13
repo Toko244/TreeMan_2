@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SubscribersExport;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -127,23 +128,16 @@ class UsersController extends Controller
      * @param  mixed $id
      * @return void
      */
-    public function update(Request $request, $id){
+    public function update(UserRequest $request, $id){
         $user = User::find($id);
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'email|required|unique:users,email,'.$user->id,
-            'type_id' => 'required'
-        ]);
-        $user->name = $request->all()['name'];
-        $user->email = $request->all()['email'];
-        $user->type_id = $request->all()['type_id'];
+        $request->validated();
 
-        if ($request->all()['password'] !== null) {
+        if ($request->password !== null) {
             $request->validate([
                 'password' => 'required_with:re_password|same:re_password|min:8',
             ]);
 
-            $user->password = Hash::make($request->all()['password']);
+            $user->password = Hash::make($request->password);
         }
         $user->save();
         return $this->index();
@@ -153,14 +147,16 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->back()->with('message', 'პაროლი განახლდა');
+        $notification = array('message' => 'პაროლი განახლდა', 'type'  => 'success');
+        return redirect()->back()->with($notification);
     }
 
     public function giveadmin(Request $request, $id){
         $user = User::find($id);
         $user->type_id = $request->type_id;
         $user->save();
-        return redirect()->back()->with('message', 'ადმინისტრატორი დაემატა');
+        $notification = array('message' => 'ადმინისტრატორი დაემატა', 'type'  => 'success');
+        return redirect()->back()->with($notification);
     }
 
     /**
@@ -175,7 +171,8 @@ class UsersController extends Controller
             $user = User::find($id);
             $user->type_id = $request->type_id;
             $user->save();
-            return redirect()->back()->with('message', 'ადმინისტრატორი წაიშალა');
+            $notification = array('message' => 'ადმინისტრატორი წაიშალა', 'type'  => 'success');
+            return redirect()->back()->with($notification);
     }
 
 

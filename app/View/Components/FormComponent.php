@@ -11,7 +11,7 @@ class FormComponent extends Component
     public $component;
     /**
      * Create a new component instance.
-     * 
+     *
      * @return void
      */
     public function __construct($sectionId)

@@ -11,6 +11,7 @@ use App\Services\ForSlugService;
 use App\Services\PostImagesUploadService;
 use App\Services\PostImageUploadService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SectionRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -45,31 +46,24 @@ class SectionController extends Controller
         return view('admin.sections.add', compact(['sectionTypes', 'sections', 'menuTypes']));
     }
 
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
-        $values = $request->all();
-        Validator::validate($values, [
-            'type_id' => 'required',
-        ]);
+        $values = $request->validated();
+
         $values['additional'] = getAdditional($values, config('sectionAttr.additional'));
 
         $values['order'] = Section::max('id');
+
         $section = Section::create($values);
-        if (isset($values['menu_types']) && $values['menu_types'] !== null) {
-            foreach ($values['menu_types'] as $type) {
-                MenuSection::create([
-                    'section_id' => $section->id,
-                    'menu_type_id' => $type
-                ]);
-            }
-        }
 
         $this->forSlugService->storeSectionSlug($request, $values, $section);
 
+        $notification = array('type' => 'success', 'message' => 'Section Added Successfully');
+
         if ($request->has('is_component')) {
-            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']]);
+            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']])->with($notification);
         } else {
-            return redirect()->route('section.list', [app()->getLocale()]);
+            return redirect()->route('section.list', [app()->getLocale()])->with($notification);
         }
     }
 
@@ -82,12 +76,9 @@ class SectionController extends Controller
         return view('admin.sections.edit', compact(['sections', 'section', 'sectionTypes', 'menuTypes']));
     }
 
-    public function update($id, Request $request)
+    public function update($id, SectionRequest $request)
     {
-        $values = $request->all();
-        Validator::validate($values, [
-            'type_id' => 'required'
-        ]);
+        $values = $request->validated();
         MenuSection::where('section_id', $id)->delete();
         Slug::where('slugable_id', $id)->where('slugable_type', 'App\Models\Section')->delete();
 
@@ -97,19 +88,12 @@ class SectionController extends Controller
 
         $this->forSlugService->updateSectionSlug($request, $values, $section, $id);
 
-        if (isset($values['menu_types']) && $values['menu_types'] !== null) {
-            foreach ($values['menu_types'] as $type) {
-                MenuSection::create([
-                    'section_id' => $id,
-                    'menu_type_id' => $type
-                ]);
-            }
-        }
+        $notification = array('type' => 'success', 'message' => 'Section Updated Successfully');
 
         if ($request->has('is_component')) {
-            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']]);
+            return redirect()->route('components.list', [app()->getLocale(), $values['parent_id']])->with($notification);
         } else {
-            return redirect()->route('section.list', [app()->getLocale()]);
+            return redirect()->route('section.list', [app()->getLocale()])->with($notification);
         }
     }
     public function arrange(Request $request)

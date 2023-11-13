@@ -1,27 +1,18 @@
 <div class="form-group">
-    <label>{{ trans('admin.'.$key) }}</label>
-	@if ($locale == config('app.locale'))
-
-	<span style="float:right"><input type="checkbox" name="{{ $locale }}[files][{{ $key }}][same]" data-style="float: right" data-color="#3bafda" data-plugin="switchery"></span>
-
-	@endif
-	<br>
-    <div class="upload-box" data-name="{{ $locale }}[files][{{ $key }}]" data-action="/{{ app()->getLocale().'/admin/upload/image?_token='. csrf_token() }}"  data-delete="/{{ app()->getLocale().'/admin/upload/image/delete?_token='. csrf_token() }}">
+    <label>{{ trans('admin.'.$key) }}</label> <br>
+    <div class="upload-box" data-name="files[{{ $key }}]" data-action="/{{ app()->getLocale().'/admin/upload/image?_token='. csrf_token() }}" data-delete="{{ route('image.del', app()->getLocale(), ['_token' => csrf_token()]) }}">
         {{ Form::hidden('thumb', null) }}
-        <ul class="image-previews">
-
-        @if (isset($post) && isset($post->translate($locale)->{$key}))
-            @foreach ($post->translate($locale)->{$key} as $file)
-					@if ($file !== null)
-					<li class="old">
-						<div class="close-it" ></div>
-						<input type="hidden" name="{{ $locale }}[files][{{ $key }}][file][]" value="{{ $file['file'] }}">
-						<img src="{{ '/' . config('config.image_path') . config('config.thumb_path') .  $file['file'] }}">
-						<input type="text" name="{{ $locale }}[files][{{ $key }}][desc][]" value="{{ $file['name'] }}" class="form-control" placeholder="description">
-					</li>
-					@endif
+        <ul>
+        @if (isset($post->files))
+            @foreach ($post->files as $file)
+            <li class="old">
+                <div class="close-it" data-delete="{{ route('image.del', app()->getLocale(), ['_token' => csrf_token()]) }}"></div>
+                <input type="hidden" name="old_file[{{ $file->id }}][file]" value="{{ $file->file }}">
+                <img src="{{ '/' . config('config.image_path') . config('config.thumb_path') .  $file->file }}">
+            </li>
             @endforeach
         @endif
         </ul>
     </div>
 </div>
+

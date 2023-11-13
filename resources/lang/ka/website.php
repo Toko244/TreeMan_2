@@ -35,5 +35,5 @@ return [
 	"successfuly_subscribed" => "Successfuly Subsribed",
 	"allready_subscribed" => "Allready Subsribed",
 	"all" => "All",
-	'new_contact_form' => 'New Submission',
+	"new_contact_form" => "New Submission",
 ];

@@ -1,14 +1,14 @@
+<div class="form-floating mb-7 mt-10">
+    <div class="form-check form-switch form-check-custom form-check-solid">
 
-<div class="button-container on">
-    {{-- <div class="button"></div> --}}
-    <div class="text">
-        {{ Form::label(trans('admin.'.$key), null, ['class' => 'control-label']) }}
-        <br>
         {{ Form::hidden($key, '0') }}
         {{ Form::checkbox($key, 1,  null, [
-            'data-plugin' => 'switchery',
-            'data-color'=>'#3bafda',
-            'id' =>  $key
-        ]) }}
+        'class' => 'form-check-input',
+        'data-plugin' => 'switchery',
+        'id' =>  $key
+    ]) }}
+
+        {{ Form::label(trans('admin.'.$key), null, ['class' => 'form-check-label']) }}
     </div>
-  </div>
+
+</div>

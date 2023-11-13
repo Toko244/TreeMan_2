@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Section;
 use App\Models\Post;
 use App\Models\PostFile;
 use App\Models\PostTranslation;
 use App\Models\Slug;
+use App\Services\AdditionalService;
 use App\Services\ForSlugService;
 use App\Services\PostImagesUploadService;
 use App\Services\PostImageUploadService;
@@ -18,11 +20,13 @@ class PostController extends Controller
 {
     public function __construct(private ForSlugService $forSlugService,
                                  private PostImageUploadService $postImageUploadService,
-                                 private PostImagesUploadService $postImagesUploadService)
+                                 private PostImagesUploadService $postImagesUploadService,
+                                 private AdditionalService $additionalService)
     {
         $this->forSlugService = $forSlugService;
         $this->postImagesUploadService = $postImagesUploadService;
         $this->postImageUploadService = $postImageUploadService;
+        $this->additionalService = $additionalService;
     }
 
     public function index($sec)
@@ -47,7 +51,7 @@ class PostController extends Controller
         return view('admin.posts.add', compact(['section']));
     }
 
-    public function store($sec, Request $request)
+    public function store($sec, PostRequest $request)
     {
 
         $section = Section::where('id', $sec)->with('translations')->first();
@@ -59,19 +63,21 @@ class PostController extends Controller
 
         $values['image'] = $this->postImageUploadService->storeImage($values);
 
-        if ($request->has('is_component')) {
-            $values['additional'] = getAdditional($values, array_diff(array_keys($section->componentfields['nonTrans']), $postFillable));
-        } else {
-            $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable));
+        $values['additional'] = $this->additionalService->storeAdditional($request, $values, $section, $postFillable);
+
+        foreach (config('app.locales') as $locale) {
+            $values[$locale]['locale_additional'] = $this->additionalService->storeLocaleAdditional($request, $values, $section, $postTransFillable);
         }
 
         $post = Post::create($values);
 
-        $this->forSlugService->storePostSlug($request, $values, $section, $postTransFillable, $post);
+        $this->forSlugService->storePostSlug($request, $values, $post);
 
         $this->postImagesUploadService->storeImages($values, $post);
 
-        return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
+        $notification = array('type' => 'success', 'message' => 'Post Added Successfully');
+
+        return redirect()->route('post.list', [app()->getLocale(), $section->id,])->with($notification);
     }
 
     public function edit($id)
@@ -107,7 +113,9 @@ class PostController extends Controller
 
         $this->postImagesUploadService->updateImages($values, $post);
 
-        return redirect()->route('post.list', [app()->getLocale(), $section->id,]);
+        $notification = array('type' => 'success', 'message' => 'Post Updated Successfully');
+
+        return redirect()->route('post.list', [app()->getLocale(), $section->id,])->with($notification);
     }
 
     public function deletefiles(Request $request)

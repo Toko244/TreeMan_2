@@ -71,7 +71,7 @@ class Post extends Model
 
     }
     public function getSlug() {
-		$slug = Slug::where('slugable_type', 'App\Models\Post')->where('slugable_id', $this->id)->pluck('slug','locale')->toArray();
+		$slug = Slug::where('slugable_type', 'App\Models\Post')->where('slugable_id', $this->id)->pluck('slug', 'locale')->toArray();
 
 		return $slug;
 

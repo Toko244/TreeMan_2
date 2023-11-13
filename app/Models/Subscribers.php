@@ -10,7 +10,7 @@ class Subscribers extends Model
     use HasFactory;
 
 	protected $fillable = [
-        'loclae', 
+        'locale',
 		'email'
     ];
 }

@@ -1,8 +1,8 @@
-
-<div class="form-group">
-    {{ Form::label($key,  trans('admin.'.$key),  ['class' => 'control-label iconify', 'data-icon' => $field['data-icon']]) }}
+<div class="form-floating mb-7">
     {{ Form::textarea($locale.'['.$key.']', null, [
-        'class' => 'form-control ckeditor',  $field['required']
+        'class' => 'kt_docs_ckeditor_classic',
+        'placeholder' => 'Description here...',
+        $field['required']
     ]) }}
-</div>
 
+</div>

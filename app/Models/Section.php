@@ -32,7 +32,7 @@ class Section extends Model
         'additional',
         'parent_id',
         'is_component',
-        'type_id'
+        'type_id',
     ];
 
     protected $hidden = [
@@ -119,7 +119,6 @@ class Section extends Model
 
     public function post(){
         return Post::where('section_id', $this->id)->with('submissions', 'translations')->first();
-
     }
 
 
