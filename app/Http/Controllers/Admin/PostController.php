@@ -22,14 +22,11 @@ class PostController extends Controller
     public function __construct(private ForSlugService $forSlugService,
                                  private PostImageUploadService $postImageUploadService,
                                  private PostImagesUploadService $postImagesUploadService,
-                                 private AdditionalService $additionalService,
-                                 private OldFilesService $oldFilesService)
+                                )
     {
         $this->forSlugService = $forSlugService;
         $this->postImagesUploadService = $postImagesUploadService;
         $this->postImageUploadService = $postImageUploadService;
-        $this->additionalService = $additionalService;
-        $this->oldFilesService = $oldFilesService;
     }
 
     public function index($sec)
@@ -54,7 +51,7 @@ class PostController extends Controller
         return view('admin.posts.add', compact(['section']));
     }
 
-    public function store($sec, PostRequest $request)
+    public function store($sec, PostRequest $request, AdditionalService $additionalService)
     {
 
         $section = Section::where('id', $sec)->with('translations')->first();
@@ -66,10 +63,10 @@ class PostController extends Controller
 
         $values['image'] = $this->postImageUploadService->storeImage($values);
 
-        $values['additional'] = $this->additionalService->storeAdditional($request, $values, $section, $postFillable);
+        $values['additional'] = $additionalService->storeAdditional($request, $values, $section, $postFillable);
 
         foreach (config('app.locales') as $locale) {
-            $values[$locale]['locale_additional'] = $this->additionalService->storeLocaleAdditional($request, $values, $section, $postTransFillable);
+            $values[$locale]['locale_additional'] = $additionalService->storeLocaleAdditional($request, $values, $section, $postTransFillable);
         }
 
         $post = Post::create($values);
@@ -91,7 +88,7 @@ class PostController extends Controller
     }
 
 
-    public function update($id, PostRequest $request)
+    public function update($id, PostRequest $request, OldFilesService $oldFilesService)
     {
         $post = Post::where('id', $id)->with('translations')->first();
 
@@ -105,7 +102,7 @@ class PostController extends Controller
 
         $allOldFiles = PostFile::where('post_id', $post->id)->get();
 
-        $this->oldFilesService->deleteOldFiles($allOldFiles, $values);
+        $oldFilesService->deleteOldFiles($allOldFiles, $values);
 
         Post::findOrFail($post->id)->update($values);
 
