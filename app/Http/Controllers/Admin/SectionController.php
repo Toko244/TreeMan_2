@@ -12,6 +12,7 @@ use App\Services\PostImagesUploadService;
 use App\Services\PostImageUploadService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SectionRequest;
+use App\Services\SectionDestroyService;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -103,50 +104,26 @@ class SectionController extends Controller
         return ['error' => false];
     }
 
-    public function destroy($id)
+    public function destroy($id, SectionDestroyService $sectionDestroyService)
     {
-
         $section = Section::where('id', $id)->with('translations', 'posts')->first();
+
         $post = $section->posts;
-        if (count($section->sectioncomponents()) > 0) {
-            foreach ($section->sectioncomponents() as $key => $component) {
-                if (count($component->posts) > 0) {
-                    foreach ($component->posts as $key => $component_post) {
 
-                        if (isset($component_post->image) && File::exists(config('config.file_path') . $component_post->image)) {
-                            $this->postImageUploadService->destroyImage($post);
-                        }
-                        $files = PostFile::where('post_id', $component_post->id)->get();
+        $postImagesUploadService = $this->postImagesUploadService;
 
-                        $this->postImagesUploadService->destroyImages($files);
+        $postImageUploadService = $this->postImageUploadService;
 
-                        // $component_post->slugs()->delete();
-                        Slug::where('slugable_id', $component_post->id)->where('slugable_type', 'App\Models\Post')->delete();
-                    }
-                }
-                $component->slugs()->delete();
-            }
-        }
+        $sectionDestroyService->destroySectionComponents($section, $post, $postImagesUploadService, $postImageUploadService);
 
-
-        if (count($section->posts) > 0) {
-            foreach ($section->posts as $key => $post) {
-
-                if (isset($post->image) && File::exists(config('config.file_path') . $post->image)) {
-                    $this->postImageUploadService->destroyImage($post);
-                }
-                $files = PostFile::where('post_id', $post)->get();
-                if ($files) {
-                    $this->postImagesUploadService->destroyImages($files);
-                }
-                $post->slugs()->delete();
-            }
-        }
+        $sectionDestroyService->destroySectionPosts($section, $postImagesUploadService, $postImageUploadService);
 
         Slug::where('slugable_id', $id)->where('slugable_type', 'App\Models\Section')->delete();
-        // $section->slugs()->delete();
+
+        $notification = array('message' => 'Section Deleted Successfully', 'type' => 'success');
+
         $section->delete();
 
-        return redirect()->route('section.list', [app()->getLocale()]);
+        return redirect()->route('section.list', [app()->getLocale()])->with($notification);
     }
 }
