@@ -97,6 +97,7 @@ class SectionController extends Controller
             return redirect()->route('section.list', [app()->getLocale()])->with($notification);
         }
     }
+
     public function arrange(Request $request)
     {
         $array = $request->input('orderArr');
