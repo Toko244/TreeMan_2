@@ -22,7 +22,11 @@
                     }
 
                 }
+
+                return $values['files'];
+
             }
+
         }
 
         public function updateImages($values, $post)
@@ -38,6 +42,9 @@
                         $postFile->save();
                     }
                 }
+
+                return $values['files'];
+
             }
         }
 

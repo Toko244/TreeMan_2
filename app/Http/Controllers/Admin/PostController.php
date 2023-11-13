@@ -12,6 +12,7 @@ use App\Models\PostTranslation;
 use App\Models\Slug;
 use App\Services\AdditionalService;
 use App\Services\ForSlugService;
+use App\Services\OldFilesService;
 use App\Services\PostImagesUploadService;
 use App\Services\PostImageUploadService;
 
@@ -21,12 +22,14 @@ class PostController extends Controller
     public function __construct(private ForSlugService $forSlugService,
                                  private PostImageUploadService $postImageUploadService,
                                  private PostImagesUploadService $postImagesUploadService,
-                                 private AdditionalService $additionalService)
+                                 private AdditionalService $additionalService,
+                                 private OldFilesService $oldFilesService)
     {
         $this->forSlugService = $forSlugService;
         $this->postImagesUploadService = $postImagesUploadService;
         $this->postImageUploadService = $postImageUploadService;
         $this->additionalService = $additionalService;
+        $this->oldFilesService = $oldFilesService;
     }
 
     public function index($sec)
@@ -55,7 +58,7 @@ class PostController extends Controller
     {
 
         $section = Section::where('id', $sec)->with('translations')->first();
-        $values = $request->all();
+        $values = $request->validated();
         $values['section_id'] = $sec;
         $values['author_id'] = auth()->user()->id;
         $postFillable = (new Post)->getFillable();
@@ -88,10 +91,12 @@ class PostController extends Controller
     }
 
 
-    public function update($id, Request $request)
+    public function update($id, PostRequest $request)
     {
         $post = Post::where('id', $id)->with('translations')->first();
+
         $section = Section::where('id', $post->section_id)->with('translations')->first();
+
         $values = $request->all();
 
         $values['image'] = $this->postImageUploadService->updateImage($values);
@@ -99,19 +104,12 @@ class PostController extends Controller
         $this->forSlugService->updatePostSlug($request, $values, $post, $section, $id);
 
         $allOldFiles = PostFile::where('post_id', $post->id)->get();
-        foreach ($allOldFiles as $key => $fil) {
-            if (isset($values['old_file']) && count($values['old_file']) > 0) {
-                if (!in_array($fil->id, array_keys($values['old_file']))) {
-                    $fil->delete();
-                }
-            } else {
-                $fil->delete();
-            }
-        }
+
+        $this->oldFilesService->deleteOldFiles($allOldFiles, $values);
 
         Post::findOrFail($post->id)->update($values);
 
-        $this->postImagesUploadService->updateImages($values, $post);
+        $values['files'] = $this->postImagesUploadService->updateImages($values, $post);
 
         $notification = array('type' => 'success', 'message' => 'Post Updated Successfully');
 

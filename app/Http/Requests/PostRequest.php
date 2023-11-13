@@ -33,7 +33,12 @@ class PostRequest extends FormRequest
             'sections' => 'nullable',
             'country' => 'nullable',
             'active_on_home' => 'nullable',
-            'status' => 'nullable'
+            'status' => 'nullable',
+            'post_id' => 'nullable|integer',
+            'type_id' => 'nullable|integer',
+            'files' => 'nullable',
+            'file_additional' => 'nullable',
+            'image' => 'nullable',
         ];
 
         foreach (config('app.locales') as $locale) {
