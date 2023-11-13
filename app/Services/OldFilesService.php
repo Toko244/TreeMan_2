@@ -14,6 +14,8 @@ class OldFilesService{
                 $fil->delete();
             }
         }
+
+        return $allOldFiles;
     }
 }
 
